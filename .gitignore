@@ -1,3 +1,7 @@
+/.idea/*
 /.idea/
+/.idea
+/out
+/out/*
 /out/production/Interview/
 /Interview.iml
