@@ -1,5 +1,7 @@
 package com.interview.sde.icaro;
 
+import com.interview.sde.hackerrank.crackingcodeinterview.DFS;
+
 import java.util.*;
 
 
@@ -63,6 +65,26 @@ class Interview {
                 return;
             } else if (!createdNodes.contains(node)) {
                 createdNodes.add(node);
+                //checkTopLeft
+                if ((row > 0 && column > 0) && board[row - 1][column - 1] != charElementToAvoid) {
+                    queue.add(new Node(board[row - 1][column - 1], node.depth + 1, row - 1, column - 1));
+                }
+
+                //checkTopRight
+                if ((row > 0 && column < board[0].length - 1) && board[row - 1][column + 1] != charElementToAvoid) {
+                    queue.add(new Node(board[row - 1][column + 1], node.depth + 1, row - 1, column + 1));
+                }
+
+                //checkBottomRight
+                if ((row < board.length - 1 && column < board[0].length - 1) && board[row + 1][column + 1] != charElementToAvoid) {
+                    queue.add(new Node(board[row + 1][column + 1], node.depth + 1, row + 1, column + 1));
+                }
+
+                //checkBottomLeft
+                if ((row < board.length - 1 && column > 0) && board[row + 1][column - 1] != charElementToAvoid) {
+                    queue.add(new Node(board[row + 1][column - 1], node.depth + 1, row + 1, column - 1));
+                }
+
                 //checkLeft
                 if (column > 0 && board[row][column - 1] != charElementToAvoid) {
                     queue.add(new Node(board[row][column - 1], node.depth + 1, row, column - 1));
@@ -78,11 +100,11 @@ class Interview {
                     queue.add(new Node(board[row - 1][column], node.depth + 1, row - 1, column));
                 }
 
-
                 //checkBottom
                 if (row < board.length - 1 && board[row + 1][column] != charElementToAvoid) {
                     queue.add(new Node(board[row + 1][column], node.depth + 1, row + 1, column));
                 }
+
             }
         }
         throw new NoSuchElementException();
@@ -111,6 +133,15 @@ class Interview {
         public int hashCode() {
             return Objects.hash(rowColumnPair);
         }
+
+        @Override
+        public String toString() {
+            return "Node{" +
+                    "depth=" + depth +
+                    ", elem=" + elem +
+                    ", rowColumnPair=" + rowColumnPair +
+                    '}';
+        }
     }
 
     private static class RowColumnPair {
@@ -134,6 +165,14 @@ class Interview {
         @Override
         public int hashCode() {
             return Objects.hash(row, column);
+        }
+
+        @Override
+        public String toString() {
+            return "RowColumnPair{" +
+                    "row=" + row +
+                    ", column=" + column +
+                    '}';
         }
     }
 }
