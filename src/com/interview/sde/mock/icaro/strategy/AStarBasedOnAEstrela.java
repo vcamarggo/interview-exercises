@@ -4,7 +4,8 @@ import com.interview.sde.mock.icaro.elements.*;
 
 import java.util.*;
 
-class AStarBasedOnAEstrela {
+//Based on A-Estrela project to solve 15-Puzzle problem https://github.com/vcamarggo/A-Estrela
+public class AStarBasedOnAEstrela {
     private static char[][] board;
 
     public static void main(String[] args) {
@@ -19,7 +20,7 @@ class AStarBasedOnAEstrela {
             long start = System.currentTimeMillis();
             int minStepsAStar = aStar(game.getPairsStartEnd(), toAvoidChar);
             System.out.println(minStepsAStar);
-            System.out.println("Milliseconds A*: " + (System.currentTimeMillis() - start));
+            System.out.println("Milliseconds A* - A Estrela: " + (System.currentTimeMillis() - start));
 
         } catch (NoSuchElementException elementNotFoundException) {
             System.out.println("Element is impossible to be reached from the starting point");
@@ -30,16 +31,19 @@ class AStarBasedOnAEstrela {
         int startRow = pairStartEnd.getStartingPoint().getRow();
         int startCol = pairStartEnd.getStartingPoint().getColumn();
 
-        TreeSet<NodeStar> openNodes = new TreeSet<>();
-        HashMap<RowColumnPair, NodeStar> closedNodes = new HashMap<>();
+        TreeSet<NodeStar> openNodes = new TreeSet<>(); //uniqueness and ordered
+
+        HashMap<RowColumnPair, NodeStar> createdNodes = new HashMap<>(); //nodes that I visited all around
 
         NodeStar firstNode = new NodeStar(board[startRow][startCol], 0, startRow, startCol);
         firstNode.setGScore(euclideanDistance(pairStartEnd.getStartingPoint(), pairStartEnd.getTargetPoint()));
+        //euclidean distance is the only admissible heuristic for this problem (from the well known heuristics for distance)
 
         openNodes.add(firstNode);
 
         ArrayList<NodeStar> neighbors;
 
+        //while I haven't exhausted all possibilities
         while (!openNodes.isEmpty()) {
 
             NodeStar node = openNodes.first();
@@ -49,35 +53,39 @@ class AStarBasedOnAEstrela {
                 return node.getFScore();
             }
 
-            int row = node.getPoint().getRow();
-            int column = node.getPoint().getColumn();
+            createdNodes.put(node.getPoint(), node);
 
-            closedNodes.put(node.getPoint(), node);
-
-            neighbors = createNeighbors(toAvoidChar, row, column, node.getDepth());
+            neighbors = createNeighbors(toAvoidChar, node.getPoint().getRow(), node.getPoint().getColumn(), node.getDepth());
 
             while (!neighbors.isEmpty()) {
                 NodeStar neighbor = neighbors.get(0);
                 neighbors.remove(neighbor);
 
-                NodeStar open = openNodes.lower(neighbor);
-                NodeStar closed = closedNodes.get(neighbor.getPoint());
+                //get the lowest element
+                NodeStar smallest = openNodes.lower(neighbor);
+                //get the data about the created element (neighbor)
+                NodeStar itself = createdNodes.get(neighbor.getPoint());
 
-                if (closed != null) {
-                    if (neighbor.getDepth() < closed.getDepth()) {
-                        closedNodes.remove(closed.getPoint());
+                if (itself != null) {
+                    //If the neighbor could arrive into itself by a smaller path, update the distance
+                    // similar concept to relaxing from Dijkstra
+                    if (neighbor.getDepth() < itself.getDepth()) {
+                        createdNodes.remove(itself.getPoint());
                         neighbor.setGScore(euclideanDistance(neighbor.getPoint(), pairStartEnd.getTargetPoint()));
                         neighbor.setFScore(neighbor.getDepth() + neighbor.getGScore());
                         openNodes.add(neighbor);
                     }
-                } else if (open != null) {
-                    if (neighbor.getDepth() < open.getDepth()) {
-                        openNodes.remove(open);
+                } else if (smallest != null) {
+                    //If the neighbor could arrive into smallest element by a smaller path, update the distance
+                    // similar concept to relaxing from Dijkstra
+                    if (neighbor.getDepth() < smallest.getDepth()) {
+                        openNodes.remove(smallest);
                         neighbor.setGScore(euclideanDistance(neighbor.getPoint(), pairStartEnd.getTargetPoint()));
                         neighbor.setFScore(neighbor.getDepth() + neighbor.getGScore());
                         openNodes.add(neighbor);
                     }
                 } else {
+                    // update the distance
                     neighbor.setGScore(euclideanDistance(neighbor.getPoint(), pairStartEnd.getTargetPoint()));
                     neighbor.setFScore(neighbor.getDepth() + neighbor.getGScore());
                     openNodes.add(neighbor);

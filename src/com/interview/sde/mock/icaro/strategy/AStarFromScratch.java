@@ -21,7 +21,7 @@ public class AStarFromScratch {
             long start = System.currentTimeMillis();
             int minStepsAStar = aStar(game.getPairsStartEnd(), toAvoidChar);
             System.out.println(minStepsAStar);
-            System.out.println("Milliseconds A*: " + (System.currentTimeMillis() - start));
+            System.out.println("Milliseconds A* - Scratch: " + (System.currentTimeMillis() - start));
 
         } catch (NoSuchElementException elementNotFoundException) {
             System.out.println("Element is impossible to be reached from the starting point");
@@ -32,133 +32,89 @@ public class AStarFromScratch {
         int startRow = pairStartEnd.getStartingPoint().getRow();
         int startCol = pairStartEnd.getStartingPoint().getColumn();
 
-        PriorityQueue<NodeStar> openSet = new PriorityQueue<>();
+        //Priority Queue to get the smallest element in time O(1)
+        PriorityQueue<NodeStar> shortestDistanceQueue = new PriorityQueue<>();
+
+        //HashMap to make faster to find a createdNode via its Point (RowColumn)
         HashMap<RowColumnPair, NodeStar> createdNodes = new HashMap<>();
 
         NodeStar firstNode = new NodeStar(board[startRow][startCol], 0, startRow, startCol, euclideanDistance(pairStartEnd.getStartingPoint(), pairStartEnd.getTargetPoint()));
 
-        openSet.add(firstNode);
+        shortestDistanceQueue.add(firstNode);
         createdNodes.put(firstNode.getPoint(), firstNode);
 
-        while (!openSet.isEmpty()) {
-            NodeStar node = openSet.poll();
-
-            int row = node.getPoint().getRow();
-            int column = node.getPoint().getColumn();
+        while (!shortestDistanceQueue.isEmpty()) {
+            NodeStar node = shortestDistanceQueue.poll();
 
             if (node.getPoint().equals(pairStartEnd.getTargetPoint())) {
                 return node.getFScore();
             }
+            ArrayList<NodeStar> neighbors;
 
-            createNeighbors(toAvoidChar, createdNodes, row, column);
+            //Create neighbors
+            neighbors = createNeighbors(toAvoidChar, createdNodes, node.getPoint().getRow(), node.getPoint().getColumn());
 
-            //checkTopLeft
-            if ((row > 0 && column > 0)) {
-                processNodeStar(pairStartEnd, openSet, createdNodes, node, row - 1, column - 1);
+            while (!neighbors.isEmpty()) {
+                NodeStar neighbor = neighbors.get(0);
+                neighbors.remove(neighbor);
+                //evaluate a distance form a given node from the neighbors
+                processNodeStar(pairStartEnd, shortestDistanceQueue, createdNodes, node, neighbor);
             }
 
-            //checkTopRight
-            if ((row > 0 && column < board[0].length - 1)) {
-                processNodeStar(pairStartEnd, openSet, createdNodes, node, row - 1, column + 1);
-            }
-
-            //checkBottomRight
-            if (row < board.length - 1 && column < board[0].length - 1) {
-                processNodeStar(pairStartEnd, openSet, createdNodes, node, row + 1, column + 1);
-            }
-
-            //checkBottomLeft
-            if (row < board.length - 1 && column > 0) {
-                processNodeStar(pairStartEnd, openSet, createdNodes, node, row + 1, column - 1);
-            }
-
-
-            //checkLeft
-            if (column > 0) {
-                processNodeStar(pairStartEnd, openSet, createdNodes, node, row, column - 1);
-            }
-
-            //checkRight
-            if (column < board[0].length - 1) {
-                processNodeStar(pairStartEnd, openSet, createdNodes, node, row, column + 1);
-            }
-
-            //checkTop
-            if (row > 0) {
-                processNodeStar(pairStartEnd, openSet, createdNodes, node, row - 1, column);
-            }
-
-            //checkBottom
-            if (row < board.length - 1) {
-                processNodeStar(pairStartEnd, openSet, createdNodes, node, row + 1, column);
-            }
         }
         throw new NoSuchElementException();
     }
 
-    private static void processNodeStar(PairsInBoard pairStartEnd, PriorityQueue<NodeStar> openSet, HashMap<RowColumnPair, NodeStar> createdNodes, NodeStar node, int row, int column) {
-        RowColumnPair neighborPoint = new RowColumnPair(row, column);
-        if (createdNodes.containsKey(neighborPoint)) {
-            NodeStar neighborNode = createdNodes.get(neighborPoint);
-            int tentativeGScore = node.getDepth() + 1;
-            if (tentativeGScore < neighborNode.getDepth()) {
-                neighborNode.setDepth(tentativeGScore);
-                neighborNode.setFScore(neighborNode.getDepth() + euclideanDistance(neighborPoint, pairStartEnd.getTargetPoint()));
-                openSet.add(neighborNode);
-            }
-
+    private static void processNodeStar(PairsInBoard pairStartEnd, PriorityQueue<NodeStar> openSet, HashMap<RowColumnPair, NodeStar> createdNodes, NodeStar node, NodeStar neighbor) {
+        int tentativeGScore = node.getDepth() + 1;
+        if (tentativeGScore < neighbor.getDepth()) {
+            neighbor.setDepth(tentativeGScore);
+            neighbor.setFScore(neighbor.getDepth() + euclideanDistance(neighbor.getPoint(), pairStartEnd.getTargetPoint()));
+            openSet.add(neighbor);
         }
     }
 
-    private static void createNeighbors(char toAvoidChar, HashMap<RowColumnPair, NodeStar> createdNodes, int row, int column) {
+    private static ArrayList<NodeStar> createNeighbors(char toAvoidChar, HashMap<RowColumnPair, NodeStar> createdNodes, int row, int column) {
+        ArrayList<NodeStar> neighbors = new ArrayList<>();
+
+        // Add each element around the point P if they aren't null
+
         //createTopLeft
-        if ((row > 0 && column > 0)) {
-            createSingleNeighbor(toAvoidChar, createdNodes, row - 1, column - 1);
-        }
+        createSingleNeighbor(toAvoidChar, createdNodes, row - 1, column - 1).ifPresent(neighbors::add);
         //checkTopRight
-        if ((row > 0 && column < board[0].length - 1)) {
-            createSingleNeighbor(toAvoidChar, createdNodes, row - 1, column + 1);
-        }
-
+        createSingleNeighbor(toAvoidChar, createdNodes, row - 1, column + 1).ifPresent(neighbors::add);
         //checkBottomRight
-        if (row < board.length - 1 && column < board[0].length - 1) {
-            createSingleNeighbor(toAvoidChar, createdNodes, row + 1, column + 1);
-        }
-
+        createSingleNeighbor(toAvoidChar, createdNodes, row + 1, column + 1).ifPresent(neighbors::add);
         //checkBottomLeft
-        if (row < board.length - 1 && column > 0) {
-            createSingleNeighbor(toAvoidChar, createdNodes, row + 1, column - 1);
-        }
-
+        createSingleNeighbor(toAvoidChar, createdNodes, row + 1, column - 1).ifPresent(neighbors::add);
         //checkLeft
-        if (column > 0) {
-            createSingleNeighbor(toAvoidChar, createdNodes, row, column - 1);
-        }
-
+        createSingleNeighbor(toAvoidChar, createdNodes, row, column - 1).ifPresent(neighbors::add);
         //checkRight
-        if (column < board[0].length - 1) {
-            createSingleNeighbor(toAvoidChar, createdNodes, row, column + 1);
-        }
-
+        createSingleNeighbor(toAvoidChar, createdNodes, row, column + 1).ifPresent(neighbors::add);
         //checkTop
-        if (row > 0) {
-            createSingleNeighbor(toAvoidChar, createdNodes, row - 1, column);
-        }
-
+        createSingleNeighbor(toAvoidChar, createdNodes, row - 1, column).ifPresent(neighbors::add);
         //checkBottom
-        if (row < board.length - 1) {
-            createSingleNeighbor(toAvoidChar, createdNodes, row + 1, column);
-        }
+        createSingleNeighbor(toAvoidChar, createdNodes, row + 1, column).ifPresent(neighbors::add);
 
+        return neighbors;
     }
 
-    private static void createSingleNeighbor(char toAvoidChar, HashMap<RowColumnPair, NodeStar> createdNodes, int localRow, int localColumn) {
-        if (board[localRow][localColumn] != toAvoidChar) {
-            RowColumnPair neighbor = new RowColumnPair(localRow, localColumn);
-            if (!createdNodes.containsKey(neighbor)) {
-                createdNodes.put(neighbor, new NodeStar(board[localRow][localColumn], Integer.MAX_VALUE, localRow, localColumn, Integer.MAX_VALUE));
+
+    //Throws an neighbor if it hasn't been created before, otherwise, throw a null element in a Optional
+    private static Optional<NodeStar> createSingleNeighbor(char toAvoidChar, HashMap<RowColumnPair, NodeStar> createdNodes, int localRow, int localColumn) {
+        NodeStar neighbor = null;
+        try {
+            // don't add the neighbor if is the element to avoid
+            if (board[localRow][localColumn] != toAvoidChar) {
+                RowColumnPair neighborPoint = new RowColumnPair(localRow, localColumn);
+                if (!createdNodes.containsKey(neighborPoint)) {
+                    neighbor = new NodeStar(board[localRow][localColumn], Integer.MAX_VALUE, localRow, localColumn, Integer.MAX_VALUE);
+                    createdNodes.put(neighborPoint, neighbor);
+                }
             }
+        } catch (ArrayIndexOutOfBoundsException ignored) {
         }
+        return Optional.ofNullable(neighbor);
     }
 
     private static int euclideanDistance(RowColumnPair startingPoint, RowColumnPair targetPoint) {
