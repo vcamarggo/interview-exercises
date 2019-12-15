@@ -12,11 +12,15 @@ class Interview {
 
         PairsInBoard pairStartEnd = populateBoard(startingChar, targetChar);
         try {
-            int minStepsDFS = breadthFirstSearch(pairStartEnd, toAvoidChar);
-            assert minStepsDFS == 4 : "Something went wrong DFS";
-
+            long start = System.currentTimeMillis();
+//            int minStepsDFS = breadthFirstSearch(pairStartEnd, toAvoidChar);
+//            System.out.println(minStepsDFS);
+//            System.out.println("Milliseconds DFS: " + (System.currentTimeMillis() - start));
+//
+            start = System.currentTimeMillis();
             int minStepsAStar = aStar(pairStartEnd, toAvoidChar);
-            assert minStepsAStar == 4 : "Something went wrong A*";
+            System.out.println(minStepsAStar);
+            System.out.println("Milliseconds A*: " + (System.currentTimeMillis() - start));
 
         } catch (NoSuchElementException elementNotFoundException) {
             System.out.println("Element is impossible to be reached from the starting point");
@@ -62,12 +66,12 @@ class Interview {
         int startCol = pairStartEnd.startingPoint.column;
 
         TreeSet<NodeStar> openSet = new TreeSet<>();
+        HashMap<RowColumnPair, NodeStar> createdNodes = new HashMap<>();
 
         NodeStar firstNode = new NodeStar(board[startRow][startCol], 0, startRow, startCol, calculateManhattanDistance(pairStartEnd.startingPoint, pairStartEnd.targetPoint));
 
         openSet.add(firstNode);
-
-        HashMap<RowColumnPair, NodeStar> createdNodes = new HashMap<>();
+        createdNodes.put(firstNode.point, firstNode);
 
         while (!openSet.isEmpty()) {
 
@@ -78,53 +82,68 @@ class Interview {
             int column = node.point.column;
 
             if (node.point.equals(pairStartEnd.targetPoint)) {
-                System.out.println(node);
-                return node.depth;
+                return node.fScore;
             }
 
             createNeighbors(toAvoidChar, createdNodes, row, column);
 
             //checkTopLeft
             if ((row > 0 && column > 0)) {
+                System.out.println(openSet.size());
                 processNodeStar(pairStartEnd, openSet, createdNodes, node, row - 1, column - 1);
+                System.out.println(openSet.size());
             }
 
             //checkTopRight
             if ((row > 0 && column < board[0].length - 1)) {
+                System.out.println(openSet.size());
                 processNodeStar(pairStartEnd, openSet, createdNodes, node, row - 1, column + 1);
+                System.out.println(openSet.size());
             }
 
             //checkBottomRight
             if (row < board.length - 1 && column < board[0].length - 1) {
+                System.out.println(openSet.size());
                 processNodeStar(pairStartEnd, openSet, createdNodes, node, row + 1, column + 1);
+                System.out.println(openSet.size());
             }
 
             //checkBottomLeft
             if (row < board.length - 1 && column > 0) {
+                System.out.println(openSet.size());
                 processNodeStar(pairStartEnd, openSet, createdNodes, node, row + 1, column - 1);
+                System.out.println(openSet.size());
             }
+
 
             //checkLeft
             if (column > 0) {
+                System.out.println(openSet.size());
                 processNodeStar(pairStartEnd, openSet, createdNodes, node, row, column - 1);
+                System.out.println(openSet.size());
             }
 
             //checkRight
             if (column < board[0].length - 1) {
+                System.out.println(openSet.size());
                 processNodeStar(pairStartEnd, openSet, createdNodes, node, row, column + 1);
+                System.out.println(openSet.size());
             }
 
             //checkTop
             if (row > 0) {
+                System.out.println(openSet.size());
                 processNodeStar(pairStartEnd, openSet, createdNodes, node, row - 1, column);
+                System.out.println(openSet.size());
             }
 
             //checkBottom
             if (row < board.length - 1) {
+                System.out.println(openSet.size());
                 processNodeStar(pairStartEnd, openSet, createdNodes, node, row + 1, column);
+                System.out.println(openSet.size());
             }
         }
-
         throw new NoSuchElementException();
     }
 
@@ -132,9 +151,13 @@ class Interview {
         RowColumnPair neighborPoint = new RowColumnPair(row, column);
         if (createdNodes.containsKey(neighborPoint)) {
             NodeStar neighborNode = createdNodes.get(neighborPoint);
-            createdNodes.get(neighborPoint).depth = node.depth + 1;
-            createdNodes.get(neighborPoint).fScore = createdNodes.get(neighborPoint).depth + calculateManhattanDistance(neighborPoint, pairStartEnd.targetPoint);
-            openSet.add(neighborNode);
+            int tentativeGScore = node.depth + 1;
+            if (tentativeGScore < neighborNode.depth) {
+                neighborNode.depth = tentativeGScore;
+                neighborNode.fScore = neighborNode.depth + calculateManhattanDistance(neighborPoint, pairStartEnd.targetPoint);
+                openSet.add(neighborNode);
+            }
+
         }
     }
 
@@ -273,7 +296,10 @@ class Interview {
 
         @Override
         public int compareTo(NodeStar o) {
-            return Integer.compare(this.fScore, o.fScore);
+            if (this.point.equals(o.point)) {
+                return 0;
+            }
+            return this.fScore > o.fScore ? 1 : -1;
         }
 
         @Override
