@@ -1,25 +1,30 @@
 package com.interview.sde.icaro;
 
-import com.interview.sde.hackerrank.crackingcodeinterview.DFS;
-
 import java.util.*;
-
 
 class Interview {
     private static char[][] board;
 
     public static void main(String[] args) {
-        RowColumnPair startingPoint = populateBoard('S');
+        char startingChar = 'S';
+        char targetChar = 'E';
+        char toAvoidChar = '#';
+
+        PairsInBoard pairStartEnd = populateBoard(startingChar, targetChar);
         try {
-            breadthFirstSearch(startingPoint.row, startingPoint.column, board, '#', 'E');
+            int minSteps = breadthFirstSearch(pairStartEnd, board, toAvoidChar);
+            assert minSteps == 4 : "Something went wrong";
         } catch (NoSuchElementException elementNotFoundException) {
             System.out.println("Element is impossible to be reached from the starting point");
         }
     }
 
-    private static RowColumnPair populateBoard(char startingChar) {
+    private static PairsInBoard populateBoard(char startingChar, char targetChar) {
         int startRow = 0;
         int startCol = 0;
+
+        int targetRow = 0;
+        int targetCol = 0;
 
         try (Scanner inputReader = new Scanner(System.in)) {
             int rows = inputReader.nextInt();
@@ -33,6 +38,9 @@ class Interview {
                     if (charAtIJ == startingChar) {
                         startRow = i;
                         startCol = j;
+                    } else if (charAtIJ == targetChar) {
+                        targetRow = i;
+                        targetCol = j;
                     }
                     board[i][j] = charAtIJ;
                 }
@@ -42,12 +50,17 @@ class Interview {
             //Should it exit gracefully?
             System.exit(1);
         }
-        return new RowColumnPair(startRow, startCol);
+        return new PairsInBoard(new RowColumnPair(startRow, startCol), new RowColumnPair(targetRow, targetCol));
     }
 
-    private static void breadthFirstSearch(int startRow, int startCol, char[][] board, char charElementToAvoid, char targetChar) {
-        //criar metodo
+    private static int breadthFirstSearch(PairsInBoard pairStartEnd, char[][] board, char toAvoidChar) {
+
+        int startRow = pairStartEnd.startingPoint.row;
+        int startCol = pairStartEnd.startingPoint.column;
+
         Queue<Node> queue = new LinkedList<>();
+
+
         Node firstNode = new Node(board[startRow][startCol], 0, startRow, startCol);
         queue.add(firstNode);
 
@@ -60,48 +73,47 @@ class Interview {
             int row = node.rowColumnPair.row;
             int column = node.rowColumnPair.column;
 
-            if (node.elem == targetChar) {
-                System.out.println(node.depth);
-                return;
+            if (node.rowColumnPair.equals(pairStartEnd.targetPoint)) {
+                return node.depth;
             } else if (!createdNodes.contains(node)) {
                 createdNodes.add(node);
                 //checkTopLeft
-                if ((row > 0 && column > 0) && board[row - 1][column - 1] != charElementToAvoid) {
+                if ((row > 0 && column > 0) && board[row - 1][column - 1] != toAvoidChar) {
                     queue.add(new Node(board[row - 1][column - 1], node.depth + 1, row - 1, column - 1));
                 }
 
                 //checkTopRight
-                if ((row > 0 && column < board[0].length - 1) && board[row - 1][column + 1] != charElementToAvoid) {
+                if ((row > 0 && column < board[0].length - 1) && board[row - 1][column + 1] != toAvoidChar) {
                     queue.add(new Node(board[row - 1][column + 1], node.depth + 1, row - 1, column + 1));
                 }
 
                 //checkBottomRight
-                if ((row < board.length - 1 && column < board[0].length - 1) && board[row + 1][column + 1] != charElementToAvoid) {
+                if ((row < board.length - 1 && column < board[0].length - 1) && board[row + 1][column + 1] != toAvoidChar) {
                     queue.add(new Node(board[row + 1][column + 1], node.depth + 1, row + 1, column + 1));
                 }
 
                 //checkBottomLeft
-                if ((row < board.length - 1 && column > 0) && board[row + 1][column - 1] != charElementToAvoid) {
+                if ((row < board.length - 1 && column > 0) && board[row + 1][column - 1] != toAvoidChar) {
                     queue.add(new Node(board[row + 1][column - 1], node.depth + 1, row + 1, column - 1));
                 }
 
                 //checkLeft
-                if (column > 0 && board[row][column - 1] != charElementToAvoid) {
+                if (column > 0 && board[row][column - 1] != toAvoidChar) {
                     queue.add(new Node(board[row][column - 1], node.depth + 1, row, column - 1));
                 }
 
                 //checkRight
-                if (column < board[0].length - 1 && board[row][column + 1] != charElementToAvoid) {
+                if (column < board[0].length - 1 && board[row][column + 1] != toAvoidChar) {
                     queue.add(new Node(board[row][column + 1], node.depth + 1, row, column + 1));
                 }
 
                 //checkTop
-                if (row > 0 && board[row - 1][column] != charElementToAvoid) {
+                if (row > 0 && board[row - 1][column] != toAvoidChar) {
                     queue.add(new Node(board[row - 1][column], node.depth + 1, row - 1, column));
                 }
 
                 //checkBottom
-                if (row < board.length - 1 && board[row + 1][column] != charElementToAvoid) {
+                if (row < board.length - 1 && board[row + 1][column] != toAvoidChar) {
                     queue.add(new Node(board[row + 1][column], node.depth + 1, row + 1, column));
                 }
 
@@ -173,6 +185,16 @@ class Interview {
                     "row=" + row +
                     ", column=" + column +
                     '}';
+        }
+    }
+
+    private static class PairsInBoard {
+        final RowColumnPair startingPoint;
+        final RowColumnPair targetPoint;
+
+        private PairsInBoard(RowColumnPair startingPoint, RowColumnPair targetPoint) {
+            this.startingPoint = startingPoint;
+            this.targetPoint = targetPoint;
         }
     }
 }
