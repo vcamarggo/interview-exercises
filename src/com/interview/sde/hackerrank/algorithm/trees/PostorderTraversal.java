@@ -1,5 +1,6 @@
-package com.interview.sde.hackerrank.algorithm.strings;
+package com.interview.sde.hackerrank.algorithm.trees;
 
+//https://www.hackerrank.com/challenges/tree-postorder-traversal/problem
 public class PostorderTraversal {
     static class Node {
         int data;
