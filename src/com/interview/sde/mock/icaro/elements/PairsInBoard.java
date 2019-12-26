@@ -1,7 +1,5 @@
 package com.interview.sde.mock.icaro.elements;
 
-import com.interview.sde.mock.icaro.elements.RowColumnPair;
-
 public class PairsInBoard {
     private final RowColumnPair startingPoint;
     private final RowColumnPair targetPoint;
