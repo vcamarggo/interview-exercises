@@ -30,11 +30,11 @@ class BFSRedKnight {
 
     static class Node {
         private RowColumnPair point;
-        private MovementType movementType;
+        private String movementType;
         private Node father;
         private int depth;
 
-        public Node(int row, int column, MovementType movementType, int depth, Node father) {
+        public Node(int row, int column, String movementType, int depth, Node father) {
             this.point = new RowColumnPair(row, column);
             this.movementType = movementType;
             this.depth = depth;
@@ -68,7 +68,7 @@ class BFSRedKnight {
         }
 
         public String getMovementType() {
-            return father == null ? movementType.toString() : movementType.toString() + " ";
+            return movementType;
         }
     }
 
@@ -135,13 +135,7 @@ class BFSRedKnight {
                 System.out.println("Impossible");
             } else {
                 System.out.println(solution.getDepth());
-                List<String> history = new ArrayList<>();
-                while (solution.getFather() != null) {
-                    history.add(solution.getMovementType());
-                    solution = solution.getFather();
-                }
-                Collections.reverse(history);
-                history.forEach(System.out::print);
+                System.out.println(solution.getMovementType().substring(1));
             }
         } else {
             System.out.println("Impossible");
@@ -163,7 +157,7 @@ class BFSRedKnight {
 
         Queue<Node> queue = new LinkedList<>();
 
-        Node firstNode = new Node(startRow, startCol, null, 0, null);
+        Node firstNode = new Node(startRow, startCol, "", 0, null);
         queue.add(firstNode);
 
         Set<Node> createdNodes = new HashSet<>();
@@ -183,40 +177,40 @@ class BFSRedKnight {
                 int ulRow = row - 2;
                 int ulColumn = column - 1;
                 if (ulRow >= 0 && ulColumn >= 1) {
-                    queue.add(new Node(ulRow, ulColumn, MovementType.UL, node.getDepth() + 1, node));
+                    queue.add(new Node(ulRow, ulColumn, node.getMovementType() + " " + MovementType.UL.toString(), node.getDepth() + 1, node));
                 }
 
                 //checkUR
                 int urRow = row - 2;
                 int urColumn = column + 1;
                 if (urRow >= 0 && urColumn < boardSize) {
-                    queue.add(new Node(urRow, urColumn, MovementType.UR, node.getDepth() + 1, node));
+                    queue.add(new Node(urRow, urColumn, node.getMovementType() + " " + MovementType.UR.toString(), node.getDepth() + 1, node));
                 }
 
                 //checkR
                 int rColumn = column + 2;
                 if (rColumn < boardSize) {
-                    queue.add(new Node(row, rColumn, MovementType.R, node.getDepth() + 1, node));
+                    queue.add(new Node(row, rColumn, node.getMovementType() + " " + MovementType.R.toString(), node.getDepth() + 1, node));
                 }
 
                 //checkLR
                 int lrRow = row + 2;
                 int lrColumn = column + 1;
                 if (lrRow < boardSize && lrColumn < boardSize) {
-                    queue.add(new Node(lrRow, lrColumn, MovementType.LR, node.getDepth() + 1, node));
+                    queue.add(new Node(lrRow, lrColumn, node.getMovementType() + " " + MovementType.LR.toString(), node.getDepth() + 1, node));
                 }
 
                 //checkLL
                 int llRow = row + 2;
                 int llColumn = column - 1;
                 if (llRow < boardSize && llColumn >= 0) {
-                    queue.add(new Node(llRow, llColumn, MovementType.LL, node.getDepth() + 1, node));
+                    queue.add(new Node(llRow, llColumn, node.getMovementType() + " " + MovementType.LL.toString(), node.getDepth() + 1, node));
                 }
 
                 //checkL
                 int lColumn = column - 2;
                 if (lColumn >= 0) {
-                    queue.add(new Node(row, lColumn, MovementType.L, node.getDepth() + 1, node));
+                    queue.add(new Node(row, lColumn, node.getMovementType() + " " + MovementType.L.toString(), node.getDepth() + 1, node));
                 }
             }
         }
