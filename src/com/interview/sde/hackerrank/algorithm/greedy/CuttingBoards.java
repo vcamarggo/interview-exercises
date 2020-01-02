@@ -9,38 +9,35 @@ public class CuttingBoards {
 
     //performance x maintainability
     //Not sure if I should prefer one or another
-    static int yIndex, xIndex;
-    static int xCounter = 1;
-    static int yCounter = 1;
-    static long[] cost_y;
-    static long[] cost_x;
+    static int horizontalIndex, verticalIndex;
+    static int verticalCutsMade;
+    static int horizontalCutsMade;
+    static long[] horizontalCutsCost;
+    static long[] verticalCutsCost;
 
     // Complete the boardCutting function below.
     static int boardCutting() {
-        Arrays.sort(cost_y);
-        Arrays.sort(cost_x);
+        Arrays.sort(horizontalCutsCost);
+        Arrays.sort(verticalCutsCost);
 
-        yIndex = cost_y.length - 1;
-        xIndex = cost_x.length - 1;
+        verticalCutsMade = 1;
+        horizontalCutsMade = 1;
+        horizontalIndex = horizontalCutsCost.length - 1;
+        verticalIndex = verticalCutsCost.length - 1;
 
         BigInteger result = BigInteger.ZERO;
 
-        while (yIndex >= 0 || xIndex >= 0) {
-            if (yIndex < 0) {
-                result = getFromX(result);
-            } else if (xIndex < 0) {
+        while (horizontalIndex >= 0 || verticalIndex >= 0) {
+            if (verticalIndex < 0 || (horizontalIndex >= 0 && horizontalCutsCost[horizontalIndex] > verticalCutsCost[verticalIndex])) {
                 result = getFromY(result);
+            } else if (horizontalIndex < 0 || verticalCutsCost[verticalIndex] > horizontalCutsCost[horizontalIndex]) {
+                result = getFromX(result);
             } else {
-                if (cost_y[yIndex] > cost_x[xIndex]) {
+                //costs are equal, choose the cut with less boards to cross
+                if (verticalCutsMade > horizontalCutsMade) {
                     result = getFromY(result);
-                } else if (cost_x[xIndex] > cost_y[yIndex]) {
-                    result = getFromX(result);
                 } else {
-                    if (xCounter > yCounter) {
-                        result = getFromY(result);
-                    } else {
-                        result = getFromX(result);
-                    }
+                    result = getFromX(result);
                 }
             }
         }
@@ -48,16 +45,16 @@ public class CuttingBoards {
     }
 
     private static BigInteger getFromY(BigInteger result) {
-        result = result.add(BigInteger.valueOf(cost_y[yIndex] * yCounter));
-        yIndex--;
-        xCounter++;
+        result = result.add(BigInteger.valueOf(horizontalCutsCost[horizontalIndex] * horizontalCutsMade));
+        horizontalIndex--;
+        verticalCutsMade++;
         return result;
     }
 
     private static BigInteger getFromX(BigInteger result) {
-        result = result.add(BigInteger.valueOf(cost_x[xIndex] * xCounter));
-        xIndex--;
-        yCounter++;
+        result = result.add(BigInteger.valueOf(verticalCutsCost[verticalIndex] * verticalCutsMade));
+        verticalIndex--;
+        horizontalCutsMade++;
         return result;
     }
 
@@ -75,24 +72,24 @@ public class CuttingBoards {
 
             int n = Integer.parseInt(mn[1]);
 
-            cost_y = new long[m - 1];
+            horizontalCutsCost = new long[m - 1];
 
             String[] cost_yItems = scanner.nextLine().split(" ");
             scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
 
             for (int i = 0; i < m - 1; i++) {
                 long cost_yItem = Long.parseLong(cost_yItems[i]);
-                cost_y[i] = cost_yItem;
+                horizontalCutsCost[i] = cost_yItem;
             }
 
-            cost_x = new long[n - 1];
+            verticalCutsCost = new long[n - 1];
 
             String[] cost_xItems = scanner.nextLine().split(" ");
             scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
 
             for (int i = 0; i < n - 1; i++) {
                 long cost_xItem = Long.parseLong(cost_xItems[i]);
-                cost_x[i] = cost_xItem;
+                verticalCutsCost[i] = cost_xItem;
             }
 
             int result = boardCutting();
