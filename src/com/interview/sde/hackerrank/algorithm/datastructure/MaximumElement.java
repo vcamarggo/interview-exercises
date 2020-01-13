@@ -2,6 +2,7 @@ package com.interview.sde.hackerrank.algorithm.datastructure;
 
 import java.util.*;
 
+// https://www.hackerrank.com/challenges/maximum-element/problem
 public class MaximumElement {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
