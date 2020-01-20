@@ -4,17 +4,16 @@ import java.io.IOException;
 import java.util.Scanner;
 
 //https://www.hackerrank.com/challenges/special-palindrome-again/problem
-//Not god at time complexity
 public class SpecialStringAgain {
-    static long isPalindrome(String str) {
-        int k = 0;
-        int j = str.length() - 1;
-        char first = str.charAt(k);
+    static long isPalindrome(char[] str, int init, int end) {
+        int k = init;
+        int j = end - 1;
+        char first = str[k];
         while (k < j) {
-            if (str.charAt(k) != first) {
+            if (str[k] != first) {
                 return 3;
             }
-            if (str.charAt(k) != str.charAt(j))
+            if (str[k] != str[j])
                 return 0;
             k++;
             j--;
@@ -24,9 +23,10 @@ public class SpecialStringAgain {
 
     static long substrCount(int n, String s) {
         long counter = 0;
+        char[] sChars = s.toCharArray();
         for (int i = 0; i < n; i++) {
             for (int j = i + 2; j <= n; j++) {
-                long result = isPalindrome(s.substring(i, j));
+                long result = isPalindrome(sChars, i, j);
                 if (result == 3) {
                     break;
                 } else {
@@ -46,7 +46,7 @@ public class SpecialStringAgain {
 
         String s = scanner.nextLine();
 
-        long result = substrCount(n, s);
+        long result = substrCount(5, "asasd");
         System.out.println(result);
         scanner.close();
     }
