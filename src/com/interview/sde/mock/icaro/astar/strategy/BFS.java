@@ -1,13 +1,10 @@
-package com.interview.sde.mock.icaro.strategy;
+package com.interview.sde.mock.icaro.astar.strategy;
 
-import com.interview.sde.mock.icaro.elements.BoardReader;
-import com.interview.sde.mock.icaro.elements.Game;
-import com.interview.sde.mock.icaro.elements.Node;
-import com.interview.sde.mock.icaro.elements.PairsInBoard;
+import com.interview.sde.mock.icaro.astar.elements.*;
 
 import java.util.*;
 
-class DFS {
+class BFS {
     private static char[][] board;
 
     public static void main(String[] args) {
@@ -19,21 +16,21 @@ class DFS {
         board = game.getBoard();
         try {
             long start = System.currentTimeMillis();
-            int minStepsBFS = depthFirstSearch(game.getPairsStartEnd(), toAvoidChar);
+            int minStepsBFS = breadthFirstSearch(game.getPairsStartEnd(), toAvoidChar);
             System.out.println(minStepsBFS);
-            System.out.println("Milliseconds DFS: " + (System.currentTimeMillis() - start));
+            System.out.println("Milliseconds BFS: " + (System.currentTimeMillis() - start));
 
         } catch (NoSuchElementException elementNotFoundException) {
             System.out.println("Element is impossible to be reached from the starting point");
         }
     }
 
-    private static int depthFirstSearch(PairsInBoard pairStartEnd, char toAvoidChar) {
+    private static int breadthFirstSearch(PairsInBoard pairStartEnd, char toAvoidChar) {
 
         int startRow = pairStartEnd.getStartingPoint().getRow();
         int startCol = pairStartEnd.getStartingPoint().getColumn();
 
-        Stack<Node> queue = new Stack<>();
+        Queue<Node> queue = new LinkedList<>();
 
 
         Node firstNode = new Node(board[startRow][startCol], 0, startRow, startCol);
@@ -43,7 +40,7 @@ class DFS {
 
         while (!queue.isEmpty()) {
 
-            Node node = queue.pop();
+            Node node = queue.poll();
 
             int row = node.getPoint().getRow();
             int column = node.getPoint().getColumn();
