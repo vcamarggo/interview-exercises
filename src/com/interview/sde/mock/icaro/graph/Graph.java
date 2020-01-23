@@ -43,9 +43,13 @@ public class Graph {
                     '}';
         }
 
+        @Override
+        protected Object clone() throws CloneNotSupportedException {
+            return super.clone();
+        }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws CloneNotSupportedException {
         Scanner scanner = new Scanner(System.in);
 
         HashMap<Integer, Node> nodesMapping = new HashMap<>();
@@ -76,17 +80,25 @@ public class Graph {
             nodesMapping.put(node1Id, node1);
         }
 
-        dijkstra(nodesMapping, startId, endId);
-        bellmanFord(nodesMapping, startId, endId);
-        //Node{nodeId=1, weight=6}
+        Node startNode = nodesMapping.get(startId);
+        startNode.weight = 0;
+
+        dijkstra(cloneNodes(nodesMapping), startId, endId);
+
+        bellmanFord(cloneNodes(nodesMapping), startId, endId);
+    }
+
+    private static HashMap<Integer, Node> cloneNodes(HashMap<Integer, Node> nodesMapping) throws CloneNotSupportedException {
+        HashMap<Integer, Node> clones = new HashMap<>();
+        for (Node node : nodesMapping.values()) {
+            clones.put(node.nodeId, (Node) node.clone());
+        }
+        return clones;
     }
 
     private static void dijkstra(HashMap<Integer, Node> nodes, int startId, int endId) {
         PriorityQueue<Node> queue = new PriorityQueue<>(Comparator.comparingInt(o -> o.weight));
-
         Node startNode = nodes.get(startId);
-        startNode.weight = 0;
-
         queue.add(startNode);
 
         while (!queue.isEmpty() && queue.peek().nodeId != endId) {
@@ -103,10 +115,6 @@ public class Graph {
     }
 
     private static void bellmanFord(HashMap<Integer, Node> nodes, int startId, int endId) {
-
-        Node startNode = nodes.get(startId);
-        startNode.weight = 0;
-
         for (int i = 0; i < nodes.size() - 1; i++) {
             for (Node node : nodes.values()) {
                 for (Edge edge : node.edges) {
