@@ -16,7 +16,7 @@ public class Graph {
         }
     }
 
-    static class Node {
+    static class Node implements Cloneable {
         int nodeId;
         int weight;
         HashSet<Edge> edges;
@@ -42,12 +42,13 @@ public class Graph {
                     ", weight=" + weight +
                     '}';
         }
+
     }
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        HashMap<Integer, Node> nodeMinWeightMapping = new HashMap<>();
+        HashMap<Integer, Node> nodesMapping = new HashMap<>();
 
         String[] gameSize = scanner.nextLine().split(" ");
         //int vertex = Integer.parseInt(gameSize[0]);
@@ -61,7 +62,7 @@ public class Graph {
         for (String nodeIdString : scanner.nextLine().split(" ")) {
             int nodeId = Integer.parseInt(nodeIdString);
             Node node1 = new Node(nodeId);
-            nodeMinWeightMapping.put(nodeId, node1);
+            nodesMapping.put(nodeId, node1);
         }
 
         for (int i = 0; i < edges; i++) {
@@ -70,12 +71,14 @@ public class Graph {
             int node1Id = Integer.parseInt(edgeData[0]);
             int node2Id = Integer.parseInt(edgeData[1]);
 
-            Node node1 = nodeMinWeightMapping.get(node1Id);
+            Node node1 = nodesMapping.get(node1Id);
             node1.addEdge(new Edge(node1Id, node2Id, Integer.parseInt(edgeData[2])));
-            nodeMinWeightMapping.put(node1Id, node1);
+            nodesMapping.put(node1Id, node1);
         }
 
-        dijkstra(nodeMinWeightMapping, startId, endId);
+        dijkstra(nodesMapping, startId, endId);
+        bellmanFord(nodesMapping, startId, endId);
+        //Node{nodeId=1, weight=6}
     }
 
     private static void dijkstra(HashMap<Integer, Node> nodes, int startId, int endId) {
@@ -90,9 +93,27 @@ public class Graph {
             Node processingNode = queue.poll();
             for (Edge edge : processingNode.edges) {
                 Node nodeTo = nodes.get(edge.to);
-                if (nodeTo.weight > processingNode.weight + edge.weight) {
+                if (nodeTo.weight > processingNode.weight + edge.weight && processingNode.weight != Integer.MAX_VALUE) {
                     nodeTo.setWeight(processingNode.weight + edge.weight);
                     queue.add(nodeTo);
+                }
+            }
+        }
+        System.out.println(nodes.get(endId).toString());
+    }
+
+    private static void bellmanFord(HashMap<Integer, Node> nodes, int startId, int endId) {
+
+        Node startNode = nodes.get(startId);
+        startNode.weight = 0;
+
+        for (int i = 0; i < nodes.size() - 1; i++) {
+            for (Node node : nodes.values()) {
+                for (Edge edge : node.edges) {
+                    Node nodeTo = nodes.get(edge.to);
+                    if (nodeTo.weight > node.weight + edge.weight && node.weight != Integer.MAX_VALUE) {
+                        nodeTo.setWeight(node.weight + edge.weight);
+                    }
                 }
             }
         }
