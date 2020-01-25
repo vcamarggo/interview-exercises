@@ -2,6 +2,7 @@ package com.interview.sde.mock.icaro.graph;
 
 import java.util.*;
 
+//Implementation of Dijkstra//BellmanFord//FloydWarshall algorithms for search in Graphs
 public class Graph {
 
     static class Edge {
@@ -55,7 +56,7 @@ public class Graph {
         HashMap<Integer, Node> nodesMapping = new HashMap<>();
 
         String[] gameSize = scanner.nextLine().split(" ");
-        //int vertex = Integer.parseInt(gameSize[0]);
+        int vertex = Integer.parseInt(gameSize[0]);
         int edges = Integer.parseInt(gameSize[1]);
 
         String[] startEnd = scanner.nextLine().split(" ");
@@ -80,12 +81,13 @@ public class Graph {
             nodesMapping.put(node1Id, node1);
         }
 
-        Node startNode = nodesMapping.get(startId);
-        startNode.weight = 0;
+        System.out.println("From: " + startId + " - To: " + endId);
 
         dijkstra(cloneNodes(nodesMapping), startId, endId);
 
         bellmanFord(cloneNodes(nodesMapping), startId, endId);
+
+        floydWarshall(cloneNodes(nodesMapping), startId, endId);
     }
 
     private static HashMap<Integer, Node> cloneNodes(HashMap<Integer, Node> nodesMapping) throws CloneNotSupportedException {
@@ -99,6 +101,7 @@ public class Graph {
     private static void dijkstra(HashMap<Integer, Node> nodes, int startId, int endId) {
         PriorityQueue<Node> queue = new PriorityQueue<>(Comparator.comparingInt(o -> o.weight));
         Node startNode = nodes.get(startId);
+        startNode.weight = 0;
         queue.add(startNode);
 
         while (!queue.isEmpty() && queue.peek().nodeId != endId) {
@@ -111,10 +114,12 @@ public class Graph {
                 }
             }
         }
-        System.out.println(nodes.get(endId).toString());
+        System.out.println("Dijkstra " + nodes.get(endId).weight);
     }
 
     private static void bellmanFord(HashMap<Integer, Node> nodes, int startId, int endId) {
+        Node startNode = nodes.get(startId);
+        startNode.weight = 0;
         for (int i = 0; i < nodes.size() - 1; i++) {
             for (Node node : nodes.values()) {
                 for (Edge edge : node.edges) {
@@ -125,6 +130,48 @@ public class Graph {
                 }
             }
         }
-        System.out.println(nodes.get(endId).toString());
+        System.out.println("BellmanFord " + nodes.get(endId).weight);
+    }
+
+    private static void floydWarshall(HashMap<Integer, Node> nodes, int startId, int endId) {
+
+        int[][] matrixPrev = initMatrixFloydWarshall(nodes);
+        int size = matrixPrev.length;
+        int[][] matrixK = new int[size][size];
+
+        for (int k = 0; k < size; k++) {
+            for (int i = 0; i < size; i++) {
+                for (int j = 0; j < size; j++) {
+                    int ikValue = matrixPrev[i][k];
+                    int jkValue = matrixPrev[k][j];
+                    if (ikValue == Integer.MAX_VALUE || jkValue == Integer.MAX_VALUE) {
+                        matrixK[i][j] = matrixPrev[i][j];
+                    } else {
+                        matrixK[i][j] = Math.min(matrixPrev[i][j], ikValue + jkValue);
+                    }
+                }
+            }
+            matrixPrev = matrixK;
+        }
+
+        System.out.println("FloydWarshall " + matrixK[startId - 1][endId - 1]);
+        for (int[] row : matrixK)
+            System.out.println(Arrays.toString(row));
+    }
+
+    private static int[][] initMatrixFloydWarshall(HashMap<Integer, Node> nodes) {
+        int size = Collections.max(nodes.values(), Comparator.comparingInt(o -> o.nodeId)).nodeId;
+        int[][] matrixPrev = new int[size][size];
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                matrixPrev[i][j] = i == j ? 0 : Integer.MAX_VALUE;
+            }
+        }
+        for (Node node : nodes.values()) {
+            for (Edge edge : node.edges) {
+                matrixPrev[edge.from - 1][edge.to - 1] = edge.weight;
+            }
+        }
+        return matrixPrev;
     }
 }
