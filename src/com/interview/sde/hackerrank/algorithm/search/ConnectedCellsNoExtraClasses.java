@@ -1,14 +1,23 @@
 package com.interview.sde.hackerrank.algorithm.search;
 
+import java.util.ArrayDeque;
+import java.util.Deque;
 import java.util.Scanner;
-import java.util.Stack;
 
 //Flexible implementation of BFS/DFS using Dequeue
 //https://www.hackerrank.com/challenges/connected-cell-in-a-grid/problem
 public class ConnectedCellsNoExtraClasses {
 
-    // Complete the connectedCell function below.
     static int connectedCellDFS(int[][] matrix) {
+        return connectedCell(matrix, true);
+    }
+
+    static int connectedCellBFS(int[][] matrix) {
+        return connectedCell(matrix, false);
+    }
+
+    // Complete the connectedCell function below.
+    static int connectedCell(int[][] matrix, boolean isDFS) {
         int max = Integer.MIN_VALUE;
 
         final int target = 1;
@@ -18,7 +27,7 @@ public class ConnectedCellsNoExtraClasses {
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix[0].length; j++) {
                 if (matrix[i][j] == target) {
-                    Stack<int[]> processStructure = new Stack<>();
+                    Deque<int[]> processStructure = new ArrayDeque<>();
                     processStructure.add(new int[]{i, j});
                     matrix[i][j] = toAvoid;
 
@@ -26,7 +35,7 @@ public class ConnectedCellsNoExtraClasses {
                     while (!processStructure.isEmpty()) {
                         size++;
 
-                        int[] nodeToProcess = processStructure.pop();
+                        int[] nodeToProcess = isDFS ? processStructure.pollLast() : processStructure.pollFirst();
                         int row = nodeToProcess[0];
                         int column = nodeToProcess[1];
 
