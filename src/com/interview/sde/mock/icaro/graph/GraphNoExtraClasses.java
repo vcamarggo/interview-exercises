@@ -3,6 +3,7 @@ package com.interview.sde.mock.icaro.graph;
 import java.util.*;
 
 //Implementation of Dijkstra//BellmanFord//FloydWarshall algorithms for search in Graphs
+//It doesn't implement any custom class. 20% faster than Graph.java
 public class GraphNoExtraClasses {
 
     public static void main(String[] args) {
