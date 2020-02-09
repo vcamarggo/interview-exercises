@@ -1,4 +1,4 @@
-package com.interview.sde.mock.icaro.astar.elements;
+package com.interview.sde.mock.astar.elements;
 
 import java.util.Objects;
 

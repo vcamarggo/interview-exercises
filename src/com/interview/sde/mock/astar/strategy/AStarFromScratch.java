@@ -1,6 +1,6 @@
-package com.interview.sde.mock.icaro.astar.strategy;
+package com.interview.sde.mock.astar.strategy;
 
-import com.interview.sde.mock.icaro.astar.elements.*;
+import com.interview.sde.mock.astar.elements.*;
 
 import java.util.*;
 

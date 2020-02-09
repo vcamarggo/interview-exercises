@@ -1,4 +1,4 @@
-package com.interview.sde.mock.icaro.astar.elements;
+package com.interview.sde.mock.astar.elements;
 
 public class PairsInBoard {
     private final RowColumnPair startingPoint;

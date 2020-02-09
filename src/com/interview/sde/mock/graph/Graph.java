@@ -1,4 +1,4 @@
-package com.interview.sde.mock.icaro.graph;
+package com.interview.sde.mock.graph;
 
 import java.util.*;
 

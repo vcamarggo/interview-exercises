@@ -1,4 +1,4 @@
-package com.interview.sde.mock.icaro.sorting;
+package com.interview.sde.mock.sorting;
 
 import java.util.Arrays;
 import java.util.Scanner;
