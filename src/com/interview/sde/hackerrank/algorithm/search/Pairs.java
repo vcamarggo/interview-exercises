@@ -9,6 +9,8 @@ import java.util.Scanner;
 //https://www.hackerrank.com/challenges/pairs/problem
 public class Pairs {
 
+    private static final Scanner scanner = new Scanner(System.in);
+
     // Complete the pairs function below.
     static int pairs(int k, int[] arr) {
         int count = 0;
@@ -21,13 +23,14 @@ public class Pairs {
                 first = 0;
             }
             int last = i;
-            int mid = (last + first) / 2;
 
          // System.out.println(first);
          // System.out.println(last);
          // System.out.println(mid);
 
             while (first <= last) {
+                int   mid = (last + first) / 2;
+
                 int diff = arr[i] - arr[mid];
                 if (diff == k) {
                     count++;
@@ -37,14 +40,11 @@ public class Pairs {
                 } else {
                     first = mid + 1;
                 }
-                mid = (last + first) / 2;
             }
         }
 
         return count;
     }
-
-    private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) throws IOException {
         BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
