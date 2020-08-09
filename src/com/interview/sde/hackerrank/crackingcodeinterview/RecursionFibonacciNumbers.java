@@ -16,7 +16,7 @@ public class RecursionFibonacciNumbers {
 
     public static int fibonacci2(int n) {
         if (memo[n] == 0 && n != 0) {
-            memo[n] = fibonacci(n - 2) + fibonacci(n - 1);
+            memo[n] = fibonacci2(n - 2) + fibonacci2(n - 1);
         }
         return memo[n];
     }
@@ -40,7 +40,7 @@ public class RecursionFibonacciNumbers {
         scanner.close();
         memo[0] = 0;
         memo[1] = 1;
-        System.out.println(fibonacci(n));
+        System.out.println(fibonacci2(n));
     }
 }
 
