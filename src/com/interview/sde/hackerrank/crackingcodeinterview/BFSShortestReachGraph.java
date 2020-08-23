@@ -3,6 +3,7 @@ package com.interview.sde.hackerrank.crackingcodeinterview;
 import java.util.*;
 
 //https://www.hackerrank.com/challenges/ctci-bfs-shortest-reach/problem
+//https://www.hackerrank.com/challenges/bfsshortreach/problem
 public class BFSShortestReachGraph {
 
     public static void main(String[] args) {
