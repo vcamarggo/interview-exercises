@@ -7,9 +7,10 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 //https://www.hackerrank.com/challenges/making-anagrams/problem
-public class MakingAnagrams {
+public class MakingAnagramsDelete {
 
     // Complete the makingAnagrams function below.
+    // This function counts number of deletion in both s1 and s2 to make them anagram of each other
     static int makingAnagrams(String s1, String s2) {
         HashMap<Character, Integer> charInStringOccurrenceA = new HashMap<>();
 
