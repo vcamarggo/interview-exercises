@@ -28,8 +28,7 @@ public class CoinChange {
 
             solvingMatrix[row][0] = 1;
 
-            int column = 1;
-            for (; column < solvingMatrix[0].length; column++) {
+            for (int column = 1; column < solvingMatrix[0].length; column++) {
                 if (column - c.get(row) < 0) {
                     solvingMatrix[row][column] = solvingMatrix[row - 1][column];
                 } else {
