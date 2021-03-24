@@ -21,7 +21,7 @@ public class GenerateAllSubsets {
                     solution.add(aggregator);
                 }
             }
-            //Add the new number a single solution
+            //Add the new number as a single element solution
             solution.add(new ArrayList<>(Collections.singletonList(number)));
         }
         //Add empty solution
