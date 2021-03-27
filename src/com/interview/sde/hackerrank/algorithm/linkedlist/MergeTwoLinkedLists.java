@@ -61,6 +61,12 @@ public class MergeTwoLinkedLists {
      *
      */
     static SinglyLinkedListNode mergeLists(SinglyLinkedListNode head1, SinglyLinkedListNode head2) {
+        if(head1 ==null) {
+            return head2;
+        }
+        if(head2 ==null) {
+            return head1;
+        }
         SinglyLinkedListNode headNodeToReturn = (head1.data > head2.data) ? head2 : head1;
 
         while (head1 != null && head2 != null) {
@@ -85,6 +91,36 @@ public class MergeTwoLinkedLists {
         smallerNumberListHead.next = biggerNumberListHead;
         smallerNumberListHead = holderHead;
         return smallerNumberListHead;
+    }
+
+    //Implemented with mentee
+    public static SinglyLinkedListNode mergeTwoLists(SinglyLinkedListNode l1, SinglyLinkedListNode l2) {
+
+        SinglyLinkedListNode currentNode = null;
+        SinglyLinkedListNode head = null;
+
+        while (l1 != null || l2 != null) {
+            if (l1 == null || l2.data < l1.data) {
+                if (head == null) { //test if solution is empty
+                    head = new SinglyLinkedListNode(l2.data);
+                    currentNode = head;
+                } else { // if it's not, create a new node, set the currentNode, walk the currentNode
+                    currentNode.next = new SinglyLinkedListNode(l2.data);
+                    currentNode = currentNode.next;
+                }
+                l2 = l2.next;
+            } else {
+                if (head == null) {
+                    head = new SinglyLinkedListNode(l1.data);
+                    currentNode = head;
+                } else {
+                    currentNode.next = new SinglyLinkedListNode(l1.data);
+                    currentNode = currentNode.next;
+                }
+                l1 = l1.next;
+            }
+        }
+        return head;
     }
 
     private static final Scanner scanner = new Scanner(System.in);
@@ -119,7 +155,7 @@ public class MergeTwoLinkedLists {
                 llist2.insertNode(llist2Item);
             }
 
-            SinglyLinkedListNode llist3 = mergeLists(llist1.head, llist2.head);
+            SinglyLinkedListNode llist3 = mergeTwoLists(llist1.head, llist2.head);
 
             printSinglyLinkedList(llist3, " ");
             System.out.println();
