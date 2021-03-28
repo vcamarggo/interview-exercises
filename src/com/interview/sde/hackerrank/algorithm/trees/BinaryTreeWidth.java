@@ -3,6 +3,7 @@ package com.interview.sde.hackerrank.algorithm.trees;
 import java.util.Deque;
 import java.util.LinkedList;
 
+//https://leetcode.com/problems/maximum-width-of-binary-tree/
 class LargestLevelBinaryTreeWidth {
 
     static class TreeNode {
@@ -25,14 +26,15 @@ class LargestLevelBinaryTreeWidth {
     }
 
     public static void main(String[] args) {
+        //[1,3,2,5,3,null,2]
         TreeNode tree = new TreeNode(1);
-//
         tree.left = new TreeNode(3);
         tree.left.left = new TreeNode(5);
         tree.left.right = new TreeNode(3);
         tree.right = new TreeNode(2);
         tree.right.right = new TreeNode(2);
 
+        //[1,3,null,5,3]
         TreeNode tree2 = new TreeNode(1);
         tree2.left = new TreeNode(3);
         tree2.left.left = new TreeNode(5);
@@ -60,7 +62,6 @@ class LargestLevelBinaryTreeWidth {
         tree5.right = new TreeNode(4);
         tree5.left.left = new TreeNode(3);
         tree5.right.left = new TreeNode(5);
-
 
         System.out.println(widthOfBinaryTree(tree));
         System.out.println(widthOfBinaryTree(tree2));
