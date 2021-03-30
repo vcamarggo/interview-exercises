@@ -1,6 +1,5 @@
 package com.interview.sde.hackerrank.algorithm.dynamicprogramming;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -21,7 +20,8 @@ public class LongestCommonSubsequence {
             }
         }
 
-        return getResult(a, dpMatrix); // it's in the wrong order, I'm reversing while printing
+        return getResult(a, dpMatrix); // it's in the wrong order, I'm reversing while printing.
+        // Change result.add(a[i - 1]); for result.add(0, a[i - 1]); to resolve without revert on printing
     }
 
     private static ArrayList<Integer> getResult(int[] a, int[][] dpMatrix) {
