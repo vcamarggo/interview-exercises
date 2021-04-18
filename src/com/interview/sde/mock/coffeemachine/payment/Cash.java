@@ -5,8 +5,9 @@ public class Cash implements IPayment {
     private double value;
 
     //return amount of funds in the
-    public double pay(final double amount) {
-        return Math.max(value, value - amount);
+    public double pay(final double amountToPay) {
+        double diff = amountToPay - value ;
+        return diff <= 0 ? amountToPay : diff;
     }
 
 }

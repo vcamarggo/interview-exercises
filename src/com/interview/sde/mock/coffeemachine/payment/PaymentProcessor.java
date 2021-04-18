@@ -2,7 +2,7 @@ package com.interview.sde.mock.coffeemachine.payment;
 
 import java.util.List;
 
-class ConcretePaymentProcessor implements IPaymentProcessor {
+class PaymentProcessor implements IPaymentProcessor {
 
     Integer beverage;
 
@@ -12,7 +12,7 @@ class ConcretePaymentProcessor implements IPaymentProcessor {
         for (IPayment payment : payments) {
             remainingToPay -= payment.pay(remainingToPay);
         }
-        return 0;
+        return remainingToPay;
     }
 
     @Override
