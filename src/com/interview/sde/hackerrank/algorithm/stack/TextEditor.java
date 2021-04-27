@@ -1,4 +1,4 @@
-package com.interview.sde.hackerrank.algorithm.datastructure;
+package com.interview.sde.hackerrank.algorithm.stack;
 
 import java.io.BufferedReader;
 import java.io.IOException;

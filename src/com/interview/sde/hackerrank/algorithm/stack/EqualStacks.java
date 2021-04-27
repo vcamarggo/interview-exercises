@@ -1,6 +1,5 @@
-package com.interview.sde.hackerrank.algorithm.datastructure;
+package com.interview.sde.hackerrank.algorithm.stack;
 
-import java.io.IOException;
 import java.util.Scanner;
 
 //https://www.hackerrank.com/challenges/equal-stacks/problem

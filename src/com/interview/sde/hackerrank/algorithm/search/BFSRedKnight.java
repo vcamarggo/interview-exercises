@@ -28,6 +28,24 @@ class BFSRedKnight {
         UL, UR, R, LR, LL, L
     }
 
+    static class BFSNode extends Node {
+
+        private boolean isVisited;
+
+        public BFSNode(int row, int column, String movementType, int depth) {
+            super(row, column, movementType, depth);
+            isVisited = false;
+        }
+
+        public boolean isVisited() {
+            return isVisited;
+        }
+
+        public void setVisited() {
+            isVisited = true;
+        }
+    }
+
     static class Node {
         private RowColumnPair point;
         private String movementType;
@@ -149,62 +167,60 @@ class BFSRedKnight {
         int startRow = pairStartEnd.getStartingPoint().getRow();
         int startCol = pairStartEnd.getStartingPoint().getColumn();
 
-        Queue<Node> queue = new LinkedList<>();
+        Queue<BFSNode> queue = new LinkedList<>();
 
-        Node firstNode = new Node(startRow, startCol, "", 0);
+        BFSNode firstNode = new BFSNode(startRow, startCol, "", 0);
         queue.add(firstNode);
-
-        Set<Node> createdNodes = new HashSet<>();
 
         while (!queue.isEmpty()) {
 
-            Node node = queue.poll();
+            BFSNode node = queue.poll();
 
             int row = node.getPoint().getRow();
             int column = node.getPoint().getColumn();
 
             if (node.getPoint().equals(pairStartEnd.getTargetPoint())) {
                 return node;
-            } else if (!createdNodes.contains(node)) {
-                createdNodes.add(node);
+            } else if (!node.isVisited()) {
+                node.setVisited();
                 //checkUL
                 int ulRow = row - 2;
                 int ulColumn = column - 1;
                 if (ulRow >= 0 && ulColumn >= 1) {
-                    queue.add(new Node(ulRow, ulColumn, node.getMovementType() + " " + MovementType.UL.toString(), node.getDepth() + 1));
+                    queue.add(new BFSNode(ulRow, ulColumn, node.getMovementType() + " " + MovementType.UL.toString(), node.getDepth() + 1));
                 }
 
                 //checkUR
                 int urRow = row - 2;
                 int urColumn = column + 1;
                 if (urRow >= 0 && urColumn < boardSize) {
-                    queue.add(new Node(urRow, urColumn, node.getMovementType() + " " + MovementType.UR.toString(), node.getDepth() + 1));
+                    queue.add(new BFSNode(urRow, urColumn, node.getMovementType() + " " + MovementType.UR.toString(), node.getDepth() + 1));
                 }
 
                 //checkR
                 int rColumn = column + 2;
                 if (rColumn < boardSize) {
-                    queue.add(new Node(row, rColumn, node.getMovementType() + " " + MovementType.R.toString(), node.getDepth() + 1));
+                    queue.add(new BFSNode(row, rColumn, node.getMovementType() + " " + MovementType.R.toString(), node.getDepth() + 1));
                 }
 
                 //checkLR
                 int lrRow = row + 2;
                 int lrColumn = column + 1;
                 if (lrRow < boardSize && lrColumn < boardSize) {
-                    queue.add(new Node(lrRow, lrColumn, node.getMovementType() + " " + MovementType.LR.toString(), node.getDepth() + 1));
+                    queue.add(new BFSNode(lrRow, lrColumn, node.getMovementType() + " " + MovementType.LR.toString(), node.getDepth() + 1));
                 }
 
                 //checkLL
                 int llRow = row + 2;
                 int llColumn = column - 1;
                 if (llRow < boardSize && llColumn >= 0) {
-                    queue.add(new Node(llRow, llColumn, node.getMovementType() + " " + MovementType.LL.toString(), node.getDepth() + 1));
+                    queue.add(new BFSNode(llRow, llColumn, node.getMovementType() + " " + MovementType.LL.toString(), node.getDepth() + 1));
                 }
 
                 //checkL
                 int lColumn = column - 2;
                 if (lColumn >= 0) {
-                    queue.add(new Node(row, lColumn, node.getMovementType() + " " + MovementType.L.toString(), node.getDepth() + 1));
+                    queue.add(new BFSNode(row, lColumn, node.getMovementType() + " " + MovementType.L.toString(), node.getDepth() + 1));
                 }
             }
         }

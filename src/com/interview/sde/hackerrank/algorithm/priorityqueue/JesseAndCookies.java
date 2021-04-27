@@ -1,4 +1,4 @@
-package com.interview.sde.hackerrank.algorithm.datastructure;
+package com.interview.sde.hackerrank.algorithm.priorityqueue;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;

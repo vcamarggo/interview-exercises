@@ -1,11 +1,12 @@
 package com.interview.sde.hackerrank.algorithm.datastructure;
 
 import java.util.LinkedHashMap;
+import java.util.Map;
 
 //https://leetcode.com/problems/lru-cache/
 public class LRUCache {
 
-    private LinkedHashMap<Integer, Integer> data = new LinkedHashMap<>();
+    private Map<Integer, Integer> data = new LinkedHashMap<>();
     private int capacity;
 
     public LRUCache(int capacity) {

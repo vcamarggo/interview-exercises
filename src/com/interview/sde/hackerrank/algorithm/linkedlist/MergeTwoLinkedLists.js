@@ -76,9 +76,9 @@ function printSinglyLinkedList(node, sep, ws) {
  *
  */
 function mergeLists(l1, l2) {
-    
+
     var head = new SinglyLinkedListNode();
-    
+
     if(l1){
          if(!l2 || l2 && l1.data <= l2.data){
              head = new SinglyLinkedListNode(l1.data);
@@ -98,9 +98,9 @@ function mergeLists(l1, l2) {
      }
 
     var current = head;
-    
+
     while (l1 || l2){
-        
+
      if(l1){
          if(!l2 || l2 && l1.data <= l2.data){
              current.next = new SinglyLinkedListNode(l1.data);
@@ -109,7 +109,7 @@ function mergeLists(l1, l2) {
          } else {
              current.next = new SinglyLinkedListNode(l2.data);
              l2 = l2.next
-             current = current.next 
+             current = current.next
          }
      } else if(l2){
          if(!l1 || l1 && l2.data <= l1.data){
@@ -119,13 +119,14 @@ function mergeLists(l1, l2) {
          } else {
             current.next = new SinglyLinkedListNode(l1.data);
              l1 = l1.next
-             current = current.next 
+             current = current.next
          }
      }
-        
+
     }
     return head;
 
 }
 
 function main() {
+}

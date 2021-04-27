@@ -1,4 +1,4 @@
-package com.interview.sde.hackerrank.algorithm.datastructure;
+package com.interview.sde.hackerrank.algorithm.disjointset;
 
 import java.util.stream.IntStream;
 
