@@ -1,5 +1,6 @@
 package com.interview.sde.hackerrank.algorithm.trees;
 
+//https://leetcode.com/problems/path-sum/
 public class TreePathSum {
     public boolean hasPathSum(BSTInsertion.Node root, int targetSum) {
         if(root == null){
