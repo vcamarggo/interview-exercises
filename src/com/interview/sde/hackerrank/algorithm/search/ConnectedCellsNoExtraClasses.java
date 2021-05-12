@@ -20,16 +20,16 @@ public class ConnectedCellsNoExtraClasses {
     static int connectedCell(int[][] matrix, boolean isDFS) {
         int max = Integer.MIN_VALUE;
 
-        final int target = 1;
-        final int toAvoid = 0;
+        final int TARGET = 1;
+        final int AVOID = 0;
         int size = 0;
 
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix[0].length; j++) {
-                if (matrix[i][j] == target) {
+                if (matrix[i][j] == TARGET) {
                     Deque<int[]> processStructure = new ArrayDeque<>();
                     processStructure.add(new int[]{i, j});
-                    matrix[i][j] = toAvoid;
+                    matrix[i][j] = AVOID;
 
                     size = 0;
                     while (!processStructure.isEmpty()) {
@@ -45,50 +45,50 @@ public class ConnectedCellsNoExtraClasses {
                         int leftColumn = column - 1;
 
                         //top
-                        if (topRow >= 0 && matrix[topRow][column] == target) {
-                            matrix[topRow][column] = toAvoid;
+                        if (topRow >= 0 && matrix[topRow][column] == TARGET) {
+                            matrix[topRow][column] = AVOID;
                             processStructure.add(new int[]{topRow, column});
                         }
 
                         //bottom
-                        if (bottomRow < matrix.length && matrix[bottomRow][column] == target) {
-                            matrix[bottomRow][column] = toAvoid;
+                        if (bottomRow < matrix.length && matrix[bottomRow][column] == TARGET) {
+                            matrix[bottomRow][column] = AVOID;
                             processStructure.add(new int[]{bottomRow, column});
                         }
 
                         //right
-                        if (rightColumn < matrix[0].length && matrix[row][rightColumn] == target) {
-                            matrix[row][rightColumn] = toAvoid;
+                        if (rightColumn < matrix[0].length && matrix[row][rightColumn] == TARGET) {
+                            matrix[row][rightColumn] = AVOID;
                             processStructure.add(new int[]{row, rightColumn});
                         }
 
                         //left
-                        if (leftColumn >= 0 && matrix[row][leftColumn] == target) {
-                            matrix[row][leftColumn] = toAvoid;
+                        if (leftColumn >= 0 && matrix[row][leftColumn] == TARGET) {
+                            matrix[row][leftColumn] = AVOID;
                             processStructure.add(new int[]{row, leftColumn});
                         }
 
                         //top-right
-                        if (topRow >= 0 && rightColumn < matrix[0].length && matrix[topRow][rightColumn] == target) {
-                            matrix[topRow][rightColumn] = toAvoid;
+                        if (topRow >= 0 && rightColumn < matrix[0].length && matrix[topRow][rightColumn] == TARGET) {
+                            matrix[topRow][rightColumn] = AVOID;
                             processStructure.add(new int[]{topRow, rightColumn});
                         }
 
                         //bottom-right
-                        if (bottomRow < matrix.length && rightColumn < matrix[0].length && matrix[bottomRow][rightColumn] == target) {
-                            matrix[bottomRow][rightColumn] = toAvoid;
+                        if (bottomRow < matrix.length && rightColumn < matrix[0].length && matrix[bottomRow][rightColumn] == TARGET) {
+                            matrix[bottomRow][rightColumn] = AVOID;
                             processStructure.add(new int[]{bottomRow, rightColumn});
                         }
 
                         //bottom-left
-                        if (bottomRow < matrix.length && leftColumn >= 0 && matrix[bottomRow][leftColumn] == target) {
-                            matrix[bottomRow][leftColumn] = toAvoid;
+                        if (bottomRow < matrix.length && leftColumn >= 0 && matrix[bottomRow][leftColumn] == TARGET) {
+                            matrix[bottomRow][leftColumn] = AVOID;
                             processStructure.add(new int[]{bottomRow, leftColumn});
                         }
 
                         //top-left
-                        if (topRow >= 0 && leftColumn >= 0 && matrix[topRow][leftColumn] == target) {
-                            matrix[topRow][leftColumn] = toAvoid;
+                        if (topRow >= 0 && leftColumn >= 0 && matrix[topRow][leftColumn] == TARGET) {
+                            matrix[topRow][leftColumn] = AVOID;
                             processStructure.add(new int[]{topRow, leftColumn});
                         }
                     }

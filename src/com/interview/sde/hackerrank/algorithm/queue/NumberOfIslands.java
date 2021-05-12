@@ -7,8 +7,8 @@ public class NumberOfIslands {
     public int numIslands(char[][] grid) {
 
         int max = 0;
-        final char target = '1';
-        final char avoid = '0';
+        final char TARGET = '1';
+        final char AVOID = '0';
 
 
         for (int r = 0; r < grid.length; r++) {
@@ -32,26 +32,26 @@ public class NumberOfIslands {
                         int leftColumn = column - 1;
 
                         //top
-                        if (topRow >= 0 && grid[topRow][column] == target) {
-                            grid[topRow][column] = avoid;
+                        if (topRow >= 0 && grid[topRow][column] == TARGET) {
+                            grid[topRow][column] = AVOID;
                             cellsToProcess.add(new int[]{topRow, column});
                         }
 
                         //right
-                        if (rightColumn <= grid[0].length - 1 && grid[row][rightColumn] == target) {
-                            grid[row][rightColumn] = avoid;
+                        if (rightColumn <= grid[0].length - 1 && grid[row][rightColumn] == TARGET) {
+                            grid[row][rightColumn] = AVOID;
                             cellsToProcess.add(new int[]{row, rightColumn});
                         }
 
                         //bottom
-                        if (bottomRow <= grid.length - 1 && grid[bottomRow][column] == target) {
-                            grid[bottomRow][column] = avoid;
+                        if (bottomRow <= grid.length - 1 && grid[bottomRow][column] == TARGET) {
+                            grid[bottomRow][column] = AVOID;
                             cellsToProcess.add(new int[]{bottomRow, column});
                         }
 
                         //left
-                        if (leftColumn >= 0 && grid[row][leftColumn] == target) {
-                            grid[row][leftColumn] = avoid;
+                        if (leftColumn >= 0 && grid[row][leftColumn] == TARGET) {
+                            grid[row][leftColumn] = AVOID;
                             cellsToProcess.add(new int[]{row, leftColumn});
                         }
 
