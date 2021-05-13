@@ -1,4 +1,4 @@
-package com.interview.sde.hackerrank.algorithm.arrays;
+package com.interview.sde.hackerrank.algorithm.linkedlist;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;

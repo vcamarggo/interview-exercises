@@ -1,4 +1,4 @@
-package com.interview.sde.hackerrank.algorithm.implementation;
+package com.interview.sde.hackerrank.algorithm.sorting;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
