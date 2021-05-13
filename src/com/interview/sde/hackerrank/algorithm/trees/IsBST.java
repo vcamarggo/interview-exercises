@@ -1,4 +1,4 @@
-package com.interview.sde.hackerrank.java.advanced;
+package com.interview.sde.hackerrank.algorithm.trees;
 
 public class IsBST {
     boolean checkBST(InsertBST.Node root) {

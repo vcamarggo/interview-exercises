@@ -1,9 +1,9 @@
-package com.interview.sde.hackerrank.java.advanced;
+package com.interview.sde.hackerrank.algorithm.trees;
 
 import java.util.Scanner;
 
 public class InsertBST {
-    static class Node {
+    public static class Node {
         Node left;
         Node right;
         int data;
