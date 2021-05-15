@@ -11,11 +11,9 @@ public class TrieTree {
 
         static class TrieNode {
             boolean isWord;
-            Character data;
             Map<Character, TrieNode> children;
 
-            TrieNode(Character data, boolean isWord) {
-                this.data = data;
+            TrieNode(boolean isWord) {
                 this.isWord = isWord;
                 children = new HashMap<>();
             }
@@ -26,7 +24,7 @@ public class TrieTree {
          * Initialize your data structure here.
          */
         public Trie() {
-            root = new TrieNode(null, false);
+            root = new TrieNode(false);
         }
 
         /**
@@ -36,7 +34,7 @@ public class TrieTree {
             TrieNode current = root;
             for (char data : word.toCharArray()) {
                 if (!current.children.containsKey(data)) {
-                    current.children.put(data, new TrieNode(data, false));
+                    current.children.put(data, new TrieNode(false));
                 }
                 current = current.children.get(data);
             }

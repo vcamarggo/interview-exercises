@@ -14,11 +14,9 @@ public class TrieSumPrefixPath {
         static class TrieNode {
             public int val;
             boolean isWord;
-            Character data;
             Map<Character, TrieNode> children;
 
-            TrieNode(Character data, boolean isWord, int val) {
-                this.data = data;
+            TrieNode(boolean isWord, int val) {
                 this.isWord = isWord;
                 this.val = val;
                 children = new HashMap<>();
@@ -40,14 +38,14 @@ public class TrieSumPrefixPath {
          * Initialize your data structure here.
          */
         public MapSum() {
-            root = new TrieNode(' ', false, 0);
+            root = new TrieNode(false, 0);
         }
 
         public void insert(String key, int val) {
             TrieNode current = root;
             for (char data : key.toCharArray()) {
                 if (!current.children.containsKey(data)) {
-                    current.children.put(data, new TrieNode(data, false, 0));
+                    current.children.put(data, new TrieNode(false, 0));
                 }
                 current = current.children.get(data);
             }
