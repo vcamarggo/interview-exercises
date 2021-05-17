@@ -7,15 +7,13 @@ import java.util.Map;
 //https://leetcode.com/problems/maximum-xor-of-two-numbers-in-an-array/
 public class TrieMaximumXorPair {
 
-    TrieNode root = new TrieNode(false, 0);
+    TrieNode root = new TrieNode(0);
 
     static class TrieNode {
         public int val;
-        boolean isWord;
         Map<Character, TrieNode> children;
 
-        TrieNode(boolean isWord, int val) {
-            this.isWord = isWord;
+        TrieNode(int val) {
             this.val = val;
             children = new HashMap<>();
         }
@@ -54,11 +52,10 @@ public class TrieMaximumXorPair {
         TrieNode current = root;
         for (char data : key.toCharArray()) {
             if (!current.children.containsKey(data)) {
-                current.children.put(data, new TrieNode(false, 0));
+                current.children.put(data, new TrieNode(0));
             }
             current = current.children.get(data);
         }
-        current.isWord = true;
         current.val = val;
     }
 
