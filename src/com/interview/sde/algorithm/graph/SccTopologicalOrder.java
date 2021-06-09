@@ -1,13 +1,16 @@
 package com.interview.sde.algorithm.graph;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Scanner;
+import java.util.Set;
 
 //To design this I opted to not pass parameters all around. It's clearly overusing static attributes
-public class SccCounter {
+public class SccTopologicalOrder {
 
 
     static int postNumber = 1;
-    static int sccId = 1;
+    static int sccId = 0;
     static Set<Integer> visited = new HashSet<>();
     static boolean[][] edges;
     static boolean[][] reverseEdges;
@@ -41,11 +44,24 @@ public class SccCounter {
             reverseEdges[node2Id][node1Id] = true;
         }
 
-        sccCounter();
+        int sccNumber = sccCounter();
+
+        StringBuilder output = new StringBuilder("Topological ordering of the scc:\n");
+        for (int i = sccNumber; i > 0; i--) {
+            output.append(sccNumber - i + 1).append("th scc: ");
+            for (int j = 1; j < scc.length; j++) {
+                if (scc[j] == i) {
+                    output.append(j).append(" ");
+                }
+            }
+            output.append("\n");
+        }
+
+        System.out.println(output);
 
     }
 
-    private static void sccCounter() {
+    private static int sccCounter() {
 
         for (int node = 1; node < reverseEdges.length; node++) {
             if (!visited.contains(node)) {
@@ -68,11 +84,7 @@ public class SccCounter {
                 explore(node, edges);
             }
         }
-
-        //Ignore the initial 0, vertex starts at 1
-        System.out.println(Arrays.toString(scc));
-        System.out.println(Arrays.stream(scc).filter(i -> i != 0).distinct().count());
-
+        return (int) Arrays.stream(scc).filter(i -> i != 0).distinct().count();
     }
 
     private static void explore(int node, boolean[][] graph) {

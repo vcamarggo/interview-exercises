@@ -20,8 +20,7 @@
 11 12 1
 12 9 1
 
-
-//solution 2 3 6 1 4 8 5 7
+//solution scc in topological ordering: 1 / 2 5  / 3 6 7 /  4  / 8 9 10 11 12
 //A 1
 //B 2
 //C 3
