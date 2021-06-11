@@ -15,7 +15,7 @@ public class TrieDictionaryMatrix {
         }
     }
 
-    private void insert(TrieNode root, String key) {
+    private static void insert(TrieNode root, String key) {
         TrieNode current = root;
         for (int i = 0; i < key.length(); i++) {
             if (!current.children.containsKey(key.charAt(i))) {
@@ -27,7 +27,7 @@ public class TrieDictionaryMatrix {
     }
 
 
-    List<String> findWords(char[][] board, String[] words) {
+    public static List<String> findWords(char[][] board, String[] words) {
 
         final int ROWS = board.length;
         final int COLUMNS = board[0].length;
@@ -57,7 +57,7 @@ public class TrieDictionaryMatrix {
         return new ArrayList<>(result);
     }
 
-    private Set<String> searchNodeNextLevel(char[][] board, int row, int column, boolean[][] visited, String data, TrieNode root, Set<String> result) {
+    private static Set<String> searchNodeNextLevel(char[][] board, int row, int column, boolean[][] visited, String data, TrieNode root, Set<String> result) {
 
         int topRow = row - 1;
         int rightColumn = column + 1;
@@ -89,7 +89,7 @@ public class TrieDictionaryMatrix {
         return result;
     }
 
-    private void dfsInternal(char[][] board, int row, int column, String data, TrieNode root, Set<String> result, boolean[][] visited) {
+    private static void dfsInternal(char[][] board, int row, int column, String data, TrieNode root, Set<String> result, boolean[][] visited) {
         char c = board[row][column];
         String newData = data + c;
         //only search on valid paths - pruning the ones that are not in the path
