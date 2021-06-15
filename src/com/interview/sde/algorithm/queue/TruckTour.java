@@ -1,10 +1,11 @@
-package com.interview.sde.algorithm.implementation;
+package com.interview.sde.algorithm.queue;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
+//https://www.hackerrank.com/challenges/truck-tour/
 public class TruckTour {
     /*
      * Complete the truckTour function below.

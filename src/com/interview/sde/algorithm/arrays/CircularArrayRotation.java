@@ -1,4 +1,4 @@
-package com.interview.sde.algorithm.implementation;
+package com.interview.sde.algorithm.arrays;
 //https://www.hackerrank.com/challenges/circular-array-rotation/problem
 
 import java.util.ArrayList;
