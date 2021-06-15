@@ -19,7 +19,7 @@ public class TrieWildcard {
         }
 
         public WordDictionary() {
-            root = new TrieNode( false);
+            root = new TrieNode(false);
         }
 
         public void addWord(String word) {
@@ -60,12 +60,12 @@ public class TrieWildcard {
         WordDictionary wordDictionary = new WordDictionary();
         wordDictionary.addWord("a");
         wordDictionary.addWord("a");
-                System.out.println(wordDictionary.search("."));
-                System.out.println(wordDictionary.search("a"));
-                System.out.println(wordDictionary.search("aa"));
-                System.out.println(wordDictionary.search("a"));
-                System.out.println(wordDictionary.search(".a"));
-                System.out.println(wordDictionary.search("a."));
+        System.out.println(wordDictionary.search("."));
+        System.out.println(wordDictionary.search("a"));
+        System.out.println(wordDictionary.search("aa"));
+        System.out.println(wordDictionary.search("a"));
+        System.out.println(wordDictionary.search(".a"));
+        System.out.println(wordDictionary.search("a."));
 
 //        wordDictionary.addWord("an");
 //        wordDictionary.addWord("add");

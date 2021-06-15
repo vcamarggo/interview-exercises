@@ -42,6 +42,6 @@ public class ReversePolishNotation {
     }
 
     public static void main(String[] args) {
-        System.out.println(evalRPN(new String[]{"4","13","5","/","+"}));
+        System.out.println(evalRPN(new String[]{"4", "13", "5", "/", "+"}));
     }
 }

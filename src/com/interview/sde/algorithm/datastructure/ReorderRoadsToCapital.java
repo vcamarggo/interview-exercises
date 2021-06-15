@@ -10,17 +10,17 @@ public class ReorderRoadsToCapital {
         Set<Integer> canReachCapital = new HashSet<>();
         canReachCapital.add(0);
 
-        while(canReachCapital.size() < n){
-            for(int[] connection : connections){
-                if(connection[1] == 0){
+        while (canReachCapital.size() < n) {
+            for (int[] connection : connections) {
+                if (connection[1] == 0) {
                     canReachCapital.add(connection[0]);
-                } else if(canReachCapital.contains(connection[0]) && !canReachCapital.contains(connection[1])){
+                } else if (canReachCapital.contains(connection[0]) && !canReachCapital.contains(connection[1])) {
                     int temp = connection[0];
                     connection[0] = connection[1];
                     connection[1] = temp;
                     result++;
                 }
-                if(canReachCapital.contains(connection[1])){
+                if (canReachCapital.contains(connection[1])) {
                     canReachCapital.add(connection[0]);
                 }
             }

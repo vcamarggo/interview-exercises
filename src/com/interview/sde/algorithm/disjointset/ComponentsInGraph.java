@@ -18,7 +18,7 @@ public class ComponentsInGraph {
 
         for (int i = 0; i < n; i++) {
             int size = dSet.getCommunitySizeOf(i);
-                    max = Math.max(max, size);
+            max = Math.max(max, size);
             if (size > 1) {
                 min = Math.min(min, size);
             }

@@ -31,10 +31,10 @@ function readLine() {
 function workbook(n, k, arr) {
     let solution = 0;
     let pag = 1;
-    for(let i = 0; i < n ; i++){
+    for (let i = 0; i < n; i++) {
         let min = 1;
-        while (min <= arr[i]){
-            if ( min <= pag && pag <=  Math.min((min + k - 1), arr[i])) {
+        while (min <= arr[i]) {
+            if (min <= pag && pag <= Math.min((min + k - 1), arr[i])) {
                 solution++
             }
             min += k;

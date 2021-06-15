@@ -50,7 +50,7 @@ public class BiDijkstra {
         bidijkstra(nodesDistance, nodesDistanceReverse, edges, edgesReverse, startId, endId);
     }
 
-    private static void bidijkstra(int[] nodesDistanceFromStart, int[] nodesDistanceFromEnd,  int[][] edges, int[][] edgesReversed, int startId, int endId) {
+    private static void bidijkstra(int[] nodesDistanceFromStart, int[] nodesDistanceFromEnd, int[][] edges, int[][] edgesReversed, int startId, int endId) {
         PriorityQueue<Integer> nodesToProcessFromStart = new PriorityQueue<>(Comparator.comparingInt(o -> nodesDistanceFromStart[o]));
         Set<Integer> processedNodesFromStart = new HashSet<>();
         nodesDistanceFromStart[startId] = 0;
@@ -65,12 +65,12 @@ public class BiDijkstra {
 
         while (!nodesToProcessFromStart.isEmpty() || !nodesToProcessFromEnd.isEmpty()) {
 
-            if(searchCommonNodeInNeighborhood(nodesToProcessFromStart,edges, nodesDistanceFromStart, processedNodesFromStart, processedNodesFromEnd)){
+            if (searchCommonNodeInNeighborhood(nodesToProcessFromStart, edges, nodesDistanceFromStart, processedNodesFromStart, processedNodesFromEnd)) {
                 solution = findSolution(nodesDistanceFromStart, nodesDistanceFromEnd);
                 break;
             }
 
-            if(searchCommonNodeInNeighborhood(nodesToProcessFromEnd,edgesReversed, nodesDistanceFromEnd, processedNodesFromEnd, processedNodesFromStart)){
+            if (searchCommonNodeInNeighborhood(nodesToProcessFromEnd, edgesReversed, nodesDistanceFromEnd, processedNodesFromEnd, processedNodesFromStart)) {
                 solution = findSolution(nodesDistanceFromStart, nodesDistanceFromEnd);
                 break;
             }
@@ -83,7 +83,7 @@ public class BiDijkstra {
 
         for (int i = 0; i < nodesDistanceFromStart.length; i++) {
             long distance = (long) nodesDistanceFromStart[i] + nodesDistanceFromEnd[i];
-            if(distance < min) {
+            if (distance < min) {
                 min = (int) distance;
             }
         }
@@ -91,12 +91,12 @@ public class BiDijkstra {
         return min;
     }
 
-    public static boolean searchCommonNodeInNeighborhood(PriorityQueue<Integer> nodes, final int[][] edges, int[] nodesDistance, Set<Integer> processed, Set<Integer> processedReverseSide){
+    public static boolean searchCommonNodeInNeighborhood(PriorityQueue<Integer> nodes, final int[][] edges, int[] nodesDistance, Set<Integer> processed, Set<Integer> processedReverseSide) {
         if (!nodes.isEmpty()) {
             int node = nodes.poll();
             processed.add(node);
 
-            if(processedReverseSide.contains(node)){
+            if (processedReverseSide.contains(node)) {
                 return true;
             }
 
@@ -113,7 +113,6 @@ public class BiDijkstra {
 
         return false;
     }
-
 
 
 }

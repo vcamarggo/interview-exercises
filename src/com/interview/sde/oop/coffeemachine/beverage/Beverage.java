@@ -1,14 +1,14 @@
 package com.interview.sde.oop.coffeemachine.beverage;
 
-public abstract class Beverage{
+public abstract class Beverage {
 
     protected double price;
 
-    protected Beverage(final Double price){
+    protected Beverage(final Double price) {
         this.price = price;
     }
 
-    double getPrice(){
+    double getPrice() {
         return this.price;
     }
 }

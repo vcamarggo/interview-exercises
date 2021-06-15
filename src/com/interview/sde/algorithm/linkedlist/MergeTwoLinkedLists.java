@@ -61,10 +61,10 @@ public class MergeTwoLinkedLists {
      *
      */
     static SinglyLinkedListNode mergeLists(SinglyLinkedListNode head1, SinglyLinkedListNode head2) {
-        if(head1 ==null) {
+        if (head1 == null) {
             return head2;
         }
-        if(head2 ==null) {
+        if (head2 == null) {
             return head1;
         }
         SinglyLinkedListNode headNodeToReturn = (head1.data > head2.data) ? head2 : head1;

@@ -11,14 +11,14 @@ public class LargestRectangle {
         long result = 0;
         for (int i = 0; i < h.length; i++) {
             int countRight = 0;
-            for (int j = i+1; j < h.length && h[j] >= h[i]; j++) {
+            for (int j = i + 1; j < h.length && h[j] >= h[i]; j++) {
                 countRight++;
             }
             int countLeft = 0;
-            for (int k = i-1; k >= 0 && h[k] >= h[i]; k--) {
+            for (int k = i - 1; k >= 0 && h[k] >= h[i]; k--) {
                 countLeft++;
             }
-            result = Math.max(result, (1+countLeft+countRight)*h[i] );
+            result = Math.max(result, (1 + countLeft + countRight) * h[i]);
         }
         return result;
     }

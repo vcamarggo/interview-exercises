@@ -11,25 +11,25 @@ public class MinimumTimeRequired {
 
     // Complete the minTime function below.
     static long minTime(long[] machines, long goal) {
-        long temp = goal/machines.length == 0 ? 1 : goal/machines.length;
+        long temp = goal / machines.length == 0 ? 1 : goal / machines.length;
 
-        long min =(long) Math.ceil(temp) * Arrays.stream(machines).min().getAsLong();
+        long min = (long) Math.ceil(temp) * Arrays.stream(machines).min().getAsLong();
 
-        long max = (long)Math.ceil(temp) * Arrays.stream(machines).max().getAsLong();
+        long max = (long) Math.ceil(temp) * Arrays.stream(machines).max().getAsLong();
 
 
         long day;
-        while(min < max){
-            day = (long) Math.floor((min+max)/2);
+        while (min < max) {
+            day = (long) Math.floor((min + max) / 2);
 
             long sum = 0;
-            for (Long number : machines){
-                sum +=  (long) Math.floor(day/number);
+            for (Long number : machines) {
+                sum += (long) Math.floor(day / number);
             }
-            if(sum >= goal){
+            if (sum >= goal) {
                 max = day;
-            } else{
-                min = day+1;
+            } else {
+                min = day + 1;
             }
         }
         return min;

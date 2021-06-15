@@ -15,7 +15,7 @@ public class MyCircularQueue {
     }
 
     public boolean enQueue(int value) {
-        if(!isFull()){
+        if (!isFull()) {
             deck.offerLast(value);
             return true;
         }
@@ -23,7 +23,7 @@ public class MyCircularQueue {
     }
 
     public boolean deQueue() {
-        if(!isEmpty()){
+        if (!isEmpty()) {
             deck.pollFirst();
             return true;
         }
@@ -31,14 +31,14 @@ public class MyCircularQueue {
     }
 
     public int Front() {
-        if(isEmpty()){
+        if (isEmpty()) {
             return -1;
         }
         return deck.peekFirst();
     }
 
     public int Rear() {
-        if(isEmpty()){
+        if (isEmpty()) {
             return -1;
         }
         return deck.peekLast();

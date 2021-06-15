@@ -1,4 +1,5 @@
 package com.interview.sde.java.datastructures;
+
 //https://www.hackerrank.com/challenges/insert-a-node-into-a-sorted-doubly-linked-list/problem
 public class InsertNodeLinkedList {
     static class DoublyLinkedListNode {

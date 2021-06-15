@@ -12,7 +12,7 @@ public class FindTheMedian {
     // Complete the findMedian function below.
     static int findMedian(int[] arr) {
         Arrays.sort(arr);
-        int midIndex = arr.length /2;
+        int midIndex = arr.length / 2;
         return arr[midIndex];
 
     }

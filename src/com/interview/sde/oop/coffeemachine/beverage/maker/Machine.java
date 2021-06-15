@@ -8,7 +8,7 @@ class Machine implements IBeverageMaker {
 
     Beverage beverage;
 
-    Machine(final BeverageType  beverageType) {
+    Machine(final BeverageType beverageType) {
         //A Factory can be implemented here
         this.strategy = null; // Factory.getBeverageStrategy(beverageType);
     }

@@ -79,49 +79,49 @@ function mergeLists(l1, l2) {
 
     var head = new SinglyLinkedListNode();
 
-    if(l1){
-         if(!l2 || l2 && l1.data <= l2.data){
-             head = new SinglyLinkedListNode(l1.data);
-             l1 = l1.next
-         } else {
-             head = new SinglyLinkedListNode(l2.data);
-             l2 = l2.next
-         }
-     } else if(l2){
-         if(!l1 || l1 && l1.data <= l2.data){
-             head = new SinglyLinkedListNode(l1.data);
-             l1 = l1.next
-         } else {
+    if (l1) {
+        if (!l2 || l2 && l1.data <= l2.data) {
+            head = new SinglyLinkedListNode(l1.data);
+            l1 = l1.next
+        } else {
             head = new SinglyLinkedListNode(l2.data);
-             l2 = l2.next
-         }
-     }
+            l2 = l2.next
+        }
+    } else if (l2) {
+        if (!l1 || l1 && l1.data <= l2.data) {
+            head = new SinglyLinkedListNode(l1.data);
+            l1 = l1.next
+        } else {
+            head = new SinglyLinkedListNode(l2.data);
+            l2 = l2.next
+        }
+    }
 
     var current = head;
 
-    while (l1 || l2){
+    while (l1 || l2) {
 
-     if(l1){
-         if(!l2 || l2 && l1.data <= l2.data){
-             current.next = new SinglyLinkedListNode(l1.data);
-             l1 = l1.next
-             current = current.next
-         } else {
-             current.next = new SinglyLinkedListNode(l2.data);
-             l2 = l2.next
-             current = current.next
-         }
-     } else if(l2){
-         if(!l1 || l1 && l2.data <= l1.data){
-             current.next = new SinglyLinkedListNode(l2.data);
-             l2 = l2.next
-             current = current.next
-         } else {
-            current.next = new SinglyLinkedListNode(l1.data);
-             l1 = l1.next
-             current = current.next
-         }
-     }
+        if (l1) {
+            if (!l2 || l2 && l1.data <= l2.data) {
+                current.next = new SinglyLinkedListNode(l1.data);
+                l1 = l1.next
+                current = current.next
+            } else {
+                current.next = new SinglyLinkedListNode(l2.data);
+                l2 = l2.next
+                current = current.next
+            }
+        } else if (l2) {
+            if (!l1 || l1 && l2.data <= l1.data) {
+                current.next = new SinglyLinkedListNode(l2.data);
+                l2 = l2.next
+                current = current.next
+            } else {
+                current.next = new SinglyLinkedListNode(l1.data);
+                l1 = l1.next
+                current = current.next
+            }
+        }
 
     }
     return head;

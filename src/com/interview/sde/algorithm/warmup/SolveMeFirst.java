@@ -1,6 +1,7 @@
 package com.interview.sde.algorithm.warmup;
 
 import java.util.Scanner;
+
 //https://www.hackerrank.com/challenges/solve-me-first/problem
 public class SolveMeFirst {
 

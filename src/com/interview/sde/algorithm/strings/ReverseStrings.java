@@ -4,10 +4,10 @@ package com.interview.sde.algorithm.strings;
 public class ReverseStrings {
     public String reverseWords(String s) {
         String[] tokens = s.split("(\\s+)");
-        for(int i = 0 ; i < tokens.length / 2 ; i++){
+        for (int i = 0; i < tokens.length / 2; i++) {
             String temp = tokens[i].trim();
-            tokens[i] = tokens[(tokens.length-1) - i].trim();
-            tokens[(tokens.length-1) - i] = temp;
+            tokens[i] = tokens[(tokens.length - 1) - i].trim();
+            tokens[(tokens.length - 1) - i] = temp;
         }
         return String.join(" ", tokens).trim();
     }

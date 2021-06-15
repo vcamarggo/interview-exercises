@@ -32,13 +32,13 @@ public class FlippingTheMatrix {
             int n = scanner.nextInt();
             scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
 
-            int[][] matrix = new int[2*n][2*n];
+            int[][] matrix = new int[2 * n][2 * n];
 
-            for (int i = 0; i < 2*n; i++) {
+            for (int i = 0; i < 2 * n; i++) {
                 String[] matrixRowItems = scanner.nextLine().split(" ");
                 scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
 
-                for (int j = 0; j < 2*n; j++) {
+                for (int j = 0; j < 2 * n; j++) {
                     int matrixItem = Integer.parseInt(matrixRowItems[j]);
                     matrix[i][j] = matrixItem;
                 }

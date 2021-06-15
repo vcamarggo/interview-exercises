@@ -6,7 +6,7 @@ public class Cash implements IPayment {
 
     //return amount of funds in the
     public double pay(final double amountToPay) {
-        double diff = amountToPay - value ;
+        double diff = amountToPay - value;
         return diff <= 0 ? amountToPay : diff;
     }
 

@@ -24,17 +24,17 @@ public class ReverseVowels {
         vowels.add('u');
         vowels.add('U');
 
-        for(int i = 0 ; i < s.length();i++){
+        for (int i = 0; i < s.length(); i++) {
             char charAtI = s.charAt(i);
-            if(vowels.contains(charAtI)){
+            if (vowels.contains(charAtI)) {
                 vowelsOrder.push(charAtI);
             }
         }
 
-        for(int i = 0 ; i < s.length();i++){
+        for (int i = 0; i < s.length(); i++) {
             char charAtI = s.charAt(i);
-            if(vowels.contains(charAtI)){
-                sb.replace(i, i+1, String.valueOf(vowelsOrder.pop()));
+            if (vowels.contains(charAtI)) {
+                sb.replace(i, i + 1, String.valueOf(vowelsOrder.pop()));
             }
         }
         return sb.toString();

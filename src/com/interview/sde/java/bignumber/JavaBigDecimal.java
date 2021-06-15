@@ -6,7 +6,7 @@ import java.util.Arrays;
 //https://www.hackerrank.com/challenges/java-bigdecimal/problem
 public class JavaBigDecimal {
     public static void main(String[] args) {
-       String[] s=null;
+        String[] s = null;
         Arrays.sort(s, (o1, o2) -> {
             if (o1 == null || o2 == null) {
                 return 0;

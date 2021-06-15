@@ -10,10 +10,10 @@ public class SocksMerchant {
 
     // Complete the sockMerchant function below.
     static int sockMerchant(int n, int[] ar) {
-        boolean[] isPair= new boolean[101];
+        boolean[] isPair = new boolean[101];
         int result = 0;
-        for(int i=0;i<n;i++){
-            if(isPair[ar[i]])
+        for (int i = 0; i < n; i++) {
+            if (isPair[ar[i]])
                 result++;
             isPair[ar[i]] = !isPair[ar[i]];
         }

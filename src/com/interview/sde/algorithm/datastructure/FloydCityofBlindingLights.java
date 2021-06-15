@@ -30,7 +30,7 @@ public class FloydCityofBlindingLights {
             String[] startEnd = scanner.nextLine().split(" ");
             int startId = Integer.parseInt(startEnd[0]);
             int endId = Integer.parseInt(startEnd[1]);
-            System.out.println(matrixK[startId][endId] == Integer.MAX_VALUE ? - 1 : matrixK[startId][endId]);
+            System.out.println(matrixK[startId][endId] == Integer.MAX_VALUE ? -1 : matrixK[startId][endId]);
         }
     }
 

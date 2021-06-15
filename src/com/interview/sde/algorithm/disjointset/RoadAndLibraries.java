@@ -3,6 +3,7 @@ package com.interview.sde.algorithm.disjointset;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Scanner;
+
 //https://www.hackerrank.com/challenges/torque-and-development/problem
 //Solved using Disjoint Set
 public class RoadAndLibraries {

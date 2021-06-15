@@ -5,11 +5,11 @@ public class JavaSingletonPattern {
     String str;
     private static JavaSingletonPattern singleton;
 
-    private JavaSingletonPattern(){
+    private JavaSingletonPattern() {
     }
 
-    static JavaSingletonPattern getSingleInstance(){
-        if(singleton==null){
+    static JavaSingletonPattern getSingleInstance() {
+        if (singleton == null) {
             singleton = new JavaSingletonPattern();
         }
         return singleton;

@@ -11,16 +11,16 @@ public class TruckTour {
      */
     static int truckTour(int[][] petroleumPumps) {
         int i = 0;
-        for(; i < petroleumPumps.length ; i++){
-            if(petroleumPumps[i][0] > petroleumPumps[i][1]){
+        for (; i < petroleumPumps.length; i++) {
+            if (petroleumPumps[i][0] > petroleumPumps[i][1]) {
                 int tank = petroleumPumps[i][0] - petroleumPumps[i][1];
-                int k = i+1;
-                while(tank > 0){
+                int k = i + 1;
+                while (tank > 0) {
                     tank += petroleumPumps[k][0] - petroleumPumps[k][1];
                     k++;
-                    if(k >= petroleumPumps.length){
-                        k=0;
-                    } else if(k == i){
+                    if (k >= petroleumPumps.length) {
+                        k = 0;
+                    } else if (k == i) {
                         return i;
                     }
                 }

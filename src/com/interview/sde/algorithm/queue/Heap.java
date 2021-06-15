@@ -52,7 +52,7 @@ public class Heap {
         }
 
         int poll() {
-            if(elementsInserted == 0 ){
+            if (elementsInserted == 0) {
                 throw new ArrayIndexOutOfBoundsException();
             }
 

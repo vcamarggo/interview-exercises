@@ -102,7 +102,7 @@ public class MST {
             PrimNode primNode = new PrimNode(i, Integer.MAX_VALUE, i);
             allNodes.put(primNode.id, primNode);
         }
-        allNodes.get(1).weight -=1;
+        allNodes.get(1).weight -= 1;
 
         while (solution.size() != edges.length - 1) {
 

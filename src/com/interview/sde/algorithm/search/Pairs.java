@@ -24,12 +24,12 @@ public class Pairs {
             }
             int last = i;
 
-         // System.out.println(first);
-         // System.out.println(last);
-         // System.out.println(mid);
+            // System.out.println(first);
+            // System.out.println(last);
+            // System.out.println(mid);
 
             while (first <= last) {
-                int   mid = (last + first) / 2;
+                int mid = (last + first) / 2;
 
                 int diff = arr[i] - arr[mid];
                 if (diff == k) {

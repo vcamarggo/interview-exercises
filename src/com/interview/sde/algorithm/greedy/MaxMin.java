@@ -16,12 +16,12 @@ public class MaxMin {
 
         k--;
 
-        for(int i=0; i+k < arr.length; i++){
+        for (int i = 0; i + k < arr.length; i++) {
             int min = arr[i];
-            int max = arr[i+k];
+            int max = arr[i + k];
             int diff = max - min;
 
-            if(diff < best){
+            if (diff < best) {
                 best = diff;
             }
         }
