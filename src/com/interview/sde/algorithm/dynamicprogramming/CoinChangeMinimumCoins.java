@@ -10,15 +10,15 @@ import java.util.stream.Stream;
 public class CoinChangeMinimumCoins {
 
     public static int coinChange(Integer[] coins, int amount) {
-        int[] solution = new int[amount+1];
+        int[] solution = new int[amount + 1];
 
         Arrays.fill(solution, Integer.MAX_VALUE);
         solution[0] = 0;
 
-        for(Integer coin : coins){
-            for(int i = 1 ; i <= amount ; i++){
-                if(i-coin >= 0 && solution[i-coin]+1 != Integer.MIN_VALUE){
-                    solution[i] = Math.min(solution[i-coin]+1 , solution[i]);
+        for (int coin : coins) {
+            for (int i = 1; i <= amount; i++) {
+                if (i - coin >= 0 && solution[i - coin] + 1 != Integer.MIN_VALUE) {
+                    solution[i] = Math.min(solution[i - coin] + 1, solution[i]);
                 }
             }
         }

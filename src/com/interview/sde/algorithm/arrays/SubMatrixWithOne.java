@@ -6,7 +6,7 @@ public class SubMatrixWithOne {
         int numberRow = mat.length;
         int numberColumn = mat[0].length;
 
-        for (int row = 0; row < numberRow ; row++) {
+        for (int row = 0; row < numberRow; row++) {
             for (int column = numberColumn - 2; column >= 0; column--) {
                 if (mat[row][column] == 1) {
                     mat[row][column] = 1 + mat[row][column + 1];

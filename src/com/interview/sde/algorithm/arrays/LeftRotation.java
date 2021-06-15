@@ -21,15 +21,15 @@ public class LeftRotation {
 
         for (int i = 0; i < n; i++) {
             int aItem = Integer.parseInt(aItems[i]);
-            if(i<d){
-                a[i+(n-d)] = aItem;
-            }else{
-                a[i-d] = aItem;
+            if (i < d) {
+                a[i + (n - d)] = aItem;
+            } else {
+                a[i - d] = aItem;
             }
         }
 
         for (int i = 0; i < n; i++) {
-            System.out.print(a[i]+" ");
+            System.out.print(a[i] + " ");
         }
 
         scanner.close();
