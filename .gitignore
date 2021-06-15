@@ -5,3 +5,5 @@
 /out/*
 /out/production/Interview/
 /*.iml
+.DS_Store
+src/com/interview/sde/.DS_Store
