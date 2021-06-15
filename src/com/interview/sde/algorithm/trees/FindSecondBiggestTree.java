@@ -1,6 +1,7 @@
 package com.interview.sde.algorithm.trees;
 
 import java.util.ArrayList;
+import java.util.List;
 
 //https://www.interviewcake.com/question/python/second-largest-item-in-bst
 public class FindSecondBiggestTree {
@@ -26,7 +27,7 @@ public class FindSecondBiggestTree {
         }
     }
 
-    public static java.util.List<Integer> inOrder(BinaryTreeNode root) {
+    public static List<Integer> inOrder(BinaryTreeNode root) {
         ArrayList<Integer> orderedList = new ArrayList<>();
         if (root.left != null) {
             orderedList.addAll(inOrder(root.left));
@@ -41,7 +42,7 @@ public class FindSecondBiggestTree {
     }
 
     public static int findSecondLargestON(BinaryTreeNode rootMode) {
-        java.util.List<Integer> treeAsList = inOrder(rootMode);
+        List<Integer> treeAsList = inOrder(rootMode);
         return treeAsList.get(treeAsList.size() - 2);
     }
 
