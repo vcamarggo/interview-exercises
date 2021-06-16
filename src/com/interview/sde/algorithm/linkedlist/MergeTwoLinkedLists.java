@@ -100,7 +100,7 @@ public class MergeTwoLinkedLists {
         SinglyLinkedListNode head = null;
 
         while (l1 != null || l2 != null) {
-            if (l1 == null || l2.data < l1.data) {
+            if (l1 == null || l2 != null && l2.data < l1.data) {
                 if (head == null) { //test if solution is empty
                     head = new SinglyLinkedListNode(l2.data);
                     currentNode = head;
