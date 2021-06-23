@@ -4,7 +4,7 @@ import java.util.*;
 
 //https://leetcode.com/problems/course-schedule
 //Timeout
-public class CourseScheduler {
+public class CourseSchedulerCycleDetection {
 
     public static boolean canFinish(int numCourses, int[][] prerequisites) {
         Map<Integer, List<Integer>> adjacencyList = new HashMap<>();
