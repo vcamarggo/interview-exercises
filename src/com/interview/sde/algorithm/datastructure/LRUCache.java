@@ -6,8 +6,8 @@ import java.util.Map;
 //https://leetcode.com/problems/lru-cache/
 public class LRUCache {
 
-    private Map<Integer, Integer> data = new LinkedHashMap<>();
-    private int capacity;
+    private final Map<Integer, Integer> data = new LinkedHashMap<>();
+    private final int capacity;
 
     public LRUCache(int capacity) {
         this.capacity = capacity;

@@ -4,7 +4,7 @@ import java.util.Deque;
 import java.util.LinkedList;
 
 //https://leetcode.com/problems/maximum-width-of-binary-tree/
-class LargestLevelBinaryTreeWidth {
+public class LargestLevelBinaryTreeWidth {
 
     static class TreeNode {
         int val;
