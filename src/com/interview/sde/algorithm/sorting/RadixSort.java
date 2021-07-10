@@ -28,21 +28,21 @@ public class RadixSort {
         return nums;
     }
 
+    private static boolean isNullOrEmpty(int[] nums) {
+        return nums == null || nums.length == 0;
+    }
+
+    private static int getMaxAbs(int[] nums) {
+        return Arrays.stream(nums).map(Math::abs).max().getAsInt();
+    }
+
+    private static boolean hasNextDigit(final int max) {
+        return max != 0;
+    }
+
     private static int[] partialSortElements(int digitPosition, int[] nums) {
         Map<Integer, List<Integer>> buckets = fillBuckets(digitPosition, nums);
         return moveBucketsToArray(buckets, nums.length);
-    }
-
-    private static int[] moveBucketsToArray(Map<Integer, List<Integer>> buckets, int numsSize) {
-        int[] nums = new int[numsSize];
-        int lastFilledNumIndex = 0;
-
-        for (List<Integer> bucketValue : buckets.values()) {
-            for (Integer number : bucketValue) {
-                nums[lastFilledNumIndex++] = number;
-            }
-        }
-        return nums;
     }
 
     private static Map<Integer, List<Integer>> fillBuckets(int digitPosition, int[] nums) {
@@ -60,23 +60,24 @@ public class RadixSort {
         return (num / digitPosition) % 10;
     }
 
-    private static int getNextDigitPosition(int digitPosition) {
-        return digitPosition * 10;
-    }
+    private static int[] moveBucketsToArray(Map<Integer, List<Integer>> buckets, int numsSize) {
+        int[] nums = new int[numsSize];
+        int lastFilledNumIndex = 0;
 
-    private static boolean hasNextDigit(final int max) {
-        return max != 0;
+        for (List<Integer> bucketValue : buckets.values()) {
+            for (Integer number : bucketValue) {
+                nums[lastFilledNumIndex++] = number;
+            }
+        }
+        return nums;
     }
 
     private static int getNextDigit(final int max) {
         return max / 10;
     }
 
-    private static int getMaxAbs(int[] nums) {
-        return Arrays.stream(nums).map(Math::abs).max().getAsInt();
+    private static int getNextDigitPosition(int digitPosition) {
+        return digitPosition * 10;
     }
 
-    private static boolean isNullOrEmpty(int[] nums) {
-        return nums == null || nums.length == 0;
-    }
 }

@@ -21,15 +21,8 @@ public class CountingSort {
         return orderNumsBasedOnBuckets(min, nums, buckets);
     }
 
-    private static int[] orderNumsBasedOnBuckets(int min, int[] nums, int[] buckets) {
-        int lastFilledNumIndex = 0;
-        for (int i = 0; i < buckets.length; i++) {
-            while (buckets[i] > 0) {
-                nums[lastFilledNumIndex++] = i + min;
-                buckets[i]--;
-            }
-        }
-        return nums;
+    private static boolean isNullOrEmpty(int[] nums) {
+        return nums == null || nums.length == 0;
     }
 
     private static int[] countNumOccurrenceNumbers(int[] nums, int min, int max) {
@@ -46,7 +39,15 @@ public class CountingSort {
         return new int[max - min + 1];
     }
 
-    private static boolean isNullOrEmpty(int[] nums) {
-        return nums == null || nums.length == 0;
+    private static int[] orderNumsBasedOnBuckets(int min, int[] nums, int[] buckets) {
+        int lastFilledNumIndex = 0;
+        for (int i = 0; i < buckets.length; i++) {
+            while (buckets[i] > 0) {
+                nums[lastFilledNumIndex++] = i + min;
+                buckets[i]--;
+            }
+        }
+        return nums;
     }
+
 }
