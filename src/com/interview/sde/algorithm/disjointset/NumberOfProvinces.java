@@ -49,6 +49,31 @@ public class NumberOfProvinces {
         }
         return i;
     }
+    
+    //DFS-like version
+    public int findCircleNum2(int[][] isConnected) {
+        Set<Integer> visited = new HashSet<>();
+        int counter = 0;
+
+        for (int start = 0 ; start < isConnected.length ; start++){
+            counter += dfs(start, isConnected, visited);                
+        }
+        return counter;
+    }
+
+    private int dfs(int start, int[][] isConnected, Set<Integer> visited){
+        if(!visited.contains(start)){
+            visited.add(start);
+
+            for (int end = 0; end < isConnected.length ; end++){
+                if(isConnected[start][end] == 1)
+                    dfs(end, isConnected, visited);
+            }
+
+            return 1;
+        }
+        return 0;
+    }
 
 
     public static void main(String[] args) {
