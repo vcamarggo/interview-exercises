@@ -1,9 +1,44 @@
 package com.interview.sde.algorithm.search;
 
 import java.util.Arrays;
+import java.util.function.IntPredicate;
 
 //https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/
 public class FindRangeOfK {
+
+    static int[] searchRangeParameterBranching(int[] nums, int target) {
+        int start = 0;
+        int end = nums.length - 1;
+
+        int left = binarySearch(start, end,
+                (mid) -> nums[mid] > target || ((mid - 1) >= start && nums[mid - 1] == target),
+                (mid) -> nums[mid] < target
+        );
+
+        //First find the leftmost target, then start from that position, as the rightmost will be at right of the leftmost
+        int right = binarySearch(Math.max(start, left), end,
+                (mid) -> nums[mid] > target,
+                (mid) -> nums[mid] < target || ((mid + 1) <= end && nums[mid + 1] == target)
+        );
+
+        return new int[]{left, right};
+    }
+
+    static int binarySearch(int start, int end, IntPredicate shouldSearchFirstHalf, IntPredicate shouldSearchSecondHalf) {
+        if (end < start) {
+            return -1;
+        }
+
+        int mid = start + (end - start) / 2;
+
+        if (shouldSearchFirstHalf.test(mid)) {
+            return binarySearch(start, mid - 1, shouldSearchFirstHalf, shouldSearchSecondHalf);
+        } else if (shouldSearchSecondHalf.test(mid)) {
+            return binarySearch(mid + 1, end, shouldSearchFirstHalf, shouldSearchSecondHalf);
+        }
+
+        return mid;
+    }
 
     static int[] searchRange(int[] nums, int target) {
         int[] solution = new int[2];
