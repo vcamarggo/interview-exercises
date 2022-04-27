@@ -14,7 +14,7 @@ public class SumTwoSorted {
                 return new int[]{index1 + 1, index2 + 1};
             }
         }
-        return null;
+        return new int[]{};
     }
 
     static int binarySearch(int[] nums, int target, int start, int end) {
