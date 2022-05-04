@@ -5,13 +5,43 @@ import java.util.stream.Collectors;
 
 //https://leetcode.com/problems/sorting-the-sentence/
 /**
- * Note: the solution is based on MergeSort because I wanted to study it
- * for this small scope (digits 1 to 9 non-repeat),
+ * Note: the solution is based on MergeSort/QuickSort because I wanted to study them.
+ * For this small scope (digits 1 to 9 non-repeat),
  * creating a 9 positions array and putting them in the right position would suffice.
  * FYI: Radix sort: https://www.geeksforgeeks.org/radix-sort/
  **/
 public class SortingSentences {
 
+    static String quickSort(String input) {
+        String[] arrayOfWords = input.split(" ");
+        quickSort(arrayOfWords, 0, arrayOfWords.length - 1);
+        return Arrays.stream(arrayOfWords).map(str -> str.replaceAll("\\d", "")).collect(Collectors.joining(" "));
+    }
+
+    static void quickSort(String[] array, int start, int end) {
+        if (end> start) {
+            int pivot = partition(array, start, end);
+            quickSort(array, start, pivot-1);
+            quickSort(array, pivot + 1, end);
+        }
+    }
+
+    private static int partition(String[] array, int start, int end) {
+        int pivot = array[end].charAt(array[end].length()-1);
+        int i = start;
+        for (int j = start; j < end; j++) {
+            if (pivot > array[j].charAt(array[j].length()-1)) {
+                String temp = array[i];
+                array[i] = array[j];
+                array[j] = temp;
+                i++;
+            }
+        }
+        String temp = array[i];
+        array[i] = array[end];
+        array[end] = temp;
+        return i;
+    }
 
     static void mergeSort(String[] array, int start, int end) {
         if (start < end) {
@@ -57,6 +87,6 @@ public class SortingSentences {
 
     public static void main(String[] args) {
         String input = "is2 sentence4 This1 a3";
-        System.out.println(mergeSort(input));
+        System.out.println(quickSort(input));
     }
 }
