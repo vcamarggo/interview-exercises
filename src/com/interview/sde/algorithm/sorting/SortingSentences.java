@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.stream.Collectors;
 
 //https://leetcode.com/problems/sorting-the-sentence/
+
 /**
  * Note: the solution is based on MergeSort/QuickSort because I wanted to study them.
  * For this small scope (digits 1 to 9 non-repeat),
@@ -19,18 +20,18 @@ public class SortingSentences {
     }
 
     static void quickSort(String[] array, int start, int end) {
-        if (end> start) {
+        if (end > start) {
             int pivot = partition(array, start, end);
-            quickSort(array, start, pivot-1);
+            quickSort(array, start, pivot - 1);
             quickSort(array, pivot + 1, end);
         }
     }
 
     private static int partition(String[] array, int start, int end) {
-        int pivot = array[end].charAt(array[end].length()-1);
+        int pivot = array[end].charAt(array[end].length() - 1);
         int i = start;
         for (int j = start; j < end; j++) {
-            if (pivot > array[j].charAt(array[j].length()-1)) {
+            if (pivot > array[j].charAt(array[j].length() - 1)) {
                 String temp = array[i];
                 array[i] = array[j];
                 array[j] = temp;
