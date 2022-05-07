@@ -9,7 +9,7 @@ import java.util.Stack;
 //https://www.hackerrank.com/challenges/counting-valleys/problem
 public class CountingValleys {
 
-    // Complete the countingValleys function below.
+    //Complete the countingValleys function below.
     static int countingValleys(int n, String s) {
         Stack<Character> stack = new Stack<>();
         int result = 0;
