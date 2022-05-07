@@ -3,6 +3,7 @@ package com.interview.sde.algorithm.array;
 import java.util.Arrays;
 import java.util.Random;
 
+//https://leetcode.com/problems/shuffle-an-array/
 public class ShuffleArray {
     final int[] originalData;
 
@@ -27,7 +28,7 @@ public class ShuffleArray {
 
         Random generator = new Random();
 
-        for (int i=0; i<array.length; i++) {
+        for (int i = 0; i < array.length; i++) {
             swap(array, i, generator.nextInt(array.length));
         }
 
