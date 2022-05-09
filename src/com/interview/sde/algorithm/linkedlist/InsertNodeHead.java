@@ -8,27 +8,7 @@ import java.util.Scanner;
 //https://www.hackerrank.com/challenges/insert-a-node-at-the-head-of-a-linked-list/problem
 public class InsertNodeHead {
 
-    static class SinglyLinkedListNode {
-        public int data;
-        public SinglyLinkedListNode next;
-
-        public SinglyLinkedListNode(int nodeData) {
-            this.data = nodeData;
-            this.next = null;
-        }
-    }
-
-    static class SinglyLinkedList {
-        public SinglyLinkedListNode head;
-        public SinglyLinkedListNode tail;
-
-        public SinglyLinkedList() {
-            this.head = null;
-            this.tail = null;
-        }
-
-
-    }
+    private static final Scanner scanner = new Scanner(System.in);
 
     public static void printSinglyLinkedList(SinglyLinkedListNode node, String sep, BufferedWriter bufferedWriter) throws IOException {
         while (node != null) {
@@ -41,8 +21,6 @@ public class InsertNodeHead {
             }
         }
     }
-
-    // Complete the insertNodeAtHead function below.
 
     /*
      * For your reference:
@@ -60,7 +38,7 @@ public class InsertNodeHead {
 
     }
 
-    private static final Scanner scanner = new Scanner(System.in);
+    // Complete the insertNodeAtHead function below.
 
     public static void main(String[] args) throws IOException {
         BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
@@ -86,5 +64,27 @@ public class InsertNodeHead {
         bufferedWriter.close();
 
         scanner.close();
+    }
+
+    static class SinglyLinkedListNode {
+        public int data;
+        public SinglyLinkedListNode next;
+
+        public SinglyLinkedListNode(int nodeData) {
+            this.data = nodeData;
+            this.next = null;
+        }
+    }
+
+    static class SinglyLinkedList {
+        public SinglyLinkedListNode head;
+        public SinglyLinkedListNode tail;
+
+        public SinglyLinkedList() {
+            this.head = null;
+            this.tail = null;
+        }
+
+
     }
 }

@@ -8,25 +8,7 @@ import java.util.Scanner;
 //https://www.hackerrank.com/challenges/insert-a-node-at-the-tail-of-a-linked-list/problem
 public class InsertNodeAtTail {
 
-    static class SinglyLinkedListNode {
-        public int data;
-        public SinglyLinkedListNode next;
-
-        public SinglyLinkedListNode(int nodeData) {
-            this.data = nodeData;
-            this.next = null;
-        }
-    }
-
-    static class SinglyLinkedList {
-        public SinglyLinkedListNode head;
-
-        public SinglyLinkedList() {
-            this.head = null;
-        }
-
-
-    }
+    private static final Scanner scanner = new Scanner(System.in);
 
     public static void printSinglyLinkedList(SinglyLinkedListNode node, String sep, BufferedWriter bufferedWriter) throws IOException {
         while (node != null) {
@@ -39,8 +21,6 @@ public class InsertNodeAtTail {
             }
         }
     }
-
-    // Complete the insertNodeAtTail function below.
 
     /*
      * For your reference:
@@ -68,7 +48,7 @@ public class InsertNodeAtTail {
 
     }
 
-    private static final Scanner scanner = new Scanner(System.in);
+    // Complete the insertNodeAtTail function below.
 
     public static void main(String[] args) throws IOException {
         BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
@@ -94,6 +74,26 @@ public class InsertNodeAtTail {
         bufferedWriter.close();
 
         scanner.close();
+    }
+
+    static class SinglyLinkedListNode {
+        public int data;
+        public SinglyLinkedListNode next;
+
+        public SinglyLinkedListNode(int nodeData) {
+            this.data = nodeData;
+            this.next = null;
+        }
+    }
+
+    static class SinglyLinkedList {
+        public SinglyLinkedListNode head;
+
+        public SinglyLinkedList() {
+            this.head = null;
+        }
+
+
     }
 }
 

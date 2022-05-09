@@ -5,37 +5,7 @@ import java.util.Scanner;
 //https://www.hackerrank.com/challenges/merge-two-sorted-linked-lists/problem
 public class MergeTwoLinkedLists {
 
-    static class SinglyLinkedListNode {
-        public int data;
-        public SinglyLinkedListNode next;
-
-        public SinglyLinkedListNode(int nodeData) {
-            this.data = nodeData;
-            this.next = null;
-        }
-    }
-
-    static class SinglyLinkedList {
-        public SinglyLinkedListNode head;
-        public SinglyLinkedListNode tail;
-
-        public SinglyLinkedList() {
-            this.head = null;
-            this.tail = null;
-        }
-
-        public void insertNode(int nodeData) {
-            SinglyLinkedListNode node = new SinglyLinkedListNode(nodeData);
-
-            if (this.head == null) {
-                this.head = node;
-            } else {
-                this.tail.next = node;
-            }
-
-            this.tail = node;
-        }
-    }
+    private static final Scanner scanner = new Scanner(System.in);
 
     public static void printSinglyLinkedList(SinglyLinkedListNode node, String sep) {
         while (node != null) {
@@ -48,8 +18,6 @@ public class MergeTwoLinkedLists {
             }
         }
     }
-
-    // Complete the mergeLists function below.
 
     /*
      * For your reference:
@@ -79,6 +47,8 @@ public class MergeTwoLinkedLists {
         }
         return headNodeToReturn;
     }
+
+    // Complete the mergeLists function below.
 
     private static SinglyLinkedListNode walkOnList(SinglyLinkedListNode biggerNumberListHead, SinglyLinkedListNode smallerNumberListHead) {
         SinglyLinkedListNode holderHead;
@@ -123,8 +93,6 @@ public class MergeTwoLinkedLists {
         return head;
     }
 
-    private static final Scanner scanner = new Scanner(System.in);
-
     public static void main(String[] args) {
 
         int tests = scanner.nextInt();
@@ -163,5 +131,37 @@ public class MergeTwoLinkedLists {
 
 
         scanner.close();
+    }
+
+    static class SinglyLinkedListNode {
+        public int data;
+        public SinglyLinkedListNode next;
+
+        public SinglyLinkedListNode(int nodeData) {
+            this.data = nodeData;
+            this.next = null;
+        }
+    }
+
+    static class SinglyLinkedList {
+        public SinglyLinkedListNode head;
+        public SinglyLinkedListNode tail;
+
+        public SinglyLinkedList() {
+            this.head = null;
+            this.tail = null;
+        }
+
+        public void insertNode(int nodeData) {
+            SinglyLinkedListNode node = new SinglyLinkedListNode(nodeData);
+
+            if (this.head == null) {
+                this.head = node;
+            } else {
+                this.tail.next = node;
+            }
+
+            this.tail = node;
+        }
     }
 }

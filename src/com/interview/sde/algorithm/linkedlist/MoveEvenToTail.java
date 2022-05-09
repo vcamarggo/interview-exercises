@@ -2,23 +2,6 @@ package com.interview.sde.algorithm.linkedlist;
 
 //https://leetcode.com/problems/odd-even-linked-list
 public class MoveEvenToTail {
-    public class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode() {
-        }
-
-        ListNode(int val) {
-            this.val = val;
-        }
-
-        ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
-        }
-    }
-
     public ListNode oddEvenList(ListNode head) {
         if (head == null) {
             return null;
@@ -50,5 +33,22 @@ public class MoveEvenToTail {
 
         return head;
 
+    }
+
+    public class ListNode {
+        int val;
+        ListNode next;
+
+        ListNode() {
+        }
+
+        ListNode(int val) {
+            this.val = val;
+        }
+
+        ListNode(int val, ListNode next) {
+            this.val = val;
+            this.next = next;
+        }
     }
 }

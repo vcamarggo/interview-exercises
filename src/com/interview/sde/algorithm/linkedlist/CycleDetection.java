@@ -9,37 +9,7 @@ import java.util.Scanner;
 //https://www.hackerrank.com/challenges/detect-whether-a-linked-list-contains-a-cycle/problem
 public class CycleDetection {
 
-    static class SinglyLinkedListNode {
-        public int data;
-        public SinglyLinkedListNode next;
-
-        public SinglyLinkedListNode(int nodeData) {
-            this.data = nodeData;
-            this.next = null;
-        }
-    }
-
-    static class SinglyLinkedList {
-        public SinglyLinkedListNode head;
-        public SinglyLinkedListNode tail;
-
-        public SinglyLinkedList() {
-            this.head = null;
-            this.tail = null;
-        }
-
-        public void insertNode(int nodeData) {
-            SinglyLinkedListNode node = new SinglyLinkedListNode(nodeData);
-
-            if (this.head == null) {
-                this.head = node;
-            } else {
-                this.tail.next = node;
-            }
-
-            this.tail = node;
-        }
-    }
+    private static final Scanner scanner = new Scanner(System.in);
 
     public static void printSinglyLinkedList(SinglyLinkedListNode node, String sep, BufferedWriter bufferedWriter) throws IOException {
         while (node != null) {
@@ -52,8 +22,6 @@ public class CycleDetection {
             }
         }
     }
-
-    // Complete the hasCycle function below.
 
     /*
      * For your reference:
@@ -78,7 +46,7 @@ public class CycleDetection {
         return false;
     }
 
-    private static final Scanner scanner = new Scanner(System.in);
+    // Complete the hasCycle function below.
 
     public static void main(String[] args) throws IOException {
         BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
@@ -126,5 +94,37 @@ public class CycleDetection {
         bufferedWriter.close();
 
         scanner.close();
+    }
+
+    static class SinglyLinkedListNode {
+        public int data;
+        public SinglyLinkedListNode next;
+
+        public SinglyLinkedListNode(int nodeData) {
+            this.data = nodeData;
+            this.next = null;
+        }
+    }
+
+    static class SinglyLinkedList {
+        public SinglyLinkedListNode head;
+        public SinglyLinkedListNode tail;
+
+        public SinglyLinkedList() {
+            this.head = null;
+            this.tail = null;
+        }
+
+        public void insertNode(int nodeData) {
+            SinglyLinkedListNode node = new SinglyLinkedListNode(nodeData);
+
+            if (this.head == null) {
+                this.head = node;
+            } else {
+                this.tail.next = node;
+            }
+
+            this.tail = node;
+        }
     }
 }

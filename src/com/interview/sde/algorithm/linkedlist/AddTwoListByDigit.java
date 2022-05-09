@@ -2,23 +2,6 @@ package com.interview.sde.algorithm.linkedlist;
 
 //https://leetcode.com/problems/add-two-numbers
 public class AddTwoListByDigit {
-    public static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode() {
-        }
-
-        ListNode(int val) {
-            this.val = val;
-        }
-
-        ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
-        }
-    }
-
     public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         ListNode l1Head = l1;
         ListNode l2Head = l2;
@@ -71,5 +54,22 @@ public class AddTwoListByDigit {
 //        ListNode h1 = new ListNode(9);
 //        ListNode h2 = new ListNode(9);
         addTwoNumbers(h1, h2);
+    }
+
+    public static class ListNode {
+        int val;
+        ListNode next;
+
+        ListNode() {
+        }
+
+        ListNode(int val) {
+            this.val = val;
+        }
+
+        ListNode(int val, ListNode next) {
+            this.val = val;
+            this.next = next;
+        }
     }
 }
