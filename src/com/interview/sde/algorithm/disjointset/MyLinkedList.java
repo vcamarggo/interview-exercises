@@ -1,6 +1,6 @@
 package com.interview.sde.algorithm.disjointset;
 
-//https://leetcode.com/problems/design-linked-list/submissions/
+//https://leetcode.com/problems/design-linked-list/
 public class MyLinkedList {
 
     Node head;

@@ -1,4 +1,4 @@
-package com.interview.sde.algorithm.implementation;
+package com.interview.sde.algorithm.search;
 
 import java.util.Scanner;
 

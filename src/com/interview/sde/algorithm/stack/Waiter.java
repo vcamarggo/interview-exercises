@@ -1,4 +1,4 @@
-package com.interview.sde.algorithm.datastructure;
+package com.interview.sde.algorithm.stack;
 
 import java.util.*;
 

@@ -3,6 +3,7 @@ package com.interview.sde.algorithm.datastructure;
 import java.io.IOException;
 import java.util.*;
 
+//https://www.hackerrank.com/challenges/queries-with-fixed-length/problem
 public class QueriesWithFixedLength {
 
     // Complete the solve function below.
