@@ -1,10 +1,14 @@
 package com.interview.sde.algorithm.search;
 
-import java.util.*;
+import java.util.ArrayDeque;
+import java.util.Deque;
+import java.util.Scanner;
 
 //Flexible implementation of BFS/DFS using Dequeue
 //https://www.hackerrank.com/challenges/connected-cell-in-a-grid/problem
 public class ConnectedCells {
+
+    private static final Scanner scanner = new Scanner(System.in);
 
     // Complete the connectedCell function below.
     static int connectedCell(int[][] matrix) {
@@ -91,8 +95,6 @@ public class ConnectedCells {
         }
         return max;
     }
-
-    private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
 

@@ -2,32 +2,24 @@ package com.interview.sde.algorithm.search;
 
 import java.util.Arrays;
 
-//https://leetcode.com/problems/search-a-2d-matrix-ii/
+//https://leetcode.com/problems/search-a-2d-matrix/
 public class MatrixBinarySearch {
     static boolean searchMatrix(int[][] matrix, int target) {
-        int column = matrix[0].length;
-        for (int[] ints : matrix) {
-            column = Arrays.binarySearch(ints, 0, column, target);
-
-            if (column >= 0) {
-                return true;
+        final int lastColumn = matrix[0].length - 1;
+        for (int[] row : matrix) {
+            if (row[lastColumn] >= target) {
+                return Arrays.binarySearch(row, target) >= 0;
             }
-            column = Math.abs(++column);
         }
-
         return false;
     }
 
     public static void main(String[] args) {
         System.out.println(searchMatrix(new int[][]{
-                        new int[]{1, 4, 7, 11, 15},
-                        new int[]{2, 5, 8, 12, 19},
-                        new int[]{3, 6, 9, 16, 22},
-                        new int[]{10, 13, 14, 17, 24},
-                        new int[]{18, 21, 23, 26, 30}},
-                5));
-        System.out.println(searchMatrix(new int[][]{
-                        new int[]{-1, 3}},
-                3));
+                        new int[]{1, 3, 5, 7},
+                        new int[]{10, 11, 16, 20},
+                        new int[]{23, 30, 34, 60},
+                },
+                32));
     }
 }

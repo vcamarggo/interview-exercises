@@ -8,6 +8,8 @@ import java.util.Scanner;
 //https://www.hackerrank.com/challenges/2d-array/problem
 public class D2ArrayDS {
 
+    private static final Scanner scanner = new Scanner(System.in);
+
     // Complete the hourglassSum function below.
     static int hourglassSum(int[][] arr) {
         int max = Integer.MIN_VALUE;
@@ -22,8 +24,6 @@ public class D2ArrayDS {
         return max;
 
     }
-
-    private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) throws IOException {
         BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));

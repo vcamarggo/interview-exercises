@@ -5,6 +5,8 @@ import java.util.Scanner;
 //https://www.hackerrank.com/challenges/queens-attack-2/problem
 public class QueensAttack2 {
 
+    private static final Scanner scanner = new Scanner(System.in);
+
     static int queensAttack(int boardSize, int rowQueen, int columnQueen, int[][] obstacles) {
         rowQueen = boardSize + 1 - rowQueen;
 
@@ -99,8 +101,6 @@ public class QueensAttack2 {
 
         return totalAttacks;
     }
-
-    private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
 

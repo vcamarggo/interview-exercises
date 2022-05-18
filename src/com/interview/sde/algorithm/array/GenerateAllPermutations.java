@@ -1,6 +1,10 @@
 package com.interview.sde.algorithm.array;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Collectors;
 
 //https://leetcode.com/problems/subsets/
 public class GenerateAllPermutations {
@@ -33,7 +37,8 @@ public class GenerateAllPermutations {
                 solution.add(clone);
             }
         }
-        return solution;
+        //Remove the sorting part if you want to submit this on leetcode, I've added to try ordering of arrays
+        return solution.stream().sorted(Comparator.comparing(Object::toString)).collect(Collectors.toList());
     }
 
 

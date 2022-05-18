@@ -8,6 +8,8 @@ import java.util.Scanner;
 //https://www.hackerrank.com/challenges/connected-cell-in-a-grid/problem
 public class ConnectedCellsNoExtraClasses {
 
+    private static final Scanner scanner = new Scanner(System.in);
+
     static int connectedCellDFS(int[][] matrix) {
         return connectedCell(matrix, true);
     }
@@ -98,9 +100,6 @@ public class ConnectedCellsNoExtraClasses {
         }
         return max;
     }
-
-
-    private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
 

@@ -8,6 +8,8 @@ import java.util.Scanner;
 //https://www.hackerrank.com/challenges/sparse-arrays/problem
 public class SparseArrays {
 
+    private static final Scanner scanner = new Scanner(System.in);
+
     // Complete the matchingStrings function below.
     static int[] matchingStrings(String[] strings, String[] queries) {
         int[] output = new int[queries.length];
@@ -20,8 +22,6 @@ public class SparseArrays {
         }
         return output;
     }
-
-    private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) throws IOException {
         BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));

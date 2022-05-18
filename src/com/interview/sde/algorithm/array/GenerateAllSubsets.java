@@ -1,6 +1,8 @@
 package com.interview.sde.algorithm.array;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 //https://leetcode.com/problems/subsets/
 public class GenerateAllSubsets {

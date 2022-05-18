@@ -5,6 +5,8 @@ import java.util.Scanner;
 //https://www.hackerrank.com/challenges/the-grid-search/problem
 public class TheGridSearch {
 
+    private static final Scanner scanner = new Scanner(System.in);
+
     // Complete the gridSearch function below.
     static String gridSearch(String[] G, String[] P) {
         for (int i = 0; i <= G.length - P.length; i++) {
@@ -32,8 +34,6 @@ public class TheGridSearch {
         }
         return "NO";
     }
-
-    private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
 

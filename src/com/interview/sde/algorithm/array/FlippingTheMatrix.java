@@ -8,6 +8,8 @@ import java.util.Scanner;
 //https://www.hackerrank.com/challenges/flipping-the-matrix/problem
 public class FlippingTheMatrix {
 
+    private static final Scanner scanner = new Scanner(System.in);
+
     static int flippingMatrix(int[][] matrix) {
         int sum = 0;
         for (int row1 = 0; row1 < matrix.length / 2; row1++) {
@@ -19,8 +21,6 @@ public class FlippingTheMatrix {
         }
         return sum;
     }
-
-    private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) throws IOException {
         BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));

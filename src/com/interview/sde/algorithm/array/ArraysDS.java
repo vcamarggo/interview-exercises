@@ -8,6 +8,8 @@ import java.util.Scanner;
 
 public class ArraysDS {
 
+    private static final Scanner scanner = new Scanner(System.in);
+
     // Complete the reverseArray function below.
     static int[] reverseArray(int[] a) {
         int[] b = new int[a.length];
@@ -15,8 +17,6 @@ public class ArraysDS {
             b[a.length - 1 - i] = a[i];
         return b;
     }
-
-    private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) throws IOException {
         BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));

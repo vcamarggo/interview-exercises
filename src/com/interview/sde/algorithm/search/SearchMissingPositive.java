@@ -16,7 +16,7 @@ public class SearchMissingPositive {
                 return i;
             }
         }
-        return nums.length+1;
+        return nums.length + 1;
     }
 
 }
