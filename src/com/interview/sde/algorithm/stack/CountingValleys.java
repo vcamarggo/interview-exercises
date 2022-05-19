@@ -9,6 +9,8 @@ import java.util.Stack;
 //https://www.hackerrank.com/challenges/counting-valleys/problem
 public class CountingValleys {
 
+    private static final Scanner scanner = new Scanner(System.in);
+
     //Complete the countingValleys function below.
     static int countingValleys(int n, String s) {
         Stack<Character> stack = new Stack<>();
@@ -28,8 +30,6 @@ public class CountingValleys {
         return result;
 
     }
-
-    private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) throws IOException {
         BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));

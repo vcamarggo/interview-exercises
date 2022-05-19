@@ -5,6 +5,8 @@ import java.util.Scanner;
 //https://www.hackerrank.com/challenges/equal-stacks/problem
 public class EqualStacks {
 
+    private static final Scanner scanner = new Scanner(System.in);
+
     /*
      * Complete the equalStacks function below.
      */
@@ -43,8 +45,6 @@ public class EqualStacks {
         }
         return accumulator;
     }
-
-    private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
 

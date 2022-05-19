@@ -4,6 +4,8 @@ import java.util.*;
 
 //https://www.hackerrank.com/challenges/waiter/problem
 public class Waiter {
+    private static final Scanner scanner = new Scanner(System.in);
+
     /*
      * Complete the waiter function below.
      */
@@ -72,9 +74,6 @@ public class Waiter {
         }
         return primeNumbers;
     }
-
-
-    private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
 

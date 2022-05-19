@@ -1,6 +1,7 @@
 package com.interview.sde.algorithm.stack;
 
-import java.util.*;
+import java.util.Scanner;
+import java.util.Stack;
 
 // https://www.hackerrank.com/challenges/maximum-element/problem
 public class MaximumElement {
