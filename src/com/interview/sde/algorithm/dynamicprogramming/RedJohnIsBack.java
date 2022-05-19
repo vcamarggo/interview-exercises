@@ -2,6 +2,7 @@ package com.interview.sde.algorithm.dynamicprogramming;
 
 import java.util.Scanner;
 
+//https://www.hackerrank.com/challenges/red-john-is-back/problem
 public class RedJohnIsBack {
 
     static int[] memo = new int[41];

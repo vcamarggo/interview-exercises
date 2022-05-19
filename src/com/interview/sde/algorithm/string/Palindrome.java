@@ -1,3 +1,5 @@
+package com.interview.sde.algorithm.string;
+
 //https://leetcode.com/problems/valid-palindrome/
 class Palindrome {
     public boolean isPalindrome(String s) {
