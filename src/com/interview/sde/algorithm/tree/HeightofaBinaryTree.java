@@ -10,18 +10,7 @@ public class HeightofaBinaryTree {
     }
 
     public static int height(Node root) {
-        if (root == null) {
-            return -1;
-        } else {
-            int leftHeight = height(root.left);
-            int rightHeight = height(root.right);
-            if (leftHeight > rightHeight) {
-                return leftHeight + 1;
-            } else {
-                return rightHeight + 1;
-            }
-        }
-
+        return root == null ? -1 : Math.max(height(root.left) + 1 , height(root.right) + 1);
     }
 
 
