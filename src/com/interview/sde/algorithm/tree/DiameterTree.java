@@ -13,11 +13,15 @@ public class DiameterTree {
     }
 
     static int height(TreeNode root) {
-        return root == null ? 0 : Math.max(height(root.left) + 1, height(root.right) + 1);
+        return root == null
+                ? 0
+                : Math.max(height(root.left) + 1, height(root.right) + 1);
     }
 
     static int diameterOfBinaryTree(TreeNode root) {
-        return root == null ? 0 :  Math.max(height(root.left) + height(root.right), Math.max(diameterOfBinaryTree(root.left), diameterOfBinaryTree(root.right)));
+        return root == null
+                ? 0
+                : Math.max(height(root.left) + height(root.right), Math.max(diameterOfBinaryTree(root.left), diameterOfBinaryTree(root.right)));
     }
 
     public static class TreeNode {

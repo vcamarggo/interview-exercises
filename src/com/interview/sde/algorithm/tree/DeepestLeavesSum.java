@@ -8,11 +8,17 @@ public class DeepestLeavesSum {
     }
 
     int deepestLeavesSum(TreeNode root, int height, int maxHeight) {
-        return root == null ? 0 : root.left == null && root.right == null && height == maxHeight ? root.val : deepestLeavesSum(root.left, height + 1, maxHeight) + deepestLeavesSum(root.right, height + 1, maxHeight);
+        return root == null
+                ? 0
+                : root.left == null && root.right == null && height == maxHeight
+                ? root.val
+                : deepestLeavesSum(root.left, height + 1, maxHeight) + deepestLeavesSum(root.right, height + 1, maxHeight);
     }
 
     int height(TreeNode root) {
-        return root == null ? 0 : Math.max(height(root.left), height(root.right)) + 1;
+        return root == null
+                ? 0
+                : Math.max(height(root.left), height(root.right)) + 1;
     }
 
     public static class TreeNode {

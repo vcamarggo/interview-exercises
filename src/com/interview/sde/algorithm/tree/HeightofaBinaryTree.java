@@ -10,7 +10,9 @@ public class HeightofaBinaryTree {
     }
 
     public static int height(Node root) {
-        return root == null ? -1 : Math.max(height(root.left) + 1 , height(root.right) + 1);
+        return root == null
+                ? -1
+                : Math.max(height(root.left) + 1 , height(root.right) + 1);
     }
 
 
