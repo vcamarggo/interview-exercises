@@ -1,7 +1,7 @@
 package com.interview.sde.algorithm.tree;
 
 //https://leetcode.com/problems/symmetric-tree/
-public class isSymmetric {
+public class IsSymmetric {
     /**
      * Definition for a binary tree node.
      * public class TreeNode {
