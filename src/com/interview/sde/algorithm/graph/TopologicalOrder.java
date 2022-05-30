@@ -1,16 +1,17 @@
 package com.interview.sde.algorithm.graph;
 
-import java.util.HashSet;
-import java.util.Scanner;
-import java.util.Set;
+import java.util.*;
 
 public class TopologicalOrder {
 
 
     static int postNumber = 1;
+    static Set<Integer> visiting = new HashSet<>();
     static Set<Integer> visited = new HashSet<>();
     static boolean[][] edges;
     static int[] postOrderNumber;
+    static boolean foundLoop;
+
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -36,15 +37,18 @@ public class TopologicalOrder {
         }
 
         topologicalOrder(edges);
-
     }
 
     private static void topologicalOrder(boolean[][] edges) {
 
         for (int node = 1; node < edges.length; node++) {
-            if (!visited.contains(node)) {
+            if (!visited.contains(node) && !visiting.contains(node)) {
                 dfs(node);
             }
+        }
+        if(foundLoop){
+            System.out.println("No solution");
+            return;
         }
 
         // Fancy O(n) version
@@ -53,22 +57,31 @@ public class TopologicalOrder {
             topologicalOrder[postOrderNumber[i]] = i;
         }
 
+        StringBuilder sb = new StringBuilder();
         for (int i = topologicalOrder.length - 1; i >= 0; i--) {
             if (topologicalOrder[i] != 0) {
-                System.out.println(topologicalOrder[i]);
+                sb.append(topologicalOrder[i]).append(" ");
             }
         }
+        System.out.println(sb.toString().trim());
     }
 
 
     private static void dfs(int node) {
+
         postNumber++;
-        visited.add(node);
-        for (int destination = 1; destination < edges.length; destination++) {
-            if (edges[node][destination] && !visited.contains(destination)) {
-                dfs(destination);
+        visiting.add(node);
+        for (int destination = 1; destination < edges.length && !foundLoop; destination++) {
+            if (edges[node][destination]) {
+                if (visiting.contains(destination)) {
+                    foundLoop = true;
+                } else if(!visited.contains(destination)) {
+                    dfs(destination);
+                }
             }
         }
+        visiting.remove(node);
+        visited.add(node);
         postOrderNumber[node] = postNumber++;
     }
 }
