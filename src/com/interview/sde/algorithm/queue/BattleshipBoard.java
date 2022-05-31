@@ -3,13 +3,12 @@ package com.interview.sde.algorithm.queue;
 import java.util.LinkedList;
 import java.util.Queue;
 
-//https://leetcode.com/problems/number-of-islands/
-public class NumberOfIslands {
-    public int numIslands(char[][] grid) {
-
+//https://leetcode.com/problems/battleships-in-a-board/
+public class BattleshipBoard {
+    public int countBattleships(char[][] grid) {
         int max = 0;
-        final char TARGET = '1';
-        final char AVOID = '0';
+        final char TARGET = 'X';
+        final char AVOID = '.';
 
 
         for (int r = 0; r < grid.length; r++) {

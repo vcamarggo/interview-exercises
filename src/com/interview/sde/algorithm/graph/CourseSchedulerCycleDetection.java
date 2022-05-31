@@ -3,49 +3,40 @@ package com.interview.sde.algorithm.graph;
 import java.util.*;
 
 //https://leetcode.com/problems/course-schedule
-//Timeout
 public class CourseSchedulerCycleDetection {
 
     public static boolean canFinish(int numCourses, int[][] prerequisites) {
-        Map<Integer, List<Integer>> adjacencyList = new HashMap<>();
+        Map<Integer, List<Integer>> outEdges = new HashMap<>();
+        int[] inEdges = new int[numCourses];
+        int solutionIndex = 0;
 
-        for (int[] edgeData : prerequisites) {
-            List<Integer> edges = adjacencyList.getOrDefault(edgeData[1], new ArrayList<>());
-            edges.add(edgeData[0]);
-            adjacencyList.put(edgeData[1], edges);
+        for (int[] edge : prerequisites) {
+            //In is the first one because it depends on the second
+            int in = edge[0];
+            int out = edge[1];
+
+            outEdges.computeIfAbsent(out, k -> new ArrayList<>()).add(in);
+
+            inEdges[in]++;
         }
-        return !graphHasCycle(numCourses, adjacencyList);
-    }
-
-    private static boolean graphHasCycle(int numCourses, Map<Integer, List<Integer>> adjacencyList) {
-        Set<Integer> visited = new HashSet<>();
-
-        for (int node = 0; node < numCourses; node++) {
-            if (isCycle(node, adjacencyList, visited)) {
-                return true;
+        Queue<Integer> emptyInEdge = new LinkedList<>();
+        for (int i = 0; i < numCourses; i++) {
+            if (inEdges[i] == 0) {
+                emptyInEdge.offer(i);
             }
         }
 
-        return false;
-    }
-
-
-    private static boolean isCycle(final int node, Map<Integer, List<Integer>> adjacencyList, Set<Integer> visited) {
-
-        if (visited.contains(node)) {
-            return true;
-        }
-
-        visited.add(node);
-
-        for (Integer adjacency : adjacencyList.getOrDefault(node, new ArrayList<>())) {
-            if (isCycle(adjacency, adjacencyList, visited) || visited.contains(node)) {
-                return true;
+        while (!emptyInEdge.isEmpty()) {
+            int node = emptyInEdge.poll();
+            solutionIndex++;
+            for (int neighbor : outEdges.getOrDefault(node, new ArrayList<>())) {
+                inEdges[neighbor]--;
+                if (inEdges[neighbor] == 0) {
+                    emptyInEdge.offer(neighbor);
+                }
             }
         }
 
-        visited.remove(node);
-
-        return false;
+        return solutionIndex == numCourses;
     }
 }

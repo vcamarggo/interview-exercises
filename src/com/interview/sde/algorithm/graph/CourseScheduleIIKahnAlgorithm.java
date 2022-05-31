@@ -27,9 +27,8 @@ public class CourseScheduleIIKahnAlgorithm {
             //In is the first one because it depends on the second
             int in = edge[0];
             int out = edge[1];
-            List<Integer> outList = outEdges.getOrDefault(out, new ArrayList<>());
-            outList.add(in);
-            outEdges.put(out, outList);
+
+            outEdges.computeIfAbsent(out, k -> new ArrayList<>()).add(in);
 
             inEdges[in]++;
         }
