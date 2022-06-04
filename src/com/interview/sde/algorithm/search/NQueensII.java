@@ -1,9 +1,9 @@
-package com.interview.sde.algorithm.stack;
+package com.interview.sde.algorithm.search;
 
 import java.util.LinkedList;
 
 //https://leetcode.com/problems/n-queens-ii/
-public class NQueens {
+public class NQueensII {
     static int totalNQueens(int n) {
 
         int result = 0;
