@@ -9,7 +9,7 @@ public class WordBreak {
     private final Map<String, Boolean> memo = new HashMap<>();
 
     public static void main(String[] args) {
-        new WordBreak().wordBreak("leetcode", List.of("leet", "code"));
+        System.out.println(new WordBreak().wordBreak("leetcode", List.of("leet", "code")));
     }
 
     boolean wordBreak(String s, List<String> wordDict) {
@@ -20,9 +20,8 @@ public class WordBreak {
             memo.put(s, true);
             return true;
         }
-        for (int i = 1; i <= s.length(); i++) {
-            String sub = s.substring(0, i);
-            if (wordDict.contains(sub) && wordBreak(s.substring(i), wordDict)) {
+        for (String word : wordDict){
+            if(s.startsWith(word) && wordBreak(s.substring(word.length()), wordDict)) {
                 memo.put(s, true);
                 return true;
             }
