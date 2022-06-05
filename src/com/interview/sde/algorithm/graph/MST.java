@@ -20,6 +20,10 @@ public class MST {
         //nodes ID ignored
         scanner.nextLine();
 
+        for (int[] edge : edges) {
+            Arrays.fill(edge, -1);
+        }
+
         for (int i = 0; i < edgesNumber; i++) {
             String[] edgeData = scanner.nextLine().split(" ");
 
@@ -44,7 +48,7 @@ public class MST {
             parents[i] = i;
 
             for (int j = i + 1; j < edges[0].length; j++) {
-                if (edges[i][j] != 0) {
+                if (edges[i][j] != -1) {
                     edgesToProcess.add(new int[]{i, j, edges[i][j]});
                 }
             }
@@ -110,7 +114,7 @@ public class MST {
             solution.put(node.id, node);
 
             for (int i = 1; i < edges.length; i++) {
-                if (allNodes.get(i).weight > edges[node.id][i] && edges[node.id][i] != 0 && !solution.containsKey(i)) {
+                if (allNodes.get(i).weight > edges[node.id][i] && edges[node.id][i] != -1 && !solution.containsKey(i)) {
                     allNodes.get(i).parent = node.id;
                     allNodes.get(i).weight = edges[node.id][i];
                 }
