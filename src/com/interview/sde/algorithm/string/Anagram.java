@@ -8,6 +8,8 @@ import java.util.Scanner;
 
 //https://www.hackerrank.com/challenges/anagram/problem
 public class Anagram {
+    private static final Scanner scanner = new Scanner(System.in);
+
     // Complete the anagram function below.
     static int anagram(String s) {
         if (s.length() % 2 == 1) {
@@ -35,8 +37,6 @@ public class Anagram {
 
         return counter;
     }
-
-    private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) throws IOException {
         BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));

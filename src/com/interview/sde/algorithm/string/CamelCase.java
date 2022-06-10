@@ -8,6 +8,8 @@ import java.util.Scanner;
 //https://www.hackerrank.com/challenges/camelcase/problem
 public class CamelCase {
 
+    private static final Scanner scanner = new Scanner(System.in);
+
     // Complete the camelcase function below.
     static int camelcase(String s) {
         char[] sArray = s.toCharArray();
@@ -19,8 +21,6 @@ public class CamelCase {
         }
         return counter;
     }
-
-    private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) throws IOException {
         BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));

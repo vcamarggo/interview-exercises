@@ -11,6 +11,8 @@ import java.util.Set;
 //https://www.hackerrank.com/challenges/two-strings/problem
 public class TwoStrings {
 
+    private static final Scanner scanner = new Scanner(System.in);
+
     // Complete the twoStrings function below.
     static String twoStrings(String s1, String s2) {
         Set<String> uniqueCharacterOfString1 = new HashSet<>(Arrays.asList(s1.split("")));
@@ -21,8 +23,6 @@ public class TwoStrings {
         }
         return "NO";
     }
-
-    private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) throws IOException {
         BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));

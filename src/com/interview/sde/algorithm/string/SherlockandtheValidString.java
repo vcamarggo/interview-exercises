@@ -11,6 +11,8 @@ import java.util.Scanner;
 //https://www.hackerrank.com/challenges/sherlock-and-valid-string/problem
 public class SherlockandtheValidString {
 
+    private static final Scanner scanner = new Scanner(System.in);
+
     static String isValid(String s) {
         HashMap<Character, Integer> charMap = new HashMap<>();
 
@@ -61,8 +63,6 @@ public class SherlockandtheValidString {
         }
         return "NO";
     }
-
-    private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) throws IOException {
         BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));

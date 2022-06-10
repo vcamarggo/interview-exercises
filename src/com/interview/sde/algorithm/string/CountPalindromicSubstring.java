@@ -9,6 +9,7 @@ public class CountPalindromicSubstring {
         System.out.println(countSubstrings("aaa"));
         System.out.println(countSubstrings(""));
     }
+
     public static int countSubstrings(String s) {
         char[] stringAsChar = s.toCharArray();
         int count = 0;
@@ -20,7 +21,7 @@ public class CountPalindromicSubstring {
             }
 
             //second try: expand the palindrome over a pair i,i+1 like in "bb" or "aabbaa"
-            for (int left = i, right = i+1; left >= 0 && right < stringAsChar.length && stringAsChar[left] == stringAsChar[right]; left--, right++) {
+            for (int left = i, right = i + 1; left >= 0 && right < stringAsChar.length && stringAsChar[left] == stringAsChar[right]; left--, right++) {
                 count++;
             }
         }

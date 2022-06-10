@@ -3,9 +3,14 @@ package com.interview.sde.algorithm.datastructure;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
+import java.util.Stack;
 
 public class AndXorOr {
+    private static final Scanner scanner = new Scanner(System.in);
+
     static long andXorOrSlow(int[] numbers) {
         int maxIndex = -1;
         int maxNumber = -1;
@@ -65,9 +70,6 @@ public class AndXorOr {
         }
         return max;
     }
-
-
-    private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));

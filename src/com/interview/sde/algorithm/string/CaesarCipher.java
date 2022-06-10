@@ -8,6 +8,8 @@ import java.util.Scanner;
 //https://www.hackerrank.com/challenges/caesar-cipher-1/problem
 public class CaesarCipher {
 
+    private static final Scanner scanner = new Scanner(System.in);
+
     static String caesarCipher(String s, int k) {
         char[] charArray = s.toCharArray();
         for (int i = 0; i < charArray.length; i++) {
@@ -27,8 +29,6 @@ public class CaesarCipher {
         }
         return new String(charArray);
     }
-
-    private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) throws IOException {
         BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));

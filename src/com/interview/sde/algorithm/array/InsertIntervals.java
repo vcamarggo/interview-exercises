@@ -26,7 +26,7 @@ public class InsertIntervals {
     }
 
     static int[][] insert(int[][] intervals, int[] newInterval) {
-        int[][] unmergedIntervals = Arrays.copyOf(intervals, intervals.length+1);
+        int[][] unmergedIntervals = Arrays.copyOf(intervals, intervals.length + 1);
         unmergedIntervals[intervals.length] = newInterval;
         return merge(unmergedIntervals);
     }

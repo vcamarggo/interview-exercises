@@ -5,6 +5,8 @@ import java.util.Scanner;
 
 //https://www.hackerrank.com/challenges/weighted-uniform-string/problem
 public class WeightedUniformStrings {
+    private static final Scanner scanner = new Scanner(System.in);
+
     // Complete the weightedUniformStrings function below.
     static String[] weightedUniformStrings(String s, int[] queries) {
         String[] result = new String[queries.length];
@@ -31,8 +33,6 @@ public class WeightedUniformStrings {
         }
         return result;
     }
-
-    private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
         String s = scanner.nextLine();

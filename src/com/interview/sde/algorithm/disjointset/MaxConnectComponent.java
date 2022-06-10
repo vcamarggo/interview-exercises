@@ -19,6 +19,7 @@ public class MaxConnectComponent {
         }
         return maxSize;
     }
+
     private static class DisjointSet {
         //Pre-initialize the load factor based on 2*queries length improves speed
         private final Map<Integer, ParentSize> parentSize = new HashMap<>();
@@ -51,7 +52,7 @@ public class MaxConnectComponent {
 
             public ParentSize(int parent) {
                 this.parent = parent;
-                this.size=1;
+                this.size = 1;
             }
 
         }

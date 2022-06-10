@@ -16,6 +16,15 @@ public class KLargestElementStream {
         }
     }
 
+    public static void main(String[] args) {
+        KLargestElementStream kles = new KLargestElementStream(1, new int[]{});
+        System.out.println(kles.add(3));
+        System.out.println(kles.add(5));
+        System.out.println(kles.add(10));
+        System.out.println(kles.add(9));
+        System.out.println(kles.add(4));
+    }
+
     public int add(int val) {
         if (dataStore.size() < K) {
             dataStore.offer(val);
@@ -24,15 +33,6 @@ public class KLargestElementStream {
             dataStore.offer(val);
         }
         return dataStore.peek();
-    }
-
-    public static void main(String[] args) {
-        KLargestElementStream kles = new KLargestElementStream(1, new int[]{});
-        System.out.println(kles.add(3));
-        System.out.println(kles.add(5));
-        System.out.println(kles.add(10));
-        System.out.println(kles.add(9));
-        System.out.println(kles.add(4));
     }
 
 }

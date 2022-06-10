@@ -8,6 +8,8 @@ import java.util.Scanner;
 //https://www.hackerrank.com/challenges/strong-password/problem
 public class StrongPassword {
 
+    private static final Scanner scanner = new Scanner(System.in);
+
     // Complete the minimumNumber function below.
     static int minimumNumber(String password) {
         int counterMissingGroup = 0;
@@ -27,8 +29,6 @@ public class StrongPassword {
 
         return Math.max(counterMissingGroup, 6 - password.length());
     }
-
-    private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) throws IOException {
         BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));

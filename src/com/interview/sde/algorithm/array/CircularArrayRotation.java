@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
+
 //https://www.hackerrank.com/challenges/circular-array-rotation/problem
 //https://leetcode.com/problems/rotate-array/
 public class CircularArrayRotation {

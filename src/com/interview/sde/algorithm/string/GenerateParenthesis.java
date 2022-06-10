@@ -6,7 +6,7 @@ import java.util.List;
 //https://leetcode.com/problems/generate-parentheses/
 public class GenerateParenthesis {
     static List<String> generateParenthesis(int n) {
-        return generateParentheses(n*2, n, n, new StringBuilder());
+        return generateParentheses(n * 2, n, n, new StringBuilder());
     }
 
     static List<String> generateParentheses(int total, int remainingOpen, int remainingClose, StringBuilder solution) {

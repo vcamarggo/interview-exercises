@@ -9,7 +9,7 @@ public class LongestWordInDictionary {
 
     public static void main(String[] args) {
         System.out.println(new LongestWordInDictionary().longestWord(new String[]{"a", "banana", "app", "appl", "ap", "apply", "apple"}));
-        System.out.println(new LongestWordInDictionary().longestWord(new String[]{"w","wo","wor","worl","world"}));
+        System.out.println(new LongestWordInDictionary().longestWord(new String[]{"w", "wo", "wor", "worl", "world"}));
     }
 
     public String longestWord(String[] words) {

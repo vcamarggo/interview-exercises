@@ -7,6 +7,8 @@ import java.util.Scanner;
 
 //https://www.hackerrank.com/challenges/palindrome-index/problem
 public class PalindromeIndex {
+    private static final Scanner scanner = new Scanner(System.in);
+
     // Complete the palindromeIndex function below.
     static int palindromeIndex(String s) {
         int palindromeIndex = -1;
@@ -29,8 +31,6 @@ public class PalindromeIndex {
                 return false;
         return true;
     }
-
-    private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) throws IOException {
         BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));

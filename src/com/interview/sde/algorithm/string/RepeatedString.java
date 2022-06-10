@@ -9,6 +9,8 @@ import java.util.Scanner;
 public class RepeatedString {
 
 
+    private static final Scanner scanner = new Scanner(System.in);
+
     // Complete the repeatedString function below.
     static long repeatedString(String s, long n) {
         long countA = (s.split("a", -1).length) - 1;
@@ -21,8 +23,6 @@ public class RepeatedString {
         return (countA * repeat) + count;
 
     }
-
-    private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) throws IOException {
         BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));

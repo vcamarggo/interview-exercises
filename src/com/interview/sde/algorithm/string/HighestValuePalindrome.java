@@ -4,6 +4,8 @@ import java.util.Scanner;
 
 //https://www.hackerrank.com/challenges/richie-rich/problem
 public class HighestValuePalindrome {
+    private static final Scanner scanner = new Scanner(System.in);
+
     // Complete the highestValuePalindrome function below.
     static String highestValuePalindrome(String s, int n, int k) {
         char[] inputChar = s.toCharArray();
@@ -44,8 +46,6 @@ public class HighestValuePalindrome {
         }
         return String.valueOf(inputChar);
     }
-
-    private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
 

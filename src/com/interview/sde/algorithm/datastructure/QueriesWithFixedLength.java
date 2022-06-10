@@ -6,6 +6,8 @@ import java.util.*;
 //https://www.hackerrank.com/challenges/queries-with-fixed-length/problem
 public class QueriesWithFixedLength {
 
+    private static final Scanner scanner = new Scanner(System.in);
+
     // Complete the solve function below.
     static int[] solve(int[] arr, int[] queries) {
         int[] result = new int[queries.length];
@@ -38,8 +40,6 @@ public class QueriesWithFixedLength {
         }
         return result;
     }
-
-    private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) throws IOException {
 

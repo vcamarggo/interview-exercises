@@ -27,7 +27,8 @@ public class ComponentsInGraph {
     }
 
     private static class DisjointSet {
-        private int[] parent, size;
+        private final int[] parent;
+        private final int[] size;
 
         public DisjointSet(int n) {
             this.parent = new int[n + 1];

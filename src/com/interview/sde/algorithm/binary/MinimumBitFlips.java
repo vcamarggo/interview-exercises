@@ -1,8 +1,5 @@
 package com.interview.sde.algorithm.binary;
 
-import java.util.Arrays;
-import java.util.stream.Stream;
-
 //https://leetcode.com/problems/minimum-bit-flips-to-convert-number/
 public class MinimumBitFlips {
     static int minBitFlips(int start, int goal) {

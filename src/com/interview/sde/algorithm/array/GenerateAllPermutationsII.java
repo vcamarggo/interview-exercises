@@ -1,14 +1,12 @@
 package com.interview.sde.algorithm.array;
 
-import java.util.*;
-import java.util.stream.Collectors;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
 
 //https://leetcode.com/problems/permutations-ii/
 public class GenerateAllPermutationsII {
-    public List<List<Integer>> permuteUnique(int[] nums) {
-        return permute(nums, nums.length-1);
-    }
-
     public static List<List<Integer>> permute(int[] nums, int size) {
         List<List<Integer>> solution = new ArrayList<>();
 
@@ -31,6 +29,10 @@ public class GenerateAllPermutationsII {
             }
         }
         return new ArrayList<>(new HashSet<>(solution));
+    }
+
+    public List<List<Integer>> permuteUnique(int[] nums) {
+        return permute(nums, nums.length - 1);
     }
 
 

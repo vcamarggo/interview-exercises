@@ -18,7 +18,8 @@ public class GenerateAllSubsetsII {
                     List<Integer> aggregator = new ArrayList<>(solution.get(i));
                     aggregator.add(number);
 
-                    Collections.sort(aggregator) ;                   solution.add(aggregator);
+                    Collections.sort(aggregator);
+                    solution.add(aggregator);
                 }
             }
             solution.add(new ArrayList<>(Collections.singletonList(number)));

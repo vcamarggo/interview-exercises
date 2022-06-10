@@ -6,6 +6,8 @@ import java.util.Scanner;
 //https://www.hackerrank.com/challenges/bear-and-steady-gene/problem
 public class BearAndSteadyGene {
 
+    private static final Scanner scanner = new Scanner(System.in);
+
     // Complete the steadyGene function below.
     static int steadyGene(String gene) {
         int occurrenceOfEach = gene.length() / 4;
@@ -52,8 +54,6 @@ public class BearAndSteadyGene {
 
         return min;
     }
-
-    private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
 

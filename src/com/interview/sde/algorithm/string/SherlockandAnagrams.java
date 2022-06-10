@@ -10,6 +10,8 @@ import java.util.Scanner;
 //https://www.hackerrank.com/challenges/sherlock-and-anagrams/problem
 public class SherlockandAnagrams {
 
+    private static final Scanner scanner = new Scanner(System.in);
+
     // Complete the sherlockAndAnagrams function below.
     static int sherlockAndAnagrams(String s) {
         int count = 0;
@@ -40,8 +42,6 @@ public class SherlockandAnagrams {
         return count;
 
     }
-
-    private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) throws IOException {
         BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));

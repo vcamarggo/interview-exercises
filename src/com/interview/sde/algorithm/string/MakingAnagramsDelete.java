@@ -9,6 +9,8 @@ import java.util.Scanner;
 //https://www.hackerrank.com/challenges/making-anagrams/problem
 public class MakingAnagramsDelete {
 
+    private static final Scanner scanner = new Scanner(System.in);
+
     // Complete the makingAnagrams function below.
     // This function counts number of deletion in both s1 and s2 to make them anagram of each other
     static int makingAnagrams(String s1, String s2) {
@@ -31,8 +33,6 @@ public class MakingAnagramsDelete {
 
         return counter;
     }
-
-    private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) throws IOException {
         BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));

@@ -8,6 +8,8 @@ import java.util.Scanner;
 //https://www.hackerrank.com/challenges/alternating-characters/problem
 public class AlternatingCharacters {
 
+    private static final Scanner scanner = new Scanner(System.in);
+
     // Complete the alternatingCharacters function below.
     static int alternatingCharacters(String s) {
 
@@ -19,8 +21,6 @@ public class AlternatingCharacters {
         return removeds;
 
     }
-
-    private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) throws IOException {
         BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
