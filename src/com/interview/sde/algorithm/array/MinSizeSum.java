@@ -11,8 +11,8 @@ public class MinSizeSum {
         int right = 0;
 
         //Sliding window implementation
-        //If did not fully slide left-to-right or right is at the end but the sum is gte than target
-        while (left < nums.length || right == nums.length && sum >= target) {
+        //If did not fully slide left-to-right
+        while (left < nums.length) {
 
             //If right is at the end or sum is gte target, slide window left-to-right
             if (right == nums.length || sum >= target) {

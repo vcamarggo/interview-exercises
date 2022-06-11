@@ -41,6 +41,8 @@ public class ComponentsInGraph {
 
         int find(int i) {
             while (parent[i] != i) {
+                //In theory path compression would make this faster, but in my tests, it did not.
+                //That is probably due to recursion overhead
                 i = parent[i];
             }
             return i;
@@ -50,6 +52,7 @@ public class ComponentsInGraph {
             int aParent = find(a);
             int bParent = find(b);
             if (aParent != bParent) {
+                //max min to do union by rank, where rank is the number natural ordering
                 int max = Math.max(aParent, bParent);
                 int min = Math.min(aParent, bParent);
                 size[max] += size[min];

@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 //https://leetcode.com/problems/find-center-of-star-graph/
-public class FindStartGraph {
+public class FindStarGraph {
     int findCenter(int[][] edges) {
 
         Map<Integer, Integer> edgeCounter = new HashMap<>();

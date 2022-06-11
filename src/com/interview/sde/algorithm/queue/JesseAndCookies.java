@@ -1,4 +1,4 @@
-package com.interview.sde.algorithm.priorityqueue;
+package com.interview.sde.algorithm.queue;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;

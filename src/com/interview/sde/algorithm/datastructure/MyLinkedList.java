@@ -1,4 +1,4 @@
-package com.interview.sde.algorithm.disjointset;
+package com.interview.sde.algorithm.datastructure;
 
 //https://leetcode.com/problems/design-linked-list/
 public class MyLinkedList {

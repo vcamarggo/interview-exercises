@@ -53,13 +53,15 @@ public class TopologicalOrder {
 
         // Fancy O(n) version
         int[] topologicalOrder = new int[postOrderNumber.length * 2];
-        for (int i = 1; i < postOrderNumber.length; i++) {
+        Arrays.fill(topologicalOrder, -1);
+
+        for (int i = 0; i < postOrderNumber.length; i++) {
             topologicalOrder[postOrderNumber[i]] = i;
         }
 
         StringBuilder sb = new StringBuilder();
         for (int i = topologicalOrder.length - 1; i >= 0; i--) {
-            if (topologicalOrder[i] != 0) {
+            if (topologicalOrder[i] != -1) {
                 sb.append(topologicalOrder[i]).append(" ");
             }
         }

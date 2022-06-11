@@ -1,49 +1,57 @@
 package com.interview.sde.algorithm.dynamicprogramming;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 //https://www.hackerrank.com/challenges/dynamic-programming-classics-the-longest-common-subsequence/problem
-public class LongestCommonSubsequence {
-    // Complete the longestCommonSubsequence function below.
-    static List<Integer> longestCommonSubsequence(int[] a, int[] b) {
-        int[][] dpMatrix = new int[a.length + 1][b.length + 1];
+//https://www.hackerrank.com/challenges/linkedin-practice-dynamic-programming-lcs/problem
 
-        for (int i = 1; i <= a.length; i++) {
-            for (int j = 1; j <= b.length; j++) {
-                if (a[i - 1] == b[j - 1]) {
-                    dpMatrix[i][j] = dpMatrix[i - 1][j - 1] + 1;
+public class LongestCommonSubsequence {
+    private static final Scanner scanner = new Scanner(System.in);
+
+    private static String lcsForStringChars(String s1, String s2) {
+        String lcsForArray = longestCommonSubsequence(s1.chars().mapToObj(c -> (char) c).toArray(Character[]::new),
+                s2.chars().mapToObj(c -> (char) c).toArray(Character[]::new));
+        return lcsForArray.replaceAll(" ", "");
+    }
+
+    // Complete the longestCommonSubsequence function below.
+    static <T> String longestCommonSubsequence(T[] a1, T[] a2) {
+        int[][] lcsCounter = new int[a1.length + 1][a2.length + 1];
+
+        for (int s1Index = 1; s1Index < lcsCounter.length; s1Index++) {
+            for (int s2Index = 1; s2Index < lcsCounter[0].length; s2Index++) {
+                if (a1[s1Index - 1].equals(a2[s2Index - 1])) {
+                    lcsCounter[s1Index][s2Index] = lcsCounter[s1Index - 1][s2Index - 1] + 1;
                 } else {
-                    dpMatrix[i][j] = Math.max(dpMatrix[i - 1][j], dpMatrix[i][j - 1]);
+                    lcsCounter[s1Index][s2Index] = Math.max(lcsCounter[s1Index - 1][s2Index], lcsCounter[s1Index][s2Index - 1]);
                 }
             }
         }
 
-        return getResult(a, dpMatrix); // it's in the wrong order, I'm reversing while printing.
-        // Change result.add(a[i - 1]); for result.add(0, a[i - 1]); to resolve without revert on printing
+        return getResult(a1, a2, lcsCounter);
     }
 
-    private static ArrayList<Integer> getResult(int[] a, int[][] dpMatrix) {
-        ArrayList<Integer> result = new ArrayList<>();
-        int i = dpMatrix.length - 1;
-        int j = dpMatrix[0].length - 1;
-        while (dpMatrix[dpMatrix.length - 1][dpMatrix[0].length - 1] > result.size()) { //the last point in the matrix has the size of the result
-            if (dpMatrix[i][j - 1] == dpMatrix[i - 1][j]) { // if they are equal, try to find in the diagonal point
-                if (dpMatrix[i][j] > dpMatrix[i - 1][j - 1]) //only add to solution if it was matching character
-                    result.add(a[i - 1]); // result.add(b[j - 1]); also works
-                i--;
-                j--;
-            } else if (dpMatrix[i][j - 1] > dpMatrix[i - 1][j]) {
-                j--;
+    private static <T> String getResult(T[] a1, T[] a2, int[][] lcsCounter) {
+        int resultCounter = 0;
+        StringBuilder resultString = new StringBuilder();
+
+        int s1Index = lcsCounter.length - 1;
+        int s2Index = lcsCounter[0].length - 1;
+        while (lcsCounter[lcsCounter.length - 1][lcsCounter[0].length - 1] > resultCounter) {
+            if (a1[s1Index - 1].equals(a2[s2Index - 1])) {
+                resultCounter++;
+                resultString.insert(0, a1[s1Index - 1] + " ");
+                s1Index--;
+                s2Index--;
+            } else if (lcsCounter[s1Index - 1][s2Index] > lcsCounter[s1Index][s2Index - 1]) {
+                s1Index--;
             } else {
-                i--;
+                s2Index--;
             }
         }
-        return result;
+        //returning the list of elements in string format separated by empty spaces
+        return resultString.toString().trim();
     }
-
-    private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
 
@@ -53,7 +61,7 @@ public class LongestCommonSubsequence {
 
         int m = Integer.parseInt(nm[1]);
 
-        int[] a = new int[n];
+        Integer[] a = new Integer[n];
 
         String[] aItems = scanner.nextLine().split(" ");
         scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
@@ -63,7 +71,7 @@ public class LongestCommonSubsequence {
             a[i] = aItem;
         }
 
-        int[] b = new int[m];
+        Integer[] b = new Integer[m];
 
         String[] bItems = scanner.nextLine().split(" ");
         scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
@@ -73,17 +81,15 @@ public class LongestCommonSubsequence {
             b[i] = bItem;
         }
 
-        List<Integer> result = longestCommonSubsequence(a, b);
+        String string1 = "GTACCGTCA";
+        String string2 = "CATCGA";
 
-        for (int i = result.size() - 1; i >= 0; i--) {
-            System.out.print(result.get(i));
+        String sentence1 = "1 2 3 4 1";
+        String sentence2 = "3 4 1 2 1 3";
+        System.out.println(lcsForStringChars(string1, string2));
+        System.out.println(longestCommonSubsequence(sentence1.split(" "), sentence2.split(" ")));
 
-            if (i != 0) {
-                System.out.print(" ");
-            }
-        }
-
-
+        System.out.println(longestCommonSubsequence(a, b));
         scanner.close();
     }
 }

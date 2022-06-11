@@ -8,6 +8,16 @@ public class DecodeWays {
 
     final Map<Integer, Integer> memo = new HashMap<>();
 
+    public static void main(String[] args) {
+        System.out.println(new DecodeWays().numDecodings("106"));
+        System.out.println(new DecodeWays().numDecodings("06"));
+//        System.out.println(new DecodeWays().numDecodings("23"));
+        System.out.println(new DecodeWays().numDecodings("226"));
+//        System.out.println(new DecodeWays().numDecodings("13"));
+//        System.out.println(new DecodeWays().numDecodings("134"));
+        System.out.println(new DecodeWays().numDecodings("1314"));
+    }
+
     public int numDecodings(String s) {
         return numDecodings(s, 0);
     }
@@ -46,16 +56,6 @@ public class DecodeWays {
         }
 
         return memo.get(current);
-    }
-
-    public static void main(String[] args) {
-        System.out.println(new DecodeWays().numDecodings("106"));
-        System.out.println(new DecodeWays().numDecodings("06"));
-//        System.out.println(new DecodeWays().numDecodings("23"));
-        System.out.println(new DecodeWays().numDecodings("226"));
-//        System.out.println(new DecodeWays().numDecodings("13"));
-//        System.out.println(new DecodeWays().numDecodings("134"));
-        System.out.println(new DecodeWays().numDecodings("1314"));
     }
 
 }

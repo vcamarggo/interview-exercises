@@ -1,4 +1,4 @@
-package com.interview.sde.algorithm.array;
+package com.interview.sde.algorithm.backtracking;
 
 import java.util.ArrayList;
 import java.util.Collections;

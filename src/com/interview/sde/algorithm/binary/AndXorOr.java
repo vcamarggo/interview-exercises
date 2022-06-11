@@ -1,4 +1,4 @@
-package com.interview.sde.algorithm.datastructure;
+package com.interview.sde.algorithm.binary;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -8,6 +8,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 import java.util.Stack;
 
+//https://www.hackerrank.com/challenges/and-xor-or/problem
 public class AndXorOr {
     private static final Scanner scanner = new Scanner(System.in);
 

@@ -1,4 +1,4 @@
-package com.interview.sde.algorithm.array;
+package com.interview.sde.algorithm.backtracking;
 
 import java.util.HashMap;
 import java.util.HashSet;

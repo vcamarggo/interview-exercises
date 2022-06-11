@@ -20,8 +20,8 @@ public class WordBreak {
             memo.put(s, true);
             return true;
         }
-        for (String word : wordDict){
-            if(s.startsWith(word) && wordBreak(s.substring(word.length()), wordDict)) {
+        for (String word : wordDict) {
+            if (s.startsWith(word) && wordBreak(s.substring(word.length()), wordDict)) {
                 memo.put(s, true);
                 return true;
             }

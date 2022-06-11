@@ -5,6 +5,7 @@ import java.util.Scanner;
 //https://www.hackerrank.com/challenges/red-john-is-back/problem
 public class RedJohnIsBack {
 
+    private static final Scanner scanner = new Scanner(System.in);
     static int[] memo = new int[41];
     static boolean[] prime = new boolean[1];
 
@@ -54,8 +55,6 @@ public class RedJohnIsBack {
         }
         return eratosthenesSieve(numberOfWays);
     }
-
-    private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
 

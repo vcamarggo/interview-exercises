@@ -1,8 +1,9 @@
-package com.interview.sde.algorithm.datastructure;
+package com.interview.sde.algorithm.array;
 
 import java.io.IOException;
 import java.util.Scanner;
 
+//https://www.hackerrank.com/challenges/three-month-preparation-kit-largest-rectangle/problem
 public class LargestRectangle {
     private static final Scanner scanner = new Scanner(System.in);
 

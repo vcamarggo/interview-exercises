@@ -10,29 +10,15 @@ import java.util.Scanner;
 //https://www.hackerrank.com/challenges/luck-balance/problem
 public class LuckBalance {
 
-    static void sortLuck(int[][] contests) {
-        //arguments to this method represent the arrays to be sorted
-        Arrays.sort(contests, (o1, o2) -> {
-            //get the item ids which are at index 0 of the array
-            Integer itemIdOne = o2[0];
-            Integer itemIdTwo = o1[0];
-            return itemIdOne.compareTo(itemIdTwo);
-        });
-    }
-
-    static void sortImportance(int[][] contests) {
-        Arrays.sort(contests, (o1, o2) -> {
-            Integer quantityOne = o2[1];
-            Integer quantityTwo = o1[1];
-            // reverse sort on quantity
-            return quantityOne.compareTo(quantityTwo);
-        });
-    }
 
     // Complete the luckBalance function below.
     static int luckBalance(int k, int[][] contests) {
-        sortLuck(contests);
-        sortImportance(contests);
+
+        Arrays.sort(contests, (o1, o2) -> {
+            int diff = Integer.compare(o2[0], o1[0]);
+            return diff == 0 ? Integer.compare(o2[1], o1[1]) : diff;
+        });
+
         int remaining = k;
         int score = 0;
 

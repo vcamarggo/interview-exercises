@@ -2,7 +2,7 @@ package com.interview.sde.algorithm.graph;
 
 import java.util.*;
 
-//Implementation of Kruskal's algorithm for generating MST
+//Implementation of Kruskal/Prim's algorithm for generating MST
 public class MST {
 
     public static void main(String[] args) {
@@ -66,7 +66,7 @@ public class MST {
 
         System.out.println("Kruskal solution:");
         for (int[] edge : solution) {
-            System.out.println(String.format("Edge %02d <-> %02d - weight %s", edge[0], edge[1], edge[2]));
+            System.out.printf("Edge %02d <-> %02d - weight %s%n", edge[0], edge[1], edge[2]);
         }
     }
 
@@ -98,9 +98,7 @@ public class MST {
     private static void prim(final int[][] edges) {
         //QuickAccess to node
         Map<Integer, PrimNode> allNodes = new HashMap<>();
-        Map<Integer, PrimNode> solution = new HashMap();
-
-        boolean[] processed = new boolean[edges.length];
+        Set<Integer> solution = new HashSet<>();
 
         for (int i = 1; i < edges.length; i++) {
             PrimNode primNode = new PrimNode(i, Integer.MAX_VALUE, i);
@@ -110,11 +108,10 @@ public class MST {
 
         while (solution.size() != edges.length - 1) {
 
-            PrimNode node = getMin(allNodes, processed);
-            solution.put(node.id, node);
+            PrimNode node = getMin(allNodes, solution);
 
             for (int i = 1; i < edges.length; i++) {
-                if (allNodes.get(i).weight > edges[node.id][i] && edges[node.id][i] != -1 && !solution.containsKey(i)) {
+                if (allNodes.get(i).weight > edges[node.id][i] && edges[node.id][i] != -1 && !solution.contains(i)) {
                     allNodes.get(i).parent = node.id;
                     allNodes.get(i).weight = edges[node.id][i];
                 }
@@ -123,22 +120,23 @@ public class MST {
 
         System.out.println("Prim solution:");
         for (int i = 2; i < edges.length; i++) {
-            System.out.println(String.format("Edge %02d <-> %02d - weight %s", solution.get(i).parent, i, edges[i][solution.get(i).parent]));
+            System.out.printf("Edge %02d <-> %02d - weight %s%n", allNodes.get(i).parent, i, edges[i][allNodes.get(i).parent]);
         }
 
     }
 
-    private static PrimNode getMin(Map<Integer, PrimNode> allNodes, boolean[] processed) {
+    private static PrimNode getMin(Map<Integer, PrimNode> allNodes, Set<Integer> processed) {
         int min = Integer.MAX_VALUE, min_index = -1;
 
-        for (int v = 1; v < processed.length; v++)
-            if (!processed[v] && allNodes.get(v).weight < min) {
+        for (int v = 1; v < allNodes.size() + 1; v++)
+            if (!processed.contains(v) && allNodes.get(v).weight < min) {
                 min = allNodes.get(v).weight;
                 min_index = v;
             }
+        PrimNode primNode = allNodes.get(min_index);
+        processed.add(primNode.id);
 
-        processed[min_index] = true;
-        return allNodes.get(min_index);
+        return primNode;
     }
 
     public static void union(int[] parents, int a, int b) {

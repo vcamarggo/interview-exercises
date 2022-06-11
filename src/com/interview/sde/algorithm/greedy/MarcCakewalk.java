@@ -1,6 +1,7 @@
 package com.interview.sde.algorithm.greedy;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Scanner;
 
 //https://www.hackerrank.com/challenges/marcs-cakewalk/problem
@@ -8,7 +9,7 @@ public class MarcCakewalk {
 
     // Complete the marcsCakewalk function below.
     static long marcsCakewalk(Integer[] calories) {
-        Arrays.sort(calories, (o1, o2) -> Integer.compare(o2, o1));
+        Arrays.sort(calories, Comparator.reverseOrder());
         long sum = 0;
         for (int i = 0; i < calories.length; i++) {
             sum += (calories[i] * Math.pow(2, i));

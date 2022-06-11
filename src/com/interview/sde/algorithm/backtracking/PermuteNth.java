@@ -1,4 +1,4 @@
-package com.interview.sde.algorithm.array;
+package com.interview.sde.algorithm.backtracking;
 
 //https://leetcode.com/problems/permutation-sequence/
 public class PermuteNth {
@@ -16,11 +16,8 @@ public class PermuteNth {
     }
 
     public static String getPermutation(int n, StringBuilder s, boolean[] vis) {
-
         if (s.length() == n) {
-            if (--kth == 0) {
-                return s.toString();
-            }
+            return --kth == 0 ? s.toString() : null;
         }
 
         for (int i = 1; i < n + 1; i++) {

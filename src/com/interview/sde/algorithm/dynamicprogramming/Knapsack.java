@@ -6,6 +6,8 @@ import java.util.stream.IntStream;
 //https://www.hackerrank.com/challenges/unbounded-knapsack/problem
 public class Knapsack {
 
+    private static final Scanner scanner = new Scanner(System.in);
+
     // Complete the unboundedKnapsack function below.
     static int unboundedKnapsack(int k, int[] arr) {
         arr = IntStream.of(arr).distinct().toArray();
@@ -14,11 +16,8 @@ public class Knapsack {
             resultMatrix[0][i] = i;
         }
 
-        int row = 1;
-        int column = 0;
-        for (; row < resultMatrix.length; row++) {
-            column = 1;
-            for (; column < resultMatrix[0].length; column++) {
+        for (int row = 1; row < resultMatrix.length; row++) {
+            for (int column = 1; column < resultMatrix[0].length; column++) {
                 if (column - arr[row - 1] < 0) {
                     resultMatrix[row][column] = resultMatrix[row - 1][column];
                 } else {
@@ -27,10 +26,8 @@ public class Knapsack {
             }
         }
 
-        return k - resultMatrix[row - 1][column - 1];
+        return k - resultMatrix[resultMatrix.length - 1][resultMatrix[0].length - 1];
     }
-
-    private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
 

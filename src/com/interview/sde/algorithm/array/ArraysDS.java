@@ -1,11 +1,12 @@
 package com.interview.sde.algorithm.array;
-//https://www.hackerrank.com/challenges/arrays-ds/problem
+
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
+//https://www.hackerrank.com/challenges/arrays-ds/problem
 public class ArraysDS {
 
     private static final Scanner scanner = new Scanner(System.in);

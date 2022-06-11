@@ -5,6 +5,8 @@ import java.util.Scanner;
 
 //https://www.hackerrank.com/challenges/fibonacci-modified/problem
 public class ModifiedFibonacci {
+    private static final Scanner scanner = new Scanner(System.in);
+
     // Complete the fibonacciModified function below.
     static String fibonacciModifiedIterative(long t1, long t2, int n) {
         BigInteger b1 = BigInteger.valueOf(t1);
@@ -29,8 +31,6 @@ public class ModifiedFibonacci {
 
         return memo[n - 1].toString();
     }
-
-    private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
 

@@ -51,8 +51,8 @@ public class RandomizedSet {
     public int getRandom() {
         if (dataChanged) {
             fastAccessData = dataSet.toArray(new Integer[0]);
+            dataChanged = false;
         }
-        dataChanged = false;
         return fastAccessData[randomNumberGenerator.nextInt(dataSet.size())];
     }
 }
