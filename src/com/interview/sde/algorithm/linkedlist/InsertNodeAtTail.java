@@ -35,8 +35,7 @@ public class InsertNodeAtTail {
         SinglyLinkedListNode headHolder = head;
 
         if (head == null) {
-            head = new SinglyLinkedListNode(data);
-            return head;
+            return new SinglyLinkedListNode(data);
         } else {
             while (head.next != null) {
                 head = head.next;

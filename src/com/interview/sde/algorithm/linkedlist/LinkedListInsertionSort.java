@@ -4,7 +4,7 @@ package com.interview.sde.algorithm.linkedlist;
 //https://leetcode.com/problems/sort-list/
 public class LinkedListInsertionSort {
     ListNode insertionSortList(ListNode current) {
-        if(current == null){
+        if (current == null) {
             return null;
         }
 

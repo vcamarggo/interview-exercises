@@ -8,7 +8,7 @@ public class PalindromeLinkedList {
     static boolean isPalindrome(ListNode head) {
         int wholeListSize = calculateLinkedListSize(head);
 
-        //List of size < 1 is always palindrome
+        //List of size < 2 is always palindrome
         if (wholeListSize < 2) {
             return true;
         }
@@ -61,7 +61,7 @@ public class PalindromeLinkedList {
         ListNode example3 = new ListNode(3);
         ListNode example4 = new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(2, new ListNode(1)))));
         ListNode example5 = null;
-        System.out.println(isPalindrome(example3));
+        System.out.println(isPalindrome(example1));
     }
 
     public static class ListNode {

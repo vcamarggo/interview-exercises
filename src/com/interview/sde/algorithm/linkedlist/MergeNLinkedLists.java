@@ -2,7 +2,9 @@ package com.interview.sde.algorithm.linkedlist;
 
 //https://leetcode.com/problems/merge-k-sorted-lists/
 public class MergeNLinkedLists {
-
+    public static void main(String[] args) {
+        mergeLists(new ListNode(1, new ListNode(2, new ListNode(5))), new ListNode(3, new ListNode(6)));
+    }
     static ListNode mergeLists(ListNode head1, ListNode head2) {
         if (head1 == null) {
             return head2;
@@ -15,7 +17,6 @@ public class MergeNLinkedLists {
         while (head1 != null && head2 != null) {
             if (head1.val > head2.val) {
                 head2 = walkOnList(head1, head2);
-
             } else {
                 head1 = walkOnList(head2, head1);
             }
@@ -24,16 +25,15 @@ public class MergeNLinkedLists {
     }
 
     private static ListNode walkOnList(ListNode biggerNumberListHead, ListNode smallerNumberListHead) {
-        ListNode holderHead;
+        ListNode firstNumberBiggerThanBiggerHead;
 
         while (smallerNumberListHead.next != null && smallerNumberListHead.next.val <= biggerNumberListHead.val) {
             smallerNumberListHead = smallerNumberListHead.next;
         }
 
-        holderHead = smallerNumberListHead.next;
+        firstNumberBiggerThanBiggerHead = smallerNumberListHead.next;
         smallerNumberListHead.next = biggerNumberListHead;
-        smallerNumberListHead = holderHead;
-        return smallerNumberListHead;
+        return firstNumberBiggerThanBiggerHead;
     }
 
     ListNode mergeKLists(ListNode[] lists) {

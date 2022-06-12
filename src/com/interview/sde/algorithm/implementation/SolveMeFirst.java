@@ -1,4 +1,4 @@
-package com.interview.sde.algorithm.warmup;
+package com.interview.sde.algorithm.implementation;
 
 import java.util.Scanner;
 

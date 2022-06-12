@@ -51,16 +51,15 @@ public class MergeTwoLinkedLists {
     // Complete the mergeLists function below.
 
     private static SinglyLinkedListNode walkOnList(SinglyLinkedListNode biggerNumberListHead, SinglyLinkedListNode smallerNumberListHead) {
-        SinglyLinkedListNode holderHead;
+        SinglyLinkedListNode firstNumberBiggerThanBiggerHead;
 
         while (smallerNumberListHead.next != null && smallerNumberListHead.next.data <= biggerNumberListHead.data) {
             smallerNumberListHead = smallerNumberListHead.next;
         }
 
-        holderHead = smallerNumberListHead.next;
+        firstNumberBiggerThanBiggerHead = smallerNumberListHead.next;
         smallerNumberListHead.next = biggerNumberListHead;
-        smallerNumberListHead = holderHead;
-        return smallerNumberListHead;
+        return firstNumberBiggerThanBiggerHead;
     }
 
     //Implemented with mentee

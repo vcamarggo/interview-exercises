@@ -1,24 +1,23 @@
-package com.interview.sde.algorithm.warmup;
+package com.interview.sde.algorithm.array;
+//https://www.hackerrank.com/challenges/jumping-on-the-clouds/problem
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
-//https://www.hackerrank.com/challenges/sock-merchant/problem
-public class SocksMerchant {
+public class JumpingontheClouds {
 
-    // Complete the sockMerchant function below.
-    static int sockMerchant(int n, int[] ar) {
-        boolean[] isPair = new boolean[101];
-        int result = 0;
-        for (int i = 0; i < n; i++) {
-            if (isPair[ar[i]])
-                result++;
-            isPair[ar[i]] = !isPair[ar[i]];
+    // Complete the jumpingOnClouds function below.
+    static int jumpingOnClouds(int[] c) {
+        int minimumJumpsNeeded = 0;
+        for (int i = 0; i < c.length - 1; i++) {
+            if (i + 2 < c.length && c[i + 2] == 0) {
+                i++;
+            }
+            minimumJumpsNeeded++;
         }
-        return result;
-
+        return minimumJumpsNeeded;
     }
 
     private static final Scanner scanner = new Scanner(System.in);
@@ -29,17 +28,17 @@ public class SocksMerchant {
         int n = scanner.nextInt();
         scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
 
-        int[] ar = new int[n];
+        int[] c = new int[n];
 
-        String[] arItems = scanner.nextLine().split(" ");
+        String[] cItems = scanner.nextLine().split(" ");
         scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
 
         for (int i = 0; i < n; i++) {
-            int arItem = Integer.parseInt(arItems[i]);
-            ar[i] = arItem;
+            int cItem = Integer.parseInt(cItems[i]);
+            c[i] = cItem;
         }
 
-        int result = sockMerchant(n, ar);
+        int result = jumpingOnClouds(c);
 
         bufferedWriter.write(String.valueOf(result));
         bufferedWriter.newLine();

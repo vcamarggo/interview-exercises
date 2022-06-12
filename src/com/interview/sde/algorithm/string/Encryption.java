@@ -1,4 +1,4 @@
-package com.interview.sde.algorithm.implementation;
+package com.interview.sde.algorithm.string;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
