@@ -5,6 +5,15 @@ import java.util.Queue;
 
 //https://leetcode.com/problems/implement-stack-using-queues
 public class StackTwoQueue {
+    public static void main(String[] args) {
+        MyStack myStack = new MyStack();
+        myStack.push(1);
+        myStack.push(2);
+        System.out.println(myStack.top());
+        System.out.println(myStack.pop());
+        System.out.println(myStack.empty());
+    }
+
     static class MyStack {
 
         Queue<Integer> temp;
@@ -44,14 +53,5 @@ public class StackTwoQueue {
         public boolean empty() {
             return data.isEmpty() && temp.isEmpty();
         }
-    }
-
-    public static void main(String[] args) {
-        MyStack myStack = new MyStack();
-        myStack.push(1);
-        myStack.push(2);
-        System.out.println(myStack.top());
-        System.out.println(myStack.pop());
-        System.out.println(myStack.empty());
     }
 }

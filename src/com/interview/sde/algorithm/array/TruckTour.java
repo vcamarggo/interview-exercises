@@ -1,4 +1,4 @@
-package com.interview.sde.algorithm.queue;
+package com.interview.sde.algorithm.array;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -7,6 +7,8 @@ import java.util.Scanner;
 
 //https://www.hackerrank.com/challenges/truck-tour/
 public class TruckTour {
+    private static final Scanner scanner = new Scanner(System.in);
+
     /*
      * Complete the truckTour function below.
      */
@@ -30,8 +32,6 @@ public class TruckTour {
         return i;
 
     }
-
-    private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) throws IOException {
         BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));

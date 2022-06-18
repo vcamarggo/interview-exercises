@@ -38,7 +38,7 @@ public class AStarFromScratch {
         //HashMap to make faster to find a createdNode via its Point (RowColumn)
         HashMap<RowColumnPair, NodeStar> createdNodes = new HashMap<>();
 
-        NodeStar firstNode = new NodeStar(board[startRow][startCol], 0, startRow, startCol, euclideanDistance(pairStartEnd.getStartingPoint(), pairStartEnd.getTargetPoint()));
+        NodeStar firstNode = new NodeStar(0, startRow, startCol, euclideanDistance(pairStartEnd.getStartingPoint(), pairStartEnd.getTargetPoint()));
 
         shortestDistanceQueue.add(firstNode);
         createdNodes.put(firstNode.getPoint(), firstNode);
@@ -49,7 +49,7 @@ public class AStarFromScratch {
             if (node.getPoint().equals(pairStartEnd.getTargetPoint())) {
                 return node.getFScore();
             }
-            ArrayList<NodeStar> neighbors;
+            List<NodeStar> neighbors;
 
             //Create neighbors
             neighbors = createNeighbors(toAvoidChar, createdNodes, node.getPoint().getRow(), node.getPoint().getColumn());
@@ -58,14 +58,14 @@ public class AStarFromScratch {
                 NodeStar neighbor = neighbors.get(0);
                 neighbors.remove(neighbor);
                 //evaluate a distance form a given node from the neighbors
-                processNodeStar(pairStartEnd, shortestDistanceQueue, createdNodes, node, neighbor);
+                processNodeStar(pairStartEnd, shortestDistanceQueue, node, neighbor);
             }
 
         }
         throw new NoSuchElementException();
     }
 
-    private static void processNodeStar(PairsInBoard pairStartEnd, PriorityQueue<NodeStar> openSet, HashMap<RowColumnPair, NodeStar> createdNodes, NodeStar node, NodeStar neighbor) {
+    private static void processNodeStar(PairsInBoard pairStartEnd, PriorityQueue<NodeStar> openSet, NodeStar node, NodeStar neighbor) {
         int tentativeGScore = node.getDepth() + 1;
         if (tentativeGScore < neighbor.getDepth()) {
             neighbor.setDepth(tentativeGScore);
@@ -74,8 +74,8 @@ public class AStarFromScratch {
         }
     }
 
-    private static ArrayList<NodeStar> createNeighbors(char toAvoidChar, HashMap<RowColumnPair, NodeStar> createdNodes, int row, int column) {
-        ArrayList<NodeStar> neighbors = new ArrayList<>();
+    private static List<NodeStar> createNeighbors(char toAvoidChar, HashMap<RowColumnPair, NodeStar> createdNodes, int row, int column) {
+        List<NodeStar> neighbors = new LinkedList<>();
 
         // Add each element around the point P if they aren't null
 
@@ -100,7 +100,7 @@ public class AStarFromScratch {
     }
 
 
-    //Throws an neighbor if it hasn't been created before, otherwise, throw a null element in a Optional
+    //Throws a neighbor if it hasn't been created before, otherwise, throw a null element in an Optional
     private static Optional<NodeStar> createSingleNeighbor(char toAvoidChar, HashMap<RowColumnPair, NodeStar> createdNodes, int localRow, int localColumn) {
         NodeStar neighbor = null;
         try {
@@ -108,7 +108,7 @@ public class AStarFromScratch {
             if (board[localRow][localColumn] != toAvoidChar) {
                 RowColumnPair neighborPoint = new RowColumnPair(localRow, localColumn);
                 if (!createdNodes.containsKey(neighborPoint)) {
-                    neighbor = new NodeStar(board[localRow][localColumn], Integer.MAX_VALUE, localRow, localColumn, Integer.MAX_VALUE);
+                    neighbor = new NodeStar(Integer.MAX_VALUE, localRow, localColumn, Integer.MAX_VALUE);
                     createdNodes.put(neighborPoint, neighbor);
                 }
             }

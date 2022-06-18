@@ -4,21 +4,15 @@ import java.util.Objects;
 
 public class Node {
     protected int depth;
-    protected char elem;
     protected RowColumnPair point;
 
-    public Node(char elem, int depth, int row, int column) {
+    public Node(int depth, int row, int column) {
         this.depth = depth;
-        this.elem = elem;
         this.point = new RowColumnPair(row, column);
     }
 
     public int getDepth() {
         return depth;
-    }
-
-    public char getElem() {
-        return elem;
     }
 
     public RowColumnPair getPoint() {
@@ -46,7 +40,6 @@ public class Node {
     public String toString() {
         return "Node{" +
                 "depth=" + depth +
-                ", elem=" + elem +
                 ", rowColumnPair=" + point +
                 '}';
     }

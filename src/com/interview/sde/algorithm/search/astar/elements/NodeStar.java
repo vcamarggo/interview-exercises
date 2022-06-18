@@ -5,12 +5,12 @@ public class NodeStar extends Node implements Comparable<NodeStar> {
     private int fScore;
     private int gScore;
 
-    public NodeStar(char elem, int depth, int row, int column) {
-        super(elem, depth, row, column);
+    public NodeStar(int depth, int row, int column) {
+        super(depth, row, column);
     }
 
-    public NodeStar(char elem, int gScore, int row, int column, int fScore) {
-        super(elem, gScore, row, column);
+    public NodeStar(int gScore, int row, int column, int fScore) {
+        super(gScore, row, column);
         this.fScore = fScore;
     }
 
@@ -47,7 +47,6 @@ public class NodeStar extends Node implements Comparable<NodeStar> {
                 "fScore=" + fScore +
                 ", gScore=" + gScore +
                 ", depth=" + depth +
-                ", elem=" + elem +
                 ", point=" + point +
                 '}';
     }

@@ -6,34 +6,6 @@ import java.util.Stack;
 //https://www.hackerrank.com/challenges/queue-using-two-stacks/problem
 public class QueueUsingTwoStacks {
 
-    public static class MyQueue<T> {
-        Stack<T> s1 = new Stack<>();
-        Stack<T> s2 = new Stack<>();
-
-        public void enqueue(T value) { // Push onto newest stack
-            s1.push(value);
-        }
-
-        public T peek() {
-            if (s2.empty()) {
-                while (!s1.empty()) {
-                    s2.push(s1.pop());
-                }
-            }
-            return s2.peek();
-        }
-
-        public T dequeue() {
-            if (s2.empty()) {
-                while (!s1.empty()) {
-                    s2.push(s1.pop());
-                }
-            }
-            return s2.pop();
-        }
-    }
-
-
     public static void main(String[] args) {
         MyQueue<Integer> queue = new MyQueue<>();
 
@@ -51,6 +23,33 @@ public class QueueUsingTwoStacks {
             }
         }
         scan.close();
+    }
+
+    public static class MyQueue<T> {
+        Stack<T> s1 = new Stack<>();
+        Stack<T> s2 = new Stack<>();
+
+        public void enqueue(T value) { // Push onto newest stack
+            s1.push(value);
+        }
+
+        public T peek() {
+            copyS1ToS2();
+            return s2.peek();
+        }
+
+        public T dequeue() {
+            copyS1ToS2();
+            return s2.pop();
+        }
+
+        private void copyS1ToS2() {
+            if (s2.empty()) {
+                while (!s1.empty()) {
+                    s2.push(s1.pop());
+                }
+            }
+        }
     }
 }
 

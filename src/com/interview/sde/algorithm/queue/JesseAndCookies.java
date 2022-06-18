@@ -26,8 +26,8 @@ public class JesseAndCookies {
         int operations = 0;
         while (cookies.size() > 1 && cookies.peek() < k) {
             operations++;
-            int cookieMin = cookies.poll();
-            int cookieSecondMin = cookies.poll();
+            int cookieMin = cookies.remove();
+            int cookieSecondMin = cookies.remove();
             cookies.add(cookieMin + (cookieSecondMin * 2));
         }
         if (cookies.peek() < k) {

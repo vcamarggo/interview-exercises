@@ -5,7 +5,10 @@ import com.interview.sde.algorithm.search.astar.elements.Game;
 import com.interview.sde.algorithm.search.astar.elements.Node;
 import com.interview.sde.algorithm.search.astar.elements.PairsInBoard;
 
-import java.util.*;
+import java.util.HashSet;
+import java.util.NoSuchElementException;
+import java.util.Set;
+import java.util.Stack;
 
 class DFS {
     private static char[][] board;
@@ -36,7 +39,7 @@ class DFS {
         Stack<Node> queue = new Stack<>();
 
 
-        Node firstNode = new Node(board[startRow][startCol], 0, startRow, startCol);
+        Node firstNode = new Node(0, startRow, startCol);
         queue.add(firstNode);
 
         Set<Node> createdNodes = new HashSet<>();
@@ -54,42 +57,42 @@ class DFS {
                 createdNodes.add(node);
                 //checkTopLeft
                 if ((row > 0 && column > 0) && board[row - 1][column - 1] != toAvoidChar) {
-                    queue.add(new Node(board[row - 1][column - 1], node.getDepth() + 1, row - 1, column - 1));
+                    queue.add(new Node(node.getDepth() + 1, row - 1, column - 1));
                 }
 
                 //checkTopRight
                 if ((row > 0 && column < board[0].length - 1) && board[row - 1][column + 1] != toAvoidChar) {
-                    queue.add(new Node(board[row - 1][column + 1], node.getDepth() + 1, row - 1, column + 1));
+                    queue.add(new Node(node.getDepth() + 1, row - 1, column + 1));
                 }
 
                 //checkBottomRight
                 if ((row < board.length - 1 && column < board[0].length - 1) && board[row + 1][column + 1] != toAvoidChar) {
-                    queue.add(new Node(board[row + 1][column + 1], node.getDepth() + 1, row + 1, column + 1));
+                    queue.add(new Node(node.getDepth() + 1, row + 1, column + 1));
                 }
 
                 //checkBottomLeft
                 if ((row < board.length - 1 && column > 0) && board[row + 1][column - 1] != toAvoidChar) {
-                    queue.add(new Node(board[row + 1][column - 1], node.getDepth() + 1, row + 1, column - 1));
+                    queue.add(new Node(node.getDepth() + 1, row + 1, column - 1));
                 }
 
                 //checkLeft
                 if (column > 0 && board[row][column - 1] != toAvoidChar) {
-                    queue.add(new Node(board[row][column - 1], node.getDepth() + 1, row, column - 1));
+                    queue.add(new Node(node.getDepth() + 1, row, column - 1));
                 }
 
                 //checkRight
                 if (column < board[0].length - 1 && board[row][column + 1] != toAvoidChar) {
-                    queue.add(new Node(board[row][column + 1], node.getDepth() + 1, row, column + 1));
+                    queue.add(new Node(node.getDepth() + 1, row, column + 1));
                 }
 
                 //checkTop
                 if (row > 0 && board[row - 1][column] != toAvoidChar) {
-                    queue.add(new Node(board[row - 1][column], node.getDepth() + 1, row - 1, column));
+                    queue.add(new Node(node.getDepth() + 1, row - 1, column));
                 }
 
                 //checkBottom
                 if (row < board.length - 1 && board[row + 1][column] != toAvoidChar) {
-                    queue.add(new Node(board[row + 1][column], node.getDepth() + 1, row + 1, column));
+                    queue.add(new Node(node.getDepth() + 1, row + 1, column));
                 }
 
             }
