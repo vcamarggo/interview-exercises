@@ -4,11 +4,12 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.Stack;
 
+//https://leetcode.com/problems/reverse-vowels-of-a-string/
 public class ReverseVowels {
     public String reverseVowels(String s) {
 
-        //Over allocating memory, probably can be done with less objects.
-        //Idea: Concatenating the array at the end of the sb and then replacing/removing then on the next loop
+        //Over allocating memory, probably can be done with fewer objects.
+        //Idea: Concatenating the array at the end of the sb and then replacing/removing them on the next loop
         StringBuilder sb = new StringBuilder(s);
         Stack<Character> vowelsOrder = new Stack<>();
 

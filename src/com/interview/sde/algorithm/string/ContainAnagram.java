@@ -13,6 +13,7 @@ public class ContainAnagram {
         if (s1.length() > s2.length()) {
             return false;
         }
+
         Map<Character, Integer> s1Letters = new HashMap<>();
         for (char c : s1.toCharArray()) {
             s1Letters.put(c, s1Letters.getOrDefault(c, 0) + 1);

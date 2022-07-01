@@ -1,4 +1,4 @@
-package com.interview.sde.algorithm.stack;
+package com.interview.sde.algorithm.dynamicprogramming;
 
 //https://leetcode.com/problems/target-sum/
 public class TargetSumAddSub {

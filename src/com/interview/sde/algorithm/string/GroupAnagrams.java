@@ -22,15 +22,13 @@ public class GroupAnagrams {
             for (int keyCounter : anagramKeyCounter) {
                 key.append('#').append(keyCounter);
             }
-            List<String> anagrams = anagramGrouping.getOrDefault(key.toString(), new ArrayList<>());
-            anagrams.add(word);
-            anagramGrouping.put(key.toString(), anagrams);
+            anagramGrouping.computeIfAbsent(key.toString(), k-> new ArrayList<>()).add(word);
         }
         return new ArrayList<>(anagramGrouping.values());
     }
 
     public static void main(String[] args) {
-        //groupAnagrams(new String[]{"eat", "tea", "tan", "ate", "nat", "bat"});
+        groupAnagrams(new String[]{"eat", "tea", "tan", "ate", "nat", "bat"});
         groupAnagrams(new String[]{""});
         groupAnagrams(new String[]{"a"});
     }

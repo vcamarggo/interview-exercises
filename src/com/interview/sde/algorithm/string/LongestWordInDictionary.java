@@ -17,7 +17,7 @@ public class LongestWordInDictionary {
 
         String longestString = "";
         //Sort the strings lexicographically
-        Arrays.sort(words, String::compareTo);
+        Arrays.sort(words);
 
         for (String word : words) {
             prefixList.put(word, false);

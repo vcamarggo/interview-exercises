@@ -1,4 +1,4 @@
-package com.interview.sde.algorithm.string;
+package com.interview.sde.algorithm.tree;
 
 //https://leetcode.com/problems/minimum-depth-of-binary-tree/
 public class MinDepthLeaf {

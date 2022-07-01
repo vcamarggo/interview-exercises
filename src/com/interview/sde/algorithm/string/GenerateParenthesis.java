@@ -20,6 +20,8 @@ public class GenerateParenthesis {
             parentheses.addAll(generateParentheses(total, remainingOpen - 1, remainingClose, solution));
             solution.deleteCharAt(solution.length() - 1);
         }
+
+        //This tests if there is any parenthesis unclosed in the solution
         if (remainingClose > remainingOpen) {
             solution.append(")");
             parentheses.addAll(generateParentheses(total, remainingOpen, remainingClose - 1, solution));

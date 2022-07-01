@@ -8,6 +8,8 @@ import java.util.Scanner;
 //https://www.hackerrank.com/challenges/encryption/problem
 public class Encryption {
 
+    private static final Scanner scanner = new Scanner(System.in);
+
     // Complete the encryption function below.
     static String encryption(String s) {
         s = s.replaceAll(" ", "");
@@ -40,8 +42,6 @@ public class Encryption {
         }
         return sb.toString().trim();
     }
-
-    private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) throws IOException {
         BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));

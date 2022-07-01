@@ -14,7 +14,7 @@ public class GreatestCommonDivisor {
         String minString = minLength == s.length() ? s : t;
         String maxString = minLength == s.length() ? t : s;
 
-        // start with largest string
+        // start with the largest string
         for (int i = minLength; i >= 1; i--) {
             if (minLength % i == 0) { //if string can be split in parts of the same size
                 String mustBeEqual = minString.substring(0, i);

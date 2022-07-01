@@ -12,10 +12,11 @@ public class RemoveOutmostParentheses {
         Stack<Character> parenthesis = new Stack<>();
 
         int startParenthesis = 0;
+
+        //This variable counts the skew from the number of parenthesis removed
         int removed = 0;
 
         StringBuilder builder = new StringBuilder(S);
-
 
         for (int i = 0; i < S.length(); i++) {
             if (S.charAt(i) == '(') {
