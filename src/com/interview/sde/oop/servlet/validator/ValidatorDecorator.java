@@ -11,6 +11,7 @@ public abstract class ValidatorDecorator<T extends Request> implements IValidato
     }
 
     public ValidatorDecorator() {
+        validator = new NoOpValidator<>();
     }
 
     @Override

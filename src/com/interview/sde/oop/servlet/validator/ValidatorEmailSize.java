@@ -11,6 +11,7 @@ public class ValidatorEmailSize<T extends Request> extends ValidatorDecorator<T>
     }
 
     public ValidatorEmailSize() {
+        super();
     }
 
     @Override

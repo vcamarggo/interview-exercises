@@ -10,6 +10,7 @@ public class ValidatorNameSize<T extends Request> extends ValidatorDecorator<T> 
     }
 
     public ValidatorNameSize() {
+        super();
     }
 
     @Override
