@@ -1,4 +1,4 @@
-package com.interview.sde.algorithm.string;
+package com.interview.sde.algorithm.dynamicprogramming;
 
 //https://leetcode.com/problems/palindromic-substrings/
 public class CountPalindromicSubstring {
