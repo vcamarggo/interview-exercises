@@ -27,30 +27,30 @@ public class MergeSort {
     }
 
     private static int[] mergeSort(int[] input, boolean ascending) {
-        int[] aux = Arrays.copyOfRange(input, 0, input.length);
-        split(aux, 0, input.length, input, ascending);
+        int[] originalArray = Arrays.copyOfRange(input, 0, input.length);
+        split(originalArray, 0, input.length, input, ascending);
         return input;
     }
 
-    private static void split(int[] aux, int init, int end, int[] input, boolean ascending) {
+    private static void split(int[] originalArray, int init, int end, int[] input, boolean ascending) {
         if (end - init > 1) {
             int middle = (end + init) / 2;
-            split(input, init, middle, aux, ascending);
-            split(input, middle, end, aux, ascending);
-            merge(aux, init, middle, end, input, ascending);
+            split(input, init, middle, originalArray, ascending);
+            split(input, middle, end, originalArray, ascending);
+            merge(originalArray, init, middle, end, input, ascending);
         }
     }
 
-    private static void merge(int[] aux, int init, int middle, int end, int[] input, boolean ascending) {
+    private static void merge(int[] originalArray, int init, int middle, int end, int[] input, boolean ascending) {
         int comparator = ascending ? 1 : -1;
         int i = init;
         int j = middle;
         for (int k = init; k < end; k++) {
-            if (i < middle && (j >= end || Integer.compare(aux[j], aux[i]) == comparator)) {
-                input[k] = aux[i];
+            if (i < middle && (j >= end || Integer.compare(originalArray[j], originalArray[i]) == comparator)) {
+                input[k] = originalArray[i];
                 i = i + 1;
             } else {
-                input[k] = aux[j];
+                input[k] = originalArray[j];
                 j = j + 1;
             }
         }

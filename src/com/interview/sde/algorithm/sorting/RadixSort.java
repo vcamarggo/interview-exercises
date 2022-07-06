@@ -49,9 +49,7 @@ public class RadixSort {
         Map<Integer, List<Integer>> buckets = new TreeMap<>();
         for (int num : nums) {
             int key = getNumberAtDigitPosition(digitPosition, num);
-            List<Integer> elementsDigitPosition = buckets.getOrDefault(key, new ArrayList<>());
-            elementsDigitPosition.add(num);
-            buckets.put(key, elementsDigitPosition);
+            buckets.computeIfAbsent(key, k-> new ArrayList<>()).add(num);
         }
         return buckets;
     }
