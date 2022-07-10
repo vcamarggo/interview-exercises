@@ -1,4 +1,4 @@
-package com.interview.sde.algorithm.tree;
+package com.interview.sde.algorithm.trie;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -77,6 +77,7 @@ public class TrieTree {
         System.out.println(trie.startsWith("ap"));        // return True
         trie.insert("app");
         System.out.println(trie.search("app"));     // return True
+        System.out.println(trie.search("application"));     // return False
 
     }
 

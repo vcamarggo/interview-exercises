@@ -1,10 +1,10 @@
-package com.interview.sde.algorithm.tree;
+package com.interview.sde.algorithm.trie;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-//https://leetcode.com/problems/replace-words/solution/
+//https://leetcode.com/problems/replace-words
 public class TrieDictionaryPrefix {
 
     static class TrieNode {

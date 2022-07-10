@@ -1,4 +1,4 @@
-package com.interview.sde.algorithm.tree;
+package com.interview.sde.algorithm.trie;
 
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -76,7 +76,7 @@ public class TrieSumPrefixPath {
 
     public static void main(String[] args) {
         MapSum mapSum = new MapSum();
-        mapSum.insert("a", 3);
+        mapSum.insert("apple", 3);
         System.out.println(mapSum.sum("ap"));           // return 3 (apple = 3)
         mapSum.insert("app", 2);
         System.out.println(mapSum.sum("ap"));           // return 5 (apple + app = 3 + 2 = 5)

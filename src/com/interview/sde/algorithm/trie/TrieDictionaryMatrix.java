@@ -1,4 +1,4 @@
-package com.interview.sde.algorithm.tree;
+package com.interview.sde.algorithm.trie;
 
 import java.util.*;
 
@@ -116,7 +116,7 @@ public class TrieDictionaryMatrix {
                         new char[]{'a', 'b'},
                         new char[]{'c', 'd'}},
                 new String[]{"abcd", "dcba", "dcab", "abdc"}));
-//
+
         System.out.println(findWords(new char[][]{
                         new char[]{'a'}},
                 new String[]{"a"}));

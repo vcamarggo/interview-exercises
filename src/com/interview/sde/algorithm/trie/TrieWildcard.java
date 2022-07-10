@@ -1,5 +1,6 @@
-package com.interview.sde.algorithm.tree;
+package com.interview.sde.algorithm.trie;
 
+import java.util.HashMap;
 import java.util.Map;
 import java.util.WeakHashMap;
 
@@ -14,7 +15,7 @@ public class TrieWildcard {
 
             TrieNode(boolean isWord) {
                 this.isWord = isWord;
-                children = new WeakHashMap<>();
+                children = new HashMap<>();
             }
         }
 

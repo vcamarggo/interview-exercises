@@ -1,4 +1,4 @@
-package com.interview.sde.algorithm.tree;
+package com.interview.sde.algorithm.trie;
 
 import java.util.Arrays;
 import java.util.HashMap;
