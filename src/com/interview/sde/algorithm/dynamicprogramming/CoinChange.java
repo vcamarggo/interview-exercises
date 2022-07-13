@@ -29,11 +29,10 @@ public class CoinChange {
             solvingMatrix[row][0] = 1;
 
             for (int column = 1; column < solvingMatrix[0].length; column++) {
-                if (column - c.get(row) < 0) {
-                    solvingMatrix[row][column] = solvingMatrix[row - 1][column];
-                } else {
-                    solvingMatrix[row][column] = solvingMatrix[row - 1][column] + solvingMatrix[row][(int) (column - c.get(row))];
+                if (c.get(row) <= column) {
+                    solvingMatrix[row][column] += solvingMatrix[row][(int) (column - c.get(row))];
                 }
+                solvingMatrix[row][column] += solvingMatrix[row - 1][column];
             }
         }
         return solvingMatrix[c.size() - 1][n];

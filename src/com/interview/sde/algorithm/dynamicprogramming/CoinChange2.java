@@ -13,7 +13,7 @@ public class CoinChange2 {
             int coin = coins[row - 1];
 
             for (int column = 0; column < solution[0].length; column++) {
-                if (column - coin >= 0) {
+                if (coin <= column) {
                     solution[row][column] += solution[row][column - coin];
                 }
                 solution[row][column] += solution[row - 1][column];

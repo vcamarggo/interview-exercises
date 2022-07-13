@@ -18,9 +18,10 @@ public class Knapsack {
 
         for (int row = 1; row < resultMatrix.length; row++) {
             for (int column = 1; column < resultMatrix[0].length; column++) {
-                if (column - arr[row - 1] < 0) {
+                if (arr[row - 1] > column) {
                     resultMatrix[row][column] = resultMatrix[row - 1][column];
                 } else {
+                    //This is choosing between keeping the previous minimum remaining amount or using the current value to reach to a smaller amount
                     resultMatrix[row][column] = Math.min(resultMatrix[row - 1][column], resultMatrix[row][column - arr[row - 1]]);
                 }
             }

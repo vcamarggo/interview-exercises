@@ -11,6 +11,8 @@ public class CoinChangeMinimumCoins {
 
     public static int coinChange(Integer[] coins, int amount) {
         int[] solution = new int[amount + 1];
+        //each index in the solution will be the remaining amount that can be achieved
+        //the value in the solution will be the minimum coin number that can achieve that index/amount
 
         Arrays.fill(solution, Integer.MAX_VALUE);
         solution[0] = 0;
