@@ -39,8 +39,7 @@ public class MinCostToAllPoints {
             int[] edge = edgesToProcess.poll();
 
             //No cycle created
-            if (findParent(parents, edge[0]) != findParent(parents, edge[1])) {
-                union(parents, edge[0], edge[1]);
+            if (union(parents, edge[0], edge[1])) {
                 solution += edge[2];
                 solutionSize++;
             }
@@ -49,14 +48,16 @@ public class MinCostToAllPoints {
         return solution;
     }
 
-    public static void union(int[] parents, int a, int b) {
+    public static boolean union(int[] parents, int a, int b) {
         int aParent = findParent(parents, a);
         int bParent = findParent(parents, b);
-        if (aParent != bParent) {
-            int min = Math.min(aParent, bParent);
-            int max = Math.max(aParent, bParent);
-            parents[min] = parents[max];
+        if (aParent == bParent) {
+            return false;
         }
+        int min = Math.min(aParent, bParent);
+        int max = Math.max(aParent, bParent);
+        parents[min] = parents[max];
+        return true;
     }
 
     private static int findParent(int[] parents, int i) {
