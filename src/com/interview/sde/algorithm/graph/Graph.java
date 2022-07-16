@@ -135,23 +135,19 @@ public class Graph {
 
     private static void floydWarshall(HashMap<Integer, Node> nodes, int startId, int endId) {
 
-        int[][] matrixPrev = initMatrixFloydWarshall(nodes);
-        int size = matrixPrev.length;
-        int[][] matrixK = new int[size][size];
+        int[][] matrixK = initMatrixFloydWarshall(nodes);
+        int size = matrixK.length;
 
         for (int k = 0; k < size; k++) {
             for (int i = 0; i < size; i++) {
                 for (int j = 0; j < size; j++) {
-                    int ikValue = matrixPrev[i][k];
-                    int jkValue = matrixPrev[k][j];
-                    if (ikValue == Integer.MAX_VALUE || jkValue == Integer.MAX_VALUE) {
-                        matrixK[i][j] = matrixPrev[i][j];
-                    } else {
-                        matrixK[i][j] = Math.min(matrixPrev[i][j], ikValue + jkValue);
+                    int ikValue = matrixK[i][k];
+                    int jkValue = matrixK[k][j];
+                    if (ikValue != Integer.MAX_VALUE && jkValue != Integer.MAX_VALUE && matrixK[i][j] > ikValue + jkValue) {
+                        matrixK[i][j] = ikValue + jkValue;
                     }
                 }
             }
-            matrixPrev = matrixK;
         }
 
         System.out.println("FloydWarshall " + matrixK[startId - 1][endId - 1]);

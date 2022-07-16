@@ -5,8 +5,6 @@ import java.util.Scanner;
 //https://www.hackerrank.com/challenges/floyd-city-of-blinding-lights/problem
 public class FloydCityofBlindingLights {
 
-    static int[][] matrixK;
-
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         String[] gameSize = scanner.nextLine().split(" ");
@@ -23,7 +21,7 @@ public class FloydCityofBlindingLights {
             edges[node1Id][node2Id] = Integer.parseInt(edgeData[2]);
         }
 
-        floydWarshall(edges);
+        int[][] matrixK = floydWarshall(edges);
 
         int queries = Integer.parseInt(scanner.nextLine());
         for (; queries > 0; queries--) {
@@ -35,26 +33,23 @@ public class FloydCityofBlindingLights {
     }
 
 
-    private static void floydWarshall(int[][] edges) {
+    private static int[][] floydWarshall(int[][] edges) {
 
-        int[][] matrixPrev = initMatrixFloydWarshall(edges);
-        int size = matrixPrev.length;
-        matrixK = new int[size][size];
+        int[][] matrixK = initMatrixFloydWarshall(edges);
+        int size = matrixK.length;
 
         for (int k = 0; k < size; k++) {
             for (int i = 0; i < size; i++) {
                 for (int j = 0; j < size; j++) {
-                    int ikValue = matrixPrev[i][k];
-                    int jkValue = matrixPrev[k][j];
-                    if (ikValue == Integer.MAX_VALUE || jkValue == Integer.MAX_VALUE) {
-                        matrixK[i][j] = matrixPrev[i][j];
-                    } else {
-                        matrixK[i][j] = Math.min(matrixPrev[i][j], ikValue + jkValue);
+                    int ikValue = matrixK[i][k];
+                    int jkValue = matrixK[k][j];
+                    if (ikValue != Integer.MAX_VALUE && jkValue != Integer.MAX_VALUE && matrixK[i][j] > ikValue + jkValue) {
+                        matrixK[i][j] = ikValue + jkValue;
                     }
                 }
             }
-            matrixPrev = matrixK;
         }
+        return matrixK;
     }
 
     private static int[][] initMatrixFloydWarshall(int[][] edges) {
