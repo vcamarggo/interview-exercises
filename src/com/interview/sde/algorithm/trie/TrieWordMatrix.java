@@ -1,6 +1,4 @@
-package com.interview.sde.algorithm.tree;
-
-import com.interview.sde.algorithm.trie.TrieDictionaryMatrix;
+package com.interview.sde.algorithm.trie;
 
 //https://leetcode.com/problems/word-search/
 //Refer to TreeDictionaryMatrix.java

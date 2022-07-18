@@ -39,24 +39,14 @@ public class AllNodesKDistance {
 
     static void constructGraphPreOrder(Map<Integer, List<TreeNode>> graph, TreeNode root) {
         if (root.left != null) {
-            List<TreeNode> rootList = graph.getOrDefault(root.val, new ArrayList<>());
-            rootList.add(root.left);
-            graph.put(root.val, rootList);
-
-            List<TreeNode> leftList = graph.getOrDefault(root.left.val, new ArrayList<>());
-            leftList.add(root);
-            graph.put(root.left.val, leftList);
+            graph.computeIfAbsent(root.val, k -> new ArrayList<>()).add(root.left);
+            graph.computeIfAbsent(root.left.val, k -> new ArrayList<>()).add(root);
 
             constructGraphPreOrder(graph, root.left);
         }
         if (root.right != null) {
-            List<TreeNode> rootList = graph.getOrDefault(root.val, new ArrayList<>());
-            rootList.add(root.right);
-            graph.put(root.val, rootList);
-
-            List<TreeNode> rightList = graph.getOrDefault(root.right.val, new ArrayList<>());
-            rightList.add(root);
-            graph.put(root.right.val, rightList);
+            graph.computeIfAbsent(root.val, k -> new ArrayList<>()).add(root.right);
+            graph.computeIfAbsent(root.right.val, k -> new ArrayList<>()).add(root);
 
             constructGraphPreOrder(graph, root.right);
         }
