@@ -17,16 +17,13 @@ public class WordBreak {
             return memo.get(s);
         }
         if (s.length() == 0) {
-            memo.put(s, true);
-            return true;
+            return memo.computeIfAbsent(s, k -> true);
         }
         for (String word : wordDict) {
             if (s.startsWith(word) && wordBreak(s.substring(word.length()), wordDict)) {
-                memo.put(s, true);
-                return true;
+                return memo.computeIfAbsent(s, k -> true);
             }
         }
-        memo.put(s, false);
-        return false;
+        return memo.computeIfAbsent(s, k -> false);
     }
 }

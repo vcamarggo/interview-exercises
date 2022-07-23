@@ -1,4 +1,4 @@
-package com.interview.sde.algorithm.string;
+package com.interview.sde.algorithm.dynamicprogramming;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -28,17 +28,19 @@ public class EditDistance {
 
             return memo.compute(word1.substring(1) + "#" + word2.substring(1), (k, v) -> distance);
         }
-        //same as remove from w1
+        //Remove from w1
         //e.g. w1 = boros w2 = eros, w1 become oros.
         // The cost is 1
         int distanceRemove = minDistance(word1.substring(1), word2) + 1;
 
-        //same as add something on w2, then remove the new char and remove the first char for word1 as they now match and removing equal chars has cost 0
-        //e.g. w1 = boros w2 = eros, w2 become beros, then you can  remove b from both at no cost.
-        // The cost is 1 from the first insert on w2
+        //Insert (copy) the first w2 char to w1 then remove the first char from both as they now match
+        //In practice, you just need to remove from w2 that not matches the copied char from w1
+        //Removing equal chars has cost 0,
+        //e.g. w1 = oros w2 = beros, w1 become boros, then you can  remove b from both at no cost.
+        // The cost is 1 from the first copy on w1
         int distanceInsert = minDistance(word1, word2.substring(1)) + 1;
 
-        //same as change something on word2 or word1, then remove that from both as they now match and that has cost 0
+        //Same as change something on word2 or word1, then remove that from both as they now match and that has cost 0
         //e.g. w1 = boros w2 = neros, w2 become beros, then you can  remove b from both at no cost because they now match.
         // The cost is 1 from changing a char either on w1 or w2
         int distanceReplace = minDistance(word1.substring(1), word2.substring(1)) + 1;

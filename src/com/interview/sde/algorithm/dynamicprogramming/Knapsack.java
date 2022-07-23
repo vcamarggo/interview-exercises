@@ -18,11 +18,13 @@ public class Knapsack {
 
         for (int row = 1; row < resultMatrix.length; row++) {
             for (int column = 1; column < resultMatrix[0].length; column++) {
-                if (arr[row - 1] > column) {
+                int objectWeight = arr[row - 1];
+                //If the object is heavier than the max weight I can carry
+                if (objectWeight > column) {
                     resultMatrix[row][column] = resultMatrix[row - 1][column];
                 } else {
                     //This is choosing between keeping the previous minimum remaining amount or using the current value to reach to a smaller amount
-                    resultMatrix[row][column] = Math.min(resultMatrix[row - 1][column], resultMatrix[row][column - arr[row - 1]]);
+                    resultMatrix[row][column] = Math.min(resultMatrix[row - 1][column], resultMatrix[row][column - objectWeight]);
                 }
             }
         }

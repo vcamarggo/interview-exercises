@@ -11,7 +11,7 @@ import java.util.stream.Stream;
 
 //This solution is overkill, a simple counter could be used to track the maximum so far
 //https://www.hackerrank.com/challenges/stockmax/problem
-class Result {
+public class StockMaximize {
 
     /*
      * Complete the 'stockmax' function below.
@@ -45,9 +45,6 @@ class Result {
         return stocksAmount.get(0);
     }
 
-}
-
-public class StockMaximize {
     public static void main(String[] args) throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 
@@ -60,7 +57,7 @@ public class StockMaximize {
                 int[] prices = Stream.of(bufferedReader.readLine().replaceAll("\\s+$", "").split(" "))
                         .mapToInt(Integer::parseInt).toArray();
 
-                long result = Result.stockmax(prices);
+                long result = stockmax(prices);
                 System.out.println(result);
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
