@@ -1,6 +1,6 @@
 package com.interview.sde.algorithm.array;
 
-//https://leetcode.com/problems/count-submatrices-with-all-ones/submissions/
+//https://leetcode.com/problems/count-submatrices-with-all-ones/
 public class SubMatrixWithOne {
     public int numSubmat(int[][] mat) {
         int numberRow = mat.length;

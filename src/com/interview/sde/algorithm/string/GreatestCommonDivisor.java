@@ -1,6 +1,6 @@
 package com.interview.sde.algorithm.string;
 
-//https://leetcode.com/problems/greatest-common-divisor-of-strings/submissions/
+//https://leetcode.com/problems/greatest-common-divisor-of-strings/
 public class GreatestCommonDivisor {
     public static void main(String[] args) {
         System.out.println(gcdOfStrings("AA",
