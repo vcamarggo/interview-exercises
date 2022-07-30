@@ -38,6 +38,6 @@ public class ParallelCoursesIII {
             }
         }
 
-        return Arrays.stream(pathTime).max().getAsInt();
+        return Arrays.stream(pathTime).max(). getAsInt();
     }
 }
