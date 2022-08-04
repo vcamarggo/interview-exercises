@@ -3,6 +3,7 @@ package com.interview.sde.algorithm.tree;
 import java.util.Scanner;
 
 //https://www.hackerrank.com/challenges/binary-search-tree-lowest-common-ancestor/problem
+//https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree
 public class BSTLowestCommonAncestor {
 
     static class Node {
