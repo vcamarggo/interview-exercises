@@ -1,5 +1,4 @@
 package com.interview.sde.algorithm.array;
-//https://www.hackerrank.com/challenges/arrays-ds/problem
 
 //https://leetcode.com/problems/maximize-distance-to-closest-person/
 public class MaximizeDistance {

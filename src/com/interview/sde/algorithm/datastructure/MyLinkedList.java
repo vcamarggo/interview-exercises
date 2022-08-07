@@ -62,7 +62,6 @@ public class MyLinkedList {
                 idx++;
                 temp = temp.next;
             }
-//                Node temp = getNode(index-1);
             if (idx == index - 1) {
                 if (temp == tail || !isValidNode(temp)) {
                     addAtTail(val);
