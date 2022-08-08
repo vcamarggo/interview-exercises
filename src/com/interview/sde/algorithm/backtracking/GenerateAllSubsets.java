@@ -16,7 +16,7 @@ public class GenerateAllSubsets {
         for (int number : nums) {
             if (!solution.isEmpty()) {
                 int solutionSize = solution.size();
-                //For each new numbers, run to all existing solutions and and this new number to the existing solution
+                //For each new numbers, run to all existing solutions and add this new number to the existing solution
                 for (int i = 0; i < solutionSize; i++) {
                     List<Integer> aggregator = new ArrayList<>(solution.get(i));
                     aggregator.add(number);
