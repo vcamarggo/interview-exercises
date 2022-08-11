@@ -40,7 +40,6 @@ public class MergeTwoLinkedLists {
         while (head1 != null && head2 != null) {
             if (head1.data > head2.data) {
                 head2 = walkOnList(head1, head2);
-
             } else {
                 head1 = walkOnList(head2, head1);
             }

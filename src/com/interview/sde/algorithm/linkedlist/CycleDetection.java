@@ -5,6 +5,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.HashSet;
 import java.util.Scanner;
+import java.util.Set;
 
 //https://www.hackerrank.com/challenges/detect-whether-a-linked-list-contains-a-cycle/problem
 public class CycleDetection {
@@ -33,7 +34,7 @@ public class CycleDetection {
      *
      */
     static boolean hasCycle(SinglyLinkedListNode head) {
-        HashSet<SinglyLinkedListNode> nodes = new HashSet<>();
+        Set<SinglyLinkedListNode> nodes = new HashSet<>();
 
         while (head.next != null) {
             nodes.add(head);
