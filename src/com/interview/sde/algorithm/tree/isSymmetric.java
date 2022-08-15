@@ -21,18 +21,18 @@ public class IsSymmetric {
         return isSymmetric(root, root);
     }
 
-    public boolean isSymmetric(BSTInsertion.Node rl, BSTInsertion.Node rr) {
-        boolean leftIsNull = rl == null;
-        boolean rightIsNull = rr == null;
+    public boolean isSymmetric(BSTInsertion.Node left, BSTInsertion.Node right) {
+        boolean leftIsNull = left == null;
+        boolean rightIsNull = right == null;
 
         //Not a great implementation, I was playing with boolean condition and algebra simplification to keep it in one line
         return (leftIsNull && rightIsNull) ||
                 (
                         !leftIsNull &&
                                 !rightIsNull &&
-                                rl.data == rr.data &&
-                                isSymmetric(rl.left, rr.right) &&
-                                isSymmetric(rl.right, rr.left)
+                                left.data == right.data &&
+                                isSymmetric(left.left, right.right) &&
+                                isSymmetric(left.right, right.left)
                 );
     }
 }

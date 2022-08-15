@@ -17,7 +17,7 @@ public class InvertBinaryTree {
 
     TreeNode invertTree(TreeNode root) {
         if(root == null){
-            return root;
+            return null;
         }
 
         TreeNode temp  = root.left;

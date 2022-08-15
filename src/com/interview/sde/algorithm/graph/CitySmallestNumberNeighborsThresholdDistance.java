@@ -46,7 +46,7 @@ public class CitySmallestNumberNeighborsThresholdDistance {
             for (int i = 0; i < size; i++) {
                 for (int j = 0; j < size; j++) {
                     int ikValue = matrixK[i][k];
-                    int jkValue = matrixK[k][j];
+                    int jkValue = matrixK[j][k];
                     if (ikValue != Integer.MAX_VALUE && jkValue != Integer.MAX_VALUE && matrixK[i][j] > ikValue + jkValue) {
                         matrixK[i][j] = ikValue + jkValue;
                     }

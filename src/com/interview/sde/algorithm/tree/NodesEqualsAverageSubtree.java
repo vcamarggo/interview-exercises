@@ -44,7 +44,6 @@ public class NodesEqualsAverageSubtree {
             subtreeData[RESULT] += subtreeDataRight[RESULT];
         }
 
-
         if(root.left == null && root.right == null || subtreeData[SUM] / subtreeData[COUNT] == root.val){
             subtreeData[RESULT]++;
         }
