@@ -1,7 +1,7 @@
 package com.interview.sde.algorithm.tree;
 
 public class NodesEqualsAverageSubtree {
-    public class TreeNode {
+    public static class TreeNode {
         int val;
         TreeNode left;
         TreeNode right;
@@ -35,8 +35,8 @@ public class NodesEqualsAverageSubtree {
             subtreeData[SUM] += subtreeDataLeft[SUM];
             subtreeData[COUNT] += subtreeDataLeft[COUNT];
             subtreeData[RESULT] += subtreeDataLeft[RESULT];
-
         }
+
         if(root.right != null){
             int[] subtreeDataRight = countNodeEqualsSubtreeAverage(root.right);
             subtreeData[SUM] += subtreeDataRight[SUM];

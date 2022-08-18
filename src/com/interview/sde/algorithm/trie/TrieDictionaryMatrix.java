@@ -18,10 +18,7 @@ public class TrieDictionaryMatrix {
     private static void insert(TrieNode root, String key) {
         TrieNode current = root;
         for (int i = 0; i < key.length(); i++) {
-            if (!current.children.containsKey(key.charAt(i))) {
-                current.children.put(key.charAt(i), new TrieNode(false));
-            }
-            current = current.children.get(key.charAt(i));
+            current = current.children.computeIfAbsent(key.charAt(i), k -> new TrieNode(false));
         }
         current.isWord = true;
     }

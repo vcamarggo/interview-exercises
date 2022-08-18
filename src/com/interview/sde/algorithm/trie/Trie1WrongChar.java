@@ -8,12 +8,12 @@ public class Trie1WrongChar {
 
     static class TrieTree {
 
-        TrieNode root = new TrieNode(' ');
+        TrieNode root = new TrieNode();
 
         public void insert(String s) {
             TrieNode current = root;
             for (char c : s.toCharArray()) {
-                current = current.children.computeIfAbsent(c, k -> new TrieNode(c));
+                current = current.children.computeIfAbsent(c, k -> new TrieNode());
             }
             current.isWord = true;
             current.fullWord = s;
@@ -21,13 +21,13 @@ public class Trie1WrongChar {
 
         //Allow max 1 wrong character and still return found.
         // E.g. Trie has hello and hollo, but would still return true for hallo because it has only 1 wrong char
-        public boolean searchWithMax1WrongChar(String searchWord, int beginIndex, TrieTree.TrieNode root, boolean usedWildcard) {
+        public boolean searchWith1WrongChar(String searchWord, int beginIndex, TrieTree.TrieNode root, boolean usedWildcard) {
             for (int i = beginIndex; i < searchWord.length(); i++) {
                 char data = searchWord.charAt(i);
                 //Use the boolean "usedWildcard" as a single-use possibility to ignore 1 char
                 if (!usedWildcard) {
                     for (TrieTree.TrieNode child : root.children.values()) {
-                        if (searchWithMax1WrongChar(searchWord, i + 1, child, true)) {
+                        if (searchWith1WrongChar(searchWord, i + 1, child, true)) {
                             return true;
                         }
                     }
@@ -40,18 +40,16 @@ public class Trie1WrongChar {
             return root.isWord && !root.fullWord.equals(searchWord);
         }
 
-        public boolean searchWithMax1WrongChar(String searchWord) {
-            return searchWithMax1WrongChar(searchWord, 0, root, false);
+        public boolean searchWith1WrongChar(String searchWord) {
+            return searchWith1WrongChar(searchWord, 0, root, false);
         }
 
         static class TrieNode {
-            char val;
             boolean isWord;
             String fullWord;
             Map<Character, TrieNode> children;
 
-            public TrieNode(char val) {
-                this.val = val;
+            public TrieNode() {
                 this.isWord = false;
                 this.children = new HashMap<>();
             }
@@ -73,7 +71,7 @@ public class Trie1WrongChar {
     }
 
     public boolean search(String searchWord) {
-        return trie.searchWithMax1WrongChar(searchWord);
+        return trie.searchWith1WrongChar(searchWord);
     }
 
 

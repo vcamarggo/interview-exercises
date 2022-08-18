@@ -6,12 +6,10 @@ import java.util.*;
 public class SearchSuggestionSystem {
     static class Trie {
 
-        char data;
         List<String> words;
         Map<Character, Trie> children;
 
-        Trie(char data) {
-            this.data = data;
+        Trie() {
             this.children = new HashMap<>();
             this.words = new ArrayList<>();
         }
@@ -19,7 +17,7 @@ public class SearchSuggestionSystem {
         void insert(String word) {
             Trie root = this;
             for (char c : word.toCharArray()) {
-                root = root.children.computeIfAbsent(c, k -> new Trie(c));
+                root = root.children.computeIfAbsent(c, k -> new Trie());
                 if (root.words.size() < 3) {
                     root.words.add(word);
                 }
@@ -41,7 +39,7 @@ public class SearchSuggestionSystem {
     }
 
     public List<List<String>> suggestedProducts(String[] products, String searchWord) {
-        Trie root = new Trie(' ');
+        Trie root = new Trie();
 
         Arrays.sort(products);
 
@@ -63,6 +61,6 @@ public class SearchSuggestionSystem {
         System.out.println(new SearchSuggestionSystem().suggestedProducts(new String[]{"mobile", "mouse", "moneypot", "monitor", "mousepad"}, "mouse"));
         System.out.println(new SearchSuggestionSystem().suggestedProducts(new String[]{"havana"}, "mouse"));
         System.out.println(new SearchSuggestionSystem().suggestedProducts(new String[]{"havana"}, "havana"));
-        System.out.println(new SearchSuggestionSystem().suggestedProducts(new String[]{"bags","baggage","banner","box","cloths"}, "bags"));
+        System.out.println(new SearchSuggestionSystem().suggestedProducts(new String[]{"bags", "baggage", "banner", "box", "cloths"}, "bags"));
     }
 }
