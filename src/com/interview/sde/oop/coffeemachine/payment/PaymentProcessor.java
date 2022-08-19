@@ -7,9 +7,9 @@ class PaymentProcessor implements IPaymentProcessor {
     Integer beverage;
 
     @Override
-    public double processPayment(final Integer beverageId, final List<IPayment> payments) {
+    public double processPayment(final Integer beverageId, final List<IPaymentMethod> payments) {
         double remainingToPay = getBeveragePrice(beverage);
-        for (IPayment payment : payments) {
+        for (IPaymentMethod payment : payments) {
             remainingToPay -= payment.pay(remainingToPay);
         }
         return remainingToPay;

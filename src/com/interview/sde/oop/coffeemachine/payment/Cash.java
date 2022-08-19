@@ -1,6 +1,6 @@
 package com.interview.sde.oop.coffeemachine.payment;
 
-public class Cash implements IPayment {
+public class Cash implements IPaymentMethod {
     //value of a given coin
     private double value;
 

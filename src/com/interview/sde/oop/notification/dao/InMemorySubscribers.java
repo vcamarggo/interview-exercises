@@ -8,11 +8,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class StaticSubscribers implements DAO {
+public class InMemorySubscribers implements DAO {
 
     private final Map<Topic, List<Subscriber>> subscribers;
 
-    public StaticSubscribers() {
+    public InMemorySubscribers() {
         this.subscribers = new HashMap<>();
     }
 

@@ -4,7 +4,7 @@ import com.interview.sde.oop.coffeemachine.beverage.Beverage;
 
 public interface IBeverageMaker {
 
-    void makeBeverage();
+    void makeBeverage(final Integer beverageId);
 
     Beverage getBeverage();
 }

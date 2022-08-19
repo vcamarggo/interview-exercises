@@ -6,7 +6,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class DataPoint {
-    private List<Double> data;
+    private final List<Double> data;
     private BigDecimal sumForAverage;
     private double min = Double.MAX_VALUE;
     private double max = Double.MIN_VALUE;
@@ -38,6 +38,6 @@ public class DataPoint {
     }
 
     public void printAverage() {
-        System.out.println("Avg: " + sumForAverage.divide(new BigDecimal(data.size()), RoundingMode.UNNECESSARY));
+        System.out.println("Avg: " + sumForAverage.divide(new BigDecimal(data.size()), RoundingMode.HALF_DOWN));
     }
 }

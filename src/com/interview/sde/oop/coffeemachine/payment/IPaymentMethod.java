@@ -1,5 +1,5 @@
 package com.interview.sde.oop.coffeemachine.payment;
 
-public interface IPayment {
+public interface IPaymentMethod {
     double pay(final double amountToPay);
 }

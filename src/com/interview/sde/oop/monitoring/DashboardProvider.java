@@ -3,7 +3,9 @@ package com.interview.sde.oop.monitoring;
 import java.util.*;
 
 public class DashboardProvider {
-    private static HashMap<Long, DataPoint> dataset = new HashMap<>();
+    //TreeMap to order timestamp and allow querying by timestamp
+    //If insertion timestamp is monotonically increasing, LinkedHashMap can also be used, but that is hard to guarantee in a wall-clock
+    private static TreeMap<Long, DataPoint> dataset = new TreeMap<>();
 
     public static void main(String[] args) {
         Random randomGenerator = new Random();
@@ -11,6 +13,7 @@ public class DashboardProvider {
         receiveData(System.currentTimeMillis(), List.of(randomGenerator.nextDouble()));
 
         long t2 = System.currentTimeMillis();
+
         receiveData(t2,
                 List.of(randomGenerator.nextDouble(),
                         randomGenerator.nextDouble(),
@@ -22,9 +25,10 @@ public class DashboardProvider {
     }
 
     static void receiveData(Long timestamp, List<Double> data) {
-        DataPoint d1 = new DataPoint();
-        dataset.putIfAbsent(timestamp, d1);
-        dataset.computeIfPresent(timestamp, (aLong, dataPoint) -> {
+        dataset.compute(timestamp, (key, dataPoint) -> {
+            if (dataPoint == null) {
+                dataPoint = new DataPoint();
+            }
             dataPoint.insertData(data);
             return dataPoint;
         });

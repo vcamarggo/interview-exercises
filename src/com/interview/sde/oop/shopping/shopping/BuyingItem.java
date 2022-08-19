@@ -11,6 +11,7 @@ public class BuyingItem {
     public BuyingItem(Item item, int quantity) {
         this.item = item;
         this.quantity = quantity;
+        this.total = item.getPrice() * quantity;
     }
 
     public void applyTax(Tax taxClass) {

@@ -2,7 +2,7 @@ package com.interview.sde.oop.coffeemachine;
 
 import com.interview.sde.oop.coffeemachine.beverage.Beverage;
 import com.interview.sde.oop.coffeemachine.beverage.maker.IBeverageMaker;
-import com.interview.sde.oop.coffeemachine.payment.IPayment;
+import com.interview.sde.oop.coffeemachine.payment.IPaymentMethod;
 import com.interview.sde.oop.coffeemachine.payment.IPaymentProcessor;
 import com.interview.sde.oop.coffeemachine.state.BeverageState;
 import com.interview.sde.oop.coffeemachine.state.IBeverageState;
@@ -41,13 +41,13 @@ class BeverageMachine {
         return new ArrayList<>();
     }
 
-    double payBeverage(final Integer beverageId, final List<IPayment> IPayment) {
-        double remainingToPay = paymentProcessor.processPayment(beverageId, IPayment);
+    double payBeverage(final Integer beverageId, final List<IPaymentMethod> paymentsUsed) {
+        double remainingToPay = paymentProcessor.processPayment(beverageId, paymentsUsed);
 
         //If fully paid or paid and receiving changes
         if (remainingToPay <= 0) {
             beveragePreparingProcess.transitionState(BeverageState.PREPARING);
-            beverageMaker.makeBeverage();
+            beverageMaker.makeBeverage(beverageId);
         }
 
         return remainingToPay;

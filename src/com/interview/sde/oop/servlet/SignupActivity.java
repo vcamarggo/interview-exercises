@@ -16,7 +16,7 @@ import com.interview.sde.oop.servlet.validator.thirdparty.ValidatorThirdParty;
 class SignupActivity implements Servlet {
 
     //I did not want ot use wildcard ?, so I preferred to initialize the translator here
-    final TranslatorAbstractFactory<RestRequest> translator = new RestTranslatorFactory();
+    final TranslatorAbstractFactory<RestRequest> restTranslator = new RestTranslatorFactory();
 
     ValidatorDecorator<RestRequest> validator;
 
@@ -28,13 +28,13 @@ class SignupActivity implements Servlet {
 
     @Override
     public void doPost(Request request, Response response) {
-        RestRequest signUpRequest = translator.createTranslatorFromT().translateToRequestSubclass(request);
+        RestRequest signUpRequest = restTranslator.createTranslatorFromT().translateToRequestSubclass(request);
         try {
             validator.validate(signUpRequest);
         } catch (ValidationException ve) {
             response.setFailMessage(ve.getMessage());
             return;
         }
-        response.setBody(translator.createTranslatorToResponse().translateToResponse(signUpRequest));
+        response.setBody(restTranslator.createTranslatorToResponse().translateToResponse(signUpRequest));
     }
 }

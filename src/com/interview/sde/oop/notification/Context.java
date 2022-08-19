@@ -1,7 +1,7 @@
 package com.interview.sde.oop.notification;
 
 import com.interview.sde.oop.notification.dao.DAO;
-import com.interview.sde.oop.notification.dao.StaticSubscribers;
+import com.interview.sde.oop.notification.dao.InMemorySubscribers;
 import com.interview.sde.oop.notification.message.SimpleMessage;
 import com.interview.sde.oop.notification.message.Topic;
 import com.interview.sde.oop.notification.publisher.Publisher;
@@ -11,7 +11,7 @@ import com.interview.sde.oop.notification.subscriber.Subscriber;
 
 public class Context {
     public static void main(String[] args) {
-        DAO subscriberDAO = new StaticSubscribers();
+        DAO subscriberDAO = new InMemorySubscribers();
 
         Publisher publisher = new SerialPublisher(subscriberDAO);
 
