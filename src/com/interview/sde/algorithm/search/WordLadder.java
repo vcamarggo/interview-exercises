@@ -18,11 +18,8 @@ public class WordLadder {
         for (String word : wordList) {
             for (int i = 0; i < beginWord.length(); i++) {
                 String key = word.substring(0, i) + wildcard + word.substring(i + 1);
-                Set<String> wordsWithChar = dictionary.getOrDefault(key, new HashSet<>());
-                wordsWithChar.add(word);
-                dictionary.put(key, wordsWithChar);
+                dictionary.computeIfAbsent(key, k-> new HashSet<>()).add(word);
             }
-
         }
 
 
