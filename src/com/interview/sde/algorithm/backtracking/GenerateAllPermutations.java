@@ -1,9 +1,6 @@
 package com.interview.sde.algorithm.backtracking;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 //https://leetcode.com/problems/permutations/
@@ -39,6 +36,31 @@ public class GenerateAllPermutations {
         }
         //Remove the sorting part if you want to submit this on leetcode, I've added to try ordering of arrays
         return solution.stream().sorted(Comparator.comparing(Object::toString)).collect(Collectors.toList());
+    }
+
+
+    public static List<List<Integer>> permute2(int[] nums) {
+        return getPermutation(nums, new ArrayList<>(), new HashMap<>(nums.length));
+    }
+
+    //Another approach to solve
+    public static List<List<Integer>> getPermutation(int[] nums, List<Integer> s, Map<Integer, Boolean> vis) {
+        List<List<Integer>> solution = new ArrayList<>();
+        if (s.size() == nums.length) {
+            solution.add(new ArrayList<>(s));
+            return solution;
+        }
+
+        for (int i : nums) {
+            if (!vis.getOrDefault(i, false)) {
+                vis.put(i, true);
+                s.add(i);
+                solution.addAll(getPermutation(nums, s, vis));
+                s.remove(s.size() - 1);
+                vis.put(i, false);
+            }
+        }
+        return solution;
     }
 
 

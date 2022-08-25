@@ -8,6 +8,7 @@ public class CombinationIterator {
     private final int[] lastIndexUsedForPosition;
     private boolean hasNext;
 
+    int maxCharIndexAtPositionZero;
 
     public CombinationIterator(String characters, int combinationLength) {
         this.chars = characters;
@@ -20,6 +21,8 @@ public class CombinationIterator {
         }
 
         this.hasNext = combinationLength <= characters.length();
+
+        this.maxCharIndexAtPositionZero = chars.length() - combinationLength;
     }
 
     public String next() {
@@ -39,7 +42,7 @@ public class CombinationIterator {
         }
 
         int indexToChange = combinationLength - 1;
-        while (indexToChange >= 0 && lastIndexUsedForPosition[indexToChange] == chars.length() - combinationLength + indexToChange) {
+        while (indexToChange >= 0 && lastIndexUsedForPosition[indexToChange] == maxCharIndexAtPositionZero + indexToChange) {
             indexToChange--;
         }
 
@@ -47,7 +50,8 @@ public class CombinationIterator {
         if (indexToChange >= 0) {
             lastIndexUsedForPosition[indexToChange]++;
             for (int j = indexToChange + 1; j < combinationLength; j++) {
-                lastIndexUsedForPosition[j] = lastIndexUsedForPosition[indexToChange] + j - indexToChange;
+                // assign to each j the first element that is bigger than the previous
+                lastIndexUsedForPosition[j] = lastIndexUsedForPosition[j - 1] + 1;
             }
             hasNext = true;
         }
@@ -57,7 +61,7 @@ public class CombinationIterator {
 
 
     public static void main(String[] args) {
-        CombinationIterator ci = new CombinationIterator("abc", 2);
+        CombinationIterator ci = new CombinationIterator("abcdefg", 3);
         while (ci.hasNext())
             System.out.println(ci.next());
     }

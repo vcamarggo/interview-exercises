@@ -37,6 +37,7 @@ public class VerticalTraversal {
         }
         return diff;
     };
+
     public List<List<Integer>> verticalTraversal(TreeNode root) {
         populateMapper(root, 0, 0);
         List<List<Integer>> solution = new ArrayList<>();

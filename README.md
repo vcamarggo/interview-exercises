@@ -14,4 +14,4 @@ Other algorithms are from leetcode or implementation of classical algorithms;
 
 Mock folder has problems based in mock interviews with SDEs;
 
-Monitoring folder is a implementation of a real interview of a colleague;
+OOP folder is a implementation of a some OOP designs;
