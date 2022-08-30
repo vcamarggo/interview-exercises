@@ -22,7 +22,7 @@ public class GroupAnagrams {
             for (int keyCounter : anagramKeyCounter) {
                 key.append('#').append(keyCounter);
             }
-            anagramGrouping.computeIfAbsent(key.toString(), k-> new ArrayList<>()).add(word);
+            anagramGrouping.computeIfAbsent(key.toString(), k -> new ArrayList<>()).add(word);
         }
         return new ArrayList<>(anagramGrouping.values());
     }

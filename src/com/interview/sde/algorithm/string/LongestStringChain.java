@@ -1,19 +1,10 @@
 package com.interview.sde.algorithm.string;
 
 import java.util.*;
+
 //https://leetcode.com/problems/longest-string-chain/
 public class LongestStringChain {
     final static char WILDCARD = '*';
-
-    public static class Node {
-        String word;
-        Integer depth;
-
-        public Node(String word, Integer depth) {
-            this.word = word;
-            this.depth = depth;
-        }
-    }
 
     public int longestStrChain(String[] words) {
         //Prioritize like a stack, since new included items will have larger depth and increase chance of maximizing max,
@@ -90,5 +81,15 @@ public class LongestStringChain {
             }
         }
         return dictionary;
+    }
+
+    public static class Node {
+        String word;
+        Integer depth;
+
+        public Node(String word, Integer depth) {
+            this.word = word;
+            this.depth = depth;
+        }
     }
 }

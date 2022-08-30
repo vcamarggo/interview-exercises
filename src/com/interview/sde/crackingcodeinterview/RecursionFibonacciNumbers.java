@@ -22,6 +22,8 @@ public class RecursionFibonacciNumbers {
     }
 
     public static int fibonacci(int n) {
+        if (n == 0) return 0;
+
         int n2 = 0;
         int n1 = 1;
         int result;

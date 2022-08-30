@@ -8,6 +8,10 @@ import java.util.Set;
 //https://leetcode.com/problems/repeated-dna-sequences/
 public class Repeated10Chars {
 
+    public static void main(String[] args) {
+        new Repeated10Chars().findRepeatedDnaSequences("AAAAACCCCCAAAAACCCCCCAAAAAGGGTTT");
+    }
+
     public List<String> findRepeatedDnaSequences(String s) {
         Set<String> result = new HashSet<>();
         Set<String> foundWords = new HashSet<>();
@@ -24,9 +28,5 @@ public class Repeated10Chars {
         }
 
         return new ArrayList<>(result);
-    }
-
-    public static void main(String[] args) {
-        new Repeated10Chars().findRepeatedDnaSequences("AAAAACCCCCAAAAACCCCCCAAAAAGGGTTT");
     }
 }

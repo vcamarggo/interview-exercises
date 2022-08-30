@@ -6,6 +6,13 @@ import java.util.List;
 
 //https://leetcode.com/problems/restore-ip-addresses/
 public class RestoreIPAddress {
+    public static void main(String[] args) {
+        System.out.println(new RestoreIPAddress().restoreIpAddresses("0279245587303"));
+        System.out.println(new RestoreIPAddress().restoreIpAddresses("25525511135"));
+        System.out.println(new RestoreIPAddress().restoreIpAddresses("0000"));
+        System.out.println(new RestoreIPAddress().restoreIpAddresses("101023"));
+    }
+
     public List<String> restoreIpAddresses(String s) {
         //size out of valid range
         if (s.length() > 12 || s.length() < 4) {
@@ -41,12 +48,5 @@ public class RestoreIPAddress {
         int octetInt = Integer.parseInt(octet);
         //it is valid when is 0, or any number from 1 to 255 without leading zero
         return (octet.charAt(0) == '0' && octet.length() == 1) || (octet.charAt(0) != '0' && octetInt > 0 && octetInt <= 255);
-    }
-
-    public static void main(String[] args) {
-        System.out.println(new RestoreIPAddress().restoreIpAddresses("0279245587303"));
-        System.out.println(new RestoreIPAddress().restoreIpAddresses("25525511135"));
-        System.out.println(new RestoreIPAddress().restoreIpAddresses("0000"));
-        System.out.println(new RestoreIPAddress().restoreIpAddresses("101023"));
     }
 }

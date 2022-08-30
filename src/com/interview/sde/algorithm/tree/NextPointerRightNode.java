@@ -4,6 +4,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 //https://leetcode.com/problems/populating-next-right-pointers-in-each-node/
+//https://leetcode.com/problems/populating-next-right-pointers-in-each-node-ii/
 public class NextPointerRightNode {
     static class Node {
         public int val;
