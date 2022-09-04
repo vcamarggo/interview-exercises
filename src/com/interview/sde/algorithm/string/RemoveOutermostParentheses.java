@@ -3,7 +3,7 @@ package com.interview.sde.algorithm.string;
 import java.util.Stack;
 
 //https://leetcode.com/problems/remove-outermost-parentheses/
-public class RemoveOutmostParentheses {
+public class RemoveOutermostParentheses {
     public static void main(String[] args) {
         System.out.println(removeOuterParentheses("(()())(())"));
     }

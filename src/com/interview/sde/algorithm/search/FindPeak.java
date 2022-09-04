@@ -18,14 +18,6 @@ public class FindPeak {
                 return i;
             }
         }
-
-        //For legibility, I'd remove the first if and move it to the next lines like, it makes the conditions simpler
-//        if(nums.length >= 2){
-//            if(nums[nums.length-1] > nums[nums.length-2]){
-//                return nums.length-1;
-//            }
-//        }
-
         return 0;
     }
 }

@@ -31,7 +31,7 @@ public class LetterCombinationsPhoneNumber {
                 String valueAsString = String.valueOf(value);
                 for (int j = 0; j < temporarySolutionSize; j++) {
                     if (temporarySolutionSize > 1) {
-                        //append the previous result with the new digit, this allow to create all possible permutations
+                        //append the previous result with the new digit, this allows to create all possible permutations
                         permutations.add(solution.get(j).concat(valueAsString));
                     } else {
                         //create the first layer of one digit "".concat(valueAsString)

@@ -9,10 +9,10 @@ public class Knapsack {
     private static final Scanner scanner = new Scanner(System.in);
 
     // Complete the unboundedKnapsack function below.
-    static int unboundedKnapsack(int k, int[] arr) {
+    static int unboundedKnapsack(int targetWeight, int[] arr) {
         arr = IntStream.of(arr).distinct().toArray();
-        int[][] resultMatrix = new int[arr.length + 1][k + 1];
-        for (int i = 0; i < k + 1; i++) {
+        int[][] resultMatrix = new int[arr.length + 1][targetWeight + 1];
+        for (int i = 0; i < targetWeight + 1; i++) {
             resultMatrix[0][i] = i;
         }
 
@@ -29,7 +29,7 @@ public class Knapsack {
             }
         }
 
-        return k - resultMatrix[resultMatrix.length - 1][resultMatrix[0].length - 1];
+        return targetWeight - resultMatrix[resultMatrix.length - 1][resultMatrix[0].length - 1];
     }
 
     public static void main(String[] args) {
