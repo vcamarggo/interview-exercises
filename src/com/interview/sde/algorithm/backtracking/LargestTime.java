@@ -46,7 +46,6 @@ public class LargestTime {
                 solution.add(clone);
             }
         }
-        //Remove the sorting part if you want to submit this on leetcode, I've added to try ordering of arrays
         return new ArrayList<>(solution);
     }
 }

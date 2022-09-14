@@ -4,12 +4,12 @@ import java.util.*;
 
 public class RadixSort {
     public static void main(String[] args) {
-        System.out.println(Arrays.toString(countSort(new int[]{-2, 0, 2, 1, 1, 0})));
-        System.out.println(Arrays.toString(countSort(new int[]{170, 45, 75, 90, 802, 24, 2, 66})));
-        System.out.println(Arrays.toString(countSort(new int[]{-2345, -7, 1})));
+        System.out.println(Arrays.toString(radixSort(new int[]{-2, 0, 2, 1, 1, 0})));
+        System.out.println(Arrays.toString(radixSort(new int[]{170, 45, 75, 90, 802, 24, 2, 66})));
+        System.out.println(Arrays.toString(radixSort(new int[]{-2345, -7, 1})));
     }
 
-    public static int[] countSort(int[] nums) {
+    public static int[] radixSort(int[] nums) {
 
         if (isNullOrEmpty(nums)) {
             return nums;
