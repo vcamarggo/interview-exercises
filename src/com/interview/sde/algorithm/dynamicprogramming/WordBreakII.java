@@ -9,12 +9,10 @@ import java.util.stream.Collectors;
 public class WordBreakII {
 
     public List<String> wordBreak(String s, List<String> wordDict) {
-        List<List<String>> wordBreak = wordBreak(s, wordDict, new Stack<>());
-        List<String> solution = new ArrayList<>();
-        for (List<String> sentence : wordBreak) {
-            solution.add(String.join(" ", sentence));
-        }
-        return solution.stream().sorted().collect(Collectors.toList());
+        return wordBreak(s, wordDict, new Stack<>()).stream()
+                .map(sentence -> String.join(" ", sentence))
+                .sorted()
+                .collect(Collectors.toList());
     }
 
     List<List<String>> wordBreak(String s, List<String> wordDict, Stack<String> tempSolution) {

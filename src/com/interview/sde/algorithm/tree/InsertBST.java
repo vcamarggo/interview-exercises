@@ -2,6 +2,7 @@ package com.interview.sde.algorithm.tree;
 
 import java.util.Scanner;
 
+//https://leetcode.com/problems/insert-into-a-binary-search-tree/
 public class InsertBST {
     public static class Node {
         Node left;
