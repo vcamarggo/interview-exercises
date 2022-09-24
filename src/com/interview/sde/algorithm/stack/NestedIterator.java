@@ -1,8 +1,6 @@
 package com.interview.sde.algorithm.stack;
 
-import java.util.Iterator;
-import java.util.List;
-import java.util.Stack;
+import java.util.*;
 
 //https://leetcode.com/problems/flatten-nested-list-iterator/
 public class NestedIterator implements Iterator<Integer> {
@@ -20,7 +18,7 @@ public class NestedIterator implements Iterator<Integer> {
     }
 
     private Context current;
-    private final Stack<Context> iterationStack;
+    private final Deque<Context> iterationStack;
 
     public static class Context {
         private int currentIndex;
@@ -50,7 +48,7 @@ public class NestedIterator implements Iterator<Integer> {
 
     public NestedIterator(List<NestedInteger> nestedList) {
         this.current = new Context(nestedList);
-        this.iterationStack = new Stack<>();
+        this.iterationStack = new ArrayDeque<>();
 
     }
 

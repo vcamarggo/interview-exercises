@@ -1,8 +1,6 @@
 package com.interview.sde.algorithm.stack;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Stack;
+import java.util.*;
 
 //https://leetcode.com/problems/exclusive-time-of-functions/
 public class ExclusiveTimeOfFunctions {
@@ -14,7 +12,7 @@ public class ExclusiveTimeOfFunctions {
     }
 
     int[] exclusiveTime(int n, List<String> logs) {
-        Stack<Execution> callStack = new Stack<>();
+        Deque<Execution> callStack = new ArrayDeque<>();
         for (String log : logs) {
             callStack.push(new Execution(log));
         }

@@ -1,12 +1,13 @@
 package com.interview.sde.algorithm.stack;
 
-import java.util.Stack;
+import java.util.ArrayDeque;
+import java.util.Deque;
 
 //https://leetcode.com/problems/basic-calculator-ii/
 public class BasicCalculatorII {
 
     public int calculate(String s) {
-        Stack<Integer> calcStack = new Stack<>();
+        Deque<Integer> calcStack = new ArrayDeque<>();
 
         StringBuilder operand = new StringBuilder();
 
@@ -36,7 +37,7 @@ public class BasicCalculatorII {
         return result;
     }
 
-    private void executeOperationOnOperand(Stack<Integer> calcStack, StringBuilder operand, char operation) {
+    private void executeOperationOnOperand(Deque<Integer> calcStack, StringBuilder operand, char operation) {
         switch (operation) {
             case '+':
                 calcStack.push(Integer.valueOf(operand.toString()));

@@ -94,7 +94,7 @@ public class LFUCache {
     }
 
     private void removeEmptyKey(int key) {
-        if (usageToKeysMapping.get(key).size() == 0) {
+        if (usageToKeysMapping.get(key).isEmpty()) {
             usageToKeysMapping.remove(key);
         }
     }

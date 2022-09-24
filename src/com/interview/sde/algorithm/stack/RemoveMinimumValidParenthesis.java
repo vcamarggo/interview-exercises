@@ -1,6 +1,7 @@
 package com.interview.sde.algorithm.stack;
 
-import java.util.Stack;
+import java.util.ArrayDeque;
+import java.util.Deque;
 
 //https://leetcode.com/problems/minimum-remove-to-make-valid-parentheses/
 public class RemoveMinimumValidParenthesis {
@@ -15,7 +16,7 @@ public class RemoveMinimumValidParenthesis {
     }
 
     static String minRemoveToMakeValid(String s) {
-        Stack<Integer> stack = new Stack<>();
+        Deque<Integer> stack = new ArrayDeque<>();
 
         for (int i = 0; i < s.length(); i++) {
             if(s.charAt(i) == '('){
