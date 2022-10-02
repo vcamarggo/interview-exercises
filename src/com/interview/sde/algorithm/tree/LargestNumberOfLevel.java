@@ -26,7 +26,7 @@ public class LargestNumberOfLevel {
             while (nodeToProcess > 0) {
                 TreeNode node = queue.poll();
 
-                max = Math.max(max, node.data);
+                max = Math.max(max, node.val);
 
                 if (node.left != null) {
                     queue.add(node.left);
@@ -45,13 +45,5 @@ public class LargestNumberOfLevel {
         return solution;
     }
 
-    static class TreeNode {
-        int data;
-        TreeNode left;
-        TreeNode right;
 
-        TreeNode(int data) {
-            this.data = data;
-        }
-    }
 }

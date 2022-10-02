@@ -23,22 +23,5 @@ public class MaximumBinaryTree {
         return new TreeNode(maxValue, constructMaximumBinaryTree(nums, start, maxIndex - 1), constructMaximumBinaryTree(nums, maxIndex + 1, end));
     }
 
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
 
-        TreeNode() {
-        }
-
-        TreeNode(int val) {
-            this.val = val;
-        }
-
-        TreeNode(int val, TreeNode left, TreeNode right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
-    }
 }

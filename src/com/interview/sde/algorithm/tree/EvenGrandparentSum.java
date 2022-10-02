@@ -19,22 +19,4 @@ public class EvenGrandparentSum {
         return sum + sumEvenGrandparent(root.left, evenParent, isEven) + sumEvenGrandparent(root.right, evenParent, isEven);
     }
 
-    public class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode() {
-        }
-
-        TreeNode(int val) {
-            this.val = val;
-        }
-
-        TreeNode(int val, TreeNode left, TreeNode right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
-    }
 }
