@@ -2,16 +2,6 @@ package com.interview.sde.algorithm.tree;
 
 //https://www.hackerrank.com/challenges/binary-search-tree-insertion/problem
 public class BSTInsertion {
-    static class Node {
-        int data;
-        Node left;
-        Node right;
-
-        Node(int data) {
-            this.data = data;
-        }
-    }
-
     public static Node insert(Node root, int data) {
         if (root == null) {
             return new Node(data);
@@ -21,5 +11,15 @@ public class BSTInsertion {
             root.right = insert(root.right, data);
         }
         return root;
+    }
+
+    static class Node {
+        int data;
+        Node left;
+        Node right;
+
+        Node(int data) {
+            this.data = data;
+        }
     }
 }

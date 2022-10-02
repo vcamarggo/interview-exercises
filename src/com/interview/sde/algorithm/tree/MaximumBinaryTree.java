@@ -4,25 +4,6 @@ package com.interview.sde.algorithm.tree;
 //a.k.a. Cartesian Tree
 public class MaximumBinaryTree {
 
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode() {
-        }
-
-        TreeNode(int val) {
-            this.val = val;
-        }
-
-        TreeNode(int val, TreeNode left, TreeNode right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
-    }
-
     public TreeNode constructMaximumBinaryTree(int[] nums) {
         return constructMaximumBinaryTree(nums, 0, nums.length - 1);
     }
@@ -40,5 +21,24 @@ public class MaximumBinaryTree {
             }
         }
         return new TreeNode(maxValue, constructMaximumBinaryTree(nums, start, maxIndex - 1), constructMaximumBinaryTree(nums, maxIndex + 1, end));
+    }
+
+    public static class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
+
+        TreeNode() {
+        }
+
+        TreeNode(int val) {
+            this.val = val;
+        }
+
+        TreeNode(int val, TreeNode left, TreeNode right) {
+            this.val = val;
+            this.left = left;
+            this.right = right;
+        }
     }
 }

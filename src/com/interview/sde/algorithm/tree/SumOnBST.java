@@ -1,6 +1,7 @@
 package com.interview.sde.algorithm.tree;
 
-import java.util.*;
+import java.util.HashSet;
+import java.util.Set;
 
 //https://leetcode.com/problems/two-sum-iv-input-is-a-bst
 public class SumOnBST {

@@ -6,25 +6,6 @@ import java.util.LinkedList;
 //https://leetcode.com/problems/maximum-width-of-binary-tree/
 public class LargestLevelBinaryTreeWidth {
 
-    static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode() {
-        }
-
-        TreeNode(int val) {
-            this.val = val;
-        }
-
-        TreeNode(int val, TreeNode left, TreeNode right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
-    }
-
     public static void main(String[] args) {
         //[1,3,2,5,3,null,2]
         TreeNode tree = new TreeNode(1);
@@ -71,16 +52,6 @@ public class LargestLevelBinaryTreeWidth {
 
     }
 
-    static class PositionTreeNode {
-        int position;
-        TreeNode node;
-
-        PositionTreeNode(TreeNode node, int position) {
-            this.node = node;
-            this.position = position;
-        }
-    }
-
     public static int widthOfBinaryTree(TreeNode root) {
         Deque<PositionTreeNode> queue = new LinkedList<>();
         queue.addFirst(new PositionTreeNode(root, 0));
@@ -111,6 +82,35 @@ public class LargestLevelBinaryTreeWidth {
             }
         }
         return solution;
+    }
+
+    static class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
+
+        TreeNode() {
+        }
+
+        TreeNode(int val) {
+            this.val = val;
+        }
+
+        TreeNode(int val, TreeNode left, TreeNode right) {
+            this.val = val;
+            this.left = left;
+            this.right = right;
+        }
+    }
+
+    static class PositionTreeNode {
+        int position;
+        TreeNode node;
+
+        PositionTreeNode(TreeNode node, int position) {
+            this.node = node;
+            this.position = position;
+        }
     }
 
 

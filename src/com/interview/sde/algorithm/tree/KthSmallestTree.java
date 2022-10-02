@@ -7,6 +7,24 @@ import java.util.List;
 public class KthSmallestTree {
 
 
+    public int kthSmallest(TreeNode root, int k) {
+        List<Integer> treeAsList = inOrder(root);
+        return treeAsList.get(k - 1);
+
+    }
+
+    List<Integer> inOrder(TreeNode root) {
+        List<Integer> orderedList = new ArrayList<>();
+        if (root.left != null) {
+            orderedList.addAll(inOrder(root.left));
+        }
+        orderedList.add(root.val);
+        if (root.right != null) {
+            orderedList.addAll(inOrder(root.right));
+        }
+        return orderedList;
+    }
+
     public class TreeNode {
         int val;
         TreeNode left;
@@ -24,23 +42,5 @@ public class KthSmallestTree {
             this.left = left;
             this.right = right;
         }
-    }
-
-    public int kthSmallest(TreeNode root, int k) {
-        List<Integer> treeAsList = inOrder(root);
-        return treeAsList.get(k - 1);
-
-    }
-
-    List<Integer> inOrder(TreeNode root) {
-        List<Integer> orderedList = new ArrayList<>();
-        if (root.left != null) {
-            orderedList.addAll(inOrder(root.left));
-        }
-        orderedList.add(root.val);
-        if (root.right != null) {
-            orderedList.addAll(inOrder(root.right));
-        }
-        return orderedList;
     }
 }

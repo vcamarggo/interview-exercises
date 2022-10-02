@@ -1,19 +1,6 @@
 package com.interview.sde.algorithm.tree;
 
 public class NodesEqualsAverageSubtree {
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-        TreeNode() {}
-        TreeNode(int val) { this.val = val; }
-        TreeNode(int val, TreeNode left, TreeNode right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
-    }
-
     //SUM and COUNT are required for average
     final int SUM = 0;
     final int COUNT = 1;
@@ -25,29 +12,48 @@ public class NodesEqualsAverageSubtree {
         return countNodeEqualsSubtreeAverage(root)[RESULT];
     }
 
-    int[] countNodeEqualsSubtreeAverage(TreeNode root){
+    int[] countNodeEqualsSubtreeAverage(TreeNode root) {
         int[] subtreeData = new int[3];
         subtreeData[SUM] = root.val;
         subtreeData[COUNT] = 1;
 
-        if(root.left != null){
+        if (root.left != null) {
             int[] subtreeDataLeft = countNodeEqualsSubtreeAverage(root.left);
             subtreeData[SUM] += subtreeDataLeft[SUM];
             subtreeData[COUNT] += subtreeDataLeft[COUNT];
             subtreeData[RESULT] += subtreeDataLeft[RESULT];
         }
 
-        if(root.right != null){
+        if (root.right != null) {
             int[] subtreeDataRight = countNodeEqualsSubtreeAverage(root.right);
             subtreeData[SUM] += subtreeDataRight[SUM];
             subtreeData[COUNT] += subtreeDataRight[COUNT];
             subtreeData[RESULT] += subtreeDataRight[RESULT];
         }
 
-        if(root.left == null && root.right == null || subtreeData[SUM] / subtreeData[COUNT] == root.val){
+        if (root.left == null && root.right == null || subtreeData[SUM] / subtreeData[COUNT] == root.val) {
             subtreeData[RESULT]++;
         }
 
         return subtreeData;
+    }
+
+    public static class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
+
+        TreeNode() {
+        }
+
+        TreeNode(int val) {
+            this.val = val;
+        }
+
+        TreeNode(int val, TreeNode left, TreeNode right) {
+            this.val = val;
+            this.left = left;
+            this.right = right;
+        }
     }
 }

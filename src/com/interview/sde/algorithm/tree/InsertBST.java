@@ -4,19 +4,6 @@ import java.util.Scanner;
 
 //https://leetcode.com/problems/insert-into-a-binary-search-tree/
 public class InsertBST {
-    public static class Node {
-        Node left;
-        Node right;
-        int data;
-
-        Node(int data) {
-            this.data = data;
-            left = null;
-            right = null;
-        }
-    }
-
-
     public static void preOrder(Node root) {
 
         if (root == null)
@@ -49,5 +36,17 @@ public class InsertBST {
         }
         scan.close();
         preOrder(root);
+    }
+
+    public static class Node {
+        Node left;
+        Node right;
+        int data;
+
+        Node(int data) {
+            this.data = data;
+            left = null;
+            right = null;
+        }
     }
 }

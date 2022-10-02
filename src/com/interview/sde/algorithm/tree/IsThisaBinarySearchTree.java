@@ -2,12 +2,6 @@ package com.interview.sde.algorithm.tree;
 
 //https://www.hackerrank.com/challenges/is-binary-search-tree/problem
 public class IsThisaBinarySearchTree {
-    class Node {
-        int data;
-        Node left;
-        Node right;
-    }
-
     boolean checkBST(Node root) {
         return checkBSTHelper(root, Integer.MIN_VALUE, Integer.MAX_VALUE);
 
@@ -19,5 +13,11 @@ public class IsThisaBinarySearchTree {
         }
         return root.data < high && root.data > low && checkBSTHelper(root.left, low, root.data)
                 && checkBSTHelper(root.right, root.data, high);
+    }
+
+    class Node {
+        int data;
+        Node left;
+        Node right;
     }
 }

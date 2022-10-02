@@ -5,31 +5,8 @@ import java.util.*;
 public class VerticalTraversal {
 
 
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode() {
-        }
-
-        TreeNode(int val) {
-            this.val = val;
-        }
-
-        TreeNode(int val, TreeNode left, TreeNode right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
-    }
-
-
-    //Storing row number [0] and value [1]. Row is necessary for ordering;
-    Map<Integer, PriorityQueue<int[]>> mapper = new TreeMap<>();
     private static final int VALUE_INDEX = 1;
     private static final int ROW_INDEX = 0;
-
     private final Comparator<int[]> compareAscRowThenAscValue = (o1, o2) -> {
         int diff = Integer.compare(o1[ROW_INDEX], o2[ROW_INDEX]);
         if (diff == 0) {
@@ -37,6 +14,13 @@ public class VerticalTraversal {
         }
         return diff;
     };
+    //Storing row number [0] and value [1]. Row is necessary for ordering;
+    Map<Integer, PriorityQueue<int[]>> mapper = new TreeMap<>();
+
+    public static void main(String[] args) {
+        new VerticalTraversal().verticalTraversal(new TreeNode(1, new TreeNode(2, new TreeNode(4), new TreeNode(5)), new TreeNode(3, new TreeNode(6), new TreeNode(7))));
+        new VerticalTraversal().verticalTraversal(new TreeNode(3, new TreeNode(1, new TreeNode(0), new TreeNode(2)), new TreeNode(4, new TreeNode(2), null)));
+    }
 
     public List<List<Integer>> verticalTraversal(TreeNode root) {
         populateMapper(root, 0, 0);
@@ -61,10 +45,23 @@ public class VerticalTraversal {
         }
     }
 
+    public static class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
 
-    public static void main(String[] args) {
-        new VerticalTraversal().verticalTraversal(new TreeNode(1, new TreeNode(2, new TreeNode(4), new TreeNode(5)), new TreeNode(3, new TreeNode(6), new TreeNode(7))));
-        new VerticalTraversal().verticalTraversal(new TreeNode(3, new TreeNode(1, new TreeNode(0), new TreeNode(2)), new TreeNode(4, new TreeNode(2), null)));
+        TreeNode() {
+        }
+
+        TreeNode(int val) {
+            this.val = val;
+        }
+
+        TreeNode(int val, TreeNode left, TreeNode right) {
+            this.val = val;
+            this.left = left;
+            this.right = right;
+        }
     }
 
 }

@@ -8,16 +8,6 @@ import java.util.Queue;
 //https://leetcode.com/problems/find-largest-value-in-each-tree-row/
 public class LargestNumberOfLevel {
 
-    static class TreeNode {
-        int data;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int data) {
-            this.data = data;
-        }
-    }
-
     public List<Integer> largestValues(TreeNode root) {
         List<Integer> solution = new ArrayList<>();
 
@@ -53,5 +43,15 @@ public class LargestNumberOfLevel {
         }
 
         return solution;
+    }
+
+    static class TreeNode {
+        int data;
+        TreeNode left;
+        TreeNode right;
+
+        TreeNode(int data) {
+            this.data = data;
+        }
     }
 }

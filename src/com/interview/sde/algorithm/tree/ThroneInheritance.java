@@ -14,6 +14,20 @@ public class ThroneInheritance {
         king = kingName;
     }
 
+    public static void main(String[] args) {
+        ThroneInheritance ti = new ThroneInheritance("king");
+        ti.birth("king", "andy");
+        ti.birth("king", "bob");
+        ti.birth("king", "catherine");
+        ti.birth("andy", "matthew");
+        ti.birth("bob", "alex");
+        ti.birth("bob", "asha");
+        System.out.println(ti.getInheritanceOrder());
+        ti.death("bob");
+        System.out.println(ti.getInheritanceOrder());
+
+    }
+
     public void birth(String parentName, String childName) {
         family.get(parentName).add(childName);
         family.put(childName, new ArrayList<>());
@@ -38,19 +52,5 @@ public class ThroneInheritance {
             }
         }
         return inheritanceOrder;
-    }
-
-    public static void main(String[] args) {
-        ThroneInheritance ti = new ThroneInheritance("king");
-        ti.birth("king", "andy");
-        ti.birth("king", "bob");
-        ti.birth("king", "catherine");
-        ti.birth("andy", "matthew");
-        ti.birth("bob", "alex");
-        ti.birth("bob", "asha");
-        System.out.println(ti.getInheritanceOrder());
-        ti.death("bob");
-        System.out.println(ti.getInheritanceOrder());
-
     }
 }

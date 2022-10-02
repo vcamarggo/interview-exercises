@@ -4,25 +4,6 @@ import java.util.*;
 
 //https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal
 public class ZigZagTraversal {
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode() {
-        }
-
-        TreeNode(int val) {
-            this.val = val;
-        }
-
-        TreeNode(int val, TreeNode left, TreeNode right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
-    }
-
     static List<List<Integer>> zigzagLevelOrder(TreeNode root) {
         List<List<Integer>> solution = new ArrayList<>();
 
@@ -69,5 +50,24 @@ public class ZigZagTraversal {
         TreeNode root = new TreeNode(1, left, right);
 
         zigzagLevelOrder(root);
+    }
+
+    public static class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
+
+        TreeNode() {
+        }
+
+        TreeNode(int val) {
+            this.val = val;
+        }
+
+        TreeNode(int val, TreeNode left, TreeNode right) {
+            this.val = val;
+            this.left = left;
+            this.right = right;
+        }
     }
 }

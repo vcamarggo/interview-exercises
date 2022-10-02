@@ -2,12 +2,6 @@ package com.interview.sde.algorithm.tree;
 
 //https://www.hackerrank.com/challenges/tree-inorder-traversal/problem
 public class InorderTraversal {
-    class Node {
-        int data;
-        Node left;
-        Node right;
-    }
-
     public static void inOrder(Node root) {
         if (root.left != null) {
             inOrder(root.left);
@@ -16,6 +10,12 @@ public class InorderTraversal {
         if (root.right != null) {
             inOrder(root.right);
         }
+    }
+
+    class Node {
+        int data;
+        Node left;
+        Node right;
     }
 
 

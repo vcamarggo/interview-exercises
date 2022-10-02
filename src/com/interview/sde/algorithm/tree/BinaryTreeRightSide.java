@@ -7,25 +7,6 @@ import java.util.List;
 
 //https://leetcode.com/problems/binary-tree-right-side-view/
 public class BinaryTreeRightSide {
-    public class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode() {
-        }
-
-        TreeNode(int val) {
-            this.val = val;
-        }
-
-        TreeNode(int val, TreeNode left, TreeNode right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
-    }
-
     public List<Integer> rightSideView(TreeNode root) {
         Deque<TreeNode> toProcess = new LinkedList<>();
         List<Integer> result = new ArrayList<>();
@@ -50,5 +31,24 @@ public class BinaryTreeRightSide {
         }
 
         return result;
+    }
+
+    public class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
+
+        TreeNode() {
+        }
+
+        TreeNode(int val) {
+            this.val = val;
+        }
+
+        TreeNode(int val, TreeNode left, TreeNode right) {
+            this.val = val;
+            this.left = left;
+            this.right = right;
+        }
     }
 }

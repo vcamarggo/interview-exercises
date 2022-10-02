@@ -6,6 +6,45 @@ import java.util.List;
 //https://www.interviewcake.com/question/python/second-largest-item-in-bst
 public class FindSecondBiggestTree {
 
+    public static List<Integer> inOrder(BinaryTreeNode root) {
+        ArrayList<Integer> orderedList = new ArrayList<>();
+        if (root.left != null) {
+            orderedList.addAll(inOrder(root.left));
+        }
+        orderedList.add(root.value);
+        if (root.right != null) {
+            orderedList.addAll(inOrder(root.right));
+        }
+
+        return orderedList;
+
+    }
+
+    public static int findSecondLargestON(BinaryTreeNode rootMode) {
+        List<Integer> treeAsList = inOrder(rootMode);
+        return treeAsList.get(treeAsList.size() - 2);
+    }
+
+    public static NodeWithParent findLargest(BinaryTreeNode root, BinaryTreeNode parent) {
+        if (root.right != null) {
+            return findLargest(root.right, root);
+        } else {
+            return new NodeWithParent(root, parent);
+        }
+    }
+
+    public static int findSecondLargestLogN(BinaryTreeNode rootMode) {
+        NodeWithParent largest = findLargest(rootMode, rootMode);
+        if (largest.root.left != null) {
+            NodeWithParent secondLargest = findLargest(largest.root.left, largest.root.left);
+            return secondLargest.root.value;
+        } else if (largest.parentValue != largest.root.value) {
+            return largest.parentValue;
+        } else {
+            throw new RuntimeException("Error");
+        }
+    }
+
     public static class BinaryTreeNode {
 
         public int value;
@@ -27,25 +66,6 @@ public class FindSecondBiggestTree {
         }
     }
 
-    public static List<Integer> inOrder(BinaryTreeNode root) {
-        ArrayList<Integer> orderedList = new ArrayList<>();
-        if (root.left != null) {
-            orderedList.addAll(inOrder(root.left));
-        }
-        orderedList.add(root.value);
-        if (root.right != null) {
-            orderedList.addAll(inOrder(root.right));
-        }
-
-        return orderedList;
-
-    }
-
-    public static int findSecondLargestON(BinaryTreeNode rootMode) {
-        List<Integer> treeAsList = inOrder(rootMode);
-        return treeAsList.get(treeAsList.size() - 2);
-    }
-
     public static class NodeWithParent {
         final BinaryTreeNode root;
         final int parentValue;
@@ -55,25 +75,5 @@ public class FindSecondBiggestTree {
             this.parentValue = parent.value;
         }
 
-    }
-
-    public static NodeWithParent findLargest(BinaryTreeNode root, BinaryTreeNode parent) {
-        if (root.right != null) {
-            return findLargest(root.right, root);
-        } else {
-            return new NodeWithParent(root, parent);
-        }
-    }
-
-    public static int findSecondLargestLogN(BinaryTreeNode rootMode) {
-        NodeWithParent largest = findLargest(rootMode, rootMode);
-        if (largest.root.left != null) {
-            NodeWithParent secondLargest = findLargest(largest.root.left, largest.root.left);
-            return secondLargest.root.value;
-        } else if (largest.parentValue != largest.root.value) {
-            return largest.parentValue;
-        } else {
-            throw new RuntimeException("Error");
-        }
     }
 }
