@@ -2,18 +2,6 @@ package com.interview.sde.algorithm.linkedlist;
 
 //https://leetcode.com/problems/copy-list-with-random-pointer/
 public class DeepCopyRandomPointer {
-    static class Node {
-        int val;
-        Node next;
-        Node random;
-
-        public Node(int val) {
-            this.val = val;
-            this.next = null;
-            this.random = null;
-        }
-    }
-
     public static void main(String[] args) {
         Node seven = new Node(7);
         Node thirteen = new Node(13);
@@ -77,5 +65,17 @@ public class DeepCopyRandomPointer {
 
 
         return copiedListHead;
+    }
+
+    static class Node {
+        int val;
+        Node next;
+        Node random;
+
+        public Node(int val) {
+            this.val = val;
+            this.next = null;
+            this.random = null;
+        }
     }
 }

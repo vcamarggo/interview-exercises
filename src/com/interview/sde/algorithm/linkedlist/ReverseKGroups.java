@@ -4,21 +4,10 @@ import java.util.Stack;
 
 //https://leetcode.com/problems/reverse-nodes-in-k-group/
 public class ReverseKGroups {
-    public static class ListNode {
-        int val;
-        ListNode next;
 
-        ListNode() {
-        }
 
-        ListNode(int val) {
-            this.val = val;
-        }
-
-        ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
-        }
+    public static void main(String[] args) {
+        new ReverseKGroups().reverseKGroup(new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5))))), 3);
     }
 
     public ListNode reverseKGroup(ListNode current, int k) {
@@ -58,9 +47,5 @@ public class ReverseKGroups {
             count++;
         }
         return count;
-    }
-
-    public static void main(String[] args) {
-        new ReverseKGroups().reverseKGroup(new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5))))), 3);
     }
 }

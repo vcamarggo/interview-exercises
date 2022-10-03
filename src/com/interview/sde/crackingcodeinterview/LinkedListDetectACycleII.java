@@ -1,5 +1,7 @@
 package com.interview.sde.crackingcodeinterview;
 
+import com.interview.sde.algorithm.linkedlist.ListNode;
+
 //https://leetcode.com/problems/linked-list-cycle-ii/
 public class LinkedListDetectACycleII {
     public ListNode detectCycle(ListNode head) {
@@ -18,15 +20,5 @@ public class LinkedListDetectACycleII {
             }
         }
         return null;
-    }
-
-    class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-            next = null;
-        }
     }
 }

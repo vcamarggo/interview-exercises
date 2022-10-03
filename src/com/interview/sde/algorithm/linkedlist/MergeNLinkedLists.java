@@ -5,6 +5,7 @@ public class MergeNLinkedLists {
     public static void main(String[] args) {
         mergeLists(new ListNode(1, new ListNode(2, new ListNode(5))), new ListNode(3, new ListNode(6)));
     }
+
     static ListNode mergeLists(ListNode head1, ListNode head2) {
         if (head1 == null) {
             return head2;
@@ -53,21 +54,5 @@ public class MergeNLinkedLists {
         return l1;
     }
 
-    static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode() {
-        }
-
-        ListNode(int val) {
-            this.val = val;
-        }
-
-        ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
-        }
-    }
 
 }

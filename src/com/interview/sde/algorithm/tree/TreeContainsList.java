@@ -1,5 +1,7 @@
 package com.interview.sde.algorithm.tree;
 
+import com.interview.sde.algorithm.linkedlist.ListNode;
+
 //https://leetcode.com/problems/linked-list-in-binary-tree/
 public class TreeContainsList {
     public boolean isSubPath(ListNode head, TreeNode root) {
@@ -15,20 +17,5 @@ public class TreeContainsList {
     }
 
 
-    public static class ListNode {
-        int val;
-        ListNode next;
 
-        ListNode() {
-        }
-
-        ListNode(int val) {
-            this.val = val;
-        }
-
-        ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
-        }
-    }
 }
