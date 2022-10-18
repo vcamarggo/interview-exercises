@@ -14,3 +14,4 @@ src/com/interview/sde/.DS_Store
 /src/com/interview/sde/scala/.bsp/sbt.json
 /target/global-logging/
 /scala/.idea/modules/
+/src/com/interview/sde/scala/build/
