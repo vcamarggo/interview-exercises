@@ -1,9 +1,9 @@
 //https://leetcode.com/problems/decompress-run-length-encoded-list/
 object DecompressLengthEncodedList {
   def decompressRLElist(nums: Array[Int]): Array[Int] = {
-//Option1
+    //Option1
 //    if(!nums.isEmpty) Array.fill(nums.head)(nums.tail.head).concat(decompressRLElist(nums.tail.tail)) else nums
-//Option 2
+    //Option 2
 //    nums match {
 //      case Array(e1, e2, tail@_*) => Array.fill(e1)(e2).concat(decompressRLElist(tail.toArray))
 //      case _ => Array()
