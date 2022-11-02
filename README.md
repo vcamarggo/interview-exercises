@@ -1,17 +1,8 @@
 # Interview exercises repository
-This repository contains all exercises done to prepare myself to try coding interviews.
+This repository contains all exercises done to prepare myself for coding interviews.
 
 My LeetCode profile https://leetcode.com/vcamarggo/
 
-Most of the coding is done in Java7/8.
+Most of the coding is done in Java 8 and Scala.
 
-HackerRank folder has problems from:
-Interview Preparation Kit: https://www.hackerrank.com/interview/interview-preparation-kit
-Problem Solving and Data Structures: https://www.hackerrank.com/domains/algorithms / https://www.hackerrank.com/domains/data-structures
-Java: https://www.hackerrank.com/domains/java
-
-Other algorithms are from leetcode or implementation of classical algorithms;
-
-Mock folder has problems based in mock interviews with SDEs;
-
-OOP folder is a implementation of a some OOP designs;
+There is a mix of problems from LeetCode, HackerRank, Mock Session with colleagues and interview exercises from online forums and textbooks.
