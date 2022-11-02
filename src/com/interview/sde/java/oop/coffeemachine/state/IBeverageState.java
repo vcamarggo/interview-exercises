@@ -1,4 +1,4 @@
-package com.interview.sde.oop.coffeemachine.state;
+package com.interview.sde.java.oop.coffeemachine.state;
 
 public interface IBeverageState {
 

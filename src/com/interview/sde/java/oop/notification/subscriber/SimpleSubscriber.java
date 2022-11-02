@@ -1,6 +1,6 @@
-package com.interview.sde.oop.notification.subscriber;
+package com.interview.sde.java.oop.notification.subscriber;
 
-import com.interview.sde.oop.notification.message.Message;
+import com.interview.sde.java.oop.notification.message.Message;
 
 public class SimpleSubscriber implements Subscriber {
 

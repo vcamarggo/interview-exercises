@@ -1,4 +1,4 @@
-package com.interview.sde.oop.coffeemachine.payment;
+package com.interview.sde.java.oop.coffeemachine.payment;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.interview.sde.designpatterns.composite;
+package com.interview.sde.java.designpatterns.composite;
 
 import java.util.List;
 

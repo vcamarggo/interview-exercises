@@ -1,13 +1,13 @@
-package com.interview.sde.oop.notification;
+package com.interview.sde.java.oop.notification;
 
-import com.interview.sde.oop.notification.dao.DAO;
-import com.interview.sde.oop.notification.dao.InMemorySubscribers;
-import com.interview.sde.oop.notification.message.SimpleMessage;
-import com.interview.sde.oop.notification.message.Topic;
-import com.interview.sde.oop.notification.publisher.Publisher;
-import com.interview.sde.oop.notification.publisher.SerialPublisher;
-import com.interview.sde.oop.notification.subscriber.SimpleSubscriber;
-import com.interview.sde.oop.notification.subscriber.Subscriber;
+import com.interview.sde.java.oop.notification.dao.DAO;
+import com.interview.sde.java.oop.notification.dao.InMemorySubscribers;
+import com.interview.sde.java.oop.notification.message.SimpleMessage;
+import com.interview.sde.java.oop.notification.message.Topic;
+import com.interview.sde.java.oop.notification.publisher.Publisher;
+import com.interview.sde.java.oop.notification.publisher.SerialPublisher;
+import com.interview.sde.java.oop.notification.subscriber.SimpleSubscriber;
+import com.interview.sde.java.oop.notification.subscriber.Subscriber;
 
 public class Context {
     public static void main(String[] args) {

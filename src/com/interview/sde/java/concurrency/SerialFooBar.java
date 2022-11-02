@@ -1,4 +1,4 @@
-package com.interview.sde.concurrency;
+package com.interview.sde.java.concurrency;
 
 import java.util.concurrent.CountDownLatch;
 

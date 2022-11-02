@@ -1,4 +1,4 @@
-package com.interview.sde.oop.coffeemachine.beverage;
+package com.interview.sde.java.oop.coffeemachine.beverage;
 
 public abstract class Beverage {
 

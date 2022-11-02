@@ -1,4 +1,4 @@
-package com.interview.sde.concurrency;
+package com.interview.sde.java.concurrency;
 
 //https://leetcode.com/problems/print-foobar-alternately/
 public class AlternateFooBar {

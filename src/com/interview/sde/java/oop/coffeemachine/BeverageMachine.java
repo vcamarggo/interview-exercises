@@ -1,11 +1,11 @@
-package com.interview.sde.oop.coffeemachine;
+package com.interview.sde.java.oop.coffeemachine;
 
-import com.interview.sde.oop.coffeemachine.beverage.Beverage;
-import com.interview.sde.oop.coffeemachine.beverage.maker.IBeverageMaker;
-import com.interview.sde.oop.coffeemachine.payment.IPaymentMethod;
-import com.interview.sde.oop.coffeemachine.payment.IPaymentProcessor;
-import com.interview.sde.oop.coffeemachine.state.BeverageState;
-import com.interview.sde.oop.coffeemachine.state.IBeverageState;
+import com.interview.sde.java.oop.coffeemachine.state.IBeverageState;
+import com.interview.sde.java.oop.coffeemachine.beverage.Beverage;
+import com.interview.sde.java.oop.coffeemachine.beverage.maker.IBeverageMaker;
+import com.interview.sde.java.oop.coffeemachine.payment.IPaymentMethod;
+import com.interview.sde.java.oop.coffeemachine.payment.IPaymentProcessor;
+import com.interview.sde.java.oop.coffeemachine.state.BeverageState;
 
 import java.util.ArrayList;
 import java.util.List;

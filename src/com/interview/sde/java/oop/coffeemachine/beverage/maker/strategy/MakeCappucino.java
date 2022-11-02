@@ -1,7 +1,7 @@
-package com.interview.sde.oop.coffeemachine.beverage.maker.strategy;
+package com.interview.sde.java.oop.coffeemachine.beverage.maker.strategy;
 
-import com.interview.sde.oop.coffeemachine.beverage.Beverage;
-import com.interview.sde.oop.coffeemachine.beverage.Cappuccino;
+import com.interview.sde.java.oop.coffeemachine.beverage.Beverage;
+import com.interview.sde.java.oop.coffeemachine.beverage.Cappuccino;
 
 class MakeCappucino implements IBeveragePreparationStrategy {
     public Beverage make() {

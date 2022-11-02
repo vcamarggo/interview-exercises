@@ -1,4 +1,4 @@
-package com.interview.sde.oop.servlet.servlet;
+package com.interview.sde.java.oop.servlet.servlet;
 
 public interface Response {
     void setBody(String body);

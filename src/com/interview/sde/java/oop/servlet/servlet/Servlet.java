@@ -1,4 +1,4 @@
-package com.interview.sde.oop.servlet.servlet;
+package com.interview.sde.java.oop.servlet.servlet;
 
 // A servlet to manage  requests with variable list of parameters
 // A REST API that return JSON

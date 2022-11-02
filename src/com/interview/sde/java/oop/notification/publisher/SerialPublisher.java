@@ -1,9 +1,9 @@
-package com.interview.sde.oop.notification.publisher;
+package com.interview.sde.java.oop.notification.publisher;
 
-import com.interview.sde.oop.notification.message.Message;
-import com.interview.sde.oop.notification.message.Topic;
-import com.interview.sde.oop.notification.dao.DAO;
-import com.interview.sde.oop.notification.subscriber.Subscriber;
+import com.interview.sde.java.oop.notification.message.Message;
+import com.interview.sde.java.oop.notification.message.Topic;
+import com.interview.sde.java.oop.notification.dao.DAO;
+import com.interview.sde.java.oop.notification.subscriber.Subscriber;
 
 public class SerialPublisher implements Publisher {
 

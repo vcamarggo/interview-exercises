@@ -1,7 +1,7 @@
-package com.interview.sde.oop.notification.dao;
+package com.interview.sde.java.oop.notification.dao;
 
-import com.interview.sde.oop.notification.message.Topic;
-import com.interview.sde.oop.notification.subscriber.Subscriber;
+import com.interview.sde.java.oop.notification.message.Topic;
+import com.interview.sde.java.oop.notification.subscriber.Subscriber;
 
 import java.util.ArrayList;
 import java.util.HashMap;

@@ -1,4 +1,4 @@
-package com.interview.sde.oop.shopping.product;
+package com.interview.sde.java.oop.shopping.product;
 
 public class Item {
     private final long id;

@@ -1,6 +1,6 @@
-package com.interview.sde.crackingcodeinterview;
+package com.interview.sde.java.crackingcodeinterview;
 
-import com.interview.sde.algorithm.linkedlist.ListNode;
+import com.interview.sde.java.linkedlist.ListNode;
 
 //https://leetcode.com/problems/linked-list-cycle-ii/
 public class LinkedListDetectACycleII {

@@ -1,4 +1,4 @@
-package com.interview.sde.crackingcodeinterview;
+package com.interview.sde.java.crackingcodeinterview;
 
 import java.util.HashMap;
 import java.util.Scanner;

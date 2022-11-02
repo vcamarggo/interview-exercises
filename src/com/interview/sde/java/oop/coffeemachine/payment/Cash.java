@@ -1,4 +1,4 @@
-package com.interview.sde.oop.coffeemachine.payment;
+package com.interview.sde.java.oop.coffeemachine.payment;
 
 public class Cash implements IPaymentMethod {
     //value of a given coin

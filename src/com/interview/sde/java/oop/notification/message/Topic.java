@@ -1,4 +1,4 @@
-package com.interview.sde.oop.notification.message;
+package com.interview.sde.java.oop.notification.message;
 
 public class Topic {
     private final String name;

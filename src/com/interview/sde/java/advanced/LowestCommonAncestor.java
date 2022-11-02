@@ -3,7 +3,7 @@ package com.interview.sde.java.advanced;
 import java.util.Scanner;
 
 public class LowestCommonAncestor {
-    static class Node {
+    public static class Node {
         Node left;
         Node right;
         int data;

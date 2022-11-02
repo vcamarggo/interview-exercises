@@ -1,4 +1,4 @@
-package com.interview.sde.crackingcodeinterview;
+package com.interview.sde.java.crackingcodeinterview;
 
 //https://www.hackerrank.com/challenges/ctci-is-binary-search-tree/problem
 public class TreesIsThisaBinarySearchTree {

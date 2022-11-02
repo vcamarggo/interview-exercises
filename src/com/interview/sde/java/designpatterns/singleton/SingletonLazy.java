@@ -1,4 +1,4 @@
-package com.interview.sde.designpatterns.singleton;
+package com.interview.sde.java.designpatterns.singleton;
 
 public class SingletonLazy {
 

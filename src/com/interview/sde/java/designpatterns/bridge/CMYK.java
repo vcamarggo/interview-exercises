@@ -1,4 +1,4 @@
-package com.interview.sde.designpatterns.bridge;
+package com.interview.sde.java.designpatterns.bridge;
 
 public class CMYK implements ColorScheme {
     @Override

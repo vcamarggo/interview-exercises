@@ -1,16 +1,16 @@
-package com.interview.sde.oop.servlet;
+package com.interview.sde.java.oop.servlet;
 
-import com.interview.sde.oop.servlet.servlet.Request;
-import com.interview.sde.oop.servlet.servlet.Response;
-import com.interview.sde.oop.servlet.servlet.RestRequest;
-import com.interview.sde.oop.servlet.servlet.Servlet;
-import com.interview.sde.oop.servlet.translator.TranslatorAbstractFactory;
-import com.interview.sde.oop.servlet.translator.rest.RestTranslatorFactory;
-import com.interview.sde.oop.servlet.validator.ValidationException;
-import com.interview.sde.oop.servlet.validator.ValidatorDecorator;
-import com.interview.sde.oop.servlet.validator.ValidatorEmailSize;
-import com.interview.sde.oop.servlet.validator.ValidatorNameSize;
-import com.interview.sde.oop.servlet.validator.thirdparty.ValidatorThirdParty;
+import com.interview.sde.java.oop.servlet.servlet.Request;
+import com.interview.sde.java.oop.servlet.servlet.Response;
+import com.interview.sde.java.oop.servlet.servlet.RestRequest;
+import com.interview.sde.java.oop.servlet.servlet.Servlet;
+import com.interview.sde.java.oop.servlet.translator.TranslatorAbstractFactory;
+import com.interview.sde.java.oop.servlet.translator.rest.RestTranslatorFactory;
+import com.interview.sde.java.oop.servlet.validator.ValidationException;
+import com.interview.sde.java.oop.servlet.validator.ValidatorDecorator;
+import com.interview.sde.java.oop.servlet.validator.ValidatorEmailSize;
+import com.interview.sde.java.oop.servlet.validator.ValidatorNameSize;
+import com.interview.sde.java.oop.servlet.validator.thirdparty.ValidatorThirdParty;
 
 //If I use Generics on Servlet implementation, I can simplify translator usage here
 class SignupActivity implements Servlet {

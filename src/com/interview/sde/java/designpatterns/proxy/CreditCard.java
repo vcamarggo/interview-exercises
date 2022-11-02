@@ -1,4 +1,4 @@
-package com.interview.sde.designpatterns.proxy;
+package com.interview.sde.java.designpatterns.proxy;
 
 public class CreditCard extends Card {
     CreditCard(Account account) {

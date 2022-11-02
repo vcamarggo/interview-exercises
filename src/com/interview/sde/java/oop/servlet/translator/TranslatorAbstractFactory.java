@@ -1,4 +1,4 @@
-package com.interview.sde.oop.servlet.translator;
+package com.interview.sde.java.oop.servlet.translator;
 
 public interface TranslatorAbstractFactory<T> {
 

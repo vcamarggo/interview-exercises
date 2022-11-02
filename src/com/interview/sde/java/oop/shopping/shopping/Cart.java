@@ -1,7 +1,7 @@
-package com.interview.sde.oop.shopping.shopping;
+package com.interview.sde.java.oop.shopping.shopping;
 
-import com.interview.sde.oop.shopping.tax.NoTax;
-import com.interview.sde.oop.shopping.tax.Tax;
+import com.interview.sde.java.oop.shopping.tax.NoTax;
+import com.interview.sde.java.oop.shopping.tax.Tax;
 
 import java.util.List;
 

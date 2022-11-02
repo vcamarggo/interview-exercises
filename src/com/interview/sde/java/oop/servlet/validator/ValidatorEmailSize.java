@@ -1,6 +1,6 @@
-package com.interview.sde.oop.servlet.validator;
+package com.interview.sde.java.oop.servlet.validator;
 
-import com.interview.sde.oop.servlet.servlet.Request;
+import com.interview.sde.java.oop.servlet.servlet.Request;
 
 public class ValidatorEmailSize<T extends Request> extends ValidatorDecorator<T> {
 

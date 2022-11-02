@@ -1,6 +1,6 @@
-package com.interview.sde.oop.shopping.tax;
+package com.interview.sde.java.oop.shopping.tax;
 
-import com.interview.sde.oop.shopping.product.Item;
+import com.interview.sde.java.oop.shopping.product.Item;
 
 public class IrishTax implements Tax {
     private static final double IRISH_TAX_RATE = 0.23;

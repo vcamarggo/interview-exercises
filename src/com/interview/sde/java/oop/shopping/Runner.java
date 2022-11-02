@@ -1,9 +1,9 @@
-package com.interview.sde.oop.shopping;
+package com.interview.sde.java.oop.shopping;
 
-import com.interview.sde.oop.shopping.product.Item;
-import com.interview.sde.oop.shopping.shopping.BuyingItem;
-import com.interview.sde.oop.shopping.shopping.Cart;
-import com.interview.sde.oop.shopping.tax.IrishTax;
+import com.interview.sde.java.oop.shopping.product.Item;
+import com.interview.sde.java.oop.shopping.shopping.BuyingItem;
+import com.interview.sde.java.oop.shopping.shopping.Cart;
+import com.interview.sde.java.oop.shopping.tax.IrishTax;
 
 import java.util.List;
 
