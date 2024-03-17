@@ -1,6 +1,4 @@
-package com.interview.sde.java.tree;
-
-import com.interview.sde.java.linkedlist.ListNode;
+package com.interview.sde.java.linkedlist;
 
 //https://leetcode.com/problems/remove-linked-list-elements/
 public class RemoveAllNodeEqualsVal {

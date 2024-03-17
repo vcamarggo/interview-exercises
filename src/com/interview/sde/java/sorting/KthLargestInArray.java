@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 
 //https://leetcode.com/problems/find-the-kth-largest-integer-in-the-array/
+//https://leetcode.com/problems/kth-largest-element-in-an-array/
 public class KthLargestInArray {
     public static void main(String[] args) {
         System.out.println(new KthLargestInArray().kthSmallestNumberQuickSelect(new String[]{"1", "2", "3", "4", "14"}, 2));
