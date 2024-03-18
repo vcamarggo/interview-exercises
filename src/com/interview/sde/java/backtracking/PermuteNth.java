@@ -10,7 +10,7 @@ public class PermuteNth {
 
     public static void main(String[] args) {
 //        System.out.println(getPermutation(3, 3));
-        System.out.printf(getPermutation(new int[]{1,2,3} , new ArrayList<>(), new boolean[3+1]).toString());
+        System.out.printf(getPermutation(new int[]{1, 2, 3}, new ArrayList<>(), new boolean[3 + 1]).toString());
     }
 
     static String getPermutation(int n, int k) {

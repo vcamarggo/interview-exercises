@@ -4,7 +4,7 @@ package com.interview.sde.java.string;
 public class RemoveAllOccurrenceSubstring {
     public String removeOccurrences(String s, String part) {
         int partIndex = s.indexOf(part);
-        while(partIndex != -1){
+        while (partIndex != -1) {
             s = s.substring(0, partIndex) + s.substring(partIndex + part.length());
             partIndex = s.indexOf(part);
         }

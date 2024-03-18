@@ -3,7 +3,7 @@ package com.interview.sde.java.sorting;
 //https://leetcode.com/problems/verifying-an-alien-dictionary/
 public class SortCustomAlphabet {
     public static void main(String[] args) {
-        System.out.println(isAlienSorted(new String[]{"apple","app"}, "abcdefghijklmnopqrstuvwxyz"));
+        System.out.println(isAlienSorted(new String[]{"apple", "app"}, "abcdefghijklmnopqrstuvwxyz"));
     }
 
     static boolean isAlienSorted(String[] words, String order) {

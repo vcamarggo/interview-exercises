@@ -3,7 +3,7 @@ package com.interview.sde.java.dynamicprogramming;
 //https://leetcode.com/problems/delete-operation-for-two-strings/
 public class DeleteOperationTwoStrings {
     public int minDistance(String word1, String word2) {
-        return  word1.length() + word2.length() - (2 * longestCommonSubsequenceSize(word1.toCharArray(), word2.toCharArray()));
+        return word1.length() + word2.length() - (2 * longestCommonSubsequenceSize(word1.toCharArray(), word2.toCharArray()));
     }
 
     int longestCommonSubsequenceSize(char[] a1, char[] a2) {

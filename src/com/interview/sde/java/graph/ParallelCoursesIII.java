@@ -1,6 +1,7 @@
 package com.interview.sde.java.graph;
 
 import java.util.*;
+
 //https://leetcode.com/problems/parallel-courses-iii/
 public class ParallelCoursesIII {
     public int minimumTime(int n, int[][] relations, int[] time) {
@@ -38,6 +39,6 @@ public class ParallelCoursesIII {
             }
         }
 
-        return Arrays.stream(pathTime).max(). getAsInt();
+        return Arrays.stream(pathTime).max().getAsInt();
     }
 }

@@ -1,7 +1,7 @@
 package com.interview.sde.java.oop.notification.dao;
 
-import com.interview.sde.java.oop.notification.subscriber.Subscriber;
 import com.interview.sde.java.oop.notification.message.Topic;
+import com.interview.sde.java.oop.notification.subscriber.Subscriber;
 
 import java.util.List;
 

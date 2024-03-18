@@ -18,7 +18,7 @@ public class WordLadder {
         for (String word : wordList) {
             for (int i = 0; i < beginWord.length(); i++) {
                 String key = word.substring(0, i) + wildcard + word.substring(i + 1);
-                dictionary.computeIfAbsent(key, k-> new HashSet<>()).add(word);
+                dictionary.computeIfAbsent(key, k -> new HashSet<>()).add(word);
             }
         }
 
@@ -54,7 +54,7 @@ public class WordLadder {
 
     private static class StringDepth {
         String word;
-         int depth;
+        int depth;
 
         public StringDepth(String word, int depth) {
             this.word = word;

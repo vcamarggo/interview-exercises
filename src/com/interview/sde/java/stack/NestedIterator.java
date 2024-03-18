@@ -1,6 +1,9 @@
 package com.interview.sde.java.stack;
 
-import java.util.*;
+import java.util.ArrayDeque;
+import java.util.Deque;
+import java.util.Iterator;
+import java.util.List;
 
 //https://leetcode.com/problems/flatten-nested-list-iterator/
 public class NestedIterator implements Iterator<Integer> {

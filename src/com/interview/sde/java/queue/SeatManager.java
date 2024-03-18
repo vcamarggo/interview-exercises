@@ -9,7 +9,7 @@ public class SeatManager {
 
     public SeatManager(int n) {
         pq = new PriorityQueue<>(n);
-        for(int i = 1 ; i<=n;i++){
+        for (int i = 1; i <= n; i++) {
             pq.offer(i);
         }
     }

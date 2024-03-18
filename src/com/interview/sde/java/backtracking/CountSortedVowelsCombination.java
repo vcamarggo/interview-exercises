@@ -7,6 +7,7 @@ public class CountSortedVowelsCombination {
     public static void main(String[] args) {
         new CountSortedVowelsCombination().countVowelStrings(2);
     }
+
     public int countVowelStrings(int n) {
         int[] lastIndexForPosition = new int[n];
 
@@ -14,11 +15,11 @@ public class CountSortedVowelsCombination {
 
         boolean hasChanges = true;
 
-        while(hasChanges){
+        while (hasChanges) {
             hasChanges = false;
 
-            int changeIndex = n-1;
-            while(changeIndex >= 0 && lastIndexForPosition[changeIndex] == 4){
+            int changeIndex = n - 1;
+            while (changeIndex >= 0 && lastIndexForPosition[changeIndex] == 4) {
                 changeIndex--;
             }
 

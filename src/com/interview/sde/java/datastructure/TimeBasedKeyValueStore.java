@@ -25,10 +25,10 @@ public class TimeBasedKeyValueStore {
     public static void main(String[] args) {
         TimeBasedKeyValueStore store = new TimeBasedKeyValueStore();
         store.set("foo", "bar", 1);
-        System.out.println(store.get("foo",1));
-        System.out.println(store.get("foo",3));
+        System.out.println(store.get("foo", 1));
+        System.out.println(store.get("foo", 3));
         store.set("foo", "bar2", 4);
-        System.out.println(store.get("foo",4));
-        System.out.println(store.get("foo",5));
+        System.out.println(store.get("foo", 4));
+        System.out.println(store.get("foo", 5));
     }
 }

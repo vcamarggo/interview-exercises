@@ -1,8 +1,8 @@
 package com.interview.sde.java.search.astar.elements;
 
 public class Game {
-    private PairsInBoard pairsStartEnd;
-    private char[][] board;
+    private final PairsInBoard pairsStartEnd;
+    private final char[][] board;
 
     public Game(PairsInBoard pairsStartEnd, char[][] board) {
         this.pairsStartEnd = pairsStartEnd;

@@ -2,6 +2,7 @@ package com.interview.sde.java.datastructure;
 
 import java.util.ArrayList;
 import java.util.List;
+
 //https://leetcode.com/problems/time-needed-to-inform-all-employees/
 public class TimeToInformAllEmployees {
     static class ManagementChain {

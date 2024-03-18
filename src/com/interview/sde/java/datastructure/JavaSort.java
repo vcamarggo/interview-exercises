@@ -8,9 +8,9 @@ import java.util.Scanner;
 //https://www.hackerrank.com/challenges/java-sort/problem
 public class JavaSort {
     static class Student implements Comparable<Student> {
-        private int id;
-        private String fname;
-        private double cgpa;
+        private final int id;
+        private final String fname;
+        private final double cgpa;
 
         public Student(int id, String fname, double cgpa) {
             super();

@@ -1,6 +1,7 @@
 package com.interview.sde.java.search;
 
 import java.util.TreeSet;
+
 //https://leetcode.com/problems/smallest-number-in-infinite-set/
 public class MinInfiniteSet {
 

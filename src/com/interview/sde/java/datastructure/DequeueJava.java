@@ -24,7 +24,7 @@ public class DequeueJava {
 
             if (deque.size() == m) {
                 max = Math.max(max, occurrencesCounter.keySet().size());
-                occurrencesCounter.computeIfPresent(deque.removeFirst(), (key, value) -> value == 1 ? null : value - 1 );
+                occurrencesCounter.computeIfPresent(deque.removeFirst(), (key, value) -> value == 1 ? null : value - 1);
             }
         }
         System.out.println(max);

@@ -178,12 +178,12 @@ class BFSRedKnight {
     public record RowColumnPair(int row, int column) {
 
         @Override
-            public String toString() {
-                return "RowColumnPair{" +
-                        "row=" + row +
-                        ", column=" + column +
-                        '}';
-            }
+        public String toString() {
+            return "RowColumnPair{" +
+                    "row=" + row +
+                    ", column=" + column +
+                    '}';
         }
+    }
 
 }

@@ -17,7 +17,7 @@ public class LargestTime {
             }
         }
 
-        if(maxValidMinutes == -1){
+        if (maxValidMinutes == -1) {
             return "";
         }
 

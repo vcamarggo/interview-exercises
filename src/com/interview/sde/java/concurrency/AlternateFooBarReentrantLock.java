@@ -6,7 +6,7 @@ import java.util.concurrent.locks.ReentrantLock;
 
 //https://leetcode.com/problems/print-foobar-alternately/
 public class AlternateFooBarReentrantLock {
-    private int n;
+    private final int n;
 
     Lock l = new ReentrantLock();
     Condition canFoo = l.newCondition();
@@ -16,10 +16,10 @@ public class AlternateFooBarReentrantLock {
 
     public AlternateFooBarReentrantLock(int n) {
         this.n = n;
-        try{
+        try {
             l.lock();
             canFoo.signal();
-        }finally{
+        } finally {
             l.unlock();
         }
     }
@@ -28,16 +28,16 @@ public class AlternateFooBarReentrantLock {
 
         for (int i = 0; i < n; i++) {
 
-            try{
+            try {
                 l.lock();
-                while(!isFoo){
+                while (!isFoo) {
                     canFoo.await();
                 }
                 // printFoo.run() outputs "foo". Do not change or remove this line.
                 printFoo.run();
-                isFoo=false;
+                isFoo = false;
                 canBar.signal();
-            }finally{
+            } finally {
                 l.unlock();
             }
 
@@ -48,15 +48,15 @@ public class AlternateFooBarReentrantLock {
 
         for (int i = 0; i < n; i++) {
 
-            try{
+            try {
                 l.lock();
-                while(isFoo){
+                while (isFoo) {
                     canBar.await();
                 }
                 printBar.run();
-                isFoo=true;
+                isFoo = true;
                 canFoo.signal();
-            }finally{
+            } finally {
                 l.unlock();
             }
         }

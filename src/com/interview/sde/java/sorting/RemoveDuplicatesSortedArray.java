@@ -7,7 +7,7 @@ public class RemoveDuplicatesSortedArray {
         int lastModifiedNumber = Integer.MIN_VALUE;
 
         for (int i = 0; i < nums.length; i++) {
-            if(nums[i] > lastModifiedNumber){
+            if (nums[i] > lastModifiedNumber) {
                 nums[lastModifiedIndex++] = nums[i];
                 lastModifiedNumber = nums[i];
             }
@@ -17,7 +17,7 @@ public class RemoveDuplicatesSortedArray {
     }
 
     public static void main(String[] args) {
-        System.out.println(removeDuplicates(new int[]{0,0,1,1,1,2,2,3,3,4}));
+        System.out.println(removeDuplicates(new int[]{0, 0, 1, 1, 1, 2, 2, 3, 3, 4}));
         System.out.println(removeDuplicates(new int[]{}));
     }
 }

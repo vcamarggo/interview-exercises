@@ -33,7 +33,7 @@ public class PrefixSuffixSearch {
 
                 TrieNode current = root;
                 for (char data : tempWord.toCharArray()) {
-                    current = current.children.computeIfAbsent(data, k-> new TrieNode());
+                    current = current.children.computeIfAbsent(data, k -> new TrieNode());
                     current.word = word;
                 }
             }

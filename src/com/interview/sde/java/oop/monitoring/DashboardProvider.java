@@ -1,11 +1,13 @@
 package com.interview.sde.java.oop.monitoring;
 
-import java.util.*;
+import java.util.List;
+import java.util.Random;
+import java.util.TreeMap;
 
 public class DashboardProvider {
     //TreeMap to order timestamp and allow querying by timestamp
     //If insertion timestamp is monotonically increasing, LinkedHashMap can also be used, but that is hard to guarantee in a wall-clock
-    private static TreeMap<Long, DataPoint> dataset = new TreeMap<>();
+    private static final TreeMap<Long, DataPoint> dataset = new TreeMap<>();
 
     public static void main(String[] args) {
         Random randomGenerator = new Random();

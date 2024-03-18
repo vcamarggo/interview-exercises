@@ -1,6 +1,9 @@
 package com.interview.sde.java.graph;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Scanner;
+import java.util.Set;
 
 public class TopologicalOrder {
 
@@ -46,7 +49,7 @@ public class TopologicalOrder {
                 dfs(node);
             }
         }
-        if(foundLoop){
+        if (foundLoop) {
             System.out.println("No solution");
             return;
         }
@@ -77,7 +80,7 @@ public class TopologicalOrder {
             if (edges[node][destination]) {
                 if (visiting.contains(destination)) {
                     foundLoop = true;
-                } else if(!visited.contains(destination)) {
+                } else if (!visited.contains(destination)) {
                     dfs(destination);
                 }
             }

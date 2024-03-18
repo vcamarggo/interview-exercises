@@ -1,4 +1,5 @@
 package com.interview.sde.java.linkedlist;
+
 //https://leetcode.com/problems/merge-nodes-in-between-zeros/
 public class MergeNodesBetweenZeros {
     public ListNode mergeNodes(ListNode head) {

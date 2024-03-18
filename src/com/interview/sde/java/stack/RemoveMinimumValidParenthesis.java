@@ -19,19 +19,19 @@ public class RemoveMinimumValidParenthesis {
         Deque<Integer> stack = new ArrayDeque<>();
 
         for (int i = 0; i < s.length(); i++) {
-            if(s.charAt(i) == '('){
+            if (s.charAt(i) == '(') {
                 stack.push(i);
-            } else if(s.charAt(i) == ')'){
-                if(stack.isEmpty() || s.charAt(stack.peek()) != '('){
+            } else if (s.charAt(i) == ')') {
+                if (stack.isEmpty() || s.charAt(stack.peek()) != '(') {
                     stack.push(i);
-                } else{
+                } else {
                     stack.pop();
                 }
             }
         }
 
         StringBuilder solution = new StringBuilder(s);
-        while (!stack.isEmpty()){
+        while (!stack.isEmpty()) {
             solution.deleteCharAt(stack.pop());
         }
         return solution.toString();

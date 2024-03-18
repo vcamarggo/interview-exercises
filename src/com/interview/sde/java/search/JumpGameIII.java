@@ -7,6 +7,7 @@ import java.util.Set;
 public class JumpGameIII {
     final Boolean[] memo = new Boolean[500000];
     final Set<Integer> visited = new HashSet<>();
+
     public boolean canReach(int[] nums, int startIndex) {
         if (startIndex < 0 || startIndex >= nums.length || visited.contains(startIndex)) return false;
         if (memo[startIndex] != null) return memo[startIndex];

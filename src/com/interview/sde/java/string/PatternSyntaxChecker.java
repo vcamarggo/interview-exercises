@@ -1,7 +1,8 @@
 package com.interview.sde.java.string;
 
 import java.util.Scanner;
-import java.util.regex.*;
+import java.util.regex.Pattern;
+import java.util.regex.PatternSyntaxException;
 
 // https://www.hackerrank.com/challenges/pattern-syntax-checker/problem
 public class PatternSyntaxChecker {

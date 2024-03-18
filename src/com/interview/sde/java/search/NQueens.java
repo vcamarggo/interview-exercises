@@ -33,10 +33,10 @@ public class NQueens {
             List<Integer> current = toProcess.pop();
             if (current.size() == n) {
                 //String builder to convert a number to ...Q., where the Q is the number position in the solution
-                solution.add(current.stream().map(integer -> new StringBuilder(new String(new char[n]).replace("\0", ".")).replace(integer,integer+1, "Q").toString()).collect(Collectors.toList()));
+                solution.add(current.stream().map(integer -> new StringBuilder(new String(new char[n]).replace("\0", ".")).replace(integer, integer + 1, "Q").toString()).collect(Collectors.toList()));
             } else {
                 for (int i = 0; i < n; i++) {
-                    if(isSafe(current, i)){
+                    if (isSafe(current, i)) {
                         List<Integer> possibleSolution = new ArrayList<>(current);
                         possibleSolution.add(i);
                         toProcess.push(possibleSolution);

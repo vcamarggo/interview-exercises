@@ -25,7 +25,7 @@ public class CombinationSum {
             for (int i = lastIndex; i < candidates.length; i++) {
                 tempSolution.add(candidates[i]);
                 solution.addAll(combinationSum(candidates, target - candidates[i], tempSolution, i));
-                tempSolution.remove(tempSolution.size() - 1);
+                tempSolution.removeLast();
             }
         }
         return solution;

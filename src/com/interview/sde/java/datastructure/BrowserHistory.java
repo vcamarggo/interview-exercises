@@ -2,15 +2,17 @@ package com.interview.sde.java.datastructure;
 
 //https://leetcode.com/problems/design-browser-history
 public class BrowserHistory {
-    static class DoublyLinkedList{
+    static class DoublyLinkedList {
         String url;
         DoublyLinkedList next;
         DoublyLinkedList prev;
-        DoublyLinkedList(String url, DoublyLinkedList prev){
+
+        DoublyLinkedList(String url, DoublyLinkedList prev) {
             this.url = url;
             this.prev = prev;
         }
-        DoublyLinkedList(String url){
+
+        DoublyLinkedList(String url) {
             this.url = url;
         }
     }
@@ -27,14 +29,14 @@ public class BrowserHistory {
     }
 
     public String back(int steps) {
-        while(steps-- > 0 && this.current.prev != null){
+        while (steps-- > 0 && this.current.prev != null) {
             this.current = this.current.prev;
         }
         return this.current.url;
     }
 
     public String forward(int steps) {
-        while(steps-- > 0 && this.current.next != null){
+        while (steps-- > 0 && this.current.next != null) {
             this.current = this.current.next;
         }
         return this.current.url;

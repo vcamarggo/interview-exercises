@@ -8,7 +8,7 @@ import com.interview.sde.java.oop.servlet.validator.ValidatorDecorator;
 public class ValidatorThirdParty<T extends Request> extends ValidatorDecorator<T> {
 
     //Consumer defines who is the adaptee
-    private IAdapter<T> thirdPartyAdapter = new ThirdPartyAdapter<>();
+    private final IAdapter<T> thirdPartyAdapter = new ThirdPartyAdapter<>();
 
     public ValidatorThirdParty(IValidator<T> validator) {
         super(validator);

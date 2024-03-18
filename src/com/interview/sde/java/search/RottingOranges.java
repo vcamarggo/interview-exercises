@@ -2,6 +2,7 @@ package com.interview.sde.java.search;
 
 import java.util.LinkedList;
 import java.util.Queue;
+
 //https://leetcode.com/problems/rotting-oranges/
 public class RottingOranges {
     public int orangesRotting(int[][] grid) {
@@ -12,23 +13,23 @@ public class RottingOranges {
         int freshOranges = 0;
         int maxDistance = -1;
 
-        for(int i = 0 ; i < grid.length ; i++){
-            for(int j = 0 ; j < grid[0].length ; j++){
-                if(grid[i][j] == TARGET){
+        for (int i = 0; i < grid.length; i++) {
+            for (int j = 0; j < grid[0].length; j++) {
+                if (grid[i][j] == TARGET) {
                     freshOranges++;
-                } else if(grid[i][j] == AVOID){
-                    oranges.offer(new int[]{i,j});
+                } else if (grid[i][j] == AVOID) {
+                    oranges.offer(new int[]{i, j});
                 }
             }
         }
 
-        if(freshOranges == 0)
+        if (freshOranges == 0)
             return 0;
 
-        while(!oranges.isEmpty()){
+        while (!oranges.isEmpty()) {
             int toProcess = oranges.size();
 
-            while(toProcess-- > 0){
+            while (toProcess-- > 0) {
 
                 int[] cell = oranges.poll();
                 int row = cell[0];

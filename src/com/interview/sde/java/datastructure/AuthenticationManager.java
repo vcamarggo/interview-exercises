@@ -24,7 +24,7 @@ public class AuthenticationManager {
 
     public int countUnexpiredTokens(int currentTime) {
         int unexpired = 0;
-        for(int expiration : valid.values()){
+        for (int expiration : valid.values()) {
             unexpired += isExpired(expiration, currentTime) ? 0 : 1;
         }
         //Slower option

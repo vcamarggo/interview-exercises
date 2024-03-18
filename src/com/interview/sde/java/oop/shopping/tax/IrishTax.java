@@ -14,6 +14,6 @@ public class IrishTax implements Tax {
 
     @Override
     public String toString() {
-        return "IrishTax{" + 100*IRISH_TAX_RATE + "%}";
+        return "IrishTax{" + 100 * IRISH_TAX_RATE + "%}";
     }
 }
