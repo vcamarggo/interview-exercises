@@ -14,7 +14,7 @@ public class LongestPalindromicSubstring {
         String longest = "";
 
         for (int i = 0; i < stringAsChar.length; i++) {
-            //first try: expand the palindrome over an index i like in "aba" or "cabac"
+            //first try: expand the palindrome over an index I like in "aba" or "cabac"
             for (int left = i, right = i; left >= 0 && right < stringAsChar.length && stringAsChar[left] == stringAsChar[right]; left--, right++) {
                 if (longest.length() < right - left + 1) {
                     longest = s.substring(left, right + 1);

@@ -67,7 +67,7 @@ public class SortingSentences {
         int copiedFromRight = 0;
 
         while (copiedFromLeft + copiedFromRight < countRightElements + countLeftElements) {
-            //if we dont have left elements or if we have right elements, and it is smaller than left, copy to output
+            //if we don't have left elements or if we have right elements, and it is smaller than left, copy to output
             if (copiedFromLeft >= countLeftElements || copiedFromRight < countRightElements
                     //This is a test to order based on the last character of each string, which should be a number
                     && leftElements[copiedFromLeft].charAt(leftElements[copiedFromLeft].length() - 1) > rightElements[copiedFromRight].charAt(rightElements[copiedFromRight].length() - 1)) {

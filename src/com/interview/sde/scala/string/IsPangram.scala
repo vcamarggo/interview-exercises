@@ -2,6 +2,6 @@ package string
 
 object IsPangram {
   def checkIfPangram(sentence: String): Boolean = {
-    sentence.distinct.length == 26
+    sentence.toSeq.distinct.length == 26
   }
 }

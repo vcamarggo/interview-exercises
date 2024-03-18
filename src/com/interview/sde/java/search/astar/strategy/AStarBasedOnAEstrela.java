@@ -37,7 +37,7 @@ public class AStarBasedOnAEstrela {
 
         NodeStar firstNode = new NodeStar(board[startRow][startCol], 0, startRow, startCol);
         firstNode.setGScore(euclideanDistance(pairStartEnd.getStartingPoint(), pairStartEnd.getTargetPoint()));
-        //euclidean distance is the only admissible heuristic for this problem (from the well known heuristics for distance)
+        //Euclidean distance is the only admissible heuristic for this problem (from the well known heuristics for distance)
 
         openNodes.add(firstNode);
 
@@ -76,7 +76,7 @@ public class AStarBasedOnAEstrela {
                         openNodes.add(neighbor);
                     }
                 } else if (smallest != null) {
-                    //If the neighbor could arrive into smallest element by a smaller path, update the distance
+                    //If the neighbor could arrive into the smallest element by a smaller path, update the distance
                     // similar concept to relaxing from Dijkstra
                     if (neighbor.getDepth() < smallest.getDepth()) {
                         openNodes.remove(smallest);

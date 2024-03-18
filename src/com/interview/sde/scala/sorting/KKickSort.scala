@@ -5,9 +5,9 @@ object KKickSort {
   def orderlyQueue(s: String, k: Int): String = {
     if (k == 1) {
       // from all the possible rotations (sliding window), get the lexicographical minimum
-      (s + s).sliding(s.length).min
+      (s + s).toSeq.sliding(s.length).map(_.unwrap).min
     } else {
-      s.sorted
+      s.toSeq.sorted.toString()
     }
   }
 

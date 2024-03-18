@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 //https://leetcode.com/problems/3sum/
 public class SumThree {
     public static List<List<Integer>> threeSum(int[] nums) {
-        List<Integer> numsList = Arrays.stream(nums).sorted().boxed().collect(Collectors.toList());
+        List<Integer> numsList = Arrays.stream(nums).sorted().boxed().toList();
         Set<List<Integer>> solution = new HashSet<>();
 
         for (int i = 0; i < numsList.size(); i++) {

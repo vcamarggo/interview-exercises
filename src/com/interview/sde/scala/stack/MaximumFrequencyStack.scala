@@ -7,7 +7,7 @@ class MaximumFrequencyStack {
   val dataStore: mutable.TreeMap[Int, mutable.Stack[Int]] = mutable.TreeMap()
   val frequencyStore: mutable.Map[Int, Int] = mutable.HashMap()
 
-  def push(num: Int) {
+  def push(num: Int): Unit = {
     //Count the number of times num appeared
     val frequency = frequencyStore.updateWith(num)(previousValue => if (previousValue.isDefined) Some(previousValue.get + 1) else Some(1)).get
     //Add val to the stack with its frequency

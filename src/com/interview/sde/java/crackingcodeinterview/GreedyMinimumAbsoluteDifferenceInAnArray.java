@@ -7,7 +7,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 //https://www.hackerrank.com/challenges/minimum-absolute-difference-in-an-array/problem
-public class GreedyMinimumAbsoluteDifferenceinanArray {
+public class GreedyMinimumAbsoluteDifferenceInAnArray {
 
     // Complete the minimumAbsoluteDifference function below.
     static int minimumAbsoluteDifference(int[] arr) {

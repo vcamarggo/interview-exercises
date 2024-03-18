@@ -77,7 +77,7 @@ function printSinglyLinkedList(node, sep, ws) {
  */
 function mergeLists(l1, l2) {
 
-    var head = new SinglyLinkedListNode();
+    let head = new SinglyLinkedListNode();
 
     if (l1) {
         if (!l2 || l2 && l1.data <= l2.data) {
@@ -97,7 +97,7 @@ function mergeLists(l1, l2) {
         }
     }
 
-    var current = head;
+    let current = head;
 
     while (l1 || l2) {
 

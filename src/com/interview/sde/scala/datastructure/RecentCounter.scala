@@ -3,7 +3,7 @@ package datastructure
 import scala.collection.mutable
 
 //https://leetcode.com/problems/number-of-recent-calls/
-class RecentCounter() {
+class RecentCounter {
 
   val dataStore: mutable.TreeSet[Int] = mutable.TreeSet()
 

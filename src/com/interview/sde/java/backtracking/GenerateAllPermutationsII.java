@@ -22,7 +22,7 @@ public class GenerateAllPermutationsII {
 
         for (List<Integer> permutation : temporaryPermute) {
             for (int i = 0; i <= permutation.size(); i++) {
-                //Clone to dereferrence
+                //Clone to dereference
                 List<Integer> clone = new ArrayList<>(permutation);
                 clone.add(i, number);
                 solution.add(clone);

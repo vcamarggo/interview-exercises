@@ -9,7 +9,7 @@ public class QueuesATaleofTwoStacks {
         Stack<T> s1 = new Stack<>();
         Stack<T> s2 = new Stack<>();
 
-        public void enqueue(T value) { // Push onto newest stack
+        public void enqueue(T value) { // Push onto the newest stack
             s1.push(value);
         }
 

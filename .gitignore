@@ -21,3 +21,4 @@ src/com/interview/sde/.DS_Store
 /target/*
 /target/
 /project/build.properties
+/build/

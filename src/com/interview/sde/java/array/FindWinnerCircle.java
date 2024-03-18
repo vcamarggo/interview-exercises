@@ -19,6 +19,6 @@ public class FindWinnerCircle {
             players.remove(nextKill);
         }
 
-        return players.get(0);
+        return players.getFirst();
     }
 }

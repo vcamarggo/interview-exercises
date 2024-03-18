@@ -63,7 +63,7 @@ public class LFUCache {
     }
 
     private Integer getKeyToRemove(List<Integer> leastUsedNumbers) {
-        //The first key contained in the leastUsedNumbers means that it was added the earlist among the leastUsedNumbers
+        //The first key contained in the leastUsedNumbers means that it was added the earliest among the leastUsedNumbers
         for (Integer keyIt : dataStore.keySet()) {
             if (leastUsedNumbers.contains(keyIt)) {
                 return keyIt;

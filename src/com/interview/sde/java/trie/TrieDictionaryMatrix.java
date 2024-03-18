@@ -101,7 +101,7 @@ public class TrieDictionaryMatrix {
     }
 
 
-    public void main(String[] args) {
+    public static void main(String[] args) {
         System.out.println(findWords(new char[][]{
                         new char[]{'o', 'a', 'a', 'n'},
                         new char[]{'e', 't', 'a', 'e'},

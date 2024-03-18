@@ -33,7 +33,7 @@ public class CuttingBoards {
             } else if (horizontalIndex < 0 || verticalCutsCost[verticalIndex] > horizontalCutsCost[horizontalIndex]) {
                 result = getFromX(result);
             } else {
-                //costs are equal, choose the cut with less boards to cross
+                //costs are equal, choose the cut with fewer boards to cross
                 if (verticalCutsMade > horizontalCutsMade) {
                     result = getFromY(result);
                 } else {

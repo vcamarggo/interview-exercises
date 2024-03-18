@@ -25,7 +25,7 @@ public class GardenColoring {
 
             if (!foundSolution(garden, solution)) {
                 solutionTried[garden - 1] = 0; // Reset the solutions tried, as no solution was found, otherwise, would be stuck as max color number
-                garden -= 2; //A type of iterative backtracking. Im not happy with this solution, but it works for now.
+                garden -= 2; //A type of iterative backtracking. I'm not happy with this solution, but it works for now.
             }
         }
 

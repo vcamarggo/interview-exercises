@@ -19,7 +19,7 @@ public class LakeFlood {
     public static int[] avoidFlood(int[] rains) {
         int[] solution = new int[rains.length];
         HashMap<Integer, Integer> fullWhen = new HashMap<>(rains.length);
-        //Stores where and when a rain happened, to allow dry the lake ONLY AFTER is has been filled
+        //Stores where and when a rain happened, to allow dry the lake ONLY AFTER it has been filled
         TreeSet<Integer> dryDays = new TreeSet<>();
         //Tried with Queue/List, but it is expensive and complex to search the threshold
         // Allow to overcome the case while you can only clean after a threshold, like on line drydays.higher()

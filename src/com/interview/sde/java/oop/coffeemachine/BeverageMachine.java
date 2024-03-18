@@ -22,7 +22,7 @@ import java.util.List;
 //
 //3 - Allow users to select products:
 //    - Americano
-//    - Expresso
+//    - Espresso
 //    - Cappuccino
 //
 //4 - Return selected product and remaining change if any
