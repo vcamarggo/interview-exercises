@@ -13,10 +13,10 @@ public class ArraysDS {
 
     // Complete the reverseArray function below.
     static int[] reverseArray(int[] a) {
-        int[] b2 = new int[a.length];
+        int[] b = new int[a.length];
         for (int i = a.length - 1; i >= 0; i--)
-            b2[a.length - 1 - i] = a[i];
-        return b2;
+            b[a.length - 1 - i] = a[i];
+        return b;
     }
 
     public static void main(String[] args) throws IOException {
