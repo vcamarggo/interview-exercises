@@ -75,13 +75,6 @@ public class BFSShortestReachGraph {
         }
     }
 
-    private static class Edge {
-        final int to;
-        final int from;
-
-        public Edge(int from, int to) {
-            this.from = from;
-            this.to = to;
-        }
+    private record Edge(int from, int to) {
     }
 }

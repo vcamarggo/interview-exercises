@@ -9,7 +9,7 @@ public class JavaStringTokens {
         String s = scan.nextLine();
         String[] splitedStringArray = s.trim().split("[ !,?._'@]+");
 
-        if (s == null || s.trim().equals("")) {
+        if (s.trim().isEmpty()) {
             System.out.println("0");
         } else if (s.length() > 400000) {
             return;

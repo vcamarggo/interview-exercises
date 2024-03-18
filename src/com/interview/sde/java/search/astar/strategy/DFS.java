@@ -33,8 +33,8 @@ class DFS {
 
     private static int depthFirstSearch(PairsInBoard pairStartEnd, char toAvoidChar) {
 
-        int startRow = pairStartEnd.getStartingPoint().getRow();
-        int startCol = pairStartEnd.getStartingPoint().getColumn();
+        int startRow = pairStartEnd.startingPoint().row();
+        int startCol = pairStartEnd.startingPoint().column();
 
         Stack<Node> queue = new Stack<>();
 
@@ -48,10 +48,10 @@ class DFS {
 
             Node node = queue.pop();
 
-            int row = node.getPoint().getRow();
-            int column = node.getPoint().getColumn();
+            int row = node.getPoint().row();
+            int column = node.getPoint().column();
 
-            if (node.getPoint().equals(pairStartEnd.getTargetPoint())) {
+            if (node.getPoint().equals(pairStartEnd.targetPoint())) {
                 return node.getDepth();
             } else if (!createdNodes.contains(node)) {
                 createdNodes.add(node);

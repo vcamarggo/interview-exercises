@@ -28,15 +28,15 @@ public class AStarBasedOnAEstrela {
     }
 
     private static int aStar(PairsInBoard pairStartEnd, char toAvoidChar) {
-        int startRow = pairStartEnd.getStartingPoint().getRow();
-        int startCol = pairStartEnd.getStartingPoint().getColumn();
+        int startRow = pairStartEnd.startingPoint().row();
+        int startCol = pairStartEnd.startingPoint().column();
 
         TreeSet<NodeStar> openNodes = new TreeSet<>(); //uniqueness and ordered
 
         HashMap<RowColumnPair, NodeStar> createdNodes = new HashMap<>(); //nodes that I visited all around
 
         NodeStar firstNode = new NodeStar(board[startRow][startCol], 0, startRow, startCol);
-        firstNode.setGScore(euclideanDistance(pairStartEnd.getStartingPoint(), pairStartEnd.getTargetPoint()));
+        firstNode.setGScore(euclideanDistance(pairStartEnd.startingPoint(), pairStartEnd.targetPoint()));
         //Euclidean distance is the only admissible heuristic for this problem (from the well known heuristics for distance)
 
         openNodes.add(firstNode);
@@ -49,13 +49,13 @@ public class AStarBasedOnAEstrela {
             NodeStar node = openNodes.first();
             openNodes.remove(node);
 
-            if (node.getPoint().equals(pairStartEnd.getTargetPoint())) {
+            if (node.getPoint().equals(pairStartEnd.targetPoint())) {
                 return node.getFScore();
             }
 
             createdNodes.put(node.getPoint(), node);
 
-            neighbors = createNeighbors(toAvoidChar, node.getPoint().getRow(), node.getPoint().getColumn(), node.getDepth());
+            neighbors = createNeighbors(toAvoidChar, node.getPoint().row(), node.getPoint().column(), node.getDepth());
 
             while (!neighbors.isEmpty()) {
                 NodeStar neighbor = neighbors.get(0);
@@ -71,7 +71,7 @@ public class AStarBasedOnAEstrela {
                     // similar concept to relaxing from Dijkstra
                     if (neighbor.getDepth() < itself.getDepth()) {
                         createdNodes.remove(itself.getPoint());
-                        neighbor.setGScore(euclideanDistance(neighbor.getPoint(), pairStartEnd.getTargetPoint()));
+                        neighbor.setGScore(euclideanDistance(neighbor.getPoint(), pairStartEnd.targetPoint()));
                         neighbor.setFScore(neighbor.getDepth() + neighbor.getGScore());
                         openNodes.add(neighbor);
                     }
@@ -80,13 +80,13 @@ public class AStarBasedOnAEstrela {
                     // similar concept to relaxing from Dijkstra
                     if (neighbor.getDepth() < smallest.getDepth()) {
                         openNodes.remove(smallest);
-                        neighbor.setGScore(euclideanDistance(neighbor.getPoint(), pairStartEnd.getTargetPoint()));
+                        neighbor.setGScore(euclideanDistance(neighbor.getPoint(), pairStartEnd.targetPoint()));
                         neighbor.setFScore(neighbor.getDepth() + neighbor.getGScore());
                         openNodes.add(neighbor);
                     }
                 } else {
                     // update the distance
-                    neighbor.setGScore(euclideanDistance(neighbor.getPoint(), pairStartEnd.getTargetPoint()));
+                    neighbor.setGScore(euclideanDistance(neighbor.getPoint(), pairStartEnd.targetPoint()));
                     neighbor.setFScore(neighbor.getDepth() + neighbor.getGScore());
                     openNodes.add(neighbor);
                 }
@@ -149,8 +149,8 @@ public class AStarBasedOnAEstrela {
     }
 
     private static int euclideanDistance(RowColumnPair startingPoint, RowColumnPair targetPoint) {
-        int row = Math.abs(startingPoint.getRow() - targetPoint.getRow());
-        int column = Math.abs(startingPoint.getColumn() - targetPoint.getColumn());
+        int row = Math.abs(startingPoint.row() - targetPoint.row());
+        int column = Math.abs(startingPoint.column() - targetPoint.column());
         return (int) Math.sqrt((row) * (row) + (column) * (column));
     }
 

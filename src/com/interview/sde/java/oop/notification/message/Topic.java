@@ -1,18 +1,9 @@
 package com.interview.sde.java.oop.notification.message;
 
-public class Topic {
-    private final String name;
-
-    public Topic(String name) {
-        this.name = name;
-    }
-
-    public String getName() {
-        return name;
-    }
+public record Topic(String name) {
 
     @Override
     public String toString() {
-        return getName();
+        return name();
     }
 }

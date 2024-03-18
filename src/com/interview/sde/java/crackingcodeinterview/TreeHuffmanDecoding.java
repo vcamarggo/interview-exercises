@@ -110,15 +110,13 @@ void decode(String s, Node root) {
 
         assert tree != null;
 
-        if (tree instanceof HuffmanLeaf) {
-            HuffmanLeaf leaf = (HuffmanLeaf) tree;
+        if (tree instanceof HuffmanLeaf leaf) {
 
             // print out character, frequency, and code for this leaf (which is just the prefix)
             //System.out.println(leaf.data + "\t" + leaf.frequency + "\t" + prefix);
             mapA.put(leaf.data, prefix.toString());
 
-        } else if (tree instanceof HuffmanNode) {
-            HuffmanNode node = (HuffmanNode) tree;
+        } else if (tree instanceof HuffmanNode node) {
 
             // traverse left
             prefix.append('0');

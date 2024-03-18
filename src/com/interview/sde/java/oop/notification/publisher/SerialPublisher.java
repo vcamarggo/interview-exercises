@@ -24,7 +24,7 @@ public class SerialPublisher implements Publisher {
 
     @Override
     public void receiveMessage(Message message) {
-        for (Subscriber subscriber : subscriberDAO.getAllSubscribers(message.getTopic())){
+        for (Subscriber subscriber : subscriberDAO.getAllSubscribers(message.topic())){
             subscriber.notify(message);
         }
     }

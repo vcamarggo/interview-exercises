@@ -49,8 +49,8 @@ class BFSRedKnight {
 
     private static Node breadthFirstSearch(int boardSize, PairsInBoard pairStartEnd) {
 
-        int startRow = pairStartEnd.getStartingPoint().getRow();
-        int startCol = pairStartEnd.getStartingPoint().getColumn();
+        int startRow = pairStartEnd.startingPoint().row();
+        int startCol = pairStartEnd.startingPoint().column();
 
         Queue<BFSNode> queue = new LinkedList<>();
 
@@ -61,10 +61,10 @@ class BFSRedKnight {
 
             BFSNode node = queue.poll();
 
-            int row = node.getPoint().getRow();
-            int column = node.getPoint().getColumn();
+            int row = node.getPoint().row();
+            int column = node.getPoint().column();
 
-            if (node.getPoint().equals(pairStartEnd.getTargetPoint())) {
+            if (node.getPoint().equals(pairStartEnd.targetPoint())) {
                 return node;
             } else if (!node.isVisited()) {
                 node.setVisited();
@@ -116,22 +116,7 @@ class BFSRedKnight {
         UL, UR, R, LR, LL, L
     }
 
-    public static class PairsInBoard {
-        private final RowColumnPair startingPoint;
-        private final RowColumnPair targetPoint;
-
-        public PairsInBoard(RowColumnPair startingPoint, RowColumnPair targetPoint) {
-            this.startingPoint = startingPoint;
-            this.targetPoint = targetPoint;
-        }
-
-        public RowColumnPair getStartingPoint() {
-            return startingPoint;
-        }
-
-        public RowColumnPair getTargetPoint() {
-            return targetPoint;
-        }
+    public record PairsInBoard(RowColumnPair startingPoint, RowColumnPair targetPoint) {
     }
 
     static class BFSNode extends Node {
@@ -190,44 +175,15 @@ class BFSRedKnight {
         }
     }
 
-    static public class RowColumnPair {
-        private final int row;
-        private final int column;
-
-        public RowColumnPair(int row, int column) {
-            this.row = row;
-            this.column = column;
-        }
+    public record RowColumnPair(int row, int column) {
 
         @Override
-        public boolean equals(Object o) {
-            if (this == o) return true;
-            if (o == null || getClass() != o.getClass()) return false;
-            RowColumnPair rowColumnPair = (RowColumnPair) o;
-            return row == rowColumnPair.row &&
-                    column == rowColumnPair.column;
+            public String toString() {
+                return "RowColumnPair{" +
+                        "row=" + row +
+                        ", column=" + column +
+                        '}';
+            }
         }
-
-        public int getRow() {
-            return row;
-        }
-
-        public int getColumn() {
-            return column;
-        }
-
-        @Override
-        public int hashCode() {
-            return Objects.hash(row, column);
-        }
-
-        @Override
-        public String toString() {
-            return "RowColumnPair{" +
-                    "row=" + row +
-                    ", column=" + column +
-                    '}';
-        }
-    }
 
 }

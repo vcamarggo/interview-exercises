@@ -29,8 +29,8 @@ public class AStarFromScratch {
     }
 
     private static int aStar(PairsInBoard pairStartEnd, char toAvoidChar) {
-        int startRow = pairStartEnd.getStartingPoint().getRow();
-        int startCol = pairStartEnd.getStartingPoint().getColumn();
+        int startRow = pairStartEnd.startingPoint().row();
+        int startCol = pairStartEnd.startingPoint().column();
 
         //Priority Queue to get the smallest element in time O(1)
         PriorityQueue<NodeStar> shortestDistanceQueue = new PriorityQueue<>();
@@ -38,7 +38,7 @@ public class AStarFromScratch {
         //HashMap to make faster to find a createdNode via its Point (RowColumn)
         HashMap<RowColumnPair, NodeStar> createdNodes = new HashMap<>();
 
-        NodeStar firstNode = new NodeStar(0, startRow, startCol, euclideanDistance(pairStartEnd.getStartingPoint(), pairStartEnd.getTargetPoint()));
+        NodeStar firstNode = new NodeStar(0, startRow, startCol, euclideanDistance(pairStartEnd.startingPoint(), pairStartEnd.targetPoint()));
 
         shortestDistanceQueue.add(firstNode);
         createdNodes.put(firstNode.getPoint(), firstNode);
@@ -46,13 +46,13 @@ public class AStarFromScratch {
         while (!shortestDistanceQueue.isEmpty()) {
             NodeStar node = shortestDistanceQueue.poll();
 
-            if (node.getPoint().equals(pairStartEnd.getTargetPoint())) {
+            if (node.getPoint().equals(pairStartEnd.targetPoint())) {
                 return node.getFScore();
             }
             List<NodeStar> neighbors;
 
             //Create neighbors
-            neighbors = createNeighbors(toAvoidChar, createdNodes, node.getPoint().getRow(), node.getPoint().getColumn());
+            neighbors = createNeighbors(toAvoidChar, createdNodes, node.getPoint().row(), node.getPoint().column());
 
             while (!neighbors.isEmpty()) {
                 NodeStar neighbor = neighbors.get(0);
@@ -69,7 +69,7 @@ public class AStarFromScratch {
         int tentativeGScore = node.getDepth() + 1;
         if (tentativeGScore < neighbor.getDepth()) {
             neighbor.setDepth(tentativeGScore);
-            neighbor.setFScore(neighbor.getDepth() + euclideanDistance(neighbor.getPoint(), pairStartEnd.getTargetPoint()));
+            neighbor.setFScore(neighbor.getDepth() + euclideanDistance(neighbor.getPoint(), pairStartEnd.targetPoint()));
             openSet.add(neighbor);
         }
     }
@@ -118,8 +118,8 @@ public class AStarFromScratch {
     }
 
     private static int euclideanDistance(RowColumnPair startingPoint, RowColumnPair targetPoint) {
-        int row = Math.abs(startingPoint.getRow() - targetPoint.getRow());
-        int column = Math.abs(startingPoint.getColumn() - targetPoint.getColumn());
+        int row = Math.abs(startingPoint.row() - targetPoint.row());
+        int column = Math.abs(startingPoint.column() - targetPoint.column());
         return (int) Math.sqrt((row) * (row) + (column) * (column));
     }
 
