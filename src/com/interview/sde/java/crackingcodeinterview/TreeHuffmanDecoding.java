@@ -89,7 +89,7 @@ void decode(String s, Node root) {
             if (charFreqs[i] > 0)
                 trees.offer(new HuffmanLeaf(charFreqs[i], (char) i));
 
-        assert trees.size() > 0;
+        assert !trees.isEmpty();
 
         // loop until there is only one tree left
         while (trees.size() > 1) {

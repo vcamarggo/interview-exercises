@@ -18,9 +18,7 @@ public class MaximumElement {
                     int numberToInsert = Integer.parseInt(query[1]);
                     maxQueue.push(maxQueue.isEmpty() ? numberToInsert : Math.max(maxQueue.peek(), numberToInsert));
                 }
-                case "2" -> {
-                    maxQueue.pop();
-                }
+                case "2" -> maxQueue.pop();
                 case "3" -> System.out.println(maxQueue.peek());
             }
         }

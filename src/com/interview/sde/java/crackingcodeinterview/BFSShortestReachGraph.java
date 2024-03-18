@@ -57,7 +57,7 @@ public class BFSShortestReachGraph {
                     str.append(" ");
                 }
             }
-            System.out.println(str.toString());
+            System.out.println(str);
         }
     }
 

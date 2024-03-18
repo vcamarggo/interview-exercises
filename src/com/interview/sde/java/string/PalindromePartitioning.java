@@ -18,7 +18,7 @@ public class PalindromePartitioning {
 
     public List<List<String>> partition(String s, List<String> partialPartition) {
         List<List<String>> solution = new ArrayList<>();
-        if (s.length() == 0) {
+        if (s.isEmpty()) {
             solution.add(new ArrayList<>(partialPartition));
             return solution;
         }

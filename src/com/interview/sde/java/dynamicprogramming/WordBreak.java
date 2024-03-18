@@ -16,7 +16,7 @@ public class WordBreak {
         if (memo.containsKey(s)) {
             return memo.get(s);
         }
-        if (s.length() == 0) {
+        if (s.isEmpty()) {
             return memo.computeIfAbsent(s, k -> true);
         }
         for (String word : wordDict) {

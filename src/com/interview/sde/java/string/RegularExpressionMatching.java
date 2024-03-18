@@ -22,7 +22,7 @@ public class RegularExpressionMatching {
         }
 
         //Pattern finished without matching the string
-        if (p.length() == 0) {
+        if (p.isEmpty()) {
             return false;
         }
 
@@ -46,11 +46,11 @@ public class RegularExpressionMatching {
 
         if (p.charAt(0) == '.') {
             //Consume the '.' pattern, any single-char. The .* pattern is handled around line 16-30, more specifically 20-22
-            return s.length() > 0 && isMatch(s.substring(1), p.substring(1));
+            return !s.isEmpty() && isMatch(s.substring(1), p.substring(1));
         }
 
         //Simple single-char match
-        if (s.length() > 0 && s.charAt(0) == p.charAt(0)) {
+        if (!s.isEmpty() && s.charAt(0) == p.charAt(0)) {
             return isMatch(s.substring(1), p.substring(1));
         }
 

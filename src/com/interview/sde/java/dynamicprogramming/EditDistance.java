@@ -17,7 +17,7 @@ public class EditDistance {
         if (memo.containsKey(word1 + "#" + word2)) {
             return memo.get(word1 + "#" + word2);
         }
-        if (word1.length() == 0 || word2.length() == 0) {
+        if (word1.isEmpty() || word2.isEmpty()) {
             //one of them is empty, count the length of the other as the number of removals we need
             int distance = Math.max(word1.length(), word2.length());
             return memo.compute(word1 + "#" + word2, (k, v) -> distance);

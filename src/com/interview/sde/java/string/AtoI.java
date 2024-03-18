@@ -28,7 +28,7 @@ public class AtoI {
             }
         }
 
-        if (digits.length() == 0 || !foundDigit) {
+        if (digits.isEmpty() || !foundDigit) {
             return 0;
         }
 

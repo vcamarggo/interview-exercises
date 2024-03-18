@@ -17,7 +17,7 @@ public class WordBreakII {
 
     List<List<String>> wordBreak(String s, List<String> wordDict, Stack<String> tempSolution) {
         List<List<String>> solution = new ArrayList<>();
-        if (s.length() == 0) {
+        if (s.isEmpty()) {
             solution.add(new ArrayList<>(tempSolution));
             return solution;
         }

@@ -2,7 +2,6 @@ package com.interview.sde.java.trie;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.WeakHashMap;
 
 //https://leetcode.com/problems/design-add-and-search-words-data-structure/
 public class TrieWildcard {

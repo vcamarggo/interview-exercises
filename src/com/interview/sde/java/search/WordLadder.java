@@ -54,7 +54,7 @@ public class WordLadder {
 
     private static class StringDepth {
         String word;
-        int depth;
+         int depth;
 
         public StringDepth(String word, int depth) {
             this.word = word;

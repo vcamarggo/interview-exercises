@@ -4,14 +4,11 @@ package com.interview.sde.java.oop.coffeemachine.state;
 class BeverageStateInitial implements IBeverageState {
 
     public IBeverageState transitionState(final BeverageState state) {
-        switch (state) {
-            case PREPARING:
-                return new BeverageStatePreparing();
-            case CANCELED:
-                return new BeverageStateCanceled();
-            default:
-                return new BeverageStateError();
-        }
+        return switch (state) {
+            case PREPARING -> new BeverageStatePreparing();
+            case CANCELED -> new BeverageStateCanceled();
+            default -> new BeverageStateError();
+        };
     }
 
 }

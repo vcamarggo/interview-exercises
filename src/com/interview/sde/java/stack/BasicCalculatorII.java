@@ -26,7 +26,7 @@ public class BasicCalculatorII {
             }
         }
 
-        if (operand.length() > 0) {
+        if (!operand.isEmpty()) {
             executeOperationOnOperand(calcStack, operand, operation);
         }
 
