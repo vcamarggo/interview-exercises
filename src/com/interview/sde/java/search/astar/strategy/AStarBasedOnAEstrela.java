@@ -58,7 +58,7 @@ public class AStarBasedOnAEstrela {
             neighbors = createNeighbors(toAvoidChar, node.getPoint().row(), node.getPoint().column(), node.getDepth());
 
             while (!neighbors.isEmpty()) {
-                NodeStar neighbor = neighbors.get(0);
+                NodeStar neighbor = neighbors.getFirst();
                 neighbors.remove(neighbor);
 
                 //get the lowest element

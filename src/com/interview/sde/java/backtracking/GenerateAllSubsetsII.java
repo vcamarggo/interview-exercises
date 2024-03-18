@@ -10,21 +10,18 @@ public class GenerateAllSubsetsII {
     public List<List<Integer>> subsetsWithDup(int[] nums) {
 
         List<List<Integer>> solution = new ArrayList<>();
+        solution.add(new ArrayList<>());
 
         for (int number : nums) {
-            if (!solution.isEmpty()) {
-                int solutionSize = solution.size();
-                for (int i = 0; i < solutionSize; i++) {
-                    List<Integer> aggregator = new ArrayList<>(solution.get(i));
-                    aggregator.add(number);
+            int solutionSize = solution.size();
+            for (int i = 0; i < solutionSize; i++) {
+                List<Integer> aggregator = new ArrayList<>(solution.get(i));
+                aggregator.add(number);
 
-                    Collections.sort(aggregator);
-                    solution.add(aggregator);
-                }
+                Collections.sort(aggregator);
+                solution.add(aggregator);
             }
-            solution.add(new ArrayList<>(Collections.singletonList(number)));
         }
-        solution.add(new ArrayList<>());
         return new ArrayList<>(new HashSet<>(solution));
     }
 }

@@ -30,7 +30,7 @@ public class FindAllPaths {
 
         while (!paths.isEmpty()) {
             List<Integer> l = paths.poll();
-            int lastElement = l.get(l.size() - 1);
+            int lastElement = l.getLast();
 
             if (lastElement == graph.length - 1) {
                 result.add(l);

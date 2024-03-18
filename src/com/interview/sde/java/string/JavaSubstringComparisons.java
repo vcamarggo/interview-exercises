@@ -16,8 +16,8 @@ public class JavaSubstringComparisons {
         }
         java.util.Collections.sort(mySubs);
 
-        smallest = mySubs.get(0);
-        largest = mySubs.get(mySubs.size() - 1);
+        smallest = mySubs.getFirst();
+        largest = mySubs.getLast();
 
         return smallest + "\n" + largest;
     }

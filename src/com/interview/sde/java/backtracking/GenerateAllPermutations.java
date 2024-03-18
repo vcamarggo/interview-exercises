@@ -44,7 +44,7 @@ public class GenerateAllPermutations {
     }
 
     //Another approach to solve
-    public static List<List<Integer>> getPermutation(int[] nums, List<Integer> s, Map<Integer, Boolean> vis) {
+    public static List<List<Integer>> getPermutation(int[] nums, List<Integer> s, Map<Integer, Boolean> visited) {
         List<List<Integer>> solution = new ArrayList<>();
         if (s.size() == nums.length) {
             solution.add(new ArrayList<>(s));
@@ -52,12 +52,12 @@ public class GenerateAllPermutations {
         }
 
         for (int i : nums) {
-            if (!vis.getOrDefault(i, false)) {
-                vis.put(i, true);
+            if (!visited.getOrDefault(i, false)) {
+                visited.put(i, true);
                 s.add(i);
-                solution.addAll(getPermutation(nums, s, vis));
-                s.remove(s.size() - 1);
-                vis.put(i, false);
+                solution.addAll(getPermutation(nums, s, visited));
+                s.removeLast();
+                visited.put(i, false);
             }
         }
         return solution;

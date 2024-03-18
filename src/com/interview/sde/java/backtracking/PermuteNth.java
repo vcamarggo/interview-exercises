@@ -51,7 +51,7 @@ public class PermuteNth {
                 vis[i] = true;
                 s.add(i);
                 solution.addAll(getPermutation(nums, s, vis));
-                s.remove(s.size() - 1);
+                s.removeLast();
                 vis[i] = false;
             }
         }

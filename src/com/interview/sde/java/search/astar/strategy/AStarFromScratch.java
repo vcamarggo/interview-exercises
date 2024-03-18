@@ -55,7 +55,7 @@ public class AStarFromScratch {
             neighbors = createNeighbors(toAvoidChar, createdNodes, node.getPoint().row(), node.getPoint().column());
 
             while (!neighbors.isEmpty()) {
-                NodeStar neighbor = neighbors.get(0);
+                NodeStar neighbor = neighbors.getFirst();
                 neighbors.remove(neighbor);
                 //evaluate a distance form a given node from the neighbors
                 processNodeStar(pairStartEnd, shortestDistanceQueue, node, neighbor);
