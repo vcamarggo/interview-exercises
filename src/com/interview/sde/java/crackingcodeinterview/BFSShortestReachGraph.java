@@ -10,7 +10,7 @@ public class BFSShortestReachGraph {
         Scanner scanner = new Scanner(System.in);
         int executions = Integer.parseInt(scanner.nextLine());
         for (int w = 0; w < executions; w++) {
-            HashMap<Integer, Node> graph = new HashMap<>();
+            Map<Integer, Node> graph = new HashMap<>();
 
             String[] verticesEdges = scanner.nextLine().split(" ");
 
