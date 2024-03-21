@@ -10,7 +10,6 @@ public class EditDistance {
     public static void main(String[] args) {
 
         System.out.println(new EditDistance().minDistance("horse", "ros"));
-        System.out.println(new EditDistance().minDistance("horse", "ros"));
     }
 
     public int minDistance(String word1, String word2) {
@@ -36,12 +35,12 @@ public class EditDistance {
         //Insert (copy) the first w2 char to w1 then remove the first char from both as they now match
         //In practice, you just need to remove from w2 that not matches the copied char from w1
         //Removing equal chars has cost 0,
-        //e.g. w1 = oros w2 = beros, w1 become boros, then you can  remove b from both at no cost.
+        //e.g. w1 = oros w2 = beros, w1 become boros, then you can remove b from both at no cost.
         // The cost is 1 from the first copy on w1
         int distanceInsert = minDistance(word1, word2.substring(1)) + 1;
 
         //Same as change something on word2 or word1, then remove that from both as they now match and that has cost 0
-        //e.g. w1 = boros w2 = neros, w2 become beros, then you can  remove b from both at no cost because they now match.
+        //e.g. w1 = boros w2 = neros, w2 become beros, then you can remove b from both at no cost because they now match.
         // The cost is 1 from changing a char either on w1 or w2
         int distanceReplace = minDistance(word1.substring(1), word2.substring(1)) + 1;
 

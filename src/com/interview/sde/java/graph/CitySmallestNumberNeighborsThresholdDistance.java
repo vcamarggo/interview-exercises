@@ -34,7 +34,7 @@ public class CitySmallestNumberNeighborsThresholdDistance {
             }
             if (sum <= min) {
                 min = sum;
-                minIdx = Math.max(minIdx, i);
+                minIdx = i;
             }
         }
         return minIdx;

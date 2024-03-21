@@ -18,13 +18,11 @@ public class BiDijkstra {
         int[][] edges = new int[vertex + 1][vertex + 1];
         int[] nodesDistance = new int[vertex + 1];
 
-
         int[][] edgesReverse = new int[vertex + 1][vertex + 1];
         int[] nodesDistanceReverse = new int[vertex + 1];
 
         Arrays.fill(nodesDistance, Integer.MAX_VALUE);
         Arrays.fill(nodesDistanceReverse, Integer.MAX_VALUE);
-
 
         String[] startEnd = scanner.nextLine().split(" ");
         int startId = Integer.parseInt(startEnd[0]);
