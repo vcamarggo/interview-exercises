@@ -1,26 +1,15 @@
 package com.interview.sde.java.string;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
+//https://leetcode.com/problems/partition-labels/
 public class PartitionLabels {
     public static void main(String[] args) {
-        new PartitionLabels().partitionLabels("ababcbacadefegdehijhklij");
-    }
-
-    List<Integer> merge(List<int[]> intervals) {
-        List<Integer> sizes = new ArrayList<>();
-
-        for (int i = 0; i < intervals.size(); i++) {
-            if (i < intervals.size() - 1 && intervals.get(i)[1] >= intervals.get(i + 1)[0]) {
-                //If mergeable, merge them on the i+1 position
-                intervals.set(i + 1, new int[]{intervals.get(i)[0], Math.max(intervals.get(i)[1], intervals.get(i + 1)[1])});
-            } else {
-                int[] interval = intervals.get(i);
-                sizes.add(interval[1] - interval[0] + 1);
-            }
-        }
-
-        return sizes;
+        System.out.printf(new PartitionLabels().partitionLabels("ababcbacadefegdehijhklij").toString());
     }
 
     public List<Integer> partitionLabels(String s) {
@@ -32,7 +21,9 @@ public class PartitionLabels {
             if (!visited.contains(c)) {
                 visited.add(c);
                 int lastIndexOf = s.lastIndexOf(c);
-                if (lastIndexOf == -1) {
+                if (!intervals.isEmpty() && intervals.getLast()[0] < i && intervals.getLast()[1] > i) {
+                    intervals.getLast()[1] = Math.max(intervals.getLast()[1], lastIndexOf);
+                } else if (lastIndexOf == -1) {
                     intervals.add(new int[]{i, i});
                 } else {
                     intervals.add(new int[]{i, lastIndexOf});
@@ -40,6 +31,13 @@ public class PartitionLabels {
             }
         }
 
-        return merge(intervals);
+        // Faster but less idiomatic
+        //List<Integer> sizes = new ArrayList<>();
+        //for (int[] interval : intervals) {
+        //    sizes.add(interval[1] - interval[0] + 1);
+        //}
+        //return sizes;
+
+        return intervals.stream().map(interval -> interval[1] - interval[0] + 1).collect(Collectors.toList());
     }
 }
