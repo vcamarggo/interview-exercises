@@ -1,4 +1,4 @@
-package com.interview.sde.java.oop;
+package com.interview.sde.java.introduction;
 
 //https://www.hackerrank.com/challenges/java-inheritance-1/problem
 class Bird extends Animal {

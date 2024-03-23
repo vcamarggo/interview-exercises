@@ -1,4 +1,4 @@
-package com.interview.sde.java.oop;
+package com.interview.sde.java.introduction;
 
 import java.util.Scanner;
 
