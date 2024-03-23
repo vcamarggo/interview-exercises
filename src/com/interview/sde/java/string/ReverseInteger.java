@@ -1,4 +1,4 @@
-package com.interview.sde.java.implementation;
+package com.interview.sde.java.string;
 
 //https://leetcode.com/problems/reverse-integer/
 public class ReverseInteger {

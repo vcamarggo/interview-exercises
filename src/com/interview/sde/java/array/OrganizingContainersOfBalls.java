@@ -1,4 +1,4 @@
-package com.interview.sde.java.implementation;
+package com.interview.sde.java.array;
 
 import java.util.Arrays;
 import java.util.Scanner;
