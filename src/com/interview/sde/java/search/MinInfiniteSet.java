@@ -13,12 +13,7 @@ public class MinInfiniteSet {
     }
 
     public int popSmallest() {
-        if (!readded.isEmpty()) {
-            int smallest = readded.first();
-            readded.remove(smallest);
-            return smallest;
-        }
-        return min++;
+        return !readded.isEmpty() ? readded.removeFirst() : min++;
     }
 
     public void addBack(int num) {

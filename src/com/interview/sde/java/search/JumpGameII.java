@@ -8,7 +8,7 @@ public class JumpGameII {
 
     int jump(int[] nums, int[] memo, int startIndex) {
         if (memo[startIndex] == 0) {
-            if (nums.length - 1 <= startIndex) {
+            if (nums.length - 1 == startIndex) {
                 return 0;
             }
 
