@@ -10,6 +10,7 @@ import java.util.stream.Collectors;
  * For this small scope (digits 1 to 9 non-repeat),
  * creating a 9 positions array and putting them in the right position would suffice.
  * FYI: Radix sort: https://www.geeksforgeeks.org/radix-sort/
+ * {@link RadixSort}
  **/
 public class SortingSentences {
 
@@ -28,10 +29,10 @@ public class SortingSentences {
     }
 
     private static int partition(String[] array, int start, int end) {
-        int pivot = array[end].charAt(array[end].length() - 1);
+        int pivot = getWordNumber(array[end]);
         int i = start;
         for (int j = start; j < end; j++) {
-            if (pivot > array[j].charAt(array[j].length() - 1)) {
+            if (pivot > getWordNumber(array[j])) {
                 String temp = array[i];
                 array[i] = array[j];
                 array[j] = temp;
@@ -42,6 +43,10 @@ public class SortingSentences {
         array[i] = array[end];
         array[end] = temp;
         return i;
+    }
+
+    private static char getWordNumber(String word) {
+        return word.charAt(word.length() - 1);
     }
 
     static void mergeSort(String[] array, int start, int end) {
@@ -70,7 +75,7 @@ public class SortingSentences {
             //if we don't have left elements or if we have right elements, and it is smaller than left, copy to output
             if (copiedFromLeft >= countLeftElements || copiedFromRight < countRightElements
                     //This is a test to order based on the last character of each string, which should be a number
-                    && leftElements[copiedFromLeft].charAt(leftElements[copiedFromLeft].length() - 1) > rightElements[copiedFromRight].charAt(rightElements[copiedFromRight].length() - 1)) {
+                    && getWordNumber(leftElements[copiedFromLeft]) > getWordNumber(rightElements[copiedFromRight])) {
                 array[start + copiedFromLeft + copiedFromRight] = rightElements[copiedFromRight++];
             } else {
                 array[start + copiedFromLeft + copiedFromRight] = leftElements[copiedFromLeft++];

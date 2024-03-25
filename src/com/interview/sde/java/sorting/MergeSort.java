@@ -1,6 +1,7 @@
 package com.interview.sde.java.sorting;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Scanner;
 import java.util.stream.Stream;
 
@@ -19,34 +20,33 @@ public class MergeSort {
 
 
     private static int[] mergeSortAscending(int[] input) {
-        return mergeSort(input, true);
+        return mergeSort(input, Comparator.naturalOrder());
     }
 
     private static int[] mergeSortDescending(int[] input) {
-        return mergeSort(input, false);
+        return mergeSort(input, Comparator.reverseOrder());
     }
 
-    private static int[] mergeSort(int[] input, boolean ascending) {
+    private static int[] mergeSort(int[] input, Comparator<Integer> comparator) {
         int[] originalArray = Arrays.copyOfRange(input, 0, input.length);
-        split(originalArray, 0, input.length, input, ascending);
+        split(originalArray, 0, input.length, input, comparator);
         return input;
     }
 
-    private static void split(int[] originalArray, int init, int end, int[] input, boolean ascending) {
+    private static void split(int[] originalArray, int init, int end, int[] input, Comparator<Integer> comparator) {
         if (end - init > 1) {
             int middle = (end + init) / 2;
-            split(input, init, middle, originalArray, ascending);
-            split(input, middle, end, originalArray, ascending);
-            merge(originalArray, init, middle, end, input, ascending);
+            split(input, init, middle, originalArray, comparator);
+            split(input, middle, end, originalArray, comparator);
+            merge(originalArray, init, middle, end, input, comparator);
         }
     }
 
-    private static void merge(int[] originalArray, int init, int middle, int end, int[] input, boolean ascending) {
-        int comparator = ascending ? 1 : -1;
+    private static void merge(int[] originalArray, int init, int middle, int end, int[] input, Comparator<Integer> comparator) {
         int i = init;
         int j = middle;
         for (int k = init; k < end; k++) {
-            if (i < middle && (j >= end || Integer.compare(originalArray[j], originalArray[i]) == comparator)) {
+            if (i < middle && (j >= end || comparator.compare(originalArray[j], originalArray[i]) > 0)) {
                 input[k] = originalArray[i];
                 i = i + 1;
             } else {

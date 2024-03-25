@@ -2,6 +2,7 @@ package com.interview.sde.java.sorting;
 
 import java.io.*;
 import java.util.Arrays;
+import java.util.Comparator;
 
 //https://www.hackerrank.com/challenges/big-sorting/problem
 public class BigSorting {
@@ -18,13 +19,7 @@ public class BigSorting {
             unsorted[i] = scanner.readLine();
         }
 
-        Arrays.sort(unsorted, (o1, o2) -> {
-            if (o1.length() == o2.length()) {
-                return o1.compareTo(o2);
-            } else {
-                return o1.length() > o2.length() ? 1 : -1;
-            }
-        });
+        Arrays.sort(unsorted, Comparator.comparing(String::length).thenComparing(String::compareTo));
 
         for (int i = 0; i < unsorted.length; i++) {
             bufferedWriter.write(unsorted[i]);
