@@ -16,7 +16,7 @@ public class TopVotedCandidate {
         int maxIndex = 0;
 
         for (int i = 0; i < times.length; i++) {
-            electionAgg.put(persons[i], electionAgg.getOrDefault(persons[i], 0) + 1);
+            electionAgg.compute(persons[i], (k, v) -> v == null ? 1 : v + 1);
             if (electionAgg.get(persons[i]) >= electionAgg.getOrDefault(maxIndex, Integer.MIN_VALUE)) {
                 maxIndex = persons[i];
             }

@@ -11,8 +11,8 @@ public class FindStarGraph {
         for (int[] edge : edges) {
             int edgeA = edge[0];
             int edgeB = edge[1];
-            edgeCounter.put(edgeA, edgeCounter.getOrDefault(edgeA, 0) + 1);
-            edgeCounter.put(edgeB, edgeCounter.getOrDefault(edgeB, 0) + 1);
+            edgeCounter.compute(edgeA, (k, v) -> v == null ? 1 : v + 1);
+            edgeCounter.compute(edgeB, (k, v) -> v == null ? 1 : v + 1);
         }
         for (Map.Entry<Integer, Integer> entry : edgeCounter.entrySet()) {
             if (entry.getValue() == edgeCounter.size() - 1) {

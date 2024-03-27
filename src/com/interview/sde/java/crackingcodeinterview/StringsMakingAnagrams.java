@@ -15,7 +15,7 @@ public class StringsMakingAnagrams {
 
         for (int i = 0; i < a.length(); i++) {
             Character charAtI = a.charAt(i);
-            charInStringOccurrenceA.put(charAtI, charInStringOccurrenceA.getOrDefault(charAtI, 0) + 1);
+            charInStringOccurrenceA.compute(charAtI, (k, v) -> v == null ? 1 : v + 1);
         }
 
         for (int i = 0; i < b.length(); i++) {

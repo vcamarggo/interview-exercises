@@ -20,7 +20,7 @@ public class DequeueJava {
         for (int i = 0; i < n; i++) {
             int elem = in.nextInt();
             deque.addLast(elem);
-            occurrencesCounter.put(elem, occurrencesCounter.getOrDefault(elem, 0) + 1);
+            occurrencesCounter.compute(elem, (k, v) -> v == null ? 1 : v + 1);
 
             if (deque.size() == m) {
                 max = Math.max(max, occurrencesCounter.keySet().size());

@@ -7,7 +7,7 @@ public class TopKFrequent {
     static int[] topKFrequent(int[] nums, int k) {
         Map<Integer, Integer> numberCounter = new HashMap<>();
         for (int num : nums) {
-            numberCounter.put(num, numberCounter.getOrDefault(num, 0) + 1);
+            numberCounter.compute(num, (key, v) -> v == null ? 1 : v + 1);
         }
         PriorityQueue<Map.Entry<Integer, Integer>> kFrequent = new PriorityQueue<>(k, Comparator.comparingInt(Map.Entry::getValue));
         for (Map.Entry<Integer, Integer> entry : numberCounter.entrySet()) {

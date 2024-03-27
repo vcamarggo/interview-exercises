@@ -16,7 +16,7 @@ public class ContainAnagram {
 
         Map<Character, Integer> s1Letters = new HashMap<>();
         for (char c : s1.toCharArray()) {
-            s1Letters.put(c, s1Letters.getOrDefault(c, 0) + 1);
+            s1Letters.compute(c, (k, v) -> v == null ? 1 : v + 1);
         }
 
         Map<Character, Integer> s2Anagram = new HashMap<>();
@@ -25,7 +25,7 @@ public class ContainAnagram {
             s2Anagram.clear();
             for (int j = 0; j < s1.length(); j++) {
                 char key = s2.charAt(i + j);
-                s2Anagram.put(key, s2Anagram.getOrDefault(key, 0) + 1);
+                s2Anagram.compute(key, (k, v) -> v == null ? 1 : v + 1);
             }
             if (s1Letters.equals(s2Anagram)) {
                 return true;

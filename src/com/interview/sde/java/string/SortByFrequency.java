@@ -12,7 +12,7 @@ public class SortByFrequency {
 
         HashMap<String, Integer> hashMap = new HashMap<>();
         for (String charr : chars) {
-            hashMap.put(charr, hashMap.getOrDefault(charr, 0) + 1);
+            hashMap.compute(charr, (k, v) -> v == null ? 1 : v + 1);
         }
 
         return Arrays.stream(chars).sorted((c1, c2) -> {

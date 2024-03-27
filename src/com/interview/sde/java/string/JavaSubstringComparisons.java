@@ -1,6 +1,7 @@
 package com.interview.sde.java.string;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 //https://www.hackerrank.com/challenges/java-string-compare/problem
 public class JavaSubstringComparisons {
@@ -14,7 +15,7 @@ public class JavaSubstringComparisons {
         for (int i = 0; i + k <= s.length(); i++) {
             mySubs.add(s.substring(i, i + k));
         }
-        java.util.Collections.sort(mySubs);
+        Collections.sort(mySubs);
 
         smallest = mySubs.getFirst();
         largest = mySubs.getLast();

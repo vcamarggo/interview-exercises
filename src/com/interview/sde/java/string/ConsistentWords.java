@@ -13,9 +13,11 @@ public class ConsistentWords {
         }
 
         for (String word : words) {
-            if (word.chars().anyMatch(c -> !allowedLetters.contains((char) c))) {
-                consistent--;
-                break;
+            for (Character letter : word.toCharArray()) {
+                if (!allowedLetters.contains(letter)) {
+                    consistent--;
+                    break;
+                }
             }
         }
         return consistent;

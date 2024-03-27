@@ -10,7 +10,7 @@ public class JavaAnagrams {
     static void populateHashMap(java.util.HashMap<Character, Integer> hashMap, String str) {
         for (int i = 0; i < str.length(); i++) {
             Character key = Character.toLowerCase(str.charAt(i));
-            hashMap.put(key, hashMap.getOrDefault(key, 0) + 1);
+            hashMap.compute(key, (k, v) -> v == null ? 1 : v + 1);
         }
     }
 

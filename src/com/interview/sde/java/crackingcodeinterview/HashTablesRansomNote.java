@@ -10,7 +10,7 @@ public class HashTablesRansomNote {
     static void checkMagazine(String[] magazine, String[] note) {
         HashMap<String, Integer> magazineWordsCounter = new HashMap<>();
         for (String s : magazine) {
-            magazineWordsCounter.put(s, magazineWordsCounter.getOrDefault(s, 0) + 1);
+            magazineWordsCounter.compute(s, (k, v) -> v == null ? 1 : v + 1);
         }
 
         for (String s : note) {

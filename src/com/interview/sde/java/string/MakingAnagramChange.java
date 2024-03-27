@@ -10,7 +10,7 @@ public class MakingAnagramChange {
         HashMap<Character, Integer> charInStringOccurrenceA = new HashMap<>();
 
         for (Character c : s1.toCharArray()) {
-            charInStringOccurrenceA.put(c, charInStringOccurrenceA.getOrDefault(c, 0) + 1);
+            charInStringOccurrenceA.compute(c, (k, v) -> v == null ? 1 : v + 1);
         }
         int counter = s2.length();
 

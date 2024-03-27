@@ -9,7 +9,7 @@ public class FirstUniqueCharIndex {
         Map<Character, Integer> charCount = new LinkedHashMap<>();
 
         for (Character c : s.toCharArray()) {
-            charCount.put(c, charCount.getOrDefault(c, 0) + 1);
+            charCount.compute(c, (k, v) -> v == null ? 1 : v + 1);
         }
 
         for (Map.Entry<Character, Integer> entry : charCount.entrySet()) {

@@ -16,7 +16,7 @@ public class TopKFrequentWords {
         //Using TreeMap to keep lexicographical ordering on keys
         Map<String, Integer> stringCounter = new TreeMap<>();
         for (String word : words) {
-            stringCounter.put(word, stringCounter.getOrDefault(word, 0) + 1);
+            stringCounter.compute(word, (key, v) -> v == null ? 1 : v + 1);
         }
         List<String> kMostFrequent = new ArrayList<>(stringCounter.keySet());
         //Sort them based on frequency, treemap will keep lexicographical ordering for counting ties
