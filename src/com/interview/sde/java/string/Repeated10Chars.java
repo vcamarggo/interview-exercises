@@ -20,7 +20,7 @@ public class Repeated10Chars {
 
         for (int i = 0; i + 9 < s.length(); i++) {
             String tenChars = slidingWindowChars.substring(i, i + 10);
-            if (foundWords.contains(tenChars) && !result.contains(tenChars)) {
+            if (foundWords.contains(tenChars)) {
                 result.add(tenChars);
             } else {
                 foundWords.add(tenChars);

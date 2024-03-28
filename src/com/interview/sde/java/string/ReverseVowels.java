@@ -1,6 +1,5 @@
 package com.interview.sde.java.string;
 
-import java.util.HashSet;
 import java.util.Set;
 import java.util.Stack;
 
@@ -12,18 +11,7 @@ public class ReverseVowels {
         //Idea: Concatenating the array at the end of the sb and then replacing/removing them on the next loop
         StringBuilder sb = new StringBuilder(s);
         Stack<Character> vowelsOrder = new Stack<>();
-
-        Set<Character> vowels = new HashSet<>();
-        vowels.add('a');
-        vowels.add('A');
-        vowels.add('e');
-        vowels.add('E');
-        vowels.add('i');
-        vowels.add('I');
-        vowels.add('o');
-        vowels.add('O');
-        vowels.add('u');
-        vowels.add('U');
+        Set<Character> vowels = Set.of('a', 'A', 'e', 'E', 'i', 'I', 'o', 'O', 'u', 'U');
 
         for (int i = 0; i < s.length(); i++) {
             char charAtI = s.charAt(i);
