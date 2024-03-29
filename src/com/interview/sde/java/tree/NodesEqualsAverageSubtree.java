@@ -1,5 +1,6 @@
 package com.interview.sde.java.tree;
 
+//https://leetcode.com/problems/count-nodes-equal-to-average-of-subtree/
 public class NodesEqualsAverageSubtree {
     //SUM and COUNT are required for average
     final int SUM = 0;

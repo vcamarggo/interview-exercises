@@ -7,12 +7,11 @@ public class TreePathSumIII {
     }
 
     public int pathSum(TreeNode root, int targetSum) {
-        int curCount = countPathSum(root, targetSum);
         if (root == null) {
             return 0;
         }
 
-        return curCount + pathSum(root.left, targetSum) + pathSum(root.right, targetSum);
+        return countPathSum(root, targetSum) + pathSum(root.left, targetSum) + pathSum(root.right, targetSum);
     }
 
     public int countPathSum(TreeNode root, long targetSum) {

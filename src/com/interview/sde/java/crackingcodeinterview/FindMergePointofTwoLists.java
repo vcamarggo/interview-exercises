@@ -4,7 +4,7 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
-
+//https://www.hackerrank.com/challenges/find-the-merge-point-of-two-joined-linked-lists/problem
 public class FindMergePointofTwoLists {
     static class SinglyLinkedListNode {
         public int data;

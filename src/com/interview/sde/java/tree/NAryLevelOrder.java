@@ -7,9 +7,9 @@ import java.util.Queue;
 
 //https://leetcode.com/problems/n-ary-tree-level-order-traversal/
 public class NAryLevelOrder {
-    public List<List<Integer>> levelOrder(Node root) {
+    public List<List<Integer>> levelOrder(NAryTreeNode root) {
         List<List<Integer>> result = new ArrayList<>();
-        Queue<Node> levels = new LinkedList<>();
+        Queue<NAryTreeNode> levels = new LinkedList<>();
 
         if (root != null) {
             levels.offer(root);
@@ -20,10 +20,10 @@ public class NAryLevelOrder {
             List<Integer> levelList = new ArrayList<>();
 
             while (size-- > 0) {
-                Node node = levels.poll();
+                NAryTreeNode node = levels.poll();
                 levelList.add(node.val);
 
-                for (Node child : node.children) {
+                for (NAryTreeNode child : node.children) {
                     levels.offer(child);
                 }
             }
@@ -31,22 +31,5 @@ public class NAryLevelOrder {
         }
 
         return result;
-    }
-
-    public static class Node {
-        public int val;
-        public List<Node> children;
-
-        public Node() {
-        }
-
-        public Node(int _val) {
-            val = _val;
-        }
-
-        public Node(int _val, List<Node> _children) {
-            val = _val;
-            children = _children;
-        }
     }
 }
