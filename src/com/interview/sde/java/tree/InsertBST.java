@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 //https://leetcode.com/problems/insert-into-a-binary-search-tree/
 public class InsertBST {
-    public static void preOrder(Node root) {
+    public static void preOrder(TreeNode root) {
 
         if (root == null)
             return;
@@ -15,9 +15,9 @@ public class InsertBST {
 
     }
 
-    public static Node insert(Node root, int data) {
+    public static TreeNode insert(TreeNode root, int data) {
         if (root == null) {
-            root = new Node(data);
+            root = new TreeNode(data);
         } else if (data > root.data) {
             root.right = insert(root.right, data);
         } else {
@@ -29,7 +29,7 @@ public class InsertBST {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         int t = scan.nextInt();
-        Node root = null;
+        TreeNode root = null;
         while (t-- > 0) {
             int data = scan.nextInt();
             root = insert(root, data);

@@ -5,11 +5,11 @@ import java.util.Queue;
 
 //https://www.hackerrank.com/challenges/tree-level-order-traversal/problem
 public class LevelOrderTraversal {
-    public static void levelOrder(Node root) {
-        Queue<Node> treeLevelQueue = new LinkedList<>();
+    public static void levelOrder(TreeNode root) {
+        Queue<TreeNode> treeLevelQueue = new LinkedList<>();
         treeLevelQueue.add(root);
         while (!treeLevelQueue.isEmpty()) {
-            Node node = treeLevelQueue.poll();
+            TreeNode node = treeLevelQueue.poll();
             System.out.print(node.data + " ");
             if (node.left != null) {
                 treeLevelQueue.add(node.left);

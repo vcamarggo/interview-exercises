@@ -6,7 +6,7 @@ import java.util.Scanner;
 //https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree
 public class BSTLowestCommonAncestor {
 
-    public static Node lca(Node temp, int v1, int v2) {
+    public static TreeNode lca(TreeNode temp, int v1, int v2) {
         while (true) {
             if (temp.data > v1 && temp.data > v2) {
                 temp = temp.left;
@@ -18,11 +18,11 @@ public class BSTLowestCommonAncestor {
         }
     }
 
-    public static Node insert(Node root, int data) {
+    public static TreeNode insert(TreeNode root, int data) {
         if (root == null) {
-            return new Node(data);
+            return new TreeNode(data);
         } else {
-            Node cur;
+            TreeNode cur;
             if (data <= root.data) {
                 cur = insert(root.left, data);
                 root.left = cur;
@@ -37,7 +37,7 @@ public class BSTLowestCommonAncestor {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         int t = scan.nextInt();
-        Node root = null;
+        TreeNode root = null;
         while (t-- > 0) {
             int data = scan.nextInt();
             root = insert(root, data);
@@ -45,7 +45,7 @@ public class BSTLowestCommonAncestor {
         int v1 = scan.nextInt();
         int v2 = scan.nextInt();
         scan.close();
-        Node ans = lca(root, v1, v2);
+        TreeNode ans = lca(root, v1, v2);
         System.out.println(ans.data);
     }
 

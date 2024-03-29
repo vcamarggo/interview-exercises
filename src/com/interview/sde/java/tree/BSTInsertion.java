@@ -2,9 +2,9 @@ package com.interview.sde.java.tree;
 
 //https://www.hackerrank.com/challenges/binary-search-tree-insertion/problem
 public class BSTInsertion {
-    public static Node insert(Node root, int data) {
+    public static TreeNode insert(TreeNode root, int data) {
         if (root == null) {
-            return new Node(data);
+            return new TreeNode(data);
         } else if (root.data > data) {
             root.left = insert(root.left, data);
         } else {

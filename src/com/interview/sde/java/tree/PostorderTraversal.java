@@ -2,7 +2,7 @@ package com.interview.sde.java.tree;
 
 //https://www.hackerrank.com/challenges/tree-postorder-traversal/problem
 public class PostorderTraversal {
-    public static void postOrder(Node root) {
+    public static void postOrder(TreeNode root) {
         if (root.left != null) {
             postOrder(root.left);
         }
