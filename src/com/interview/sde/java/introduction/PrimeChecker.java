@@ -1,4 +1,4 @@
-package com.interview.sde.java.advanced;
+package com.interview.sde.java.introduction;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

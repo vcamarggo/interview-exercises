@@ -12,11 +12,4 @@ public class InorderTraversal {
         }
     }
 
-    class Node {
-        int data;
-        Node left;
-        Node right;
-    }
-
-
 }

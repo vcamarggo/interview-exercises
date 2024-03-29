@@ -12,11 +12,4 @@ public class PreorderTraversal {
         }
     }
 
-    class Node {
-        int data;
-        Node left;
-        Node right;
-    }
-
-
 }

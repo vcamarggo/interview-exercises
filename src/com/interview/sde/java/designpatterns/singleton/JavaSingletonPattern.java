@@ -1,4 +1,4 @@
-package com.interview.sde.java.advanced;
+package com.interview.sde.java.designpatterns.singleton;
 
 //https://www.hackerrank.com/challenges/java-singleton/problem
 public class JavaSingletonPattern {

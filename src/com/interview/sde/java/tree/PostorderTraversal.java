@@ -11,10 +11,4 @@ public class PostorderTraversal {
         }
         System.out.print(root.data + " ");
     }
-
-    static class Node {
-        int data;
-        Node left;
-        Node right;
-    }
 }

@@ -20,10 +20,4 @@ public class LevelOrderTraversal {
         }
     }
 
-    class Node {
-        int data;
-        Node left;
-        Node right;
-    }
-
 }

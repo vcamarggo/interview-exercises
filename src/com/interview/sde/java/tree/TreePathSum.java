@@ -2,7 +2,7 @@ package com.interview.sde.java.tree;
 
 //https://leetcode.com/problems/path-sum/
 public class TreePathSum {
-    public boolean hasPathSum(BSTInsertion.Node root, int targetSum) {
+    public boolean hasPathSum(Node root, int targetSum) {
         if (root == null) {
             return false;
         }

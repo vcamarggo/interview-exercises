@@ -1,19 +1,10 @@
-package com.interview.sde.java.advanced;
+package com.interview.sde.java.tree;
+
+import com.interview.sde.java.tree.Node;
 
 import java.util.Scanner;
 
 public class LowestCommonAncestor {
-    public static class Node {
-        Node left;
-        Node right;
-        int data;
-
-        Node(int data) {
-            this.data = data;
-            left = null;
-            right = null;
-        }
-    }
 
     public static Node lca(Node temp, int v1, int v2) {
         while (temp != null) {

@@ -9,11 +9,4 @@ public class HeightofaBinaryTree {
                 : Math.max(height(root.left) + 1, height(root.right) + 1);
     }
 
-    class Node {
-        int data;
-        Node left;
-        Node right;
-    }
-
-
 }

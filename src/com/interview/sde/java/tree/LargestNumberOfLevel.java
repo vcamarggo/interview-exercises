@@ -18,7 +18,6 @@ public class LargestNumberOfLevel {
         Queue<TreeNode> queue = new LinkedList<>();
         queue.add(root);
 
-
         while (!queue.isEmpty()) {
             int nodeToProcess = queue.size();
             int max = Integer.MIN_VALUE;
