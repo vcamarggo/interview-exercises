@@ -1,7 +1,7 @@
-package com.interview.sde.java.search;
+package com.interview.sde.java.dynamicprogramming;
 
 //https://leetcode.com/problems/minimum-falling-path-sum-ii
-public class MinFallingPathSumII {
+public class MinimumFallingPathSumII {
     public int minFallingPathSum(int[][] grid) {
         Integer[][] memo = new Integer[grid.length][grid[0].length];
 
