@@ -3,7 +3,7 @@ package com.interview.sde.java.string;
 import java.util.HashMap;
 import java.util.Map;
 
-//https://leetcode.com/problems/word-pattern/description/
+//https://leetcode.com/problems/word-pattern
 public class WordPattern {
     public boolean wordPattern(String pattern, String s) {
         String[] words = s.split(" ");
