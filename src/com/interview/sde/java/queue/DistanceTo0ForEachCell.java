@@ -5,71 +5,65 @@ import java.util.Queue;
 
 //https://leetcode.com/problems/01-matrix/
 public class DistanceTo0ForEachCell {
-    static int[][] updateMatrix(int[][] grid) {
-        int[][] gridTo0 = new int[grid.length][grid[0].length];
-        for (int r = 0; r < grid.length; r++) {
-            for (int c = 0; c < grid[0].length; c++) {
-                gridTo0[r][c] = calculateDistanceToZero(grid, r, c);
-            }
-        }
-        return gridTo0;
-    }
-
-    private static int calculateDistanceToZero(int[][] grid, int r, int c) {
-        final int TARGET = 0;
-
-        if (grid[r][c] != TARGET) {
-            Queue<int[]> cellsToProcess = new LinkedList<>();
-            cellsToProcess.add(new int[]{r, c});
-            int level = 0;
-
-            while (!cellsToProcess.isEmpty()) {
-                int remaining = cellsToProcess.size();
-                while (remaining-- > 0) {
-                    int[] cell = cellsToProcess.poll();
-                    int row = cell[0];
-                    int column = cell[1];
-
-                    int topRow = row - 1;
-                    int rightColumn = column + 1;
-                    int bottomRow = row + 1;
-                    int leftColumn = column - 1;
-
-                    //Short circuit if found the solution before adding to queue makes it up to 3.1 times faster
-                    // I'm opting for readability in this case
-                    if (grid[row][column] == TARGET) {
-                        return level;
-                    }
-
-                    //top
-                    if (topRow >= 0) {
-                        cellsToProcess.add(new int[]{topRow, column});
-                    }
-
-                    //right
-                    if (rightColumn <= grid[0].length - 1) {
-                        cellsToProcess.add(new int[]{row, rightColumn});
-                    }
-
-                    //bottom
-                    if (bottomRow <= grid.length - 1) {
-                        cellsToProcess.add(new int[]{bottomRow, column});
-                    }
-
-                    //left
-                    if (leftColumn >= 0) {
-                        cellsToProcess.add(new int[]{row, leftColumn});
-                    }
-                }
-                level += 1;
-            }
-        }
-        return 0;
-    }
 
     public static void main(String[] args) {
-        updateMatrix(new int[][]{new int[]{0, 0, 0}, new int[]{0, 1, 0}, new int[]{1, 1, 1}});
+        new DistanceTo0ForEachCell().updateMatrix(new int[][]{new int[]{0, 0, 0}, new int[]{0, 1, 0}, new int[]{1, 1, 1}});
     }
 
-}
+    public int[][] updateMatrix(int[][] grid) {
 
+        Queue<int[]> cellsToProcess = new LinkedList<>();
+        boolean[][] visited = new boolean[grid.length][grid[0].length];
+
+        for (int r = 0; r < grid.length; r++) {
+            for (int c = 0; c < grid[0].length; c++) {
+                if (grid[r][c] == 0) {
+                    cellsToProcess.add(new int[]{r, c, 0});
+                    visited[r][c] = true;
+                }
+            }
+        }
+
+        while (!cellsToProcess.isEmpty()) {
+            int[] cell = cellsToProcess.poll();
+            int row = cell[0];
+            int column = cell[1];
+            int nextLevel = cell[2] + 1;
+
+            int topRow = row - 1;
+            int rightColumn = column + 1;
+            int bottomRow = row + 1;
+            int leftColumn = column - 1;
+
+            //top
+            if (topRow >= 0 && !visited[topRow][column]) {
+                grid[topRow][column] = nextLevel;
+                visited[topRow][column] = true;
+                cellsToProcess.add(new int[]{topRow, column, nextLevel});
+            }
+
+            //right
+            if (rightColumn <= grid[0].length - 1 && !visited[row][rightColumn]) {
+                grid[row][rightColumn] = nextLevel;
+                visited[row][rightColumn] = true;
+                cellsToProcess.add(new int[]{row, rightColumn, nextLevel});
+            }
+
+            //bottom
+            if (bottomRow <= grid.length - 1 && !visited[bottomRow][column]) {
+                grid[bottomRow][column] = nextLevel;
+                visited[bottomRow][column] = true;
+                cellsToProcess.add(new int[]{bottomRow, column, nextLevel});
+            }
+
+            //left
+            if (leftColumn >= 0 && !visited[row][leftColumn]) {
+                grid[row][leftColumn] = nextLevel;
+                visited[row][leftColumn] = true;
+                cellsToProcess.add(new int[]{row, leftColumn, nextLevel});
+            }
+        }
+
+        return grid;
+    }
+}
