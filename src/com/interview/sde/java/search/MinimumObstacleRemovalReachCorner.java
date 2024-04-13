@@ -28,7 +28,9 @@ public class MinimumObstacleRemovalReachCorner {
             int bottomRow = row + 1;
             int leftColumn = column - 1;
 
-            if (row == grid.length - 1 && column == grid[0].length - 1) return distance;
+            if (row == grid.length - 1 && column == grid[0].length - 1) {
+                return distance;
+            }
 
             //top
             if (topRow >= 0 && distance + grid[topRow][column] < nodesDistance[topRow][column]) {
