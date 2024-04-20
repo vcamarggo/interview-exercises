@@ -5,6 +5,13 @@ import java.util.stream.IntStream;
 //https://leetcode.com/problems/rotated-digits/
 public class RotatedDigits {
     int rotatedDigits(int N) {
+//        IntStream.rangeClosed(1, N).mapToObj(String::valueOf)
+//                .filter(str ->
+//                        !str.contains("3") &&
+//                                !str.contains("4") &&
+//                                !str.contains("7") &&
+//                                (str.contains("2") || str.contains("5") || str.contains("6") || str.contains("9"))
+//                ).count();
         return IntStream.rangeClosed(1, N).filter(this::isRotated).sum();
     }
 
