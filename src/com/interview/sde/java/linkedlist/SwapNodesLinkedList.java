@@ -2,7 +2,7 @@ package com.interview.sde.java.linkedlist;
 
 //https://leetcode.com/problems/swapping-nodes-in-a-linked-list/
 public class SwapNodesLinkedList {
-    static ListNode swapNodes(ListNode head, int k) {
+    public ListNode swapNodes(ListNode head, int k) {
         final int nodeCount = countNodes(head);
         final ListNode startNode = removeNthFromEnd(head, 1, k);
         final ListNode endNode = removeNthFromEnd(head, k, nodeCount);
@@ -14,7 +14,7 @@ public class SwapNodesLinkedList {
         return head;
     }
 
-    static int countNodes(ListNode head) {
+    private int countNodes(ListNode head) {
         int nodeCount = 0;
         ListNode temp = head;
 
@@ -25,7 +25,7 @@ public class SwapNodesLinkedList {
         return nodeCount;
     }
 
-    static ListNode removeNthFromEnd(ListNode head, int n, int nodeCount) {
+    private ListNode removeNthFromEnd(ListNode head, int n, int nodeCount) {
         if (nodeCount == n) {
             return head;
         }
